@@ -1,0 +1,28 @@
+{
+  "source_head": "b739a6cb7b1f8b9918669f8f776edb1855bfda1a",
+  "target_tag": "holosoma-v0.0.3",
+  "untracked_files": [
+    "HANDOFF_PROMPT.md",
+    "scripts/check_bilateral_cpu.py",
+    "scripts/launch_tensorboard.py",
+    "scripts/render_bilateral_checkpoints.py",
+    "scripts/run_bilateral_queue.py",
+    "scripts/run_gpu3_experiments.sh",
+    "scripts/serve_bilateral_results.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/__init__.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/adapter.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/__init__.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/bilateral_magnet.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/export_compat.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/isaac_strings.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/joint_layout.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/layers.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/loco_action_mapping.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/loco_io.py",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/network.yaml",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/provenance.json",
+    "src/holosoma/holosoma/agents/modules/bilateral/original/range_layers.py",
+    "src/holosoma/holosoma/agents/ppo/bilateral_ppo.py",
+    "src/holosoma/holosoma/managers/command/terms/three_direction.py"
+  ]
+}

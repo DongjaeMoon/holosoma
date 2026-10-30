@@ -23,6 +23,8 @@ dependencies = [
     "astor",
     "boto3",
     "easydict",
+    "einops",
+    "icecream>=2.1.3",
     "ipdb",
     "joblib",
     "loguru",
@@ -39,6 +41,7 @@ dependencies = [
     "onnxruntime",
     "open3d",
     "opencv-python",
+    "opt-einsum>=3.3.0",
     "pandas>=1.5,<3",  # Nightly validation uses W&B's DataFrame history.
     "plotly",
     "pydantic",

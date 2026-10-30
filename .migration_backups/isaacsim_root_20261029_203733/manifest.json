@@ -1,0 +1,294 @@
+{
+  "source": "/home/ycho/holosoma/.isaacgym/holosoma",
+  "target": "/home/ycho/holosoma",
+  "files": [
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/fast_sac_adapter.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "577ca88982a48bfce32adade0f9d25e8ee46ef9ae3f888329483d0eb3d74ede1"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/ham_adapter.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "6c88b5c0b38ffc26c08369c4051a36478ee5175456b3629291953e8bb96db8db"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/adapter.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "ff0b66193f45be9719fae9906594c777282e0e20b89a5a8227c614df95b62dfa"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/__init__.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "756edbecd8cd49c2d88734d383825317c364ffe1e9324247bb7d58745a3849d1"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/normalization.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "cbb086853f50e4bbc96e56a152585e11a4a3c24c0ce4cd008dcd54e4beeddc57"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/ham_sa_from_ma_v4_abl_preact.yaml",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "4204638318e8aa93e867702caaadfca4db9b1340d4e8613334fc39c204fea5a0"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/phase_clock.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "b02b16ba4e026d73ed5ae13056ebd44762d06ab0e996daf8a6f87156d3898a45"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/ham_range_layers.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "16ee65add53670d1db943849f508fffba224b95882c0c2b690f7c7fdf745205d"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/ham_magnet_v2_reference.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "97c2e90d4d512c30ceafd8ae2af7be23c6fc750ab069b2953bad954b6fc5ff2f"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/fast_sac_updates.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "7c1f446508bf7339dd3cdce64a92eda2bc2e24081d73d0f19be4d1f22ddea657"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/provenance.json",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "7fedc37a5bb1f6077ca6ca80b66806eccf8d656ef2fb2739604855de42be7d24"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/__init__.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "2801ff9b2d2246a149d9da17a0a288427ece8f759fa2b4f306c62965e4fcdd1e"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/network.yaml",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "4c559fe31ef2e97098696a2a484b309a633e7193131b408fc652a31443dcbef7"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/bilateral_magnet.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "cf18cfacdb40069c4ef9c3f0e4fc0a5db16bb215281ba2e29dbcee32759dd4d2"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/loco_io.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "335c2f577d8f64345492d07c50f5f77f5bc130f94ccf919cc4de32688019355f"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/ham_provenance.json",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "a712916f1c0da048d3ef45df547535d205ed791e57442ded895506429bb53fde"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/range_layers.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "8942a2a0bdcc9673cf52c53856a61ac6139831c2ca4399ce3e35c4dc80a2b6a3"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/joint_layout.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "86ec782af66b0ea7c6014b522d8a5ee28b2039c45d0c568cf3a5756792a13359"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/isaac_strings.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "de5b4e839d13188cfa22a95636b32020580a16b86c3a3b7386ccd9054051b67a"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/export_compat.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "4f1fc65f876cde1017fd23042f27adb31760797199c595fff05562dce82a9275"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/loco_action_mapping.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "496c9c110800e739fca001f0f88e5bae76bb2b05d2441d123d81bc0e77f09828"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/modules/bilateral/original/layers.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "e37d5d1de85f7ffafa7eb22137809a1302455e3d229837111fb462c7897f3247"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/fast_sac/bilateral_fast_sac.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "83a71b98f31a4f653b5ed0a1e608f5eeac7fc09a308d49c9202d624c9c65955e"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/fast_sac/ham_fast_sac.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "fb175bc8c3862dd929c451a884b91ffcb85a90b99c8d75a3c495f4dc7d9e8aaf"
+    },
+    {
+      "path": "src/holosoma/holosoma/managers/command/terms/three_direction.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "492322725e147b017d7cb6a1e89646449478a276cbd08131c7920a38d35f18c5"
+    },
+    {
+      "path": "src/holosoma/holosoma/managers/command/terms/domi_gait.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "f6377f857668350c6be837fdf4f0f0fc408edd40d2cf6cfd31c13830e1642c86"
+    },
+    {
+      "path": "scripts/audit_bilateral_symmetry.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "36fa634f560f6c5331f931c39495e831c98de165063734efd79cec167e57809a"
+    },
+    {
+      "path": "scripts/check_bilateral_cpu.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "75520f7a4c9197bf9e285c8272b2b8ffa87f0490ad88a9720fdbae4ea3e847fe"
+    },
+    {
+      "path": "scripts/check_corrected_io.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "5e4b3182f4fd53b7b4edf3303f58b7542706b6651ff35d899760cd7e71365224"
+    },
+    {
+      "path": "scripts/check_ham_cpu.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "930109dc927e8d927d61599f5e50337a658708ab3081233027516fd798aea934"
+    },
+    {
+      "path": "scripts/check_holdout_metrics.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "3e6fea7c40495de7f2de797a6512a392413f7284ce3dfef26b910fa450a84bc8"
+    },
+    {
+      "path": "scripts/check_saved_holdout_results.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "2359370db2042dc6a239eda7cfe5cd783e25eea93ab65fdad407d61a9b8d03d7"
+    },
+    {
+      "path": "scripts/compose_experiment_video.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "418ce56bf1c6ebf516a103cd712c02401a2b35ac1fb0f847a75683b6bca6a523"
+    },
+    {
+      "path": "scripts/evaluate_command_holdout.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "d26fc86837ac08ca1cd3ddbcaf299aebb75f8dabce8fe9fb7bd9e94f62ca100f"
+    },
+    {
+      "path": "scripts/holdout_gallery.html",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "22db6abbdf22a1a18f7b041c6c8c2aa8a0caa39f8b9018c5fa2f026a7640afb5"
+    },
+    {
+      "path": "scripts/holdout_terrain.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "c106886623b33a059a1c57dd170e5c00d7146fc9fe118b2c58cf78cb27247f26"
+    },
+    {
+      "path": "scripts/inspect_comparison_video.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "2a35aa840dc0535902817475d09fe10bb0c7222fa429dad9caf68a38884474f7"
+    },
+    {
+      "path": "scripts/plot_holdout_evaluation.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "729a412181d3ba7f9ba08392ca1eb5f7340d45fc44881805134268e0421b32d8"
+    },
+    {
+      "path": "scripts/plot_rmse_summary.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "dec5caa615511b9a80c93e27553b6b724f086f532b32b082a41dfc5abc8bf679"
+    },
+    {
+      "path": "scripts/run_bilateral_queue.py",
+      "existed_before": true,
+      "copied": true,
+      "source_sha256": "a0b576f1750bb857577e142b687e7553135c2e6bdafd40e8502e542e43ea77a2"
+    },
+    {
+      "path": "scripts/run_corrected_campaign.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "5ee30118da2e72e119a4d3aef88dcdbc67e0b581191d0e3a35e0da2eeb30a910"
+    },
+    {
+      "path": "scripts/run_holdout_evaluation.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "8f4ecf75912b4aaa234e547560f65f5700399616ca558307eb76208f103ce343"
+    },
+    {
+      "path": "scripts/run_three_model_videos.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "842cadf9617b0992e377564f89d8b9ac01dfc08576916539d8b28c84409f0a98"
+    },
+    {
+      "path": "scripts/vulkan_gpu_index.py",
+      "existed_before": false,
+      "copied": true,
+      "source_sha256": "39b3c93e0abd021a6b9049df05e7fa9d2907676ab75d1bdf056baf672dea5d99"
+    },
+    {
+      "path": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+      "existed_before": true,
+      "copied": false,
+      "source_sha256": "a6c824f56aca697dda37142a49879cfa6b04ace522900a33c5c7e50ff89767ee"
+    },
+    {
+      "path": "src/holosoma/holosoma/config_types/algo.py",
+      "existed_before": true,
+      "copied": false,
+      "source_sha256": "6f3edeee87a28a55cd4697c8b6ae19c95833046bfec414c8989a47c4d3a9cfc7"
+    },
+    {
+      "path": "src/holosoma/holosoma/config_values/experiment.py",
+      "existed_before": true,
+      "copied": false,
+      "source_sha256": "32c475a35ede9149e90b070aca3df54bae07ac685c21c19ec85aad588bcb8b3d"
+    },
+    {
+      "path": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+      "existed_before": true,
+      "copied": false,
+      "source_sha256": "d1382427e53ab9fdff4bdeaf18ec7a870d5198c37e5b02e8d578f7f8ec7c974f"
+    }
+  ]
+}

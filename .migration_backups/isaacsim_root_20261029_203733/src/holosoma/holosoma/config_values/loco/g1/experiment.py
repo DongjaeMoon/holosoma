@@ -1,0 +1,86 @@
+from dataclasses import replace
+
+from holosoma.config_types.algo import BilateralNetworkConfig
+
+from holosoma.config_types.experiment import ExperimentConfig, NightlyConfig, TrainingConfig
+from holosoma.config_values import (
+    action,
+    algo,
+    command,
+    curriculum,
+    observation,
+    randomization,
+    reward,
+    robot,
+    simulator,
+    termination,
+    terrain,
+)
+
+g1_29dof = ExperimentConfig(
+    env_class="holosoma.envs.locomotion.locomotion_manager.LeggedRobotLocomotionManager",
+    training=TrainingConfig(project="hv-g1-manager", name="g1_29dof_manager"),
+    algo=replace(algo.ppo, config=replace(algo.ppo.config, num_learning_iterations=25000, use_symmetry=True)),
+    simulator=simulator.isaacsim,
+    robot=robot.g1_29dof,
+    terrain=terrain.terrain_locomotion_mix,
+    observation=observation.g1_29dof_loco_single_wolinvel,
+    action=action.g1_29dof_joint_pos,
+    termination=termination.g1_29dof_termination,
+    randomization=randomization.g1_29dof_randomization,
+    command=command.g1_29dof_command,
+    curriculum=curriculum.g1_29dof_curriculum,
+    reward=reward.g1_29dof_loco,
+    nightly=NightlyConfig(
+        iterations=5000,
+        metrics={"Episode/rew_tracking_ang_vel": [0.7, "inf"], "Episode/rew_tracking_lin_vel": [0.55, "inf"]},
+    ),
+)
+
+g1_29dof_fast_sac = ExperimentConfig(
+    env_class="holosoma.envs.locomotion.locomotion_manager.LeggedRobotLocomotionManager",
+    training=TrainingConfig(project="hv-g1-manager", name="g1_29dof_fast_sac_manager"),
+    algo=replace(algo.fast_sac, config=replace(algo.fast_sac.config, num_learning_iterations=50000, use_symmetry=True)),
+    simulator=simulator.isaacsim,
+    robot=robot.g1_29dof,
+    terrain=terrain.terrain_locomotion_mix,
+    observation=observation.g1_29dof_loco_single_wolinvel,
+    action=action.g1_29dof_joint_pos,
+    termination=termination.g1_29dof_termination,
+    randomization=randomization.g1_29dof_randomization,
+    command=command.g1_29dof_command,
+    curriculum=curriculum.g1_29dof_curriculum_fast_sac,
+    reward=reward.g1_29dof_loco_fast_sac,
+    nightly=NightlyConfig(
+        iterations=50000,
+        metrics={"Episode/rew_tracking_ang_vel": [0.8, "inf"], "Episode/rew_tracking_lin_vel": [0.95, "inf"]},
+    ),
+)
+
+# Same MDP and PPO hyperparameters; only the actor/critic architecture changes.
+g1_29dof_bilateral_magnet = replace(
+    g1_29dof,
+    algo=replace(
+        g1_29dof.algo,
+        _target_="holosoma.agents.ppo.bilateral_ppo.BilateralPPO",
+        config=replace(g1_29dof.algo.config, bilateral=BilateralNetworkConfig()),
+    ),
+)
+
+# Training commands: forward / backward / left. Right is body-frame vy < 0.
+_locomotion_command = g1_29dof.command.setup_terms["locomotion_command"]
+g1_29dof_bilateral_no_right = replace(
+    g1_29dof_bilateral_magnet,
+    command=replace(
+        g1_29dof.command,
+        setup_terms={
+            **g1_29dof.command.setup_terms,
+            "locomotion_command": replace(
+                _locomotion_command,
+                func="holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+            ),
+        },
+    ),
+)
+
+__all__ = ["g1_29dof", "g1_29dof_fast_sac", "g1_29dof_bilateral_magnet", "g1_29dof_bilateral_no_right"]

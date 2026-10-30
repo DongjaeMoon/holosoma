@@ -1,0 +1,57 @@
+<!doctype html><meta charset="utf-8"><title>Holosoma checkpoint evaluation</title>
+<style>body{font:15px system-ui;max-width:1250px;margin:28px auto;padding:0 18px;background:#f6f7fa;color:#172133}select{padding:7px;margin:5px}table{width:100%;border-collapse:collapse;background:white}th,td{padding:9px;text-align:left;border-bottom:1px solid #ddd}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.card{padding:12px;background:white;border-radius:9px}video,img{width:100%}small{color:#536078}pre{white-space:pre-wrap}a{margin-right:14px}</style>
+<h1>Checkpoint evaluation · GPUs 3 + 6 · metrics first</h1>
+<p><a href="summary.csv">Download all metrics (CSV)</a><a href="manifest.json">Evaluation protocol</a><a href="highlight_selection.json">Highlight selection and trial errors</a><a href="/">Previous videos</a></p>
+<p>Controlled flat-ground simulation, deterministic policy. All 32 trials contribute to duration and failure statistics. Error is measured after 2 s, before the first failure, only for trials reaching that window; always compare error together with observed duration and failure rate. Videos use a fixed seed and are illustrative, not a success-rate estimate. One training seed per model: rollout variation does not measure variation across training seeds.</p>
+<pre id="status">Waiting for evaluation…</pre>
+<p>Numerical evaluation of all 40 checkpoints takes priority. The full video sweep has been stopped; existing clips remain available, and further videos will be selected after reviewing tracking results.</p>
+<h2>Matched highlight · final checkpoint</h2>
+<p id="highlight-note">Selection pending. This section is a post-hoc illustration; the plots below retain all trials.</p>
+<button id="play-highlights">Play / restart all four highlight videos</button>
+<div class="grid" id="highlights"></div>
+<h2>Every checkpoint and command</h2>
+<label>Checkpoint <select id="checkpoint"></select></label>
+<label>Command <select id="direction"></select></label>
+<label>Speed <select id="speed"><option>0.6</option><option>0.3</option></select> m/s</label>
+<table><thead><tr><th>Model</th><th>Planar RMSE</th><th>vx RMSE</th><th>vy RMSE</th><th>Duration</th><th>Failure</th><th>Trials with error</th><th>Success (secondary)</th></tr></thead><tbody id="metrics"></tbody></table>
+<div class="grid" id="videos"></div>
+<h2>All-trial learning curves</h2>
+<div class="grid"><img src="plots/tracking_rmse.png" alt="Tracking error plot appears after evaluation"><img src="plots/survival_duration.png" alt="Observed duration plot appears after evaluation"></div>
+<p><a href="plots/tracking_rmse.svg">Tracking plot SVG</a><a href="plots/lateral_rmse.svg">Lateral-error plot SVG</a></p>
+<h2>Command and actual velocity over time · 0.6 m/s</h2><img id="curve" alt="Time-series plot appears after evaluation">
+<script>
+const models=['biHAM','sym_aug_HAM','HAM','MLP'];
+const cp=document.querySelector('#checkpoint'),direction=document.querySelector('#direction'),speed=document.querySelector('#speed');
+for(let k=10000;k>=1000;k-=1000)cp.add(new Option(k.toLocaleString(),k));
+for(let name of ['right','forward_right','backward_right','forward','backward','left','forward_left','backward_left'])direction.add(new Option(name.replaceAll('_',' '),name));
+const fmt=(x,n=3)=>x==null?'—':Number(x).toFixed(n),pct=x=>x==null?'—':(100*x).toFixed(1)+'%';
+async function get(path){let r=await fetch(path,{cache:'no-store'});return r.ok?await r.json():null}
+async function highlights(){
+ let selection=await get('highlight_selection.json'),box=document.querySelector('#highlights');box.replaceChildren();
+ if(!selection)return;
+ document.querySelector('#highlight-note').textContent='Post-hoc selection: '+selection.case.replaceAll('_',' ')+', trial '+selection.trial+'. Same command and recorded initial state. Requested ranking '+(selection.requested_order_observed?'was':'was NOT')+' observed in the selected evaluation trial. Rendered replay errors are shown separately because GPU simulation replay can differ. All-trial plots remain unchanged.';
+ for(let model of models){
+  let path='videos/'+model+'_highlight/model_'+String(selection.iteration||10000).padStart(7,'0')+'/'+selection.case+'/',v=await get(path+'video.json'),card=document.createElement('div');card.className='card';
+  let h=document.createElement('h3');h.textContent=model;card.append(h);
+  let p=document.createElement('p');p.textContent='Evaluation trial RMSE: '+fmt(selection.errors[model])+' m/s; rendered replay RMSE: '+fmt(v?.linear_rmse)+' m/s';card.append(p);
+  if(v?.files?.length){let video=document.createElement('video');video.controls=true;video.preload='metadata';video.src=path+v.files[0];card.append(video)}else{let p=document.createElement('p');p.textContent='Highlight video pending';card.append(p)}
+  let a=document.createElement('a');a.href=path+'video.json';a.textContent='Replay details';card.append(a);box.append(card);
+ }
+}
+document.querySelector('#play-highlights').onclick=()=>{for(let v of document.querySelectorAll('#highlights video')){v.currentTime=0;v.play().catch(()=>{})}};
+async function refresh(){
+ let status=await get('status.json');document.querySelector('#status').textContent=JSON.stringify(status,null,2);
+ let rows=await get('summary.json')||[],body=document.querySelector('#metrics'),box=document.querySelector('#videos');body.replaceChildren();box.replaceChildren();
+ let iteration=Number(cp.value),name=direction.value+'_'+speed.value+'mps',stem='model_'+String(iteration).padStart(7,'0');
+ for(let model of models){
+  let d=rows.find(x=>x.model===model&&x.iteration===iteration&&x.name===name),tr=document.createElement('tr');
+  for(let value of [model,fmt(d?.mean_linear_rmse),fmt(d?.mean_vx_rmse),fmt(d?.mean_vy_rmse),fmt(d?.mean_survival_s,1)+' s',pct(d?.failure_rate),d?.measured_trials==null?'—':d.measured_trials+'/'+d.trials,pct(d?.success_rate)]){let td=document.createElement('td');td.textContent=value;tr.append(td)}body.append(tr);
+  let path='videos/'+model+'/'+stem+'/'+name+'/',v=await get(path+'video.json'),card=document.createElement('div');card.className='card';let h=document.createElement('h3');h.textContent=model;card.append(h);
+  if(v?.files?.length){let video=document.createElement('video');video.controls=true;video.preload='metadata';video.src=path+v.files[0];card.append(video)}else{let p=document.createElement('p');p.textContent='Video not scheduled: numerical evaluation first';card.append(p)}
+  let a=document.createElement('a');a.href=path+'metrics.json';a.textContent='Trials, errors and confidence interval';card.append(a);box.append(card);
+ }
+ document.querySelector('#curve').src='plots/velocity_curves_'+String(iteration).padStart(7,'0')+'.png';
+ await highlights();
+}
+cp.onchange=direction.onchange=speed.onchange=refresh;refresh();setInterval(()=>{if(![...document.querySelectorAll('video')].some(v=>!v.paused))refresh()},30000);
+</script>

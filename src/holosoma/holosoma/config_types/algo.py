@@ -115,6 +115,21 @@ class PPOModuleDictConfig:
 
 
 @dataclass(frozen=True)
+class BilateralNetworkConfig:
+    """Original bilateral feature-composition network; no extra weight updates."""
+
+    hidden_dims: tuple[int, ...] = (192, 384, 192)
+    router_dims: tuple[int, ...] = (256, 256, 128)
+    num_module: int = 4
+    gate_sizes: int = 8
+    share_ab_modules: bool = False
+    use_sym_param: bool = True
+    feature_bias_scale: float = 0.5
+    checkpoint_layers: bool = True
+    use_fast: bool = False
+
+
+@dataclass(frozen=True)
 class PPOConfig:
     """Configuration for PPO algorithm."""
 
@@ -201,9 +216,17 @@ class PPOConfig:
     max_critic_learning_rate: float | None = None
     min_critic_learning_rate: float | None = None
 
+    bilateral: BilateralNetworkConfig | None = None
+    """Optional shared-router model, selected by the bilateral experiment preset."""
+
 
 @dataclass(frozen=True)
 class FastSACConfig:
+    bilateral: BilateralNetworkConfig | None = None
+    command_audit: bool = False
+    """Record commands actually consumed by the policy and replay (no-right audit)."""
+    command_audit_csv_envs: int | None = None
+    """CSV only the first N environments; counters still inspect every environment. None records all."""
     num_learning_iterations: int = 25000
     """total timesteps of the experiments"""
 
@@ -288,6 +311,8 @@ class FastSACConfig:
     """torch.compile Inductor options, e.g. {"coordinate_descent_tuning": True}; exclusive with compile_mode."""
 
     obs_normalization: bool = True
+    symmetry_compatible_io: bool = False
+    """Use reflection-compatible normalization and domi phase mirroring."""
     """whether to enable observation normalization"""
 
     use_layer_norm: bool = True

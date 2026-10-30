@@ -1,0 +1,63 @@
+{
+  "container": "147-sejune-domi-isaac-lab",
+  "source_root": "/home/user/domi-alps/source/domi/src/domi/",
+  "files": {
+    "nn/bilateral_magnet.py": {
+      "sha256": "13df98735570c3de6dfbb8b3de30b9a55534145df8a8420caa2fc9fb9bb1edc5"
+    },
+    "nn/range_layers.py": {
+      "sha256": "932f4c000557fa03ed5b406af6604917586076889dfdb9b26d27fcc711876bda",
+      "copied_definitions": [
+        "MAGNet",
+        "TempSoftmax",
+        "_act_gain",
+        "_mscale",
+        "batch_outer_einsum",
+        "ortho_init_module_v2"
+      ]
+    },
+    "nn/layers.py": {
+      "sha256": "c32497cdb0378a9e94317576d065cef1f9d1017d01bd902d8391d5a0acf34d34",
+      "copied_definitions": [
+        "BatchNorm1d",
+        "GroupNorm1d",
+        "LayerNorm1d",
+        "LinearNorm",
+        "MLP",
+        "SplitDim",
+        "_Symmetric",
+        "get_activation_function",
+        "get_normalization_function",
+        "symmetric"
+      ]
+    },
+    "util/export_compat.py": {
+      "sha256": "e50b69010b0fe29a287ae6b2165033e00f6eb36901b26168d5548f60694bb228"
+    },
+    "cfg/net/sym_ma_v7_bilateral_modular_nobase.yaml": {
+      "sha256": "4c559fe31ef2e97098696a2a484b309a633e7193131b408fc652a31443dcbef7"
+    }
+  },
+  "io_sources": {
+    "isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/g1_art/config/loco_env_cfg.py": {
+      "sha256": "de0e07c2424d6ebab2ded6566890e050ace96903c369bb82f54dc6fd06d003f7",
+      "copied_definitions": [
+        "joint_mirror_sign_cfg",
+        "swap_lr",
+        "_mirror_lin_vel",
+        "_mirror_ang_vel",
+        "_mirror_vel_cmd",
+        "_mirror_joint_values",
+        "_mirror_phase",
+        "_mirror_act",
+        "last_action"
+      ]
+    },
+    "isaaclab/isaaclab/utils/string.py": {
+      "sha256": "baf0f96fe6c46139b9f46b1ec06836edd329069474257b5e6b534a3a212e36da"
+    },
+    "domi/src/domi/env/loco_action_mapping.py": {
+      "sha256": "496c9c110800e739fca001f0f88e5bae76bb2b05d2441d123d81bc0e77f09828"
+    }
+  }
+}

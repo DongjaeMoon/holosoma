@@ -1,0 +1,14 @@
+{
+  "ham_range_layers.py": {
+    "source": "/home/user/domi-alps/source/domi/src/domi/nn/range_layers.py",
+    "sha256_original": "932f4c000557fa03ed5b406af6604917586076889dfdb9b26d27fcc711876bda"
+  },
+  "ham_sa_from_ma_v4_abl_preact.yaml": {
+    "source": "/home/user/domi-alps/source/domi/src/domi/cfg/net/ham_sa_from_ma_v4_abl_preact.yaml",
+    "sha256_original": "4204638318e8aa93e867702caaadfca4db9b1340d4e8613334fc39c204fea5a0"
+  },
+  "ham_magnet_v2_reference.py": {
+    "source": "/home/user/domi-alps/source/domi/src/domi/net/td/magnet_v2.py",
+    "sha256_original": "97c2e90d4d512c30ceafd8ae2af7be23c6fc750ab069b2953bad954b6fc5ff2f"
+  }
+}

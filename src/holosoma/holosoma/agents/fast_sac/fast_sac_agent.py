@@ -362,13 +362,29 @@ class FastSACAgent(BaseAlgo):
             device=device,
         )
 
-        if args.use_symmetry:
+        if args.symmetry_compatible_io:
+            from holosoma.agents.modules.bilateral.normalization import DomiSymmetry, ReflectionNormalization
+
+            self.symmetry_utils = DomiSymmetry(env._env)
+            if args.obs_normalization:
+                self.obs_normalizer = ReflectionNormalization(actor_obs_dim, device, self.symmetry_utils, actor_obs_keys)
+                self.critic_obs_normalizer = ReflectionNormalization(critic_obs_dim, device, self.symmetry_utils, critic_obs_keys)
+        elif args.use_symmetry:
             # using env._env is not really ideal..
             self.symmetry_utils = SymmetryUtils(env._env)
 
         # Synchronize model parameters across GPUs for consistent initialization
         if self.is_multi_gpu:
             self._synchronize_model_parameters()
+
+        self.command_audit = None
+        if args.command_audit:
+            from holosoma.agents.fast_sac.command_audit import CommandAudit
+
+            self.command_audit = CommandAudit(self.unwrapped_env, args, self.log_dir, self.writer)
+
+    def _finish_update(self):
+        pass
 
     @contextmanager
     def _maybe_amp(self) -> Iterator[None]:
@@ -607,6 +623,9 @@ class FastSACAgent(BaseAlgo):
             # Override large_data
             large_data = augmented_large_data
 
+        if self.command_audit is not None:
+            self.command_audit.record_replay(large_data)
+
         # Normalize all data once
         large_data["observations"] = normalize_obs(large_data["observations"])
         large_data["next"]["observations"] = normalize_obs(large_data["next"]["observations"])
@@ -728,6 +747,8 @@ class FastSACAgent(BaseAlgo):
             with self.logging_helper.record_collection_time():
                 with torch.no_grad(), self._maybe_amp():
                     norm_obs = normalize_obs(obs, update=False)
+                    if self.command_audit is not None:
+                        self.command_audit.record_policy(self.global_step, obs, norm_obs)
                     actions = policy(obs=norm_obs, dones=dones)
 
                 next_obs, rewards, dones, infos = env.step(actions.float())
@@ -792,6 +813,8 @@ class FastSACAgent(BaseAlgo):
                                 actor_grad_norm, actor_loss, policy_entropy, action_std = update_pol(data)
                         elif self.global_step % args.policy_frequency == 0:
                             actor_grad_norm, actor_loss, policy_entropy, action_std = update_pol(data)
+
+                        self._finish_update()
 
                         # Accumulate training metrics for smoother logging
                         current_metrics = {

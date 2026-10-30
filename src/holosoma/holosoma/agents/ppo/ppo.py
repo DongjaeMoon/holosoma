@@ -253,7 +253,7 @@ class PPO(BaseAlgo):
             if self.has_curricula_enabled():
                 logger.info(f"Multi-GPU curriculum synchronization enabled across {self.gpu_world_size} GPUs")
 
-    def _setup_models_and_optimizer(self) -> None:
+    def _build_models(self) -> None:
         self.actor = setup_ppo_actor_module(
             obs_dim_dict=self.algo_obs_dim_dict,
             module_config=self.config.module_dict.actor,
@@ -269,6 +269,11 @@ class PPO(BaseAlgo):
             history_length=self.algo_history_length_dict,
         )
 
+    def _optimizer_parameters(self) -> tuple[list[nn.Parameter], list[nn.Parameter]]:
+        return list(self.actor.parameters()), list(self.critic.parameters())
+
+    def _setup_models_and_optimizer(self) -> None:
+        self._build_models()
         actor_obs_dim = self._get_obs_dim(self.actor_obs_keys)
         critic_obs_dim = self._get_obs_dim(self.critic_obs_keys)
         if self.empirical_normalization:
@@ -285,12 +290,23 @@ class PPO(BaseAlgo):
         if self.is_multi_gpu:
             self._synchronize_model_weights()
 
+        actor_parameters, critic_parameters = self._optimizer_parameters()
         self.actor_optimizer = instantiate(
-            self.config.actor_optimizer, params=self.actor.parameters(), lr=self.actor_learning_rate
+            self.config.actor_optimizer, params=actor_parameters, lr=self.actor_learning_rate
         )
         self.critic_optimizer = instantiate(
-            self.config.critic_optimizer, params=self.critic.parameters(), lr=self.critic_learning_rate
+            self.config.critic_optimizer, params=critic_parameters, lr=self.critic_learning_rate
         )
+
+    def _evaluate_actor_critic(
+        self, actor_obs: torch.Tensor, critic_obs: torch.Tensor
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        return self.actor.act({"actor_obs": actor_obs}), self.critic.evaluate({"critic_obs": critic_obs})
+
+    def _bootstrap_value(self, obs_dict: dict[str, torch.Tensor]) -> torch.Tensor:
+        critic_obs = torch.cat([obs_dict[k] for k in self.critic_obs_keys], dim=1)
+        critic_obs = self._normalize_critic_obs(critic_obs, update=False)
+        return self.critic.evaluate({"critic_obs": critic_obs})
 
     def _get_obs_dim(self, obs_keys: list[str]) -> int:
         """Compute total observation dimension for given observation keys."""
@@ -408,8 +424,8 @@ class PPO(BaseAlgo):
                 actor_obs = self._normalize_actor_obs(actor_obs_raw)
                 critic_obs = self._normalize_critic_obs(critic_obs_raw)
 
-                actions = self.actor.act({"actor_obs": actor_obs})
-                values = self.critic.evaluate({"critic_obs": critic_obs}).detach()
+                actions, values = self._evaluate_actor_critic(actor_obs, critic_obs)
+                values = values.detach()
 
                 obs_dict, rewards, dones, infos = self.env.step({"actions": actions})
 
@@ -420,9 +436,7 @@ class PPO(BaseAlgo):
                 # Compute bootstrap value for timeouts
                 final_rewards = torch.zeros_like(rewards)
                 if infos["time_outs"].any():
-                    final_critic_obs = torch.cat([infos["final_observations"][k] for k in self.critic_obs_keys], dim=1)
-                    final_critic_obs = self._normalize_critic_obs(final_critic_obs, update=False)
-                    final_values = self.critic.evaluate({"critic_obs": final_critic_obs}).detach()
+                    final_values = self._bootstrap_value(infos["final_observations"]).detach()
                     final_rewards += self.config.gamma * torch.squeeze(
                         final_values * infos["time_outs"].unsqueeze(1).to(self.device), 1
                     )
@@ -449,9 +463,7 @@ class PPO(BaseAlgo):
                     self.logging_helper.update_episode_stats(rewards, dones, infos)
 
             # Return / Advantage computation
-            last_critic_obs = torch.cat([obs_dict[k] for k in self.critic_obs_keys], dim=1)
-            last_critic_obs = self._normalize_critic_obs(last_critic_obs, update=False)
-            last_values = self.critic.evaluate({"critic_obs": last_critic_obs}).detach().to(self.device)
+            last_values = self._bootstrap_value(obs_dict).detach().to(self.device)
             returns, advantages = self._compute_returns_and_advantages(
                 last_values,
                 self.storage["values"].to(self.device),
@@ -502,8 +514,9 @@ class PPO(BaseAlgo):
             self._reduce_parameters()
 
         # Gradient step
-        nn.utils.clip_grad_norm_(self.actor.parameters(), self.config.max_grad_norm)
-        nn.utils.clip_grad_norm_(self.critic.parameters(), self.config.max_grad_norm)
+        actor_parameters, critic_parameters = self._optimizer_parameters()
+        nn.utils.clip_grad_norm_(actor_parameters, self.config.max_grad_norm)
+        nn.utils.clip_grad_norm_(critic_parameters, self.config.max_grad_norm)
 
         self.actor_optimizer.step()
         self.critic_optimizer.step()
@@ -553,8 +566,7 @@ class PPO(BaseAlgo):
             actor_obs = minibatch["actor_obs"]
             critic_obs = minibatch["critic_obs"]
 
-        self.actor.act({"actor_obs": actor_obs})
-        value_batch = self.critic.evaluate({"critic_obs": critic_obs})
+        _, value_batch = self._evaluate_actor_critic(actor_obs, critic_obs)
         actions_log_prob_batch = self.actor.get_actions_log_prob(actions_batch)
         mu_batch = self.actor.action_mean[:original_batch_size]
         sigma_batch = self.actor.action_std[:original_batch_size]
@@ -780,8 +792,8 @@ class PPO(BaseAlgo):
         self.logging_helper.post_epoch_logging(it=it, loss_dict=loss_dict, extra_log_dicts=extra_log_dicts)
 
     def _reduce_parameters(self) -> None:
-        models: list[nn.Module] = [self.actor, self.critic]
-        grads = [param.grad.view(-1) for model in models for param in model.parameters() if param.grad is not None]
+        parameters = list(dict.fromkeys((*self.actor.parameters(), *self.critic.parameters())))
+        grads = [param.grad.view(-1) for param in parameters if param.grad is not None]
         if not grads:
             return
         all_grads = torch.cat(grads)
@@ -790,21 +802,16 @@ class PPO(BaseAlgo):
         all_grads /= self.gpu_world_size
 
         offset = 0
-        for model in models:
-            for param in model.parameters():
-                if param.grad is not None:
-                    numel = param.numel()
-                    param.grad.data.copy_(all_grads[offset : offset + numel].view_as(param.grad))
-                    offset += numel
+        for param in parameters:
+            if param.grad is not None:
+                numel = param.numel()
+                param.grad.data.copy_(all_grads[offset : offset + numel].view_as(param.grad))
+                offset += numel
 
     def _synchronize_model_weights(self) -> None:
         """Synchronize actor and critic weights across all GPUs."""
         # Broadcast actor weights from rank 0 to all other ranks
-        for param in self.actor.parameters():
-            torch.distributed.broadcast(param.data, src=0)
-
-        # Broadcast critic weights from rank 0 to all other ranks
-        for param in self.critic.parameters():
+        for param in dict.fromkeys((*self.actor.parameters(), *self.critic.parameters())):
             torch.distributed.broadcast(param.data, src=0)
 
         logger.info(f"Synchronized model weights across {self.gpu_world_size} GPUs")

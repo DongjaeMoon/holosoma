@@ -1,0 +1,111 @@
+keys:
+  obs0: 'obsn'
+  mem0: 'memo'
+  obs1: 'obsn'
+  end0: 'end0'
+  state: 'state' # NOTE(ycho): should technically also include z_ctx
+  # state: [['net','z_ctx'], ['net', 'z_state']] # NOTE(ycho): should technically also include z_ctx
+  # state: 'net/(z_ctx|z_state)' # NOTE(ycho): should technically also include z_ctx
+  mem1: 'memo'
+  act_dist: 'act_dist'
+  value: 'value'
+  actn: 'actn'
+  logp: 'logp'
+  mu: 'mu'
+
+nets:
+  ## "BACKBONE" BLOCK ##
+  left_cat:
+    class_type: domi.net.td.common:Cat
+    ki: 'obsn'
+    ko: 'net/left_cat'
+    delim: '/'
+
+    params:
+      # concat all 'left' except hscan
+      keys: 'left/left/(?!height_scan|point_cloud|env_code|voxel_grid).*'
+      delim: '/'
+
+  right_cat:
+    class_type: domi.net.td.common:Cat
+    ki: 'obsn'
+    ko: 'net/right_cat'
+    delim: '/'
+    params:
+      # concat all 'right' except hscan
+      keys: 'right/right/(?!height_scan|point_cloud|env_code|voxel_grid).*'
+      delim: '/'
+
+  context:
+    class_type: domi.net.td.common:Cat
+    ki: 'obsn'
+    ko: 'net/context'
+    delim: '/'
+    params:
+      keys: 'left/left/.*_cmd|left/left/height_scan|left/left/projected_gravity|left/left/joint_pos|right/right/.*_cmd|right/right/height_scan|right/right/projected_gravity|right/right/joint_pos'
+      delim: '/'
+      rank:
+        left/left/height_scan: 2
+        right/right/height_scan: 2
+
+  merge_state:
+    class_type: domi.net.td.common:DictArg
+    ki: [['net','left_cat'], ['net','right_cat'], ['net','context']]
+    ko: [['state']]
+    params:
+      # NOTE(ycho): these names are actually "hardcoded"
+      # w.r.t the current XFM implementation...!
+      keys: ['l', 'r', 'c'] # state.c // state.s
+  #########################
+  
+  init_mem:
+    class_type: domi.net.td:InitMemMA
+    ki: ['obsn']
+    ko: ['memo']
+    params:
+      agent:
+        left: 'left'
+        right: 'right'
+
+  
+  magnet:
+    class_type: domi.net.td.magnet_v2:MAGNetMA
+    # TODO(ycho): consider support for A.B for brevity?
+    ki: ['memo', 'state', 'state']
+    ko: ['act_dist', 'raw_value']
+    params:
+      router: # ONLY _ONE_ ROUTER FOR NOW
+        ctx: 'c' # net/C/c
+      subnet:
+        actor:
+          obs: 'l|r'
+          act: '.*'
+          rew: null
+          dim: [384,576,384]
+        value:
+          obs: 'l|r'
+          act: null
+          rew: '.*'
+          dim: [384,576,384]
+
+      ortho_init: true
+      # gate: false
+      gate_sizes: 8
+      num_module: 4
+      use_sym_param: false
+      compose_mode: feature
+
+  vscale:
+    # I guess we're going to have to do something like
+    # net.find('vscale').update_coef(...) externally
+    # unless we directly incorporate `reward_coef`
+    # as a first-class tensor within ppo.py
+    class_type: domi.net.td.common:ScaleValue
+    ki: 'raw_value'
+    ko: 'value'
+
+
+  logp_mu:
+    class_type: domi.net.td:LogpMuMA # i.e. works for most distributions
+    ki: ['act_dist', 'actn']
+    ko: ['logp', 'mu']
