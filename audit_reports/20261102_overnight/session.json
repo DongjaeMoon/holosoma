@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-11-01T19:11:16.068161+00:00",
+  "root": "/workspace/holosoma",
+  "host_root": "/home/ycho/holosoma",
+  "python": "3.11.18 (main, Oct 26 2026, 11:35:17) [GCC 15.3.0]",
+  "executable": "/root/.holosoma_deps/miniconda3/envs/hssim/bin/python",
+  "cuda_visible_devices": "",
+  "git_head": "4f27c00587deed72a6990f33aa483d8f0ba497e5",
+  "git_diff_names": "M\t.isaacgym/holosoma\nM\tscripts/evaluate_command_holdout.py\nM\tscripts/plot_rmse_summary.py\nM\tscripts/run_vanilla_mlp_30k.py\nM\tsrc/holosoma/holosoma/simulator/isaacsim/video_recorder.py\n",
+  "git_untracked": [
+    "scripts/audit_mlp_command_path.py",
+    "scripts/biham_mlp_command_replay.html",
+    "scripts/command_distributions_dashboard.html",
+    "scripts/command_statistics_dashboard.html",
+    "scripts/inspect_command_statistics.py",
+    "scripts/plot_native_mlp_10k.py",
+    "scripts/render_native_mlp_preview.py"
+  ]
+}

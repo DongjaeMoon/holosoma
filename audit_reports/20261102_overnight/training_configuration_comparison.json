@@ -1,0 +1,487 @@
+{
+  "v2_mdp_differences_from_biHAM": {
+    "biHAM": [],
+    "MLP": [],
+    "sym_aug_HAM": [],
+    "HAM": []
+  },
+  "native_vs_v2_MLP_mdp_differences": [
+    {
+      "field": "robot.apply_dof_armature_in_isaacgym",
+      "v2_MLP": true,
+      "native_MLP": null
+    },
+    {
+      "field": "simulator._target_",
+      "v2_MLP": "holosoma.simulator.isaacgym.isaacgym.IsaacGym",
+      "native_MLP": "holosoma.simulator.isaacsim.isaacsim.IsaacSim"
+    },
+    {
+      "field": "simulator.config.contact_sensor_history_length",
+      "v2_MLP": 3,
+      "native_MLP": null
+    },
+    {
+      "field": "simulator.config.isaacsim.kit_args",
+      "v2_MLP": "",
+      "native_MLP": "--/renderer/multiGpu/enabled=false --/renderer/multiGpu/autoEnable=false --/renderer/activeGpu=0"
+    },
+    {
+      "field": "simulator.config.mujoco_warp.nconmax_per_env",
+      "v2_MLP": 96,
+      "native_MLP": null
+    },
+    {
+      "field": "simulator.config.name",
+      "v2_MLP": "isaacgym",
+      "native_MLP": "isaacsim"
+    },
+    {
+      "field": "simulator.config.sim.render_interval",
+      "v2_MLP": 1,
+      "native_MLP": 4
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.actions.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.base_ang_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.command_ang_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.command_lin_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.cos_phase.func",
+      "v2_MLP": "holosoma.managers.command.terms.domi_gait:cos_phase",
+      "native_MLP": "holosoma.managers.observation.terms.locomotion:cos_phase"
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.cos_phase.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.dof_pos.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.dof_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.projected_gravity.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.sin_phase.func",
+      "v2_MLP": "holosoma.managers.command.terms.domi_gait:sin_phase",
+      "native_MLP": "holosoma.managers.observation.terms.locomotion:sin_phase"
+    },
+    {
+      "field": "observation.groups.actor_obs.terms.sin_phase.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.actions.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.base_ang_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.base_lin_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.command_ang_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.command_lin_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.cos_phase.func",
+      "v2_MLP": "holosoma.managers.command.terms.domi_gait:cos_phase",
+      "native_MLP": "holosoma.managers.observation.terms.locomotion:cos_phase"
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.cos_phase.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.dof_pos.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.dof_vel.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.projected_gravity.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.sin_phase.func",
+      "v2_MLP": "holosoma.managers.command.terms.domi_gait:sin_phase",
+      "native_MLP": "holosoma.managers.observation.terms.locomotion:sin_phase"
+    },
+    {
+      "field": "observation.groups.critic_obs.terms.sin_phase.global_clip",
+      "v2_MLP": null,
+      "native_MLP": true
+    },
+    {
+      "field": "command.setup_terms.locomotion_gait.func",
+      "v2_MLP": "holosoma.managers.command.terms.domi_gait:DomiGait",
+      "native_MLP": "holosoma.managers.command.terms.locomotion:LocomotionGait"
+    },
+    {
+      "field": "command.setup_terms.locomotion_gait.params.gait_period",
+      "v2_MLP": null,
+      "native_MLP": 1.0
+    },
+    {
+      "field": "command.setup_terms.locomotion_gait.params.gait_period_randomization_width",
+      "v2_MLP": null,
+      "native_MLP": 0.2
+    },
+    {
+      "field": "command.setup_terms.locomotion_gait.params.period_range",
+      "v2_MLP": [
+        0.9,
+        1.1
+      ],
+      "native_MLP": null
+    }
+  ],
+  "optimizer_details": [
+    {
+      "model": "biHAM",
+      "optimizers": {
+        "actor_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "q_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "alpha_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.01,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "router_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ]
+      }
+    },
+    {
+      "model": "sym_aug_HAM",
+      "optimizers": {
+        "actor_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "q_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "alpha_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.01,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "router_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ]
+      }
+    },
+    {
+      "model": "HAM",
+      "optimizers": {
+        "actor_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "q_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "alpha_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.01,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "router_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ]
+      }
+    },
+    {
+      "model": "MLP",
+      "optimizers": {
+        "actor_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "q_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.001,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ],
+        "alpha_optimizer_state_dict": [
+          {
+            "lr": 0.0003,
+            "betas": [
+              0.9,
+              0.95
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.01,
+            "amsgrad": false,
+            "foreach": null,
+            "maximize": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": true
+          }
+        ]
+      }
+    }
+  ],
+  "fresh_start": [
+    {
+      "model": "biHAM",
+      "checkpoint": null,
+      "teacher_checkpoint": null
+    },
+    {
+      "model": "MLP",
+      "checkpoint": null,
+      "teacher_checkpoint": null
+    },
+    {
+      "model": "sym_aug_HAM",
+      "checkpoint": null,
+      "teacher_checkpoint": null
+    },
+    {
+      "model": "HAM",
+      "checkpoint": null,
+      "teacher_checkpoint": null
+    },
+    {
+      "model": "native_MLP",
+      "checkpoint": null,
+      "teacher_checkpoint": null
+    }
+  ]
+}

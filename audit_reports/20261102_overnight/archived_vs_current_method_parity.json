@@ -1,0 +1,32 @@
+[
+  {
+    "file": "agents/fast_sac/fast_sac.py",
+    "method": "Actor.forward",
+    "ast_identical": true
+  },
+  {
+    "file": "agents/fast_sac/fast_sac.py",
+    "method": "Actor.get_actions_and_log_probs",
+    "ast_identical": true
+  },
+  {
+    "file": "agents/fast_sac/fast_sac.py",
+    "method": "Actor.explore",
+    "ast_identical": true
+  },
+  {
+    "file": "agents/fast_sac/fast_sac.py",
+    "method": "Actor.process_obs",
+    "ast_identical": true
+  },
+  {
+    "file": "agents/fast_sac/fast_sac_utils.py",
+    "method": "EmpiricalNormalization.forward",
+    "ast_identical": true
+  },
+  {
+    "file": "agents/fast_sac/fast_sac_utils.py",
+    "method": "EmpiricalNormalization.update",
+    "ast_identical": true
+  }
+]

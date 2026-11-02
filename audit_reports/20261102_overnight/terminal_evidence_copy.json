@@ -1,0 +1,9 @@
+{
+  "source": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43.log",
+  "export": "logs/bilateral_queue/corrected_v2_20261029_0513/evidence/MLP_training_terminal.txt",
+  "source_sha256": "32c0ab10496d8d6194edc895cefd884f931142c048599b6015c4ca7a486d2245",
+  "metadata_sha256": "32c0ab10496d8d6194edc895cefd884f931142c048599b6015c4ca7a486d2245",
+  "source_hash_matches_metadata": true,
+  "ansi_removed_and_newlines_normalized_exact_match": true,
+  "exposure_log_present": false
+}

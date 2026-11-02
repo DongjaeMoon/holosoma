@@ -1,0 +1,17 @@
+[
+  {
+    "script": "scripts/check_vanilla_mlp_30k.py",
+    "passed": true,
+    "output": "COMMAND AUDIT enabled: policy inputs + replay; strict vy<0 detection.\nCOMMAND AUDIT step=0 first_commands=[[0.0, 0.0, 0.0]] checked_envs=4096 negative_vy_total=0 min_vy=0.0\nCOMMAND AUDIT step=1 first_commands=[[0.0, 0.0, 0.0]] checked_envs=4096 negative_vy_total=1 min_vy=-0.5\nCOMMAND AUDIT enabled: policy inputs + replay; strict vy<0 detection.\nCOMMAND AUDIT step=0 first_commands=[[0.0, 0.0, 0.0]] checked_envs=4096 negative_vy_total=0 min_vy=0.0\nCOMMAND AUDIT step=1 first_commands=[[0.0, 0.0, 0.0]] checked_envs=4096 negative_vy_total=1 min_vy=-0.5\nPASS: only intended baseline differences; native phase; reset/periodic no-right commands; all-env audit despite compact CSV; 30 checkpoints; dry-run starts nothing; right RMSE aggregation.\n"
+  },
+  {
+    "script": "scripts/check_corrected_io.py",
+    "passed": true,
+    "output": "apply sym @ backbone.0.norm\napply sym @ backbone.0.linear\napply sym @ backbone.2.norm\napply sym @ backbone.2.linear\napply sym @ backbone.4.norm\napply sym @ backbone.4.linear\napply sym @ logits\napply sym @ scale_header\napply sym @ backbone.0.norm\napply sym @ backbone.0.linear\napply sym @ backbone.2.norm\napply sym @ backbone.2.linear\napply sym @ backbone.4.norm\napply sym @ backbone.4.linear\napply sym @ logits\napply sym @ scale_header\napply sym @ backbone.0.norm\napply sym @ backbone.0.linear\napply sym @ backbone.2.norm\napply sym @ backbone.2.linear\napply sym @ backbone.4.norm\napply sym @ backbone.4.linear\napply sym @ logits\napply sym @ scale_header\nPASS: actor/critic normalization commutes with physical reflection; nonzero actor mean/std and Q equivariance; normalizer checkpoint; original domi clock; standing zero; both phase channels; old presets unchanged.\n"
+  },
+  {
+    "script": "scripts/check_holdout_metrics.py",
+    "passed": true,
+    "output": "PASS (linear): planar/yaw error, warmup, first-failure capture, auto-reset exclusion, DOF snapshot, Wilson interval\nPASS (ccw): planar/yaw error, warmup, first-failure capture, auto-reset exclusion, DOF snapshot, Wilson interval\n"
+  }
+]

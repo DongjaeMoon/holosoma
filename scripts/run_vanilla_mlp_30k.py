@@ -180,6 +180,7 @@ def main():
     parser.add_argument('--command-mode', choices=('no-right', 'left-only'), default='no-right',
         help='no-right: forward/backward/left as before; left-only: vx=0, vy in [0,1]. Both retain yaw [-1,1].')
     parser.add_argument('--stage', choices=('all', 'train', 'evaluate'), default='all')
+    parser.add_argument('--descending', action='store_true', help='Evaluate the final checkpoint first, then earlier checkpoints.')
     parser.add_argument('--execute', action='store_true', help='Explicitly start GPU work. Omit to print only.')
     parser.add_argument('--plan-file', type=Path, help='Save the prepared plan without starting training.')
     args = parser.parse_args()
@@ -202,6 +203,8 @@ def main():
     else:
         plan = build_plan(output, args.gpu, args.num_envs, args.seed,
                           args.command_mode, args.iterations, args.eval_every)
+    if args.descending:
+        plan['checkpoint_iterations'] = sorted(plan['checkpoint_iterations'], reverse=True)
     if args.plan_file:
         atomic_json(args.plan_file.resolve(), plan)
     if not args.execute:

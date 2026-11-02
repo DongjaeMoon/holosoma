@@ -1,0 +1,1294 @@
+최종 갱신: 2026-10-30T20:37:39+09:00
+30k 학습 완료. 최종30k 평가 완료. 나머지 checkpoint 평가는 GPU2에서 계속 진행 중.
+오른쪽 planar RMSE: 0.3m/s=0.191376, 0.6m/s=0.401195, 평균=0.296285.
+이 갱신과 맨 뒤 실제 스냅샷이 본문의 과거 학습 중 상태보다 우선한다.
+
+Holosoma 로컬 개발 Codex 상세 인계 프롬프트
+작성일: 2026-10-30 / 사용자 시간대: Asia/Seoul
+
+대상: 사용자의 로컬 컴퓨터에서 이 저장소를 이어받는 Codex.
+이 파일을 끝까지 읽고 연구 의도, 현재 구현, 검증 범위, 실행 상태를 이어받아라.
+로컬에서 코딩하고 Git push한 뒤 서버에서 pull하여 GPU 학습/평가하는 방식으로 전환한다.
+현재 서버 학습을 이 문서를 읽었다는 이유로 재실행하거나 중단하지 마라.
+최신 실제 코드/상태 파일과 이 문서 앞쪽 설명을 과거 HANDOFF/STATUS 기록보다 우선한다.
+시간이 지나면 아래 실행 수치는 스냅샷일 뿐이다. 상태 파일을 재확인하라.
+
+======================================================================
+0. 최신 상태: 현재 실행 중인 단일 MLP 30k 실험
+======================================================================
+
+핵심 연구 질문:
+  "학습에서 오른쪽 목표 선속도 명령을 제외했는데 왜 일반 MLP도 오른쪽을
+   어느 정도 따라가는가? biHAM의 구조적 좌우 대칭은 어떤 이득을 주는가?"
+
+현재 실험:
+  알고리즘 = FastSAC. PPO가 아니다.
+  시뮬레이터 = IsaacSim. 새 실행은 IsaacGym이 아니다.
+  로봇 = Unitree G1 29DoF.
+  네트워크 = Holosoma native MLP Actor/Critic.
+  정규화 = 기존 EmpiricalNormalization.
+  phase = 기존 LocomotionGait와 기존 sin_phase/cos_phase.
+  use_symmetry=False / symmetry_compatible_io=False.
+  compile=True (기본 Holosoma 값).
+  num_envs=4096 / seed=43 / num_learning_iterations=30000.
+  batch_size=8192 / num_updates=8 등 나머지 기본 FastSAC 설정 유지.
+  명령 = 앞/뒤/왼쪽. body-frame vy<0 목표 명령 제외.
+  yaw=[-1,1] rad/s / standing 확률20% 유지.
+  command audit ON. 실제 정책/학습 replay 명령 검사 및 TensorBoard 기록.
+
+사용자는 먼저 "준비만" 요청했다가 다음과 같이 실행을 명시 승인했다.
+  "2번 GPU를 비워놨어. 2번 GPU에서 시작해줘"
+  "당연히 텐서보드에서도 확인할 수 있게. 커맨드 방향 비율까지 로깅"
+이 특정 run은 이미 시작됐다. 과거 문서의 '실행 금지/준비만' 기록보다 이 승인이 우선한다.
+현재 실행 중인 동일 실험을 다시 띄우지 마라.
+
+서버 호스트 run:
+  /home/ycho/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2
+Docker에서는 /home/ycho/holosoma 를 /workspace/holosoma 로 바꾼다.
+
+학습 하위 폴더:
+  training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion
+
+프로세스 식별값은 작성 당시 값이며 PID는 재사용될 수 있다.
+  container training PID=211442 / host CUDA PID=1960327.
+  물리 GPU2 UUID=GPU-53c4e089-7be2-4dc9-ae59-1168c5fb3fc9.
+  GPU는 RTX4090 약24GB.
+  CUDA_VISIBLE_DEVICES=2, CUDA_DEVICE_ORDER=PCI_BUS_ID.
+  프로세스 내부 cuda:0은 선택한 물리 GPU2를 뜻한다.
+
+문서 작성 시작 시 감사 스냅샷:
+  status=running / last_step=23000.
+  policy_command_samples=94,212,096 / negative_policy_vy_count=0.
+  replay_command_samples=3,013,214,208 / negative_replay_vy_count=0.
+  min_policy_vy=0.0.
+  forward=24,934,945 / backward=25,302,728 / left=25,000,396.
+  right=0 / standing=18,974,027 / other=0.
+  이 시점에는 새 RMSE 평가 결과 파일이 아직 없었다.
+최종 작성 시점의 상태는 맨 뒤 자동 스냅샷 부록을 우선하라.
+
+30k 종료 후 같은 GPU2에서 1k~30k 총30개 checkpoint를 자동 평가한다.
+정상 학습 중에 중간 평가를 임의로 중복 실행하지 마라.
+
+======================================================================
+1. 사용자와 협업하는 방식
+======================================================================
+
+한국어로 답하라. 상태/결론부터 짧게 말하고 필요한 코드 근거를 붙여라.
+사용자는 지연, 반복 질문, 불필요한 재승인, 긴 이론 재설명을 매우 싫어한다.
+이미 승인된 작업은 진행하되 GPU 지정과 '준비만'/'실행'의 범위를 정확히 지켜라.
+새 버그/중대한 실험 조건 차이는 발견 즉시 알려라.
+성능 순위가 예상과 다르다는 이유만으로 버그라고 단정하지 마라.
+실제로 실행한 검사, 코드에서 추론한 내용, 아직 모르는 원인을 구분하라.
+
+처음 목표는 Holosoma의 MDP/보상/관측/액션 스케일/커리큘럼을 최대한 유지하고
+domi 연구 네트워크 구조만 최소 수정으로 이식하는 것이었다.
+이후 좌우 IO와 phase는 domi 원본을 맞추라는 요구가 있어 v2를 만들었다.
+그때 네 모델 모두 domi phase와 반사 정규화를 사용했다.
+따라서 v2 MLP를 '완전 vanilla MLP'라고 설명하면 부정확하다.
+현재 새 실험은 기본 정규화/기본 phase로 vanilla에 가깝게 되돌린 별도 기준이다.
+
+과거 .isaacgym/holosoma 에서 작업하여 VS Code/Git에서 변경이 안 보였던 것에
+사용자가 크게 불만을 표시했고, 루트로 작업을 옮기라고 지시했다.
+앞으로 로컬 checkout의 루트 src/holosoma/holosoma 및 scripts/에서 작업하라.
+숨은 과거 checkout을 새 활성 개발 위치로 쓰지 마라.
+
+======================================================================
+2. Git 기준과 로컬 코드 수령
+======================================================================
+
+작성 중 직접 확인한 루트 Git:
+  branch=exp-g1-training.
+  HEAD=4f27c00587deed72a6990f33aa483d8f0ba497e5.
+  commit 제목=sync: add custom holdout and bilateral scripts.
+  upstream remote=origin.
+  upstream merge ref=refs/heads/exp-g1-training.
+  직전 commit=b739a6c.
+  직전 제목=Re-render sensors and notify terms after env state is overwritten (#237).
+
+과거 문서의 '연구 코드는 아직 untracked/커밋하지 않았다'는 기록은 현재 기준이 아니다.
+작성 시점에는 새 연구 코드가 4f27c00에 들어가 있다.
+실제 tracked 확인:
+  scripts/run_vanilla_mlp_30k.py
+  scripts/check_vanilla_mlp_30k.py
+  scripts/evaluate_command_holdout.py
+  src/holosoma/holosoma/agents/fast_sac/command_audit.py
+  src/holosoma/holosoma/agents/modules/bilateral/normalization.py
+  HOLOSOMA_RESUME_PROMPT.md
+
+이 TXT 작성 직전 git status --short 결과는 다음 하나였다.
+   m .isaacgym/holosoma
+이는 보존된 중첩 repo/gitlink의 dirty 상태다.
+해당 gitlink는 mode160000 / commit59d5e61d63588ae1677eb4e64f742c9354977838였다.
+강제 submodule update/reset/clean으로 내부 과거 변경을 지우지 마라.
+이 새 인계 TXT 자체는 이번 작업에서 만든 파일이며 자동 commit/push하지 않았다.
+
+원격에 최신 commit이 실제 push됐는지는 이 문서 작성에서 네트워크로 재검증하지 않았다.
+로컬 fetch 후 4f27c00 및 위 파일들이 존재하는지 확인하라.
+원격에 없으면 서버의 연구 브랜치를 먼저 동기화해야 한다.
+공식 upstream Holosoma만 clone하고 연구 코드가 없다고 임의로 다시 만들지 마라.
+
+로컬 초기 확인 예:
+  git clone --branch exp-g1-training <사용자의_원격_저장소_URL> holosoma
+  cd holosoma
+  git status --short
+  git log -3 --oneline
+  git branch -vv
+  git ls-files scripts/run_vanilla_mlp_30k.py
+
+로컬 경로는 서버 절대경로와 다를 수 있다. 이 문서의 소스 경로는 저장소 루트 기준이다.
+서버 절대경로를 로컬 코드에 하드코딩하지 마라.
+logs/의 .pt, 이벤트, 동영상, CSV/JSON, prepared YAML은 소스와 별개다.
+실제로 logs/bilateral_queue/vanilla_mlp_30k_prepared_config.yaml 은 tracked가 아니었다.
+로컬 clone에 결과 파일이 없어도 서버 학습이 없었던 것이 아니다.
+
+======================================================================
+3. 연구 가설과 네 모델
+======================================================================
+
+모든 비교의 학습 알고리즘은 FastSAC이다.
+  biHAM: BilateralMAGNet, 구조적 좌우 대칭, augmentation OFF.
+  sym_aug_HAM: HAMNet/MultiRange, augmentation ON.
+  HAM: HAMNet/MultiRange, augmentation OFF.
+  MLP: Holosoma native FastSAC MLP, augmentation OFF.
+
+원하는 가설:
+  같은 오른쪽 command holdout에서 biHAM이 왼쪽 학습을 오른쪽 추종으로 연결해
+  일반 HAM/MLP보다 좋은 미학습 방향 일반화를 줄 것인가?
+  sym-aug HAM은 반사 합성 학습을 사용하는 비교 조건이다.
+
+기존 v2에서는 MLP도 오른쪽을 잘했고 일부 오른쪽 지표가 biHAM보다 좋았다.
+biHAM은 학습한 왼쪽도 추종 오차가 컸다.
+'biHAM만 성공하고 MLP는 거의 반드시 즉시 넘어져야 한다'는 전제는 성립하지 않는다.
+MLP가 미학습 명령에 외삽하는 것은 가능하지만 보장되지는 않는다.
+
+우선 감사할 내용:
+  1) 물리 command vy<0 유입 여부.
+  2) augmentation으로 합성된 오른쪽 명령을 학습했는지.
+  3) normalization/phase가 vanilla 조건을 바꿨는지.
+  4) 오른쪽 명령을 바꿨을 때 실제 속도도 바뀌는지, 단순 drift인지.
+  5) 학습한 왼쪽 성능과 미학습 오른쪽 성능의 차이.
+  6) yaw/외란/초기 속도/탐색의 실제 움직임과 명령 유입의 구분.
+
+가능한 설명이지만 미확인인 것:
+  목표 vy=0인데 몸이 왼쪽으로 흐르면 오른쪽 보정을 배울 수 있다.
+  MLP가 목표속도-현재속도에 따른 제어 관계를 익혀 음수 목표까지 외삽할 수 있다.
+  이 설명이 실제 run의 원인임을 실험으로 입증한 것은 아니다.
+  같은 초기 상태에서 vy=0/-0.3/-0.6만 바꾸는 평가 등으로 확인할 여지는 있다.
+  추가 연구를 이미 수행했다고 말하거나, 새 학습을 임의로 실행하지 마라.
+
+현재 30k의 질문:
+  'domi phase/반사 정규화 없이 기본 Holosoma MLP도 오른쪽을 따라가는가?'
+이는 정규화 하나만 바꾼 엄밀한 A/B가 아니다.
+v2와 phase, IsaacGym→IsaacSim, compile, 학습 길이10k→30k도 달라졌다.
+결과 차이를 정규화 하나의 인과 효과로 결론 내리면 안 된다.
+
+
+======================================================================
+4. 명령 제한의 정확한 구현
+======================================================================
+
+현재 '왼쪽만'은 오른쪽 제외(no-right)라는 의미로 사용 중이다.
+선속도는 앞/뒤/왼쪽 세 방향이며 왼쪽 횡이동만 있는 것은 아니다.
+  body +vx=전진 / -vx=후진.
+  body +vy=왼쪽 / -vy=오른쪽.
+  +yaw=반시계 회전 / -yaw=시계 회전.
+
+파일:
+  src/holosoma/holosoma/managers/command/terms/three_direction.py
+함수:
+  ThreeDirectionCommand._resample(env_ids)
+
+실제 핵심:
+  super()._resample(env_ids)
+  speeds = self.commands[env_ids, :2].abs()
+  direction = torch.randint(3, (env_ids.numel(),), device=self.env.device)
+  self.commands[env_ids, 0] = torch.where(
+      direction == 0, speeds[:, 0],
+      torch.where(direction == 1, -speeds[:, 0], 0.0))
+  self.commands[env_ids, 1] = torch.where(direction == 2, speeds[:, 1], 0.0)
+
+부모는 vx/vy/yaw와 standing 처리를 샘플링한다.
+subclass가 반환 전에 최종 vx/vy를 덮어쓰고 yaw는 그대로 둔다.
+부모가 잠깐 만든 음수 vy는 최종 actor 입력 명령이 아니다.
+YAML의 lin_vel_y=[-1,1]만 보고 오른쪽을 학습했다고 결론 내리지 마라.
+
+재샘플링 사건 기준 이론 비율:
+  정지20%.
+  이동80%를 앞/뒤/왼쪽 각1/3로 분배: 전체 중 각 약26.67%.
+  오른쪽0%.
+속력 범위는 기본 샘플의 절댓값이므로 0~1m/s.
+이동 yaw는 [-1,1] rad/s이며 정지로 선택되면 vx/vy/yaw 모두0이다.
+명령 재샘플링 시간은 기본10초다.
+실제 정책 입력의 누적 방향 비율은 명령 유지시간/리셋/episode 길이에 의해 달라질 수 있다.
+
+생명주기:
+  managers/command/terms/locomotion.py:
+    LocomotionCommand.setup/reset/step/_resample
+  managers/command/manager.py:
+    CommandManager._register_class_term 등
+setup에서 만든 subclass instance를 reset/step에서도 재사용한다.
+reset/step config에 부모 클래스 경로가 보인다고 sampler가 부모로 교체되는 것이 아니다.
+CPU 검사에서 reset과 주기적 resample 모두 no-right임을 확인했다.
+
+문자 그대로 왼쪽 횡이동만 주는 선택지도 준비돼 있다.
+  --command-mode left-only
+  exp:g1-29dof-mlp-left-only-vanilla-fast-sac-30k
+  native sampler, vx=[0,0], vy=[0,1], yaw=[-1,1], standing20%.
+현재 GPU2 run은 이 옵션이 아니라 기본 no-right다.
+
+중요한 구분:
+  오른쪽 목표 명령 미경험 != 실제 오른쪽 움직임 미경험.
+SAC 탐색, 균형 회복, 관성, push, 초기 속도 등으로 actual body vy<0은 가능하다.
+yaw에 의해 world-frame 방향이 달라지는 것도 body vy 목표 부호와 별개다.
+실제 신체가 절대로 오른쪽으로 가지 못하도록 하려면 상태 제약/환경 개입이 필요하고,
+이는 현재 command holdout과 다른 MDP 실험이다.
+
+sym-aug HAM은 환경 sampler가 no-right여도 반사된 오른쪽 명령과 액션을
+합성 학습하므로 일반 MLP/biHAM의 command holdout과 정보 노출이 다르다.
+
+======================================================================
+5. 서버 환경과 활성 소스
+======================================================================
+
+서버 호스트: /home/ycho/holosoma
+Holosoma Docker: ycho-holosoma
+Docker bind: /workspace/holosoma
+활성 코드: 이 루트의 src/holosoma/holosoma 및 scripts/.
+
+서버 환경 진입:
+  docker exec -it -w /workspace/holosoma ycho-holosoma bash
+  source scripts/source_isaacsim_setup.sh
+
+conda=hssim / Python3.11로 확인된 환경.
+설정 계열은 IsaacSim5.1.0 / IsaacLab2.3.2.
+실제 torch 세부 버전은 필요하면 활성화 후 확인하라. 추정해서 쓰지 마라.
+Python 경로만 직접 부르면 PATH/PYTHONPATH/LD_LIBRARY_PATH가 빠질 수 있다.
+source 없이 실행해 'torch가 없다'고 오판했던 과거가 있으므로 반복하지 마라.
+패키지 선언 requires-python은 src/holosoma/pyproject.toml의 >=3.10이다.
+
+서버 hssim에 연구 의존성 opt_einsum3.4.0/icecream2.2.0을 설치했던 기록이 있고,
+pyproject에는 opt-einsum>=3.3.0, icecream>=2.1.3을 추가했다.
+이들은 네트워크 이식 지원 의존성이지 보상/정책 학습 규칙 변경이 아니다.
+
+과거 보존용 환경:
+  .isaacgym/holosoma / 공식 과거 commit59d5e61 계열.
+  IsaacGym Preview4 / conda=hsgym / Python3.8 / Torch2.4.1 계열.
+이전 4모델 v2 결과는 이 환경에서 나온 것이다.
+지금 새 실행을 IsaacGym으로 바꾸지 마라.
+사용자는 앞으로 IsaacSim+FastSAC를 쓰라고 명시적으로 지시했다.
+
+로컬 OS/GPU/Isaac 설치 상태는 아직 모른다.
+로컬에 서버 Docker와 domi 원본 컨테이너가 있다고 가정하지 마라.
+로컬은 소스 편집과 가능한 CPU 검사, 실제 시뮬레이션 학습은 서버 담당이다.
+
+마이그레이션 백업:
+  .migration_backups/isaacsim_root_20261029_203733/manifest.json
+과거 root 파일, 과거 checkout, 기존 결과는 보존한다.
+
+======================================================================
+6. domi 원본: 무엇을 어디에서 가져왔는가
+======================================================================
+
+연구 원본은 서버의 별도 Docker에 있다.
+  컨테이너: 147-sejune-domi-isaac-lab
+  내부 repo: /home/user/domi-alps
+  대응 서버 호스트 경로: /home/sejune/domi-alps
+호스트 ycho 계정에서는 권한 문제로 직접 읽지 못해 Docker를 통해 읽었다.
+과거 명령에 있던 /input/domi/... 는 이 컨테이너의 현재 실제 경로가 아니다.
+원본 연구 repo 자체는 수정하지 않았다.
+
+원본 학습 진입점:
+  source/standalone/workflows/imm/train_ma_v2.py
+원본 task 계열:
+  loco_NEW_DEFAULTS / seed43 / 4096env / headless.
+원본은 PPO/연구 훈련 파이프라인이지만 여기서는 네트워크/IO를 FastSAC에 이식했다.
+원본 연구 전체의 reward, curriculum, termination, DAgger, optimizer를 복제한 것이 아니다.
+
+biHAM 네트워크 YAML:
+  source/domi/src/domi/cfg/net/sym_ma_v7_bilateral_modular_nobase.yaml
+HAM 네트워크 YAML:
+  source/domi/src/domi/cfg/net/ham_sa_from_ma_v4_abl_preact.yaml
+관련 원본 cfg:
+  source/domi/src/domi/cfg/env/ma_v3.yaml
+  source/domi/src/domi/cfg/dagger/dagger_v0.yaml
+
+가져온 주요 구현과 역할:
+  source/domi/src/domi/nn/bilateral_magnet.py
+    BilateralMAGNet / BilateralModularLinear, 원본 좌우 bank 구조.
+  source/domi/src/domi/nn/range_layers.py
+    MAGNet router, MultiRange/HAM executor, 초기화 helper.
+  source/domi/src/domi/nn/layers.py
+    MLP/normalization layer/symmetric parametrization/SplitDim 등 네트워크 구성 요소.
+  source/domi/src/domi/util/export_compat.py
+    원본 export 지원 코드.
+  source/domi/src/domi/net/td/bilateral_magnet.py
+    BilateralMAGNetMA 원본 wrapper. wrapper 전체를 그대로 실행하는 것은 아니다.
+  source/domi/src/domi/net/td/generic.py
+    WrapActorCritic 참조. 원래 CompositeDistribution/value 구조와 Holosoma SAC는 다르다.
+  source/domi/src/domi/env/loco_action_mapping.py
+    좌우/shared joint action mapping.
+  source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/g1_art/config/loco_env_cfg.py
+    joint mirror sign, 좌우 관측/액션, phase_zero_stand 등.
+  source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/g1_art/mdp/phase_command.py
+    원본 phase clock.
+  source/isaaclab/isaaclab/utils/string.py
+    joint 이름 matching helper.
+
+관련 요청 옵션:
+  bilateral_io=false / lean_obs=false / contralateral_arms=false.
+  compose_mode=feature / feature_bias_scale=0.5.
+  checkpoint_layers=true / use_fast=false.
+  phase_zero=true / contact_phase_reset=false.
+구조 옵션의 출처를 설명하는 것이며 원본 긴 실행 명령 전체의 재현을 뜻하지 않는다.
+과거 긴 명령/요청 원문이 필요하면 HOLOSOMA_RESUME_PROMPT.md의 역사 부록도 확인하라.
+
+======================================================================
+7. 저장소 안의 원본 보존 파일과 추가 구현 구분
+======================================================================
+
+복사/추출된 원본은 다음 폴더에 보존돼 있다.
+  src/holosoma/holosoma/agents/modules/bilateral/original/
+
+주요 파일:
+  bilateral_magnet.py
+  range_layers.py
+  layers.py
+  export_compat.py
+  loco_io.py
+  joint_layout.py
+  loco_action_mapping.py
+  isaac_strings.py
+  network.yaml
+  provenance.json
+  ham_range_layers.py
+  ham_magnet_v2_reference.py
+  ham_sa_from_ma_v4_abl_preact.yaml
+  ham_provenance.json
+  phase_clock.py
+  fast_sac_updates.py
+
+파일 이름이 original/에 있다는 이유로 모두 domi 파일 통째 복붙이라고 가정하지 마라.
+정확한 source/copied_definitions/SHA256는 provenance.json과 ham_provenance.json을 보라.
+특히 fast_sac_updates.py는 공유 router 갱신 hook을 넣은 SAC update 보존/지원 코드다.
+phase_clock.py는 원본 clock 메서드들을 추출하고 생성자/lifecycle을 bridge했다.
+서버의 거대한 원본 repo 전체 없이 로컬에서 필요한 연구 소스를 읽도록 보존한 것이다.
+
+대표 출처 SHA256:
+  domi nn/bilateral_magnet.py:
+    13df98735570c3de6dfbb8b3de30b9a55534145df8a8420caa2fc9fb9bb1edc5
+  domi nn/range_layers.py:
+    932f4c000557fa03ed5b406af6604917586076889dfdb9b26d27fcc711876bda
+  domi nn/layers.py:
+    c32497cdb0378a9e94317576d065cef1f9d1017d01bd902d8391d5a0acf34d34
+  원본 phase_command.py:
+    c8f6ed6341fce471a80e323aca2299883e85700a9dae29c4156795464af6cfff
+
+Holosoma용 추가 구현:
+  agents/modules/bilateral/adapter.py
+  agents/modules/bilateral/fast_sac_adapter.py
+  agents/modules/bilateral/ham_adapter.py
+  agents/modules/bilateral/normalization.py
+  agents/fast_sac/bilateral_fast_sac.py
+  agents/fast_sac/ham_fast_sac.py
+  agents/fast_sac/command_audit.py
+  managers/command/terms/three_direction.py
+  managers/command/terms/domi_gait.py
+  config_types/algo.py의 opt-in 필드들
+  config_values/loco/g1/experiment.py와 config_values/experiment.py의 preset들
+  scripts/의 학습/평가/플롯/감사 실행기들
+위 상대 경로 중 agents/managers/config_* 앞에는 src/holosoma/holosoma/를 붙인다.
+
+특히 normalization.py의 ReflectionNormalization은 domi에서 복붙한 파일이 아니다.
+Holosoma EmpiricalNormalization을 상속하고 대칭 통계 projection을 추가한 커스텀 구현이다.
+DomiSymmetry도 domi phase 반사 규칙을 Holosoma 유틸에 연결한 adapter다.
+'domi 이름이 붙었으니 원본 정규화 재현'이라는 설명을 하지 마라.
+
+======================================================================
+8. FastSAC 네트워크 연결 방식과 보존한 부분
+======================================================================
+
+기본 native 경로:
+  agents/fast_sac/fast_sac_agent.py : FastSACAgent.
+  agents/fast_sac/fast_sac.py : Actor, Critic, DistributionalQNetwork.
+  agents/fast_sac/fast_sac_utils.py : replay/정규화/checkpoint 지원.
+
+현재 MLP의 Actor:
+  입력 → Linear512 → LayerNorm → SiLU
+       → Linear256 → LayerNorm → SiLU
+       → Linear128 → LayerNorm → SiLU
+       → mean/log_std heads.
+  native head의 초기값은0.
+Critic hidden width는768, 독립 Q 2개, categorical atoms101.
+지원 범위 v_min=-20, v_max=20.
+SAC의 tanh, action scaling/bias, log_std bounds, Gaussian sampling,
+entropy/alpha, reward, categorical projection 등은 native 경로를 유지한다.
+Actor.forward는 deterministic mean action을 반환하고 explore는 학습 시 샘플링한다.
+
+biHAM preset은 _target_을 BilateralFastSAC로 바꾸고,
+기본 Actor/Critic의 feature 구현을 BilateralMAGNet bank로 감싼다.
+  fast_sac_adapter.py:
+    BilateralBank / ActorFeatures / BilateralSACActor.
+    BilateralQ / BilateralSACCritic / build_bilateral_sac.
+  bilateral_fast_sac.py:
+    BilateralFastSAC.setup, shared router optimizer 및 update 관리.
+
+biHAM 기본 구조:
+  subnet hidden=(192,384,192).
+  router hidden=(256,256,128).
+  num_module=4 / gate_sizes=8.
+  share_ab_modules=False / use_sym_param=True.
+  feature_bias_scale=.5 / compose_mode=feature.
+  checkpoint_layers=True / use_fast=False.
+  weight_recenter=False.
+원본 YAML의 weight_recenter=True와 달리, 이식에서는 추가 갱신을 피하려고 False다.
+이 차이를 숨기거나 원본 학습 전체를 재현했다고 말하지 마라.
+
+Actor와 online Q 두 bank는 router를 공유한다.
+Actor 전용 파라미터, Q 전용 파라미터, router 파라미터의 optimizer를 분리한다.
+공유 router를 actor_optimizer와 q_optimizer 양쪽에서 중복 step하지 않는다.
+gradient를 모아 _finish_update에서 router를 한 번 갱신한다.
+target Q/router는 deepcopy로 분리된다.
+actor update 시 Q parameter를 temporarily freeze하여 입력 action gradient는 유지한다.
+과거 Torch2.4 functional_call이 shared router alias를 교체하는 문제를 피한 구현이다.
+
+Critic은 privileged critic observation에 actor observation의 router context를 붙인다.
+candidate physical action을 side action view로 변환하여 Q에 사용한다.
+biHAM Q는 좌우 categorical logits를 평균한다.
+
+HAM:
+  ham_adapter.py / ham_fast_sac.py.
+  원본 MultiRange/HAM executor와 full left/right concat 입력을 사용.
+  hidden=(384,576,384), use_sym_param=False, checkpoint_layers=False.
+  네트워크에 biHAM의 좌우 parameter tying을 강제로 적용하지 않는다.
+  공유 router 갱신 방식은 같은 계열을 사용한다.
+  HAM Q 출력은 native categorical projection과 맞게 float32로 취급한다.
+
+======================================================================
+9. 좌우 IO와 물리 action mapping의 한계
+======================================================================
+
+adapter.py의 BilateralPolicy/ObservationView가 ObservationManager layout에서
+이름 기반으로 관측을 나누고 joint indices/signs를 구성한다.
+현재 지원은 history_length=1이며 지원하지 않는 구조는 fail-fast한다.
+로봇 joint 순서를 추정하거나 하드코딩한 숫자로 무작정 맞추지 마라.
+
+한쪽 side output:
+  waist3 + own leg6 + own arm7 =16.
+좌우 합계32를 Holosoma의 물리29 action으로 매핑한다.
+팔다리는 해당 side, shared waist는 물리 좌표로 변환한 양쪽 값을 평균한다.
+원본 joint resolver와 mirror sign을 사용한다.
+SAC의 실제 action scale/distribution은 Holosoma 방식이다.
+
+중요한 불일치:
+  원본 domi의 pre-merge side action history는32차원이다.
+  Holosoma last_action은 merge된 physical29차원이다.
+  waist를 복제해 side view를 구성할 수 있지만 원래 독립 waist 두 출력은 복원할 수 없다.
+hidden history나 action space를 임의로 추가해 이 문제를 숨기지 않았다.
+또한 domi absolute joint position과 Holosoma default-relative joint position은
+관측 의미 차이가 남아 있다. 기본적으로 Holosoma 의미를 유지했다.
+원본 연구 MDP 전체와 동일하다는 주장은 금지한다.
+
+
+======================================================================
+10. 세 가지 정규화 선택과 ReflectionNormalization의 정확한 원리
+======================================================================
+
+혼동하지 말아야 할 세 가지:
+  EmpiricalNormalization: 기본 관측 정규화.
+  ReflectionNormalization: 여기서 추가한 반사 호환 관측 정규화.
+  LayerNorm: 네트워크 hidden layer 내부 정규화. 위 두 가지와 별개다.
+
+기본 EmpiricalNormalization:
+  agents/fast_sac/fast_sac_utils.py
+  forward(x) = (x - mean) / (std + eps).
+  기본 eps=1e-2.
+  학습 중 각 채널의 running mean/variance를 갱신한다.
+  eval에서 저장된 mean/std를 사용하고 update=False로 고정한다.
+
+물리 command vy와 normalized_vy의 부호는 다른 의미다.
+예: 평균0.3, 표준편차0.2라면(설명용, eps 생략):
+  실제 +0.6 → normalized +1.5
+  실제  0.0 → normalized -1.5
+  실제 -0.6 → normalized -4.5
+정규화된 음수는 '평균보다 작다'는 뜻이다.
+'MLP가 음수 숫자를 전혀 못 봤다'는 말은 부정확하다.
+정확한 가설은 '물리적인 vy<0 목표 명령을 받지 않았다'다.
+
+현재 run의 실제 CSV 예:
+  step13 / env0 / raw vy=0 / manager_vy=0 / normalized_vy≈-0.46494594.
+이는 정상적인 기존 empirical 정규화이며 오른쪽 목표 명령 유입의 증거가 아니다.
+오른쪽 유입 여부는 정규화 전 physical command를 검사하는 감사 카운터로 판단하라.
+actual body_vy가 음수인 것 역시 목표 command 부호와 별개다.
+
+반사 정규화의 목표:
+  M=좌우 반사, N=정규화라고 할 때 N(Mx)=M(Nx)를 만족시키는 것.
+부호 반전 odd 채널의 평균을0으로 만들고,
+좌우 교환 채널의 평균/분산을 해당 mirror sign/permutation에 맞춰 묶는다.
+이것이 biHAM 네트워크 앞단의 전처리가 구조적 equivariance를 깨지 않게 한다.
+
+파일:
+  agents/modules/bilateral/normalization.py
+클래스:
+  ReflectionNormalization(EmpiricalNormalization)
+  DomiSymmetry(SymmetryUtils)
+
+ReflectionNormalization.update(x) 실제 순서:
+  1) super().update(x)로 Holosoma 기본 통계 갱신.
+  2) reflected_mean = mean[:, mirror_indices] * mirror_signs.
+  3) new_mean = 0.5*(mean + reflected_mean).
+  4) new_var = 0.5*(var + var[:, mirror_indices])
+               + 0.25*(mean - reflected_mean)^2.
+  5) mean/var/std 버퍼를 갱신한다.
+분산은 부호를 곱하지 않고 인덱스만 교환한다.
+constructor는 실제 mirror 함수를 이용해 permutation/sign을 추출하고 involution을 검사한다.
+
+vy처럼 자기 자신이 부호 반전되는 채널:
+  new_mean=0.
+  new_var=old_var+old_mean^2.
+예: 보정 직전 평균0.3/표준편차0.2라면 보정 후 평균0,
+표준편차sqrt(0.04+0.09)≈0.3606이다.
+이 예는 특정 실제 run 통계가 아니라 수식 설명이다.
+
+반사 정규화는 오른쪽 transition을 replay에 추가하지 않는다.
+MLP의 출력 자체를 좌우 대칭으로 강제하지도 않는다.
+MLP는 입력 좌표 변환을 첫 affine layer에서 흡수할 수 있으므로 표현력보다
+최적화/implicit bias/수치 조건이 달라지는 문제다.
+정규화가 일반화에 영향을 줄 가능성은 있지만 MLP에서 어느 쪽이 낫다는 결과는 없다.
+biHAM에서는 정책의 좌우 대칭을 전처리까지 보존하는 구조적 근거가 강하다.
+이 두 판단을 혼동하거나 MLP가 잘한 원인을 반사 정규화로 확정하지 마라.
+
+======================================================================
+11. domi 원본은 관측 정규화를 어떻게 하는가
+======================================================================
+
+2026-10-30 서버 domi 원본을 직접 읽어 확인한 내용이다.
+원본에 이 저장소의 ReflectionNormalization 파일이 그대로 있는 것은 아니다.
+
+domi 원본:
+  source/domi/src/domi/rl/normalize.py
+    NormalizeObservation: 약35행부터.
+    TensorDict 항목별 RunningMeanStd로 정규화.
+    기본 eps=1e-6.
+    TensorDict 경로는 (x-mean)/sqrt(var+eps)를 사용한다.
+  source/domi/src/domi/rl/running_mean_std.py
+    RunningMeanStd / update_from_moments.
+  source/standalone/workflows/imm/train_ma_v2.py
+    SHARE=True 선언: 약193행.
+    좌우 observation normalizer 공유: 약2385~2398행.
+  source/.../g1_art/config/loco_env_cfg.py
+    _mirror_vel_cmd: vy와 yaw 부호 반전.
+    make_obs_cfg(...,mirror=True): 관측에 mirror modifier 적용.
+    약2956~2957행:
+      left  = make_obs_cfg('left', False, ...)
+      right = make_obs_cfg('right', True, ...)
+
+원본 학습 경로에서는 좌우 canonical view를 먼저 만들고 정규화한다.
+  physical state
+    → left view / mirrored right view
+    → 공유된 RunningMeanStd로 정규화
+    → 네트워크
+
+통계 공유 실제 핵심:
+  obs_rms[k_dst] = obs_rms[k_src]
+같은 값을 복사하는 것이 아니라 같은 RMS 객체를 참조하게 한다.
+예를 들어 실제 vy 목표가+0.5이면 한 view의 command는+0.5,
+반사된 다른 view의 command는-0.5이며 두 표현이 공유 통계에 기여한다.
+이는 물리 환경에 오른쪽 목표를 내보냈다는 뜻은 아니다.
+
+여기 Holosoma의 경로:
+  physical observation
+    → EmpiricalNormalization 기본 갱신
+    → 평균/분산을 수식으로 반사 대칭 projection
+    → 정규화된 observation
+    → 필요하면 biHAM/HAM adapter의 side view
+MLP에서는 adapter 없이 정규화된 기존 관측이 native MLP로 들어간다.
+
+목표는 비슷하지만 수집 단위/갱신 수식/eps/IO 구조가 다르다.
+domi의 공유 RMS를 통째로 복사한 것도 아니고,
+두 전체 파이프라인의 통계/학습 동등성을 검증한 것도 아니다.
+중간 관측 잡음, count 처리, 업데이트 순서까지 완전히 같다고 주장하지 마라.
+이 설계 차이는 현재 연구의 중요한 감사 항목이다.
+
+======================================================================
+12. 이미 확인한 기본 분산 갱신 오류와 기타 미확인 지점
+======================================================================
+
+별도의 확인된 문제:
+  agents/fast_sac/fast_sac_utils.py
+  EmpiricalNormalization.update()
+
+현재 기본 코드는 mean을 갱신한 후:
+  delta2 = batch_mean - updated_mean
+  M2 = old_var*old_count + batch_var*batch_count
+       + delta2^2 * old_count*batch_count/new_count
+를 사용한다.
+올바른 분산 병합 correction은 갱신 전 평균 차이:
+  delta = batch_mean - old_mean
+의 delta^2를 써야 한다.
+
+실제 CPU 예:
+  먼저 [0,0], 다음 [2,2]를 update하면 전체 평균1/분산1이어야 한다.
+  기존 코드에서 평균1/분산0.25가 나오는 것을 확인했다.
+Git의 공식 기반 commit b739a6c에도 같은 수식이 있었음을 확인했다.
+이 오류를 연구 네트워크 이식에서 새로 만든 것이라고 설명하지 마라.
+ReflectionNormalization도 부모 update를 먼저 호출하므로 이 오류를 상속한다.
+domi RunningMeanStd.update_from_moments는 갱신 전 delta^2를 사용한다.
+
+현재 30k baseline에서는 사용자 요구대로 기존 Holosoma 정규화를 유지하기 위해
+이 부모 수식을 수정하지 않았다.
+이것은 기존 구현과 동일한 기준을 확보하려는 선택이다.
+오류의 모델별 성능 영향이나 오른쪽 순위에 대한 인과 효과는 입증하지 않았다.
+수정본은 새 preset/version/출력으로 분리하고, 현재 run에 소급 혼합하지 마라.
+로컬 Codex가 이를 발견했다고 바로 실행 중인 서버 코드를 hot-fix하지 마라.
+
+그 외 코드에서 볼 수 있으나 이 대화에서 원인으로 확정하지 않은 검토 지점:
+  FastSACAgent.get_example_obs()는 ONNX export용으로 env.reset_all()을 호출한다.
+  학습 loop의 local obs가 export 뒤 새 env 상태와 일치하는지 추가 감사할 여지가 있다.
+  이것을 오른쪽 command leakage로 확정하지 마라.
+  현재 native 동작을 바꾸거나 기존 결과를 무효라고 선언한 상태가 아니다.
+
+과거 수정한 문제와 현재 남은 문제를 혼동하지 마라.
+v2에서 수정한 정규화-반사 비호환 문제와 위 분산 병합 오류는 서로 다른 문제다.
+'정규화 문제 해결한 v2'라는 말은 모든 정규화 문제가 사라졌다는 뜻이 아니다.
+
+======================================================================
+13. 기본 phase와 domi phase의 실제 차이
+======================================================================
+
+기본 구현:
+  managers/command/terms/locomotion.py : LocomotionGait.
+  managers/observation/terms/locomotion.py : sin_phase, cos_phase.
+  config_values/loco/g1/command.py : gait_period=1.0, randomization_width=.2.
+
+기본 LocomotionGait는 left/right 두 phase 버퍼를 관리한다.
+두 다리는 반 주기 차이다.
+실제 관측은 sin(각 다리 phase), cos(각 다리 phase)로 총4채널이다.
+이동 중 sin=[s,-s], cos=[c,-c] 구조다.
+
+domi 구현:
+  managers/command/terms/domi_gait.py : DomiGait, sin_phase, cos_phase.
+  agents/modules/bilateral/original/phase_clock.py : DomiPhaseClock.
+원본 단일 clock의 [sin(2πphase),cos(2πphase)]를 각 다리 표현으로 bridge한다.
+이동 중 관측의 좌우 부호 구조는 기본 Holosoma와 같다.
+'domi로 바꿔야 처음으로 대칭 phase가 생긴다'고 말하지 마라.
+
+달라진 점:
+  [학습 중 샘플링]
+    기본: 주파수 U[0.8,1.2]Hz. 주기가 U[0.8,1.2]초인 것이 아니다.
+    domi: 주기 U[0.9,1.1]초.
+  [명령 재샘플링]
+    기본: 주파수 변경.
+    domi: 주기와 시작 phase offset 변경.
+  [정지 입력]
+    기본: phase가 양발 π여서 sin≈[0,0], cos=[-1,-1].
+    domi: phase_zero_stand 인코딩으로 sin/cos 모두0.
+  [평가 모드]
+    기본 term: 주파수1Hz 및 시작 phase 고정.
+    domi term: 별도 평가 고정 분기 없이 주기/offset을 랜덤 샘플링하는 구현.
+    평가 script가 무엇을 reset/복원하는지도 함께 확인할 것.
+  [접촉 리셋]
+    이식한 DomiPhaseClock는 contact_phase_reset=False만 지원.
+
+phase는 보행 박자/발 역할을 나타낸다.
+명령 vy가 양수인지 음수인지와 독립적으로 좌우 대칭에 관련된다.
+좌우를 반사하면 지지발/스윙발도 서로 바뀌어야 한다.
+교대 보행에서는 φ→φ+π이고 sin/cos 모두 부호 반전이 된다.
+기본처럼 다리별 채널을 쓰면 좌우 채널 swap으로 표현할 수 있다.
+현재 root augmentation_utils.py의 기본 phase 반사는 두 다리 채널 교환이다.
+DomiSymmetry는 domi 인코딩에 맞게 sin/cos 전체 부호를 반전한다.
+과거 archived 코드의 첫 채널만 반전하던 문제를 현재 root와 혼동하지 마라.
+
+단순 표기만 바뀐 것이 아니라 보행 속도 분포/정지 관측/초기화가 달라진다.
+MLP 자체가 domi phase를 필요로 하는 것은 아니다.
+기본 phase도 일관된 반사 규칙을 쓰면 대칭 설계가 가능하다.
+현재 vanilla 30k는 기본 phase를 유지한다.
+
+======================================================================
+14. normalization/phase/symmetry/compile 스위치
+======================================================================
+
+실제 정규화 선택:
+  obs_normalization=False → nn.Identity (정규화 없음).
+  obs_normalization=True, symmetry_compatible_io=False → 기존 EmpiricalNormalization.
+  obs_normalization=True, symmetry_compatible_io=True → ReflectionNormalization.
+
+CLI 예:
+  --algo.config.obs-normalization True
+  --algo.config.symmetry-compatible-io False
+
+결정 위치:
+  agents/fast_sac/fast_sac_agent.py : FastSACAgent.setup().
+  먼저 기존 normalizer 또는 Identity 생성.
+  symmetry_compatible_io=True 분기에서 DomiSymmetry를 만들고
+  Actor/Critic normalizer를 ReflectionNormalization으로 교체한다.
+
+현재 완전히 독립된 normalization_mode 단일 enum은 없다.
+symmetry_compatible_io는 정규화 선택과 phase 반사 유틸 선택을 겸한다.
+이를 False로 바꿔도 preset에서 이미 설정된 DomiGait/관측 함수는 원복되지 않는다.
+
+phase 구현은 별도 class/function으로 분리돼 있으나 독립 CLI toggle은 없다.
+config_values/loco/g1/experiment.py 의 _corrected_io(experiment)가:
+  1) locomotion_gait setup을 DomiGait로 교체.
+  2) 각 observation group의 sin_phase/cos_phase 함수를 domi 함수로 교체.
+  3) symmetry_compatible_io=True 지정.
+세 가지를 한꺼번에 수행한다.
+따라서 phase와 normalization을 완전히 독립적으로 ablation하는 캡슐화는 미완성이다.
+새로운 독립 스위치가 필요하면 기존 preset 해석을 보존하는 방식으로 구현하고 검증하라.
+이미 구현돼 있다고 말하지 마라.
+
+use_symmetry는 replay sample augmentation ON/OFF다.
+구조적 biHAM 대칭, 반사 정규화, phase 선택과 다른 옵션이다.
+sym-aug HAM만 True이며 현재 MLP는 False다.
+
+compile:
+  True: 정책/SAC update/정규화 forward를 torch.compile로 실행 최적화.
+  False: 일반 eager PyTorch 실행.
+네트워크 종류나 좌우 대칭을 켜는 옵션이 아니다.
+AMP/BF16도 별도 옵션이다. compile=False라고 자동 FP32가 되지 않는다.
+기존 v2의 네 모델은 당시 커스텀 compile/BF16 호환 문제 때문에 False로 통일했다.
+현재 native MLP 30k는 기본 True를 유지했고 실제 GPU2에서 학습이 진행됐다.
+root는 최신 compile_mode/compile_options/CUDA graph 지원을 보존한다.
+
+======================================================================
+15. 현재 30k preset: 무엇만 바뀌었는가
+======================================================================
+
+파일:
+  config_values/loco/g1/experiment.py
+  config_values/experiment.py (registry)
+기본 preset:
+  g1_29dof_fast_sac
+현재 preset:
+  g1_29dof_mlp_no_right_vanilla_fast_sac_30k
+CLI:
+  exp:g1-29dof-mlp-no-right-vanilla-fast-sac-30k
+
+기본 preset 대비 학습 조건 변경:
+  1) command sampler를 ThreeDirectionCommand로 교체.
+  2) use_symmetry=False.
+  3) num_learning_iterations=30000.
+그 외 compile=True, empirical/native phase, 네트워크/MDP 기본값은 유지한다.
+계측용 command_audit=True/csv_envs=1은 실행기 CLI에서 추가한다.
+seed/환경 수/로그 위치 등 실행 조건도 CLI로 명시한다.
+
+기본 FastSAC의 주요 값:
+  actor_hidden_dim=512 / critic_hidden_dim=768.
+  actor_lr=critic_lr=alpha_lr=3e-4.
+  buffer_size=1024 / batch_size=8192 / num_steps=1 / num_updates=8.
+  gamma=.97 / tau=.125 / learning_starts=10 / policy_frequency=4.
+  target_entropy_ratio=0 / alpha_init=.001 / use_autotune=True.
+  num_atoms=101 / v_min=-20 / v_max=20 / num_q_networks=2.
+  use_tanh=True / log_std_min=-5 / log_std_max=0.
+  obs_normalization=True / use_layer_norm=True.
+  amp=True / amp_dtype=bf16 / weight_decay=.001.
+  save_interval=1000 / logging_interval=100.
+정확한 최신 정의는 config_values/algo.py와 저장된 YAML을 우선하라.
+
+MLP의 _target_은 native FastSACAgent, bilateral=None이다.
+현재 MLP에 HAM/bilateral router나 mirrored replay가 숨어 있는 것으로 단정하지 마라.
+CPU 검사에서 dataclass 전체를 기본 preset과 비교해 의도한 차이만 있는지 확인했다.
+이 말은 저장소의 모든 코드가 공식 upstream과 바이트 단위로 같다는 뜻은 아니다.
+기존 FastSACAgent에 opt-in hook/계측이 있으므로 실제 활성 분기와 소스를 함께 확인하라.
+
+
+======================================================================
+16. 현재 실행기, 로그, 실제 명령 감사
+======================================================================
+
+핵심 실행기:
+  scripts/run_vanilla_mlp_30k.py
+기본 호출은 계획만 출력하고 --execute가 있어야 GPU 작업을 시작한다.
+현재 실제 사용한 명령(역사 기록이며 다시 실행하라는 뜻이 아님):
+  source scripts/source_isaacsim_setup.sh
+  python scripts/run_vanilla_mlp_30k.py --gpu 2 \
+    --output logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2 --execute
+
+실행기는 run 폴더가 있으면 학습을 덮어쓰지 않는다.
+이후 평가만 재개하는 명령은 --stage evaluate를 명시한다.
+  python scripts/run_vanilla_mlp_30k.py --gpu 2 \
+    --output logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2 \
+    --stage evaluate --descending --execute
+--descending은 최종 checkpoint부터 평가하는 순서 옵션이다.
+모든 checkpoint를 평가한다는 프로토콜은 같고 학습을 재시작하지 않는다.
+진행 중인 평가가 있는지 먼저 확인하고 중복 실행하지 마라.
+
+run 루트:
+  plan.json / training_command.txt / status.json / training_terminal.log.
+  command_audit_status.json / command_audit_metadata.json.
+  commands_policy.csv / holosoma_config.yaml.
+일부는 실제 training 하위 파일로 연결되는 상대 symlink다.
+인접 파일:
+  logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2_supervisor.log
+내부 학습 폴더:
+  training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/
+여기에 모델, ONNX, 전체 config, 이벤트, 감사 source snapshot이 있다.
+model_0001000.pt ~ model_0030000.pt, 총30개.
+status.json은 phase 전환 때 갱신하므로 elapsed_seconds=0이 오래 남아도
+학습 정지의 증거는 아니다. 감사 last_step/실제 terminal/event를 함께 보라.
+
+감사 구현:
+  agents/fast_sac/command_audit.py : CommandAudit.
+  FastSACAgent의 정책 정규화 직전/직후 및 replay 준비 경로에서 호출한다.
+정책 입력 command는 observation의 실제 command 채널을 읽고 obs scale을 되돌린다.
+manager command, normalized command, 실제 body velocity도 별도로 기록한다.
+replay의 current/next observation은 augmentation 이후, 정규화 이전에 검사한다.
+
+주의:
+  command_audit_csv_envs=1은 CSV에 env0만 기록한다는 뜻이다.
+  음수 vy가 생긴 다른 env는 위반 사례로 CSV에 추가한다.
+  카운터/최소값/방향 비율은 모든4096env 및 모든 sampled replay를 검사한다.
+  replay 샘플 수는 재샘플링 중복이 포함되며 고유 transition 수가 아니다.
+  누적 비율은 정책이 소비한 입력 기준이고 resampling 사건 비율과 다르다.
+  strict 위반 검사는 raw vy<0이다. 방향 범주에는 작은 epsilon 기준도 사용한다.
+  음수 원본 command가 나타나면 증거를 flush하고 RuntimeError로 실패시킨다.
+  normalized_vy<0과 Motion/vy<0은 그 자체로 위반이 아니다.
+
+TensorBoard:
+  http://localhost:6006
+  run 검색: vanilla_mlp_30k_native_io_gpu2
+  CommandRatio/forward,backward,left,right,standing,other
+  Command/vx,vy,yaw
+  CommandNormalized/vx,vy,yaw
+  Motion/vx,vy,yaw
+  CommandAudit/negative_vy_total
+  CommandAudit/replay_negative_vy_total
+  CommandAudit/min_vy_so_far
+  Loss/* / Episode/* / Train/* / Perf/*
+
+Command/CommandNormalized/Motion scalar는 전체 env 평균이다.
+CSV의 개별 env 값과 동일한 의미로 읽지 마라.
+TensorBoard 본체는 Docker16006, 기존 proxy6006으로 접근한다.
+scripts/launch_tensorboard.py는 내장 plugin을 사용해 불필요한 Open3D 의존성을 피한다.
+로컬에서 서버 localhost에 접속하려면 기존 SSH 연결/포트포워딩을 사용하라.
+예: ssh -N -L 6006:localhost:6006 -L 8008:localhost:8008 <사용자>@<서버주소>
+서버 주소와 로컬 포트 충돌 여부는 확인하지 않았으므로 실제 환경에 맞춰라.
+
+======================================================================
+17. 평가 정의와 산출물
+======================================================================
+
+scripts/evaluate_command_holdout.py:
+  build_config / reset_trial / measure / worker / log_metrics_tensorboard.
+scripts/holdout_terrain.py:
+  flat nominal 평가 지면과 env origin 간격.
+scripts/plot_holdout_evaluation.py:
+  checkpoint별 오른쪽 RMSE/velocity/survival 플롯.
+
+현재 새 실험:
+  8방향 × 속력0.3/0.6 =16case + standing1 =17case.
+  case마다32trial, checkpoint마다544rollout.
+  30checkpoint면 총16,320rollout 예정.
+  seed20261029, 20초 rollout, 처음2초 warmup 제외.
+  yaw 목표0, 평지 nominal physics, DR/push/관측 noise OFF.
+  학습에서 저장한 actor와 empirical 통계 사용.
+  deterministic mean action, normalizer.eval(), update=False. 평가 중 학습 안 함.
+
+대각선의 전체 속력 norm이0.3/0.6이다. 각 축에0.3/0.6을 주는 것이 아니다.
+순수 오른쪽은 vx=0, vy=-0.3/-0.6이고 좌측은 양수 대응값이다.
+
+각 trial의 primary metric:
+  planar RMSE = sqrt(mean((vx-target_vx)^2 + (vy-target_vy)^2)).
+그 trial RMSE들을 평균해 mean_linear_rmse를 만든다.
+per-axis vx/vy RMSE와 yaw RMSE도 별도 기록한다.
+warmup 이후 실제 관측된 첫 episode만 집계한다.
+자동 reset 이전 velocity/termination을 capture하며 reset 이후 데이터를 섞지 않는다.
+실패 전에 짧게 관측된 조건부 RMSE가 낮을 수 있으므로 failure/survival/
+measured_steps를 함께 보고한다. 생존하지 못한 모델을 낮은 RMSE만으로 칭찬하지 마라.
+초기 root/DOF/actor obs, 평균 실제 속도, 시간 곡선도 저장한다.
+
+산출:
+  evaluation/manifest.json
+  evaluation/summary.csv 및 summary.json
+  evaluation/right_rmse_by_checkpoint.csv 및 .json
+  evaluation/videos/MLP/model_0030000/<case>/metrics.json
+  evaluation/plots/tracking_rmse.png, lateral_rmse.png, survival_duration.png
+  evaluation/plots/velocity_curves_*.png
+videos/라는 폴더명이어도 숫자 metrics만 있을 수 있다. 모든 영상 sweep을 돌리지 않는다.
+
+평가 TensorBoard run은 evaluation/tensorboard/MLP 아래 생성된다.
+  RMSE/<case>/planar_mps,vx_mps,vy_mps,yaw_radps
+  RMSE/right_mean_planar_mps / RMSE/right_mean_vy_mps
+  Evaluation/<case>/failure_rate,survival_rate,mean_survival_s
+가로축은 training checkpoint iteration이다.
+pure right 평균은 두 속력의 평균이다.
+오른쪽/오른쪽앞/오른쪽뒤를 묶은 '오른쪽계열 평균'과 혼동하지 마라.
+
+======================================================================
+18. 기존 완료 실험과 아직 실행하지 않은 준비 실험
+======================================================================
+
+기존 4모델 v2 canonical campaign:
+  logs/bilateral_queue/corrected_v2_20261029_0513
+  IsaacGym/hsgym, 각10k, 각1k~10k checkpoint10개, 총40개 평가 완료.
+  640case / 20,480rollout. 이 평가를 반복 실행하지 마라.
+  모든 모델이 domi phase + ReflectionNormalization을 공통 사용했다.
+  모든 모델 compile=False. sym_aug_HAM만 augmentation=True.
+
+10k planar RMSE(m/s), 각 방향의 두 속력 평균:
+  모델          pure right  forward_right  backward_right  오른쪽계열평균
+  biHAM         0.3015      0.2423         0.2479          0.2639
+  sym_aug_HAM   0.3356      0.2815         0.2563          0.2911
+  HAM           0.3565      0.3004         0.2881          0.3150
+  MLP           0.2762      0.2517         0.2163          0.2481
+학습방향(앞/뒤/왼쪽) 평균:
+  biHAM .2179 / sym_aug_HAM .2411 / HAM .2618 / MLP .2727.
+왼쪽 RMSE:
+  biHAM .3017 / sym_aug_HAM .3167 / HAM .3293 / MLP .3913.
+
+최종 pure right -0.6에서 실제 평균(vx,vy):
+  biHAM (.013,-.2671)
+  sym_aug_HAM (-.085,-.2428)
+  HAM (-.0421,-.2135)
+  MLP (-.1555,-.4351)
+MLP도 완벽 추종이 아니고 vx drift가 있다.
+최종4모델×512rollout은 모두20초 생존했으나 초기 checkpoint는 별도 확인이 필요하다.
+
+정확한 값:
+  evaluation/plots/rmse_summary_values.json
+run별 실제 폴더 mapping:
+  runs.json.
+  biHAM: gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43
+  MLP: gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43
+  sym_aug_HAM: gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43
+  HAM: gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43
+
+옛 MLP의 실제 stdout/stderr 보존 증거:
+  campaign/evidence/MLP_training_terminal.txt
+  campaign/evidence/MLP_training_config.yaml
+  campaign/evidence/MLP_training_evidence.json
+여기서 campaign은 corrected_v2_20261029_0513이다.
+TXT는 원본 터미널 캡처에서 ANSI/CR만 정리한 것이다. 새로 만든 가짜 transcript가 아니다.
+옛 run에는 per-step command audit가 없었다.
+따라서 그 학습 전체에서 오른쪽 명령이 단 한 번도 없었다는 실측 증명은 없다.
+코드/config 증거와 실시간 명령 감사 증거를 구분하라.
+옛 로그의 torch.Size([4096,9])는 초기 generic command buffer 크기다.
+9방향 또는 vy 양수만 샘플링했다는 증거가 아니다.
+
+v2 biHAM 최종 대칭 감사:
+  evaluation/biHAM_symmetry_audit_v2.json
+  normalizer commutation RMS/max0.
+  full policy reflection RMS≈1.65e-7 / max≈9.54e-7.
+이는 테스트한 대칭성이 맞았다는 뜻이며 모든 버그가 없다는 증명은 아니다.
+
+별도 v3는 준비만 하고 아직 학습/평가하지 않았다.
+  g1-29dof-{bilateral,ham-sym-aug,ham,mlp}-no-right-no-clockwise-fast-sac-v3
+  v2 공통 정규화/phase에 yaw=[0,1] 제한을 추가.
+  scripts/run_corrected_campaign.py 기본 variant=ccw-v3.
+  --execute 없으면 계획만 출력한다.
+  새 CCW suite는 기존16 + standing1 + pure yaw4 + 좌/우와 yaw 조합4=25case.
+현재 사용자 승인 GPU2 단일 MLP와 별개다. v3 큐를 임의로 시작하지 마라.
+
+중단된 env1 실험:
+  logs/bilateral_queue/mlp_env1_command_audit_20261030_034438
+  GPU3, env1, v2 MLP, yaw[-1,1], batch8192.
+  사용자가 메모리 부족 우려로 긴급 중단 요청해 종료 확인했다.
+  새 지시 없이 재시작하지 마라. env1이어도 큰 학습 batch의 메모리는 남는다.
+
+======================================================================
+19. 로컬 개발 → push → 서버 pull → 학습/평가
+======================================================================
+
+1) 로컬에서 exp-g1-training과 기준 commit/필수 연구 파일을 확인한다.
+2) 관련 소스만 읽고 요청한 기능을 수정한다. 오래된 숨은 checkout은 건드리지 않는다.
+3) 기본값/기존 preset/완료된 결과를 보존한다.
+4) 가능하면 CPU 검사, CLI dry-run, git diff --check를 수행한다.
+5) 실험 조건 변경이면 새 preset/version/output으로 분리하고 변경 항목을 보고한다.
+6) 로컬에서 관련 파일만 commit하고 기존 연구 remote/branch로 push한다.
+   사용자 작업을 섞어 git add -A/강제 push/reset하지 마라.
+7) 서버에서 현재 학습과 후속 평가가 모두 끝났는지 확인한다.
+   실행 중 서버 pull은 뒤에 생성되는 평가 worker의 코드를 바꿀 수 있으므로 피한다.
+8) 서버 root의 사용자 변경을 확인하고 clean/충돌 없는 상태에서:
+     git pull --ff-only origin exp-g1-training
+   이후 hssim 활성화, 새 코드/CLI CPU 검사, 지정GPU에서 새 요청만 실행한다.
+9) source commit/hash, 실제 CLI, 전체 YAML, terminal log와 새 결과 폴더를 남긴다.
+
+현재 .isaacgym gitlink 내부 dirty 상태는 강제로 지우지 마라.
+이 인계 TXT가 서버에서는 untracked인데 로컬에서 commit돼 들어오면 pull 충돌이
+날 수 있다. 이 파일을 별도 백업한 뒤 내용 비교하며 해결하고 강제 삭제하지 마라.
+원격 URL/서버 SSH 주소/로컬 OS는 아직 이 문서에서 정하지 않았다.
+기존 연결 정보를 확인하고 임의의 새 Git remote나 브랜치 구조를 만들지 마라.
+checkpoint/이벤트/대형 로그는 Git 코드 push에 넣지 않고 필요한 파일만 따로 복사한다.
+
+로컬 CPU 검사 예(환경 의존성이 있는 경우 먼저 그 환경을 구성):
+  CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=1 PYTHONPATH=src/holosoma \
+    python scripts/check_vanilla_mlp_30k.py
+  CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=1 PYTHONPATH=src/holosoma \
+    python scripts/check_holdout_metrics.py
+  python scripts/run_vanilla_mlp_30k.py --gpu 2
+마지막 명령은 --execute가 없어 GPU 작업을 시작하지 않는다.
+서버의 CPU 검사는 hssim을 활성화하고 CUDA_VISIBLE_DEVICES를 비워 실행했다.
+로컬에 Isaac/torch가 없으면 환경 부족과 코드 결함을 구분하고, 검증했다고 허위 보고하지 마라.
+GPU 학습을 테스트 명목으로 로컬/다른 서버 GPU에 임의로 띄우지 마라.
+
+관련 기존 검사:
+  scripts/check_corrected_io.py
+  scripts/check_ham_cpu.py [--bilateral]
+  scripts/check_ccw_setup.py
+  scripts/check_holdout_metrics.py
+  scripts/audit_bilateral_symmetry.py
+  scripts/check_saved_holdout_results.py
+마지막 검사는 옛4모델/640case 등 고정 기대가 있어 새30k 단일 MLP 검증에 그대로 쓰지 마라.
+scripts/run_holdout_evaluation.py도 옛4모델/1k~10k 고정 제약이 있으므로
+새30k는 전용 run_vanilla_mlp_30k.py를 사용한다.
+
+추천 읽기 순서:
+  config_values/loco/g1/experiment.py → config_values/experiment.py
+  config_values/algo.py → config_types/algo.py
+  managers/command/terms/three_direction.py → locomotion.py → domi_gait.py
+  managers/observation/terms/locomotion.py
+  agents/fast_sac/fast_sac_agent.py → fast_sac.py → fast_sac_utils.py
+  agents/fast_sac/command_audit.py
+  agents/modules/bilateral/normalization.py
+  agents/modules/bilateral/adapter.py → fast_sac_adapter.py → ham_adapter.py
+  agents/fast_sac/bilateral_fast_sac.py → ham_fast_sac.py
+  agents/modules/bilateral/original/provenance.json 및 ham_provenance.json
+  scripts/run_vanilla_mlp_30k.py → evaluate_command_holdout.py
+  관련 검사/플롯 스크립트.
+
+======================================================================
+20. 최종 갱신: 문서 작성 중 확인된 학습 완료와 평가 수정
+======================================================================
+
+이 절은 앞쪽의 '23000step 학습 중' 스냅샷보다 최신이다.
+
+학습30k는 정상 완료됐다. 1k~30k 총30개 .pt를 확인했다.
+감사 최종값:
+  status=complete / last_step=30000.
+  policy_command_samples=122,884,096.
+  negative_policy_vy_count=0.
+  replay_command_samples=3,930,718,208.
+  negative_replay_vy_count=0.
+  min_policy_vy=0.
+  forward=32,581,592 / backward=32,899,116 / left=32,674,897.
+  right=0 / standing=24,728,491 / other=0.
+replay 수에는 중복 샘플링이 포함된다.
+이 증거는 현재 run에 대한 것이며 옛 MLP run의 실측 증거로 소급하지 마라.
+
+처음 자동 평가는 1k checkpoint에서 실패했다.
+원인:
+  evaluate_command_holdout.py가 IsaacSim의 RootStatesProxy를 torch.Tensor처럼
+  torch.cat에 전달하거나 .detach()하려 했다.
+실제 오류:
+  TypeError: expected Tensor as element 0 in argument 0, but got RootStatesProxy.
+학습이나 저장 모델이 실패한 것이 아니다.
+
+평가 코드만 다음 두 줄을 수정했다.
+  reset_trial:
+    torch.cat((env.simulator.robot_root_states[:], env.simulator.dof_pos), -1)
+  measure:
+    initial_root = env.simulator.robot_root_states[:].detach().clone()
+[:]는 proxy에서 xyzw Tensor를 얻는다.
+raw tensor에서도 같은 동작이므로 두 경로를 지원한다.
+기존 알려진 RMSE/warmup/first-failure 검사를 Tensor와 실제 RootStatesProxy 양쪽으로
+CPU 실행해 통과했다. 학습은 다시 돌리지 않았다.
+
+최종30k의 결과부터 확인하려고 run_vanilla_mlp_30k.py에 --descending을 추가했고,
+--stage evaluate --descending --execute로 GPU2 평가만 재개했다.
+모든30개 평가를 수행하되 이미 완료된 checkpoint는 건너뛴다.
+문서 저장 직전의 실제 결과 유무는 status.json/평가 CSV를 다시 확인하라.
+아직 없는 RMSE를 예전 v2 값으로 대신 보고하지 마라.
+
+주의: 이 마지막 평가 호환성/순서 수정은 기준4f27c00 이후 서버에서 적용한 변경이다.
+로컬에서4f27c00만 받으면 다음 두 파일의 최신 수정이 빠질 수 있다.
+  scripts/evaluate_command_holdout.py
+  scripts/run_vanilla_mlp_30k.py
+서버 git diff와 이 절을 기준으로 로컬에도 반영하고 향후 commit/push로 동기화하라.
+현재 학습 artifact는 그대로 보존한다.
+
+이 파일을 읽은 로컬 Codex는 연구 의도와 소스 상태를 짧게 확인해 주고,
+사용자의 다음 코딩 요청을 받아라. 인계문서를 읽었다는 이유로 새 GPU 실험을 실행하지 마라.
+
+
+======================================================================
+21. 최종 검증 스냅샷 / 2026-10-30T20:37:39+09:00
+======================================================================
+{
+  "training_audit": {
+    "status": "complete",
+    "last_step": 30000,
+    "policy_command_samples": 122884096,
+    "min_policy_vy": 0.0,
+    "negative_policy_vy_count": 0,
+    "replay_command_samples": 3930718208,
+    "negative_replay_vy_count": 0,
+    "command_counts": {
+      "forward": 32581592,
+      "backward": 32899116,
+      "left": 32674897,
+      "right": 0,
+      "standing": 24728491,
+      "other": 0
+    }
+  },
+  "evaluation_status": {
+    "phase": "evaluating",
+    "gpu": 2,
+    "stage": "evaluate",
+    "updated": 1793360237.3684661,
+    "elapsed_seconds": 252,
+    "pid": 217975,
+    "command": [
+      "/root/.holosoma_deps/miniconda3/envs/hssim/bin/python",
+      "scripts/evaluate_command_holdout.py",
+      "--manifest",
+      "/workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/manifest.json",
+      "--model",
+      "MLP",
+      "--checkpoint",
+      "/workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0025000.pt",
+      "--phase",
+      "metrics",
+      "--gpu",
+      "2"
+    ],
+    "log": "/workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0025000_metrics.log",
+    "iteration": 25000,
+    "jobs_complete": 5,
+    "jobs_total": 30
+  },
+  "final_30k_cases": [
+    {
+      "case": "right_0.3mps",
+      "planar_rmse": 0.1913759633898735,
+      "vy_rmse": 0.18736929260194302,
+      "failure_rate": 0.0,
+      "mean_survival_s": 20.0,
+      "mean_actual_velocity": [
+        -0.008904033806174994,
+        -0.23591719614341855
+      ]
+    },
+    {
+      "case": "right_0.6mps",
+      "planar_rmse": 0.40119478665292263,
+      "vy_rmse": 0.3012518510222435,
+      "failure_rate": 0.0,
+      "mean_survival_s": 20.0,
+      "mean_actual_velocity": [
+        0.16900040046311915,
+        -0.39022799767553806
+      ]
+    },
+    {
+      "case": "left_0.3mps",
+      "planar_rmse": 0.23633224051445723,
+      "vy_rmse": 0.23503121733665466,
+      "failure_rate": 0.0,
+      "mean_survival_s": 20.0,
+      "mean_actual_velocity": [
+        -0.0020298292802181095,
+        0.16553782811388373
+      ]
+    },
+    {
+      "case": "left_0.6mps",
+      "planar_rmse": 0.44481268990784883,
+      "vy_rmse": 0.44416056480258703,
+      "failure_rate": 0.0,
+      "mean_survival_s": 20.0,
+      "mean_actual_velocity": [
+        0.004855974271777086,
+        0.2272815303876996
+      ]
+    }
+  ]
+}
+
+======================================================================
+22. 추가 작업: 기존10k 비교에서 MLP 교체
+======================================================================
+사용자 요청으로 기존 세 모델은 유지하고 새 MLP의 정확히10k checkpoint로 교체했다.
+새10k MLP: 학습방향평균0.253682, 오른쪽계열평균0.276672,
+pure right0.316161 / forward-right0.255800 / backward-right0.258054.
+pure right 속도별: 0.3m/s에서0.232009, 0.6m/s에서0.400313.
+10k의512개 평가 trial은 실패0/평균20초 생존으로 확인됐다.
+새 그림: corrected_v2_20261029_0513/evaluation/plots/comparison_10k_native_mlp.png
+같은 stem의 SVG, _values.json, _sources.json도 저장했다. 기존 그림은 보존했다.
+코드: scripts/plot_native_mlp_10k.py.
+기존 형식의1~10k곡선은 scripts/plot_rmse_summary.py에 --mlp-evaluation/--wait-for-mlp 옵션을 추가했다.
+CPU 백그라운드 작업이 새 MLP1~10k의160case를 기다린 뒤
+rmse_summary_native_mlp_10k.png 및 값/출처JSON을 만든다.
+로그: vanilla_mlp_30k_native_io_gpu2/replacement_full_plot.log.
+다른3모델은 IsaacGym+domi/reflection, 새MLP는 IsaacSim+native/empirical라는 조건 차이를 그림에 표시했다.
+이 두 플롯 소스 수정도4f27c00 뒤 추가 변경이므로 로컬 Git 동기화 때 포함한다.
+
+
+==============================================================================
+23. MLP 10k 고대비 영상 재생 (2026-10-30 추가)
+==============================================================================
+
+사용자가 새 native MLP의 실제 명령/실제 움직임을 localhost에서 확인하도록 요청했다.
+렌더러: scripts/render_native_mlp_preview.py
+정책: 위 vanilla_mlp_30k_native_io_gpu2의 model_0010000.pt
+출력: logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/
+페이지: http://localhost:8008/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/
+학습 녹화본이 아니라 저장 정책을 별도 1env에서 추론하는 고정 seed 예시이다.
+기존 32trial 수치 평가를 재실행하거나 대체하지 않는다.
+
+좌/우 각각 vy=+0.6/-0.6, vx=yaw=0, 20초.
+명령 전환: 정지3초 -> 전진5초 -> 후진5초 -> 왼쪽6초 -> 오른쪽6초 -> 정지3초.
+주황=목표 body-frame vx/vy/yaw, 하늘색=실제 body-frame 속도.
+실제 actor 관측에서 명령을 역스케일해 manager command와 매 step 비교/assert한다.
+각 영상 폴더 commands.csv에 실제 정책 입력 명령과 실제 속도를 저장한다.
+파란 로봇, 밝은 1m 격자 바닥, 1280x720 H264/yuv420p 25fps, MP4 faststart.
+
+실행은 Docker 안에서:
+source scripts/source_isaacsim_setup.sh
+CUDA_VISIBLE_DEVICES=2 CUDA_DEVICE_ORDER=PCI_BUS_ID OMP_NUM_THREADS=1 \
+python scripts/render_native_mlp_preview.py \
+  --campaign logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2 --gpu 2
+
+이미 video.json이 있는 clip은 건너뛴다. --probe는 별도 probe 폴더에 2초 시험만 만든다.
+현재 머신 Omniverse physical GPU index=2, CUDA_VISIBLE_DEVICES 적용 후 physics GPU=0.
+AppLauncher가 active_gpu=0으로 강제하므로 렌더러 프로세스 안에서만 물리/그래픽
+인덱스를 구분하여 설정했다. 다른 GPU에서 렌더링하지 않도록 주의한다.
+
+중요한 구현/수정:
+- 물리 초기화 후 USD instanceability를 바꾸면 collision prim 삭제로 PhysX tensor
+  view가 invalidated 된다. 재질은 Robot 상위 prim에 strongerThanDescendants로
+  바인딩하며 deinstance하지 않는다.
+- src/holosoma/holosoma/simulator/isaacsim/video_recorder.py의 annotator.detach는
+  HydraTexture 객체 자체가 아닌 self._render_product.path를 넘긴다.
+- headless Kit 종료가 지연될 수 있어 영상 저장 완료 상태를 먼저 남기고 전용
+  렌더러에서만 30초 종료 타이머를 적용했다. 학습 프로세스에는 영향 없다.
+- 렌더 스크립트/recorder 1줄 수정도 4f27c005 이후 서버 변경이므로 로컬에 옮겨야 한다.
+
+
+==============================================================================
+24. 실제 커맨드 비율 및 정규화 통계 시각화 (2026-10-31 추가)
+==============================================================================
+사용자 요청으로 저장된 로그와 체크포인트만 CPU에서 읽어 시각화했다.
+추가 학습/평가/시뮬레이터/GPU 실행 없음.
+대시보드:
+http://localhost:8008/vanilla_mlp_30k_native_io_gpu2/command_statistics/
+생성 도구: scripts/inspect_command_statistics.py
+페이지 템플릿: scripts/command_statistics_dashboard.html
+CPU 실행:
+CUDA_VISIBLE_DEVICES= python scripts/inspect_command_statistics.py \
+  --campaign logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2
+
+전체 4096env 정책 입력 122,884,096건 기준 실제 시간 점유 비율:
+forward 26.514083645%, backward 26.772476725%, left 26.590012918%,
+standing 20.123426713%, right/other 0%.
+정책 입력 횟수 집계이며 새 커맨드를 뽑은 횟수/서로 다른 명령 개수가 아니다.
+CommandRatio TensorBoard 시계열을 100 iteration 간격으로 읽어 누적 비율을 표시한다.
+
+분포/산점도는 commands_policy.csv의 env 0 30,001행만 사용한다.
+env 0은 시간적으로 상관된 표본으로 전체 환경을 대표한다고 가정하면 안 된다.
+raw vy<0은 0건. 실제 normalized_vy<0은 26,907행.
+이 차이를 오른쪽 명령 노출로 해석하면 안 된다.
+
+정규화기 통계는 1k..30k 체크포인트 30개 모두의 actor/critic mean,variance,std,count.
+actor 관측 차원100, command [vx,vy,yaw] 인덱스[33,34,32].
+critic 관측 차원103, command 인덱스[36,37,35].
+기본 native phase는 두 발의 sin/cos라서 각 term이 2차원이다.
+정규화기의 replay 기반 누적 running statistics와 env0의 단순 표본 통계를 구별한다.
+슬라이더로 고른 고정 체크포인트 통계에 raw vy를 재투영한 히스토그램과
+학습 당시 기록된 evolving-statistics normalized_vy 히스토그램도 구별한다.
+
+출력 폴더 command_statistics/:
+index.html, data.json, normalizer_statistics.csv,
+command_ratios, normalizer_statistics, command_distributions,
+vy_fixed_10k_mapping 각각 PNG와SVG.
+그래프 PNG를 눈으로 확인했고, JS는 실제 데이터로 actor/critic * 30개 ckpt
+60조합의 계산/유효 좌표와 최종 방향 비율 일치를 스모크 검증했다.

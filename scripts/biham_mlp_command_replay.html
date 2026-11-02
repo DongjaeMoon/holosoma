@@ -1,0 +1,39 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>biHAM · MLP | Command replay</title>
+<style>body{max-width:1550px;margin:28px auto;padding:0 22px;background:#111b2a;color:#e8eef7;font:16px/1.65 system-ui}h1{margin-bottom:5px}p{color:#bdcbdc}a{color:#80c6ff}select,button{font:inherit;padding:9px;margin:8px 12px 18px 0;border-radius:6px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{background:#1c293b;padding:20px;border-radius:14px}video{width:100%;background:#d9dfe6;border-radius:8px}.pending{padding:55px 22px;background:#24344a;border-radius:8px}.badge{font-size:13px;color:#bbd2f0}@media(max-width:900px){.grid{grid-template-columns:1fr}}</style>
+<h1>biHAM · MLP — 명령과 실제 움직임</h1>
+<p>파란 로봇 / 밝은 격자 바닥 · <b style="color:#ffb641">주황: 목표 커맨드</b> · <b style="color:#4edcff">하늘색: 실제 body-frame 속도</b><br>영상 상단에 vx·vy·yaw와 시간이 표시되고, 오른쪽 아래에 로봇 좌표계 방향 화살표가 표시됩니다.</p>
+<select id="case"><option value="left">학습 방향: 왼쪽 +0.6 m/s</option><option value="right">테스트 방향: 오른쪽 −0.6 m/s</option></select>
+<button id="play">두 영상 처음부터 재생</button><div id="cards" class="grid"></div>
+<p>두 모델 모두 10k 저장 정책을 별도 1env에서 재생합니다. biHAM은 기존 v2(IsaacGym 학습, reflection 정규화·domi phase), MLP는 새 native 모델(IsaacSim 학습, empirical 정규화·기본 phase)입니다. 학습 당시 녹화본이나 동일한 학습 조건의 비교 영상은 아닙니다.</p>
+<script>
+const models=[
+ {label:'biHAM · 10k',base:'biHAM/',description:'기존 v2 · reflection normalization · domi phase'},
+ {label:'MLP · 10k',base:'../vanilla_mlp_30k_native_io_gpu2/video_preview_10k/',description:'새 vanilla MLP · empirical normalization · native phase'}
+];
+async function read(url){try{const r=await fetch(url,{cache:'no-store'});return r.ok?await r.json():null}catch{return null}}
+async function refresh(){
+ const box=document.querySelector('#cards'),selection=document.querySelector('#case').value;
+ if([...box.querySelectorAll('video')].some(v=>!v.paused))return;
+ const cards=await Promise.all(models.map(async model=>{
+  const folder=model.base+selection+'/',data=await read(folder+'video.json');
+  const card=document.createElement('section');card.className='card';
+  const h=document.createElement('h2');h.textContent=model.label;card.append(h);
+  const detail=document.createElement('p');detail.className='badge';detail.textContent=model.description;card.append(detail);
+  if(data?.web_file){
+   const v=document.createElement('video');v.controls=true;v.playsInline=true;v.preload='metadata';v.poster=folder+'preview.png';v.src=folder+data.web_file;card.append(v);
+   const status=document.createElement('p');status.textContent=data.simulated_seconds.toFixed(1)+'초 · '+(data.terminated?'조기 종료':'완주')+(data.linear_rmse==null?'':' · 이 영상 planar RMSE '+data.linear_rmse.toFixed(3)+' m/s');card.append(status);
+   for(const [href,text] of [[v.src,'MP4 다운로드'],[folder+'commands.csv','실제 명령·속도 CSV']]){const a=document.createElement('a');a.href=href;a.textContent=text;a.style.marginRight='15px';card.append(a)}
+  }else{
+   const pending=document.createElement('div');pending.className='pending';
+   const state=await read(model.base+'status.json');
+   pending.textContent=state?.phase==='starting'?'GPU2에서 시뮬레이터 초기화 중입니다.':state?.phase==='rendering'?'같은 고대비 스타일로 렌더링 중입니다. 완료되면 여기에 표시됩니다.':state?.phase==='failed'?'렌더링 오류 확인 중입니다.':'같은 고대비 스타일 렌더러 준비 완료. 사용할 GPU 지정 대기 중입니다.';
+   card.append(pending);
+  }return card;
+ }));
+ box.replaceChildren(...cards);
+}
+document.querySelector('#case').onchange=()=>{document.querySelectorAll('video').forEach(v=>v.pause());refresh()};
+document.querySelector('#play').onclick=()=>document.querySelectorAll('video').forEach(v=>{v.currentTime=0;v.play().catch(()=>{})});
+refresh();setInterval(refresh,10000);
+</script></html>

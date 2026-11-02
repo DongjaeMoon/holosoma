@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holosoma 야간 감사 · 2026-11-02</title>
+<style>
+body{font:16px/1.65 system-ui,sans-serif;color:#182b3b;background:#f4f6f8;margin:0}main{max-width:1200px;margin:auto;padding:32px 22px 70px}h1{font-size:30px;line-height:1.3}h2{font-size:22px;margin-top:32px}p{max-width:1050px}a{color:#146090}.card{background:white;border:1px solid #dce3e9;border-radius:12px;padding:22px;margin:18px 0}.lead{border-left:5px solid #297b71}.note{color:#50616e;font-size:14px}table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:left;padding:11px;border-bottom:1px solid #dfe4e8}th{background:#edf2f6}.scroll{overflow-x:auto}img{width:100%;height:auto;display:block}.tag{display:inline-block;padding:3px 9px;border-radius:5px;background:#e7f0ee;color:#245b51;margin:3px 6px 3px 0;font-size:13px}code{font-size:14px}li{margin:9px 0}figure{margin:0}figcaption{color:#50616e;font-size:14px;margin-top:12px}
+</style>
+<main><h1>Holosoma OOD command 야간 감사</h1>
+<p class="note">2026-11-02 · 기존 코드 보존 · GPU / 학습 / 물리 평가 재실행 없음</p>
+<div class="card lead"><p><strong>실제 버그는 있다. 그러나 MLP의 부분적인 오른쪽 명령 추종을 숨은 augmentation이나 RMSE 계산 오류로 설명할 증거는 찾지 못했다.</strong></p>
+<p>새 vanilla MLP의 실제 raw <code>vy&lt;0</code> 입력은 감사 카운터에서 0건이다. 네트워크의 구조적 대칭성에는 큰 차이가 있고, 목표 속도 추종에는 공통된 한계가 남는다. 정확한 일반화 원인은 아직 인과적으로 확인되지 않았다.</p>
+<p><a href="READ_ME_FIRST.txt">먼저 읽을 1쪽 요약</a> · <a href="FULL_AUDIT_REPORT_KO.txt">전체 한국어 보고서</a> · <a href="comparison_lateral_current.csv" download>전체 좌/우 수치 CSV</a></p>
+<span class="tag">체크포인트 150개</span><span class="tag">평가 1,790케이스 / 57,280 trials</span><span class="tag">TensorBoard 188개</span><span class="tag">영상 86개 전체 CPU 디코딩</span></div>
+<h2>같은 v2 조건의 10k 결과</h2>
+<p class="note">IsaacGym + reflection normalization + Domi phase. 각 32 trials, planar RMSE [m/s]. HAM+symAug는 합성 오른쪽 학습 샘플을 받는다.</p>
+<div class="card scroll"><table><thead><tr><th>모델</th><th>right 0.3 RMSE</th><th>right 0.6 RMSE</th><th>평균</th><th>실제 평균 vy (0.3 / 0.6)</th></tr></thead><tbody>
+<tr><td>biHAM</td><td>0.205993</td><td>0.397006</td><td>0.301500</td><td>−0.1740 / −0.2671</td></tr>
+<tr><td>HAM + symAug</td><td>0.239738</td><td>0.431523</td><td>0.335630</td><td>−0.1557 / −0.2428</td></tr>
+<tr><td>HAM</td><td>0.274041</td><td>0.439010</td><td>0.356525</td><td>−0.0924 / −0.2135</td></tr>
+<tr><td>MLP v2</td><td>0.203657</td><td>0.348706</td><td>0.276182</td><td>−0.2040 / −0.4351</td></tr>
+</tbody></table></div>
+<h2>별도 native MLP 결과</h2>
+<p class="note">IsaacSim + empirical normalization + native phase. 위 네트워크들과 backend·전처리 조건이 다르다.</p>
+<div class="card scroll"><table><thead><tr><th>checkpoint</th><th>right 0.3 RMSE</th><th>right 0.6 RMSE</th><th>평균</th><th>실제 평균 vy (0.3 / 0.6)</th></tr></thead><tbody>
+<tr><td>10k</td><td>0.232009</td><td>0.400313</td><td>0.316161</td><td>−0.1474 / −0.2667</td></tr>
+<tr><td>30k</td><td>0.191376</td><td>0.401195</td><td>0.296285</td><td>−0.2359 / −0.3902</td></tr>
+</tbody></table><p class="note">30k의 0.6 명령에서 vy는 개선되지만 명령하지 않은 평균 vx가 +0.1690으로 커진다. 모든 최종 right 0.6 trial은 생존했으나 정식 성공 기준 통과는 0/32다.</p></div>
+<h2>직접 확인할 그림</h2>
+<div class="card"><figure><a href="plots/01_v2_matched_comparison.svg"><img src="plots/01_v2_matched_comparison.png" alt="v2 네트워크별 오른쪽 RMSE와 명령 대 실제 lateral 속도"></a><figcaption>같은 v2 조건에서도 차이는 존재한다. 특히 biHAM은 양쪽의 느린 추종이 대응하고 MLP v2는 큰 좌우 비대칭을 보인다.</figcaption></figure></div>
+<div class="card"><figure><a href="plots/02_error_decomposition.svg"><img src="plots/02_error_decomposition.png" alt="평균 속도 bias와 속도 변동의 MSE 기여"></a><figcaption>평균 RMSE만 보면 target-speed bias, vx drift, 보행 진동의 차이가 가려진다. 점선 오른쪽 native 실행은 조건이 다르다.</figcaption></figure></div>
+<div class="card"><figure><a href="plots/03_functional_symmetry.svg"><img src="plots/03_functional_symmetry.png" alt="실제 저장 가중치의 반사 대칭 잔차"></a><figcaption>biHAM 반사 잔차 약 1.6×10⁻⁷, MLP v2 약 0.10. 같은 모델을 다른 이름으로 평가한 것이 아니다. 단위는 policy action 단위이며 rollout RMSE와 다르다.</figcaption></figure></div>
+<div class="card"><figure><a href="plots/04_learning_curves.svg"><img src="plots/04_learning_curves.png" alt="v2 4종과 별도 native MLP의 checkpoint별 learning curves"></a><figcaption>훈련 seed는 43 하나다. 평가 rollout 32개를 여러 학습 seed의 증거로 볼 수 없다.</figcaption></figure></div>
+<div class="card"><figure><a href="plots/05_command_distributions_env0.svg"><img src="plots/05_command_distributions_env0.png" alt="실제 native 학습 CSV의 raw 및 normalized vx vy yaw 분포"></a><figcaption>env 0의 실제 시계열 30,001행. 60-bin empirical density이며 KDE가 아니다. 정지 명령의 확률질량이 큰 peak로 보인다. 전 환경 비율과 혼동하지 말 것.</figcaption></figure></div>
+<h2>확인한 버그와 범위</h2>
+<div class="card"><ul>
+<li><strong>기존 variance 병합 수식:</strong> 전체 [0,0,2,2]의 분산 1을 0.25로 계산한다. 기존 Holosoma 기준 파일에도 있으며 reflection 정규화도 상속한다. OOD 추종의 인과 원인인지는 미확정이다.</li>
+<li><strong>소스 보관 충돌:</strong> 두 manager.py 사본이 같은 파일명으로 덮어써진다. 당시 해시는 남아 있고 현재 소스와 일치한다.</li>
+<li><strong>native matched-state 영상 복원:</strong> 임시 DOF tensor 쓰기와 phase 덮어쓰기 문제를 CPU에서 재현했다. 최신 고정 seed 영상과 정식 숫자 평가가 쓰는 분기에는 해당하지 않는다.</li>
+<li><strong>현재 generic loader:</strong> Torch 2.7 기본 weights_only 값으로 biHAM config 로딩에 실패한다. 과거 Gym 평가와 scoped renderer load는 구분했다.</li>
+<li><strong>n-step ring 경계:</strong> n_steps&gt;1에서 오래된 reward가 섞이는 재현을 확보했다. 현재 num_steps=1 실험에는 적용되지 않는다.</li>
+<li><strong>표기·과거 자료:</strong> 옛 v2 gallery의 final highlight는 실제 3k 선택이다. v2 MLP와 새 native MLP 그림도 혼재한다.</li>
+</ul><p>이 감사에서 기존 코드는 수정하지 않았다. 버그별 함수 위치·재현·영향 범위는 전체 보고서 09절에 정리했다.</p></div>
+<h2>증거 파일</h2>
+<div class="card"><ul>
+<li><a href="native_command_exposure.json">실제 입력 카운터와 env 0 분포</a> · <a href="actual_batch_preparation_direction_check.json">실제 배치 준비 함수의 반사 샘플 여부</a></li>
+<li><a href="architecture_validation.json">모델 크기·반사 잔차·gradient 경로</a> · <a href="legacy_phase_normalizer_isolation.json">legacy phase/정규화 문제 분리</a></li>
+<li><a href="confirmed_code_findings.json">최소 CPU 재현</a> · <a href="cpu_regression_tests.json">기존 CPU 회귀 검사 3개</a></li>
+<li><a href="metric_recomputation_issues.json">평가 수치 불일치 목록 (0건)</a> · <a href="checkpoint_inventory.json">체크포인트 전체 위치</a></li>
+<li><a href="terminal_evidence_copy.json">실제 터미널 로그 export 대조</a> · <a href="historical_training_argv.json">기록된 실제 학습 argv</a></li>
+<li><a href="source_integrity_final.json">기존 소스 보존 확인</a> · <a href="artifact_integrity_final.json">기존 체크포인트·로그 대조</a></li>
+<li><a href="source_function_locations.json">코드 함수별 위치</a> · <a href="reproduce_cpu_audit.py">CPU 감사 재현 스크립트</a></li>
+</ul></div>
+<p class="note">검증은 저장 자료와 CPU 함수 동작을 대상으로 한다. 전체 물리 trajectory 재생이나 모든 버그 부재의 증명이 아니다. MLP 외삽의 정확한 원인을 판단하려면 같은 완전한 초기 상태에서 command만 바꾸는 후속 개입 실험이 필요하다.</p>
+</main></html>

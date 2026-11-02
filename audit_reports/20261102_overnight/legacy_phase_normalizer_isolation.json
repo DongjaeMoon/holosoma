@@ -1,0 +1,41 @@
+[
+  {
+    "cohort": "legacy_v1",
+    "subset": "antisymmetric_phase_pair",
+    "sampled_observations": 105,
+    "physical_reflection_type": "SymmetryUtils",
+    "raw_actor_physical_reflection_rms": 1.4947767112971633e-07,
+    "trained_policy_physical_reflection_rms": 0.08190431445837021,
+    "domi_projected_normalizer_physical_reflection_rms": 1.8035382254311116e-07,
+    "cos_phase_first": [
+      0.9921147227287292,
+      -0.9921147227287292
+    ]
+  },
+  {
+    "cohort": "legacy_v1",
+    "subset": "non_antisymmetric_phase_pair",
+    "sampled_observations": 93,
+    "physical_reflection_type": "SymmetryUtils",
+    "raw_actor_physical_reflection_rms": 0.09481816738843918,
+    "trained_policy_physical_reflection_rms": 0.22567075490951538,
+    "domi_projected_normalizer_physical_reflection_rms": 0.25932201743125916,
+    "cos_phase_first": [
+      -1.0,
+      -1.0
+    ]
+  },
+  {
+    "cohort": "v2",
+    "subset": "antisymmetric_phase_pair",
+    "sampled_observations": 103,
+    "physical_reflection_type": "DomiSymmetry",
+    "raw_actor_physical_reflection_rms": 1.294737330681528e-07,
+    "trained_policy_physical_reflection_rms": 1.625034400376535e-07,
+    "domi_projected_normalizer_physical_reflection_rms": 1.611703339676751e-07,
+    "cos_phase_first": [
+      -0.8102990984916687,
+      0.8102990984916687
+    ]
+  }
+]

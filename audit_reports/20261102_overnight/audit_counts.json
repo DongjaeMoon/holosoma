@@ -1,0 +1,15 @@
+{
+  "checkpoints": 150,
+  "checkpoint_bytes": 7213830822,
+  "configuration_files": 20,
+  "terminal_log_files": 196,
+  "metric_cases": 1790,
+  "metric_trials": 57280,
+  "syntax_parsed_python_files": 689,
+  "source_files_hashed": 1425,
+  "tensorboard_event_files": 188,
+  "videos": 86,
+  "architecture_checkpoints": 8,
+  "cpu_regression_scripts": 3,
+  "raw_initial_observations": 57280
+}

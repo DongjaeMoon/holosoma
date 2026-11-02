@@ -1,0 +1,1612 @@
+[
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.ppo.ppo.PPO",
+    "simulator": "isaacsim",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 25000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.ppo.ppo.PPO",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 25000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_132745_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_132750-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": true,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        192,
+        384,
+        192
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": true
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_132840_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_132844-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": true,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        192,
+        384,
+        192
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": true
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": true,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        192,
+        384,
+        192
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": true
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_143823_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_143827-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": true,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        192,
+        384,
+        192
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": true
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_144957_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_145001-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": true,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        192,
+        384,
+        192
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": true
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": true,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        192,
+        384,
+        192
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": true
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": false,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        384,
+        576,
+        384
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": false
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": null,
+    "bilateral": {
+      "checkpoint_layers": false,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        384,
+        576,
+        384
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": false
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 50000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": null,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 10000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": true,
+    "bilateral": {
+      "checkpoint_layers": true,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        192,
+        384,
+        192
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": true
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.domi_gait:DomiGait",
+          "params": {
+            "period_range": [
+              0.9,
+              1.1
+            ]
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.command.terms.domi_gait:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 10000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": true,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.domi_gait:DomiGait",
+          "params": {
+            "period_range": [
+              0.9,
+              1.1
+            ]
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.command.terms.domi_gait:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 10000,
+    "use_symmetry": true,
+    "symmetry_compatible_io": true,
+    "bilateral": {
+      "checkpoint_layers": false,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        384,
+        576,
+        384
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": false
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.domi_gait:DomiGait",
+          "params": {
+            "period_range": [
+              0.9,
+              1.1
+            ]
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.command.terms.domi_gait:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "simulator": "isaacgym",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 10000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": true,
+    "bilateral": {
+      "checkpoint_layers": false,
+      "feature_bias_scale": 0.5,
+      "gate_sizes": 8,
+      "hidden_dims": [
+        384,
+        576,
+        384
+      ],
+      "num_module": 4,
+      "router_dims": [
+        256,
+        256,
+        128
+      ],
+      "share_ab_modules": false,
+      "use_fast": false,
+      "use_sym_param": false
+    },
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.domi_gait:DomiGait",
+          "params": {
+            "period_range": [
+              0.9,
+              1.1
+            ]
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.command.terms.domi_gait:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "simulator": "isaacsim",
+    "seed": 43,
+    "num_envs": 1,
+    "iterations": 10000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": true,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.domi_gait:DomiGait",
+          "params": {
+            "period_range": [
+              0.9,
+              1.1
+            ]
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.command.terms.domi_gait:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "simulator": "isaacsim",
+    "seed": 43,
+    "num_envs": 1,
+    "iterations": 10000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": true,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.domi_gait:DomiGait",
+          "params": {
+            "period_range": [
+              0.9,
+              1.1
+            ]
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.command.terms.domi_gait:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "simulator": "isaacsim",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 30000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": false,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/holosoma_config.yaml",
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "simulator": "isaacsim",
+    "seed": 43,
+    "num_envs": 4096,
+    "iterations": 30000,
+    "use_symmetry": false,
+    "symmetry_compatible_io": false,
+    "bilateral": null,
+    "command": {
+      "params": {
+        "locomotion_command_resampling_time": 10.0
+      },
+      "reset_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      },
+      "setup_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.three_direction:ThreeDirectionCommand",
+          "params": {
+            "command_ranges": {
+              "ang_vel_yaw": [
+                -1.0,
+                1.0
+              ],
+              "heading": [
+                -3.14,
+                3.14
+              ],
+              "lin_vel_x": [
+                -1.0,
+                1.0
+              ],
+              "lin_vel_y": [
+                -1.0,
+                1.0
+              ]
+            },
+            "stand_prob": 0.2
+          }
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {
+            "gait_period": 1.0,
+            "gait_period_randomization_width": 0.2
+          }
+        }
+      },
+      "step_terms": {
+        "locomotion_command": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionCommand",
+          "params": {}
+        },
+        "locomotion_gait": {
+          "func": "holosoma.managers.command.terms.locomotion:LocomotionGait",
+          "params": {}
+        }
+      }
+    },
+    "phase": "holosoma.managers.observation.terms.locomotion:sin_phase"
+  }
+]

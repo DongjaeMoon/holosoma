@@ -116,7 +116,7 @@ def reset_trial(env, commands, seed):
     env.command_manager.commands[:, :3] = commands
     # Recompute after overriding commands so the very first action sees the test command.
     refresh_observations(env)
-    initial = torch.cat((env.simulator.robot_root_states, env.simulator.dof_pos), -1).detach().cpu().numpy()
+    initial = torch.cat((env.simulator.robot_root_states[:], env.simulator.dof_pos), -1).detach().cpu().numpy()
     return env.obs_buf_dict, hashlib.sha256(initial.tobytes()).hexdigest()
 
 
@@ -129,7 +129,7 @@ def measure(env, algo, policy, protocol):
     command = torch.tensor([c['command'] for c in case_list], device=env.device).repeat_interleave(trials, 0)
     obs, fingerprint = reset_trial(env, command, protocol['seed'])
     origins = env.terrain_manager.get_state('locomotion_terrain').env_origins
-    initial_root = env.simulator.robot_root_states.detach().clone()
+    initial_root = env.simulator.robot_root_states[:].detach().clone()
     initial_root[:, :3] -= origins
     initial_dof = env.simulator.dof_state.view(env.num_envs, env.num_dof, 2).detach().clone()
     initial_obs = torch.cat([obs[k] for k in algo.config.actor_obs_keys], -1).detach().clone()

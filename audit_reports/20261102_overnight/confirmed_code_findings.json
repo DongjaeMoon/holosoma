@@ -1,0 +1,93 @@
+{
+  "rotation_scipy_max_error": 3.1086244689504383e-15,
+  "native_variance": {
+    "samples": [
+      0.0,
+      0.0,
+      2.0,
+      2.0
+    ],
+    "expected_mean": 1.0,
+    "stored_mean": 1.0,
+    "expected_variance": 1.0,
+    "stored_variance": 0.25
+  },
+  "reflection_variance": {
+    "first_batch_variance": 0.25,
+    "second_batch_variance": 0.203125,
+    "expected_symmetric_second_moment": 0.25,
+    "mean": 0.0,
+    "actual_positive_input_normalized_vy": 1.0853193998336792
+  },
+  "matched_state_native_reproductions": [
+    {
+      "target_dof_position": 0.2,
+      "actual_dof_position": 0.0,
+      "setter_received_position": 0.0,
+      "target_phase": 0.5,
+      "actual_phase": 0.5,
+      "outcome": "AssertionError: Tensor-likes are not close!"
+    },
+    {
+      "target_dof_position": 0.0,
+      "actual_dof_position": 0.0,
+      "setter_received_position": 0.0,
+      "target_phase": 1.2,
+      "actual_phase": 0.5,
+      "outcome": "AssertionError: Tensor-likes are not close!"
+    }
+  ],
+  "syntax_error_count": 0,
+  "restore_scope": "Latent initial!=None branch on native IsaacSim. Latest native MLP fixed-seed videos use initial=None and are not affected.",
+  "snapshot_issues": [
+    {
+      "recorded_path": "/workspace/holosoma/src/holosoma/holosoma/agents/fast_sac/command_audit.py",
+      "expected_sha256": "c5ef1de9ad230ce70dac6e4c64d507576c42d3ddf873ce54f7aa8f92fa29de82",
+      "snapshot_exists": true,
+      "snapshot_matches": true,
+      "current_matches": true
+    },
+    {
+      "recorded_path": "/workspace/holosoma/src/holosoma/holosoma/managers/command/manager.py",
+      "expected_sha256": "b22eea75603d37784622b6cf804e43e92b68ca6cb4f62a8b07bfb7faa1883416",
+      "snapshot_exists": true,
+      "snapshot_matches": false,
+      "current_matches": true
+    },
+    {
+      "recorded_path": "/workspace/holosoma/src/holosoma/holosoma/managers/command/terms/three_direction.py",
+      "expected_sha256": "492322725e147b017d7cb6a1e89646449478a276cbd08131c7920a38d35f18c5",
+      "snapshot_exists": true,
+      "snapshot_matches": true,
+      "current_matches": true
+    },
+    {
+      "recorded_path": "/workspace/holosoma/src/holosoma/holosoma/managers/command/terms/locomotion.py",
+      "expected_sha256": "8365641c2371e9055ba7225d7f35f9393aad99b3cc3534b79b8833a53db5d1f9",
+      "snapshot_exists": true,
+      "snapshot_matches": true,
+      "current_matches": true
+    },
+    {
+      "recorded_path": "/workspace/holosoma/src/holosoma/holosoma/managers/observation/manager.py",
+      "expected_sha256": "1e9d6f3526653ac66284322b3e6409395ca433e309ba85d9f1182628228fe1f1",
+      "snapshot_exists": true,
+      "snapshot_matches": true,
+      "current_matches": true
+    },
+    {
+      "recorded_path": "/workspace/holosoma/src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+      "expected_sha256": "dca9f7eb8590d1d1c279e9a1a09c462c4b518df308662a8908ab36b024d55e28",
+      "snapshot_exists": true,
+      "snapshot_matches": true,
+      "current_matches": true
+    },
+    {
+      "recorded_path": "/workspace/holosoma/src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py",
+      "expected_sha256": "cf571e3356fed1986967464eb9f12e2019e9067bec5cd26ee0b59ca18b6ca458",
+      "snapshot_exists": true,
+      "snapshot_matches": true,
+      "current_matches": true
+    }
+  ]
+}

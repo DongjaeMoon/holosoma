@@ -1,0 +1,20 @@
+[
+  {
+    "cohort": "v2",
+    "rows": 640,
+    "checked": 640,
+    "issues": []
+  },
+  {
+    "cohort": "native",
+    "rows": 510,
+    "checked": 510,
+    "issues": []
+  },
+  {
+    "cohort": "legacy_v1",
+    "rows": 640,
+    "checked": 640,
+    "issues": []
+  }
+]

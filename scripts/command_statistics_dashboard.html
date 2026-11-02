@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLP 실제 커맨드 · 정규화 통계</title>
+<style>
+:root{color-scheme:light}body{margin:28px auto;padding:0 22px;max-width:1450px;font:15px/1.65 system-ui,sans-serif;background:#f2f5fa;color:#17243a}h1{font-size:28px;margin-bottom:5px}h2{font-size:19px;margin:0 0 8px}p{margin:5px 0 15px}.muted{color:#53647c}a{color:#245fc1}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:white;border:1px solid #dde5f0;border-radius:14px;padding:20px;margin-bottom:18px}.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.tile{background:white;border:1px solid #dde5f0;padding:15px;border-radius:12px}.tile b{display:block;font-size:24px;color:#225ab5}.wide{grid-column:1/-1}canvas{display:block;width:100%;height:310px}.stats canvas{height:260px}label{margin-right:18px}input[type=range]{vertical-align:middle;width:260px}select,button{padding:7px;border:1px solid #b8c6d9;border-radius:5px;font:inherit}table{border-collapse:collapse;width:100%;margin-top:15px}td,th{text-align:right;padding:8px 13px;border-bottom:1px solid #e5eaf1}td:first-child,th:first-child{text-align:left}.legend{font-size:13px;color:#53647c}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.warning{background:#e8effb;border-left:4px solid #3971c6;padding:11px 15px;border-radius:5px}.links a{margin-right:16px}code{font-size:13px}@media(max-width:900px){.grid,.three{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}h1{font-size:23px}}
+</style>
+<h1>MLP · 실제 학습 커맨드와 normalization statistics</h1>
+<p class="muted">새 native MLP / empirical normalization / 기본 phase / symmetry OFF / seed 43 / 완료된 30k 학습 로그</p>
+<p class="links"><a href="../video_preview_10k/">정책 재생 영상</a><a href="normalizer_statistics.csv">통계 CSV</a><a href="data.json">집계 원본 JSON</a></p>
+<div class="warning">방향 비율은 <b>전체 4096 환경의 실제 정책 입력 누적 집계</b>입니다. 명령 분포와 산점도는 학습 당시 CSV로 남긴 <b>env 0 표본</b>입니다. 매 timestep 입력을 세므로 명령을 새로 뽑은 횟수와는 다릅니다.</div>
+<p class="warning"><a href="distributions.html"><b>vx / vy / yaw: before-after command distribution curves</b></a></p>
+<div id="tiles" class="tiles"></div>
+<div class="grid">
+<section class="card"><h2>실제로 들어간 방향 비율</h2><p class="muted">전체 환경 · 학습 전 구간 누적. 설정상의 예상 비율이 아닙니다.</p><canvas id="ratios"></canvas><a href="command_ratios.png">PNG</a> · <a href="command_ratios.svg">SVG</a></section>
+<section class="card"><h2>학습 진행에 따른 누적 비율</h2><p class="muted">학습 중 TensorBoard에 기록된 CommandRatio의 원본 수치입니다.</p><canvas id="ratioTime"></canvas><p class="legend">전진 파랑 · 후진 보라 · 왼쪽 초록 · 오른쪽 빨강 · 정지 회색</p></section>
+<section class="card"><h2>실제 raw 커맨드 공간</h2><p class="muted">env 0 표본 중 일부를 그렸습니다. x=vx, y=vy [m/s].</p><canvas id="space"></canvas></section>
+<section class="card"><h2>실제로 기록된 raw vy 분포</h2><p class="muted">env 0의 모든 CSV 행. 물리 명령 단위는 m/s입니다.</p><canvas id="rawHist"></canvas></section>
+<section class="card wide"><h2>학습 당시 정규화된 vy의 실제 분포</h2><p class="muted">CSV의 normalized_vy 그대로입니다. 그 시점마다 변하던 학습 통계가 적용된 결과입니다.</p><canvas id="normHist"></canvas><p id="negativeNote" class="warning"></p><a href="command_distributions.png">vx/vy/yaw 전체 분포 PNG</a> · <a href="command_distributions.svg">SVG</a></section>
+</div>
+<section class="card stats"><h2>저장된 정규화기 평균 · 분산 · 표준편차</h2>
+<p class="muted">1k~30k 체크포인트에서 추출한 running statistics입니다. replay 학습 입력으로 갱신된 값이며, env 0 CSV의 단순 표본 통계와 구분해야 합니다.</p>
+<label>정규화기 <select id="role"><option value="actor">Actor (정책 입력)</option><option value="critic">Critic</option></select></label>
+<label>체크포인트 <input id="checkpoint" type="range" min="0" max="29" value="9"><b id="iteration"></b></label>
+<div class="three"><div><canvas id="means"></canvas></div><div><canvas id="variances"></canvas></div><div><canvas id="stds"></canvas></div></div>
+<p class="legend">vx 파랑 · vy 초록 · yaw 주황. 세로 점선은 선택한 체크포인트입니다.</p>
+<table><thead><tr><th>command 채널</th><th>평균 μ</th><th>분산</th><th>표준편차 σ</th></tr></thead><tbody id="statsTable"></tbody></table>
+<p class="muted" id="count"></p><a href="normalizer_statistics.png">전체 통계 PNG</a> · <a href="normalizer_statistics.svg">SVG</a>
+</section>
+<section class="card"><h2>같은 정규화 통계로 왼쪽과 오른쪽을 비교하면?</h2>
+<p id="formula"></p><p class="muted">env 0에서 기록한 raw vy들을 선택한 체크포인트의 고정 통계로 다시 변환한 분포입니다. 위의 ‘학습 당시 실제 normalized_vy 분포’와 구별하세요.</p>
+<canvas id="mapping" style="height:360px"></canvas><div id="mappingTable"></div>
+<p class="warning">정규화된 입력이 음수라는 것은 평균보다 작다는 뜻입니다. 물리적인 오른쪽 명령(vy&lt;0)이 학습에 들어갔다는 뜻이 아닙니다. 동일한 통계로 비교하면 오른쪽 명령은 vy≥0 학습 명령 범위의 바깥에 있습니다.</p>
+<a href="vy_fixed_10k_mapping.png">10k 고정 비교 PNG</a> · <a href="vy_fixed_10k_mapping.svg">SVG</a>
+</section>
+<p class="muted">추가 학습·평가·시뮬레이터 실행 없이 저장된 로그와 체크포인트만 읽었습니다. 정규화 공식: z=(scaled command−μ)/(σ+0.01), command scale=1.</p>
+<script>
+let data;
+const channels=['vx','vy','yaw'],colors=['#2865ce','#159575','#dc8622'];
+const dirs=['forward','backward','left','right','standing','other'];
+const dirlabels=['전진','후진','왼쪽','오른쪽','정지','기타'];
+const dircolors=['#2865ce','#8c5ac4','#159575','#d43e55','#788397','#ad8340'];
+const $=id=>document.getElementById(id);
+const fmt=(v,n=5)=>Number(v).toFixed(n);
+function graph(id,xmin,xmax,ymin,ymax,xlabel,ylabel){
+ const canvas=$(id),w=canvas.clientWidth,h=canvas.clientHeight,dpr=devicePixelRatio||1;
+ canvas.width=w*dpr;canvas.height=h*dpr;const c=canvas.getContext('2d');c.scale(dpr,dpr);
+ const left=66,right=22,top=24,bottom=50,iw=w-left-right,ih=h-top-bottom;
+ const X=x=>left+(x-xmin)/(xmax-xmin)*iw,Y=y=>top+ih-(y-ymin)/(ymax-ymin)*ih;
+ c.font='12px system-ui';c.textAlign='right';c.fillStyle='#66768d';
+ for(let k=0;k<=4;k++){let y=ymin+(ymax-ymin)*k/4,py=Y(y);c.strokeStyle='#e5eaf2';c.beginPath();c.moveTo(left,py);c.lineTo(w-right,py);c.stroke();c.fillText(fmt(y,Math.abs(ymax-ymin)<1?3:1),left-8,py+4)}
+ c.textAlign='center';for(let k=0;k<=4;k++){let x=xmin+(xmax-xmin)*k/4;c.fillText(fmt(x,xmax>100?0:2),X(x),h-bottom+20)}
+ c.fillText(xlabel,w/2,h-7);c.textAlign='left';c.fillText(ylabel,8,14);
+ return {c,X,Y,w,h,left,right,top,bottom};
+}
+function path(g,points,color,width=2){
+ const {c,X,Y}=g;c.strokeStyle=color;c.lineWidth=width;c.beginPath();points.forEach(([x,y],i)=>i?c.lineTo(X(x),Y(y)):c.moveTo(X(x),Y(y)));c.stroke();
+}
+function vertical(g,x,color,label,dash=false,yoffset=0){
+ const {c,X,Y,h,bottom,top}=g;c.strokeStyle=color;c.lineWidth=2;c.setLineDash(dash?[5,4]:[]);c.beginPath();c.moveTo(X(x),top);c.lineTo(X(x),h-bottom);c.stroke();c.setLineDash([]);c.fillStyle=color;c.textAlign='left';c.font='12px system-ui';if(label)c.fillText(label,Math.min(X(x)+5,g.w-150),top+12+yoffset);
+}
+function histogram(id,values,color,options={}){
+ let lo=options.lo??Math.min(...values),hi=options.hi??Math.max(...values);if(lo===hi){lo-=1;hi+=1}
+ const n=60,bins=Array(n).fill(0),dx=(hi-lo)/n;
+ for(const v of values){const i=Math.max(0,Math.min(n-1,Math.floor((v-lo)/dx)));bins[i]++}
+ const counts=bins.map(n=>100*n/values.length),max=Math.max(...counts);
+ const g=graph(id,lo,hi,0,Math.max(max*1.18,1),options.xlabel||'vy', '표본 비율 (%)');
+ const {c,X,Y}=g;c.fillStyle=color;
+ counts.forEach((v,i)=>c.fillRect(X(lo+i*dx),Y(v),Math.max(1,X(lo+(i+1)*dx)-X(lo+i*dx)-.4),Y(0)-Y(v)));
+ return g;
+}
+function overview(){
+ const a=data.audit,negative=data.sample.normalized.filter(x=>x[1]<0).length;
+ $('tiles').innerHTML=[['전체 정책 입력',a.policy_command_samples.toLocaleString()],['실제 오른쪽 입력',a.negative_policy_vy_count.toLocaleString()+'건'],['Replay 음수 vy',a.negative_replay_vy_count.toLocaleString()+'건'],['env 0 CSV 표본',data.sample.raw.length.toLocaleString()]].map(([s,n])=>'<div class="tile">'+s+'<b>'+n+'</b></div>').join('');
+ const g=graph('ratios',-.6,5.6,0,34,'','전체 환경 비율 (%)'),{c,X,Y}=g;
+ // Cover numeric x ticks with category labels.
+ c.fillStyle='white';c.fillRect(0,g.h-g.bottom+3,g.w,30);c.font='12px system-ui';c.textAlign='center';
+ dirs.forEach((k,i)=>{let value=data.ratio[k]*100;c.fillStyle=dircolors[i];c.fillRect(X(i-.28),Y(value),X(i+.28)-X(i-.28),Y(0)-Y(value));c.fillText(fmt(value,3)+'%',X(i),Y(value)-8);c.fillStyle='#53647c';c.fillText(dirlabels[i],X(i),g.h-g.bottom+22)});
+ const t=graph('ratioTime',0,30000,0,34,'학습 iteration','누적 비율 (%)');
+ dirs.forEach((k,i)=>path(t,data.ratio_series[k].map(([x,y])=>[x,y*100]),dircolors[i]));
+ const s=graph('space',-1.1,1.1,-.15,1.1,'raw vx (m/s)','raw vy (m/s)');
+ vertical(s,0,'#c2ccda','',true);
+ for(let i=0;i<data.sample.raw.length;i+=7){const [vx,vy]=data.sample.raw[i];s.c.fillStyle=vy>0?'#159575':vx>0?'#2865ce':vx<0?'#8c5ac4':'#788397';s.c.globalAlpha=.3;s.c.beginPath();s.c.arc(s.X(vx),s.Y(vy),2,0,Math.PI*2);s.c.fill()}s.c.globalAlpha=1;
+ const r=histogram('rawHist',data.sample.raw.map(x=>x[1]),'#2865ce',{xlabel:'실제 raw vy (m/s)',lo:-.1,hi:1.05});
+ vertical(r,0,'#d43e55','vy=0',true);
+ const n=histogram('normHist',data.sample.normalized.map(x=>x[1]),'#159575',{xlabel:'학습 당시 실제 normalized vy'});
+ vertical(n,0,'#d43e55','z=0',true);
+ $('negativeNote').textContent='env 0 표본 중 raw vy<0: '+data.sample.raw.filter(x=>x[1]<0).length+'건 / normalized vy<0: '+negative.toLocaleString()+'건 ('+fmt(100*negative/data.sample.raw.length,2)+'%). 두 부호는 같은 의미가 아닙니다.';
+}
+function selection(){
+ const row=data.checkpoints[+$('checkpoint').value],role=$('role').value,stats=row[role].command;
+ $('iteration').textContent=(row.iteration/1000)+'k';
+ $('statsTable').innerHTML=channels.map(k=>'<tr><td>'+k+'</td><td>'+fmt(stats[k].mean)+'</td><td>'+fmt(stats[k].variance)+'</td><td>'+fmt(stats[k].std)+'</td></tr>').join('');
+ $('count').textContent='정규화기 누적 count: '+row[role].count.toLocaleString()+' (replay 업데이트 기준이며, 서로 다른 환경/명령의 개수가 아닙니다.)';
+ for(const [id,key,title] of [['means','mean','평균 μ'],['variances','variance','분산'],['stds','std','표준편차 σ']]){
+  const all=data.checkpoints.flatMap(r=>channels.map(k=>r[role].command[k][key]));
+  let lo=Math.min(0,...all),hi=Math.max(...all),pad=Math.max((hi-lo)*.12,.001);
+  const g=graph(id,1000,30000,lo-pad,hi+pad,'체크포인트',title);
+  channels.forEach((k,i)=>path(g,data.checkpoints.map(r=>[r.iteration,r[role].command[k][key]]),colors[i]));
+  vertical(g,row.iteration,'#788397','',true);
+ }
+ const st=stats.vy,transform=v=>(v-st.mean)/(st.std+.01),values=data.sample.raw.map(x=>transform(x[1]));
+ const markers=[[-.6,'#8c5ac4','오른쪽 −0.6'],[-.3,'#d43e55','오른쪽 −0.3'],[0,'#788397','raw vy=0']];
+ const m=histogram('mapping',values,'#2865ce',{lo:Math.min(transform(-.6)-.4,...values),hi:Math.max(transform(.6)+.5,...values)+.2,xlabel:'선택 체크포인트로 고정한 normalized vy'});
+ markers.forEach(([v,col,label],i)=>vertical(m,transform(v),col,label+' → '+fmt(transform(v),3),v===0,i*20));
+ $('formula').textContent=(row.iteration/1000)+'k '+role+': z = (vy − '+fmt(st.mean)+') / ('+fmt(st.std)+' + 0.01)';
+ $('mappingTable').innerHTML='<table><thead><tr><th>물리 명령 vy (m/s)</th><th>정규화된 입력 z</th></tr></thead><tbody>'+[-.6,-.3,0,.3,.6].map(v=>'<tr><td>'+fmt(v,1)+'</td><td>'+fmt(transform(v),4)+'</td></tr>').join('')+'</tbody></table>';
+}
+fetch('data.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(d=>{data=d;overview();selection();$('checkpoint').addEventListener('input',selection);$('role').addEventListener('change',selection);let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(()=>{overview();selection()},150)})}).catch(e=>{document.body.insertAdjacentHTML('beforeend','<p>데이터를 읽지 못했습니다: '+e.message+'</p>')});
+</script></html>

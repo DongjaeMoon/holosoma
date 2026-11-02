@@ -1,0 +1,4276 @@
+[
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/train.log",
+    "bytes": 26370,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43.log",
+    "bytes": 9367037,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion/train.log",
+    "bytes": 726775,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43.log",
+    "bytes": 2106880,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/train.log",
+    "bytes": 722715,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43.log",
+    "bytes": 1008387,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_132745_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_132750-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/train.log",
+    "bytes": 714018,
+    "severity_counts": {
+      "traceback": 1
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 4117,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    },
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_132745_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43.log",
+    "bytes": 16122,
+    "severity_counts": {
+      "traceback": 1
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 243,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    },
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_132840_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_132844-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/train.log",
+    "bytes": 718545,
+    "severity_counts": {
+      "traceback": 1,
+      "error": 1
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 4126,
+          "text": "Traceback (most recent call last):"
+        }
+      ],
+      "error": [
+        {
+          "line": 4185,
+          "text": "RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != c10::BFloat16"
+        }
+      ]
+    },
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_132840_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43.log",
+    "bytes": 25459,
+    "severity_counts": {
+      "traceback": 1,
+      "error": 1
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 335,
+          "text": "Traceback (most recent call last):"
+        }
+      ],
+      "error": [
+        {
+          "line": 394,
+          "text": "RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != c10::BFloat16"
+        }
+      ]
+    },
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/train.log",
+    "bytes": 720122,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43.log",
+    "bytes": 401732,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_143823_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_143827-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/train.log",
+    "bytes": 716057,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_143823_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43.log",
+    "bytes": 83574,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_144957_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_145001-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/train.log",
+    "bytes": 718331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_144957_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43.log",
+    "bytes": 146200,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/train.log",
+    "bytes": 721435,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43.log",
+    "bytes": 1105902,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/train.log",
+    "bytes": 721658,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43.log",
+    "bytes": 1093270,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/train.log",
+    "bytes": 721534,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43.log",
+    "bytes": 1085541,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/train.log",
+    "bytes": 723503,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43.log",
+    "bytes": 1081007,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/biham_mlp_command_replay/biham_render.log",
+    "bytes": 228629,
+    "severity_counts": {
+      "error": 1
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 15,
+          "text": "2026-10-30T17:20:14Z [1,589ms] [Error] [carb.glinterop.plugin] eglInitialize failed"
+        }
+      ]
+    },
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_10000_metrics.log",
+    "bytes": 7308,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:25:21.212 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_1000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:38:53.415 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_2000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:35:27.370 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_3000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:32:06.031 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_4000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:28:43.891 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_5000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:25:22.155 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_6000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:38:45.285 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_7000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:35:21.473 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_8000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:31:59.042 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_9000_metrics.log",
+    "bytes": 7307,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:28:39.597 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/HAM_six_command_video.log",
+    "bytes": 283951,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-29 05:35:56.415 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_10000_metrics.log",
+    "bytes": 6956,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:23:48.267 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_1000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:37:09.418 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_2000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:33:53.535 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_3000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:30:30.750 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_4000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:27:10.243 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_5000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:23:48.210 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_6000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:37:11.015 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_7000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:33:46.704 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_8000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:30:25.080 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/MLP_9000_metrics.log",
+    "bytes": 7220,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:27:06.361 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_10000_metrics.log",
+    "bytes": 7982,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:22:55.724 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_1000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:36:24.981 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_2000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:33:01.232 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_3000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:29:38.071 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_4000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:26:17.944 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_5000_metrics.log",
+    "bytes": 7716,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:22:55.856 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_6000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:36:18.133 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_7000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:32:54.115 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_8000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:29:33.232 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_9000_metrics.log",
+    "bytes": 7981,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:26:14.051 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/biHAM_six_command_video.log",
+    "bytes": 284649,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-29 05:28:20.770 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_10000_metrics.log",
+    "bytes": 7332,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:24:31.882 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_1000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:38:03.145 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_2000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:34:37.259 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_3000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:31:15.563 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_4000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:27:54.015 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_5000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:24:32.421 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_6000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:37:55.218 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_7000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:34:30.775 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_8000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:31:08.790 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_9000_metrics.log",
+    "bytes": 7331,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:27:49.777 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/sym_aug_HAM_six_command_video.log",
+    "bytes": 284071,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-29 05:32:06.042 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation_gpu3.log",
+    "bytes": 0,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation_gpu6.log",
+    "bytes": 0,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evidence/MLP_training_terminal.txt",
+    "bytes": 1138251,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/train.log",
+    "bytes": 721987,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43.log",
+    "bytes": 1167854,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/train.log",
+    "bytes": 724531,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43.log",
+    "bytes": 1141236,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/train.log",
+    "bytes": 721859,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43.log",
+    "bytes": 1160250,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/train.log",
+    "bytes": 721664,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43.log",
+    "bytes": 1150032,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/highlight_HAM.log",
+    "bytes": 53971,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:41:47.579 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/highlight_MLP.log",
+    "bytes": 53884,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:42:36.049 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/highlight_biHAM.log",
+    "bytes": 54649,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:40:16.768 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/highlight_sym_aug_HAM.log",
+    "bytes": 54011,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 23:40:59.081 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/three_model_videos.log",
+    "bytes": 0,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/training_gpu3.log",
+    "bytes": 469,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/training_gpu6.log",
+    "bytes": 473,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513.log",
+    "bytes": 0,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/cpu_checks.log",
+    "bytes": 1873,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_10000_highlight.log",
+    "bytes": 8114,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:33:24.615 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_10000_metrics.log",
+    "bytes": 24139,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:05:49.019 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 297,
+        "text": "2026-10-28 19:26:10.040 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_10000_video.log",
+    "bytes": 11391,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:42:59.424 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_1000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:52:01.514 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_2000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:55:17.307 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_3000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:58:27.047 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_4000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 20:01:36.358 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_5000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:59:25.920 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_6000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:56:17.952 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_7000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:53:11.653 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_8000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:50:06.344 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/HAM_9000_metrics.log",
+    "bytes": 7299,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:46:58.923 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_10000_highlight.log",
+    "bytes": 8027,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:34:10.692 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_10000_metrics.log",
+    "bytes": 23965,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:06:51.575 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 296,
+        "text": "2026-10-28 19:26:59.020 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_1000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:52:47.936 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_2000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:56:03.781 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_3000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:59:13.209 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_4000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 20:02:23.157 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_5000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 20:00:12.639 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_6000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:57:04.009 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_7000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:53:57.830 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_8000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:50:52.214 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/MLP_9000_metrics.log",
+    "bytes": 7212,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:47:45.401 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_10000_highlight.log",
+    "bytes": 36176,
+    "severity_counts": {
+      "cuda_oom": 2,
+      "error": 3,
+      "traceback": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 245,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        },
+        {
+          "line": 501,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 245,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        },
+        {
+          "line": 325,
+          "text": "AssertionError: Tensor-likes are not close!"
+        },
+        {
+          "line": 501,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "traceback": [
+        {
+          "line": 316,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:07:50.382 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 334,
+        "text": "2026-10-28 19:27:42.575 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 458,
+        "text": "2026-10-28 19:31:49.965 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_10000_metrics.log",
+    "bytes": 48924,
+    "severity_counts": {
+      "traceback": 2,
+      "error": 1
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 27,
+          "text": "Traceback (most recent call last):"
+        },
+        {
+          "line": 362,
+          "text": "Traceback (most recent call last):"
+        }
+      ],
+      "error": [
+        {
+          "line": 50,
+          "text": "AssertionError: Plane terrain does not support terrain_config"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:01:50.960 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 53,
+        "text": "2026-10-28 19:02:14.552 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 386,
+        "text": "2026-10-28 19:03:38.256 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 704,
+        "text": "2026-10-28 19:24:28.850 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_10000_video.log",
+    "bytes": 15133,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:34:51.285 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_1000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:50:26.984 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_2000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:53:41.658 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_3000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:56:51.446 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_4000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 20:00:00.140 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_5000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:57:49.770 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_6000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:54:42.448 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_7000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:51:36.417 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_8000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:48:29.496 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/biHAM_9000_metrics.log",
+    "bytes": 7968,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:45:24.222 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/invalid_overlap_attempt_192422/INVALID.txt",
+    "bytes": 191,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_10000_highlight.log",
+    "bytes": 16440,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 146,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 146,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:28:33.251 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 103,
+        "text": "2026-10-28 19:32:38.759 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_10000_metrics.log",
+    "bytes": 24177,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:04:45.591 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      },
+      {
+        "line": 297,
+        "text": "2026-10-28 19:25:21.975 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_10000_video.log",
+    "bytes": 14675,
+    "severity_counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 46,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:39:03.599 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_1000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:51:15.672 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_2000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:54:31.631 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_3000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:57:40.545 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_4000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 20:00:49.504 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_5000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:58:39.444 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_6000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:55:31.562 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_7000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:52:25.385 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_8000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:49:19.055 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/sym_aug_HAM_9000_metrics.log",
+    "bytes": 7318,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 19:46:13.158 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_gpu3_metrics_launcher.log",
+    "bytes": 0,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_gpu6_metrics_launcher.log",
+    "bytes": 0,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_launcher.log",
+    "bytes": 2877,
+    "severity_counts": {
+      "traceback": 3
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 1,
+          "text": "Traceback (most recent call last):"
+        },
+        {
+          "line": 9,
+          "text": "Traceback (most recent call last):"
+        },
+        {
+          "line": 17,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    },
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_metrics_launcher.log",
+    "bytes": 0,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_bilateral_fastsac_launcher.log",
+    "bytes": 919,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_experiment3_fastsac_launcher.log",
+    "bytes": 191,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_experiment3_noaugmentation_launcher.log",
+    "bytes": 191,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_fastsac_launcher.log",
+    "bytes": 193,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_four_way_comparison_launcher.log",
+    "bytes": 191,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_ham_continuation_launcher.log",
+    "bytes": 1860,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_ham_stop10k.log",
+    "bytes": 1179,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_isaacgym_launcher.log",
+    "bytes": 175,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu3_launcher.log",
+    "bytes": 147,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu6_ham_mlp_launcher.log",
+    "bytes": 195,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu6_mlp_continuation_launcher.log",
+    "bytes": 1487,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/gpu6_mlp_stop10k.log",
+    "bytes": 1179,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/command.txt",
+    "bytes": 655,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "CUDA_VISIBLE_DEVICES=3 CUDA_DEVICE_ORDER=PCI_BUS_ID /root/.holosoma_deps/miniconda3/envs/hssim/bin/python src/holosoma/holosoma/train_agent.py exp:g1-29dof-mlp-no-right-fast-sac-v2 simulator:isaacsim logger:disabled --training.seed 43 --training.num-envs 1 --training.name mlp_no_right_env1_command_audit --logger.base-dir /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training --algo.config.num-learning-iterations 10000 --algo.config.batch-size 8192 --algo.config.command-audit True '--simulator.config.isaacsim.kit-args=--/renderer/multiGpu/enabled=false --/renderer/multiGpu/autoEnable=false --/renderer/activeGpu=0'"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion/train.log",
+    "bytes": 8912,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 17,
+        "text": "2026-10-29 18:45:36.656 | INFO     | __main__:train:310 - Saving config file to /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion"
+      },
+      {
+        "line": 49,
+        "text": "2026-10-29 18:47:41.016 | INFO     | holosoma.agents.modules.logging_utils:save_checkpoint_artifact:439 - Saving checkpoint to /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training_terminal.log",
+    "bytes": 196137,
+    "severity_counts": {
+      "error": 12
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 66,
+          "text": "2026-10-29T18:44:59Z [3,929ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 73,
+          "text": "2026-10-29T18:44:59Z [3,993ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 353,
+          "text": "2026-10-29T18:45:20Z [24,956ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 416,
+          "text": "2026-10-29T18:45:21Z [26,203ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 423,
+          "text": "2026-10-29T18:45:21Z [26,275ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 427,
+          "text": "2026-10-29T18:45:21Z [26,388ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 432,
+          "text": "2026-10-29T18:45:21Z [26,405ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 434,
+          "text": "2026-10-29T18:45:22Z [26,818ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 435,
+          "text": "2026-10-29T18:45:22Z [26,818ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 436,
+          "text": "2026-10-29T18:45:22Z [26,821ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 437,
+          "text": "2026-10-29T18:45:22Z [26,821ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 3576,
+          "text": "2026-10-29T18:48:00Z [185,535ms] [Error] [omni.physx.plugin] CUDA libs are present, but no suitable CUDA GPU was found!"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 74,
+        "text": "2026-10-29 18:44:59.569 | INFO     | holosoma.utils.sim_utils:setup_isaaclab_launcher:201 - IsaacSim args_cli: Namespace(num_envs=1, seed=43, env_spacing=20.0, output_dir='/workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training', enable_cameras=False, xr=False, device='cuda:0', cpu=False, verbose=False, info=False, rendering_mode=None, kit_args='--/renderer/multiGpu/enabled=false --/renderer/multiGpu/autoEnable=false --/renderer/activeGpu=0', anim_recording_enabled=False, anim_recording_start_time=0, anim_recording_stop_time=10, headless=True, hide_ui=True, create_new_stage=False, physics_gpu=0, active_gpu=0)"
+      },
+      {
+        "line": 75,
+        "text": "2026-10-29 18:44:59.570 | INFO     | holosoma.utils.sim_utils:setup_isaaclab_launcher:202 - IsaacSim unknown_args: ['exp:g1-29dof-mlp-no-right-fast-sac-v2', 'simulator:isaacsim', 'logger:disabled', '--training.seed', '43', '--training.num-envs', '1', '--training.name', 'mlp_no_right_env1_command_audit', '--logger.base-dir', '/workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training', '--algo.config.num-learning-iterations', '10000', '--algo.config.batch-size', '8192', '--algo.config.command-audit', 'True', '--simulator.config.isaacsim.kit-args=--/renderer/multiGpu/enabled=false --/renderer/multiGpu/autoEnable=false --/renderer/activeGpu=0']"
+      },
+      {
+        "line": 598,
+        "text": "\u001b[32m2026-10-29 18:45:36.656\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36m__main__\u001b[0m:\u001b[36mtrain\u001b[0m:\u001b[36m310\u001b[0m - \u001b[1mSaving config file to /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion\u001b[0m"
+      },
+      {
+        "line": 665,
+        "text": "    command_audit: true"
+      },
+      {
+        "line": 686,
+        "text": "    num_learning_iterations: 10000"
+      },
+      {
+        "line": 693,
+        "text": "    symmetry_compatible_io: true"
+      },
+      {
+        "line": 699,
+        "text": "    use_symmetry: false"
+      },
+      {
+        "line": 709,
+        "text": "      func: holosoma.managers.command.terms.locomotion:LocomotionCommand"
+      },
+      {
+        "line": 716,
+        "text": "      func: holosoma.managers.command.terms.three_direction:ThreeDirectionCommand"
+      },
+      {
+        "line": 733,
+        "text": "      func: holosoma.managers.command.terms.domi_gait:DomiGait"
+      },
+      {
+        "line": 740,
+        "text": "      func: holosoma.managers.command.terms.locomotion:LocomotionCommand"
+      },
+      {
+        "line": 774,
+        "text": "  base_dir: /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training"
+      },
+      {
+        "line": 1888,
+        "text": "  name: mlp_no_right_env1_command_audit"
+      },
+      {
+        "line": 2026,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 2027,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 2178,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 2179,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 2328,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 2329,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 2479,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 2480,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 2630,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 2631,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 2772,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 2773,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 2922,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 2923,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 3074,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 3075,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 3213,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 3214,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 3349,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 3350,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      },
+      {
+        "line": 3353,
+        "text": "\u001b[32m2026-10-29 18:47:41.016\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mholosoma.agents.modules.logging_utils\u001b[0m:\u001b[36msave_checkpoint_artifact\u001b[0m:\u001b[36m439\u001b[0m - \u001b[1mSaving checkpoint to /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion/model_0001000.pt\u001b[0m"
+      },
+      {
+        "line": 3452,
+        "text": " 11%|█         | 1100/10000 [02:16<18:16,  8.12it/s]Saved parameters and configuration to /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion/model_0001000.pt"
+      },
+      {
+        "line": 3503,
+        "text": "│ /workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034 │"
+      },
+      {
+        "line": 3504,
+        "text": "│ 438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-l │"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/render_preview.log",
+    "bytes": 40530,
+    "severity_counts": {
+      "cuda_oom": 2,
+      "error": 3,
+      "traceback": 2
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 249,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        },
+        {
+          "line": 594,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 249,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        },
+        {
+          "line": 335,
+          "text": "RuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details."
+        },
+        {
+          "line": 594,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "traceback": [
+        {
+          "line": 323,
+          "text": "Traceback (most recent call last):"
+        },
+        {
+          "line": 338,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 3,
+        "text": "2026-10-28 14:33:02.813 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/model_0003000.pt"
+      },
+      {
+        "line": 348,
+        "text": "2026-10-28 14:34:42.570 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:87 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/command_bug_audit.log",
+    "bytes": 18434,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "AUDIT_CHECKPOINT 10000 {\"iteration\": 10000, \"checkpoint\": \"/workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0010000.pt\", \"actor_class\": \"Actor\", \"strict_weight_load\": true, \"use_symmetry\": false, \"symmetry_compatible_io\": false, \"bilateral\": null, \"state_count\": 544, \"normalizer_unchanged\": true, \"command_indices_vx_vy_yaw\": [33, 34, 32], \"sweep\": [{\"command_vy\": -0.9, \"normalized_vy\": -3.762852668762207, \"action_rms\": 0.20949721336364746, \"action_change_from_zero_rms\": 0.18176157772541046, \"fraction_states_with_changed_action\": 1.0}, {\"command_vy\": -0.6, \"normalized_vy\": -2.667714834213257, \"action_rms\": 0.18229013681411743, \"action_change_from_zero_rms\": 0.11696238815784454, \"fraction_states_with_changed_action\": 1.0}, {\"command_vy\": -0.3, \"normalized_vy\": -1.572576880455017, "
+      },
+      {
+        "line": 2,
+        "text": "AUDIT_CHECKPOINT 30000 {\"iteration\": 30000, \"checkpoint\": \"/workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0030000.pt\", \"actor_class\": \"Actor\", \"strict_weight_load\": true, \"use_symmetry\": false, \"symmetry_compatible_io\": false, \"bilateral\": null, \"state_count\": 544, \"normalizer_unchanged\": true, \"command_indices_vx_vy_yaw\": [33, 34, 32], \"sweep\": [{\"command_vy\": -0.9, \"normalized_vy\": -3.743983745574951, \"action_rms\": 0.19943109154701233, \"action_change_from_zero_rms\": 0.173906609416008, \"fraction_states_with_changed_action\": 1.0}, {\"command_vy\": -0.6, \"normalized_vy\": -2.6561572551727295, \"action_rms\": 0.16422337293624878, \"action_change_from_zero_rms\": 0.11868921667337418, \"fraction_states_with_changed_action\": 1.0}, {\"command_vy\": -0.3, \"normalized_vy\": -1.5683307647705078, "
+      },
+      {
+        "line": 28,
+        "text": "      \"use_symmetry\": false,"
+      },
+      {
+        "line": 29,
+        "text": "      \"symmetry_compatible_io\": false,"
+      },
+      {
+        "line": 185,
+        "text": "      \"use_symmetry\": false,"
+      },
+      {
+        "line": 186,
+        "text": "      \"symmetry_compatible_io\": false,"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/command_statistics_build.log",
+    "bytes": 1238,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0001000_metrics.log",
+    "bytes": 93317,
+    "severity_counts": {
+      "error": 22,
+      "traceback": 1
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:27:03Z [3,376ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:27:03Z [3,438ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:27:06Z [6,345ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:27:07Z [7,575ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:27:07Z [7,641ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:27:07Z [7,711ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:27:07Z [7,729ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:27:08Z [8,133ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:27:08Z [8,133ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:27:08Z [8,137ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:27:08Z [8,137ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 608,
+          "text": "2026-10-30T11:57:43Z [3,297ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        }
+      ],
+      "traceback": [
+        {
+          "line": 468,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:26:59.878 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0001000.pt"
+      },
+      {
+        "line": 538,
+        "text": "2026-10-30 11:57:39.447 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0001000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0002000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:56:49Z [3,471ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:56:49Z [3,534ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:56:53Z [6,603ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:56:54Z [7,957ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:56:54Z [8,019ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:56:54Z [8,091ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:56:54Z [8,109ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:56:54Z [8,523ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:56:54Z [8,523ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:56:54Z [8,526ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:56:54Z [8,526ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:56:46.131 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0002000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0003000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:55:57Z [3,482ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:55:57Z [3,543ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:56:00Z [6,523ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:56:02Z [7,812ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:56:02Z [7,880ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:56:02Z [7,948ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:56:02Z [7,966ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:56:02Z [8,354ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:56:02Z [8,354ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:56:02Z [8,359ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:56:02Z [8,359ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:55:54.107 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0003000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0004000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:55:06Z [3,274ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:55:06Z [3,336ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:55:09Z [6,393ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:55:10Z [7,660ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:55:11Z [7,726ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:55:11Z [7,799ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:55:11Z [7,816ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:55:11Z [8,213ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:55:11Z [8,213ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:55:11Z [8,219ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:55:11Z [8,219ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:55:03.066 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0004000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0005000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:54:15Z [3,294ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:54:15Z [3,373ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:54:18Z [6,315ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:54:19Z [7,574ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:54:20Z [7,632ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:54:20Z [7,701ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:54:20Z [7,717ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:54:20Z [8,116ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:54:20Z [8,116ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:54:20Z [8,119ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:54:20Z [8,119ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:54:12.139 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0005000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0006000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:53:25Z [3,318ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:53:25Z [3,378ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:53:28Z [6,327ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:53:29Z [7,723ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:53:29Z [7,781ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:53:29Z [7,855ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:53:29Z [7,872ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:53:30Z [8,284ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:53:30Z [8,284ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:53:30Z [8,289ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:53:30Z [8,289ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:53:21.529 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0006000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0007000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:52:34Z [3,453ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:52:34Z [3,516ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:52:37Z [6,526ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:52:38Z [7,822ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:52:38Z [7,891ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:52:38Z [7,963ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:52:38Z [7,981ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:52:39Z [8,371ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:52:39Z [8,371ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:52:39Z [8,375ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:52:39Z [8,375ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:52:30.452 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0007000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0008000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:51:43Z [3,279ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:51:43Z [3,343ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:51:46Z [6,413ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:51:47Z [7,700ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:51:47Z [7,759ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:51:47Z [7,828ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:51:47Z [7,854ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:51:48Z [8,237ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:51:48Z [8,237ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:51:48Z [8,242ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:51:48Z [8,242ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:51:39.757 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0008000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0009000_metrics.log",
+    "bytes": 43629,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:50:53Z [3,401ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:50:53Z [3,460ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:50:55Z [6,337ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:50:57Z [7,626ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:50:57Z [7,692ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:50:57Z [7,760ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:50:57Z [7,777ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:50:57Z [8,151ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:50:57Z [8,151ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:50:57Z [8,155ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:50:57Z [8,155ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:50:49.334 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0009000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0010000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:50:01Z [3,339ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:50:01Z [3,401ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:50:05Z [6,466ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:50:06Z [7,732ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:50:06Z [7,806ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:50:06Z [7,885ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:50:06Z [7,902ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:50:06Z [8,325ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:50:06Z [8,325ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:50:06Z [8,331ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:50:06Z [8,331ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:49:58.269 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0011000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:49:10Z [3,349ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:49:10Z [3,413ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:49:14Z [6,624ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:49:15Z [7,896ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:49:15Z [7,958ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:49:15Z [8,026ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:49:15Z [8,043ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:49:15Z [8,445ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:49:15Z [8,445ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:49:15Z [8,449ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:49:15Z [8,449ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:49:07.203 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0011000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0012000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:48:20Z [3,311ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:48:20Z [3,370ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:48:23Z [6,324ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:48:24Z [7,660ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:48:24Z [7,733ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:48:24Z [7,804ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:48:24Z [7,821ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:48:25Z [8,208ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:48:25Z [8,209ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:48:25Z [8,214ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:48:25Z [8,214ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:48:16.878 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0012000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0013000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:47:29Z [3,259ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:47:29Z [3,330ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:47:32Z [6,163ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:47:34Z [7,439ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:47:34Z [7,503ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:47:34Z [7,579ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:47:34Z [7,596ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:47:34Z [8,006ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:47:34Z [8,006ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:47:34Z [8,012ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:47:34Z [8,012ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:47:26.304 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0013000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0014000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:46:39Z [3,305ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:46:39Z [3,373ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:46:42Z [6,337ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:46:44Z [7,576ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:46:44Z [7,657ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:46:44Z [7,729ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:46:44Z [7,747ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:46:44Z [8,116ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:46:44Z [8,116ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:46:44Z [8,119ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:46:44Z [8,119ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:46:36.208 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0014000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0015000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:45:49Z [3,270ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:45:49Z [3,348ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:45:52Z [6,294ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:45:54Z [7,528ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:45:54Z [7,593ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:45:54Z [7,664ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:45:54Z [7,681ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:45:54Z [8,055ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:45:54Z [8,055ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:45:54Z [8,058ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:45:54Z [8,058ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:45:46.345 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0015000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0016000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:44:59Z [3,371ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:44:59Z [3,431ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:45:02Z [6,401ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:45:03Z [7,647ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:45:03Z [7,706ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:45:03Z [7,775ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:45:03Z [7,791ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:45:03Z [8,174ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:45:03Z [8,175ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:45:03Z [8,179ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:45:03Z [8,180ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:44:55.453 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0016000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0017000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:44:08Z [3,392ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:44:08Z [3,453ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:44:11Z [6,334ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:44:12Z [7,685ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:44:12Z [7,749ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:44:12Z [7,825ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:44:12Z [7,843ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:44:13Z [8,289ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:44:13Z [8,289ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:44:13Z [8,295ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:44:13Z [8,295ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:44:04.755 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0017000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0018000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:43:17Z [3,306ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:43:18Z [3,368ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:43:20Z [6,255ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:43:22Z [7,636ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:43:22Z [7,697ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:43:22Z [7,768ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:43:22Z [7,787ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:43:22Z [8,204ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:43:22Z [8,204ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:43:22Z [8,209ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:43:22Z [8,209ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:43:14.386 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0018000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0019000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:42:27Z [3,298ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:42:27Z [3,363ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:42:30Z [6,231ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:42:31Z [7,492ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:42:31Z [7,552ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:42:32Z [7,632ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:42:32Z [7,649ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:42:32Z [8,026ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:42:32Z [8,026ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:42:32Z [8,029ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:42:32Z [8,029ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:42:24.124 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0019000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0020000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:41:37Z [3,317ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:41:37Z [3,378ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:41:40Z [6,339ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:41:42Z [7,606ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:41:42Z [7,668ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:41:42Z [7,740ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:41:42Z [7,757ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:41:42Z [8,168ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:41:42Z [8,168ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:41:42Z [8,173ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:41:42Z [8,173ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:41:34.206 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0020000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0021000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:40:46Z [3,369ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:40:47Z [3,438ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:40:49Z [6,303ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:40:51Z [7,608ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:40:51Z [7,670ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:40:51Z [7,743ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:40:51Z [7,760ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:40:51Z [8,151ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:40:51Z [8,151ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:40:51Z [8,154ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:40:51Z [8,154ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:40:43.299 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0021000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0022000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:39:56Z [3,451ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:39:56Z [3,518ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:39:59Z [6,455ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:40:00Z [7,782ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:40:00Z [7,843ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:40:01Z [7,912ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:40:01Z [7,929ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:40:01Z [8,332ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:40:01Z [8,332ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:40:01Z [8,336ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:40:01Z [8,336ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:39:52.854 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0022000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0023000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:39:05Z [3,364ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:39:05Z [3,435ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:39:08Z [6,365ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:39:10Z [7,663ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:39:10Z [7,725ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:39:10Z [7,796ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:39:10Z [7,812ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:39:10Z [8,195ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:39:10Z [8,195ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:39:10Z [8,201ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:39:10Z [8,201ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:39:02.237 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0023000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0024000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:38:14Z [3,302ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:38:14Z [3,362ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:38:17Z [6,328ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:38:18Z [7,677ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:38:18Z [7,739ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:38:18Z [7,808ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:38:18Z [7,825ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:38:19Z [8,217ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:38:19Z [8,218ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:38:19Z [8,223ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:38:19Z [8,223ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:38:10.699 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0024000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0025000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:37:23Z [3,375ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:37:23Z [3,443ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:37:26Z [6,317ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:37:27Z [7,542ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:37:27Z [7,609ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:37:27Z [7,678ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:37:27Z [7,695ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:37:28Z [8,064ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:37:28Z [8,064ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:37:28Z [8,069ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:37:28Z [8,069ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:37:20.043 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0025000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0026000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:36:34Z [3,351ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:36:34Z [3,413ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:36:37Z [6,486ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:36:38Z [7,863ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:36:38Z [7,926ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:36:38Z [7,996ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:36:38Z [8,013ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:36:39Z [8,391ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:36:39Z [8,391ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:36:39Z [8,395ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:36:39Z [8,395ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:36:30.467 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0026000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0027000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:35:43Z [3,420ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:35:44Z [3,491ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:35:47Z [6,547ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:35:48Z [7,754ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:35:48Z [7,841ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:35:48Z [7,917ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:35:48Z [7,934ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:35:48Z [8,320ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:35:48Z [8,320ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:35:48Z [8,325ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:35:48Z [8,325ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:35:40.203 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0027000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0028000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:34:52Z [3,258ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:34:52Z [3,329ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:34:55Z [6,162ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:34:56Z [7,376ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:34:56Z [7,447ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:34:56Z [7,521ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:34:56Z [7,538ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:34:57Z [7,902ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:34:57Z [7,902ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:34:57Z [7,905ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:34:57Z [7,905ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:34:49.126 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0028000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0029000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:34:03Z [3,389ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:34:03Z [3,478ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:34:06Z [6,495ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:34:07Z [7,764ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:34:07Z [7,824ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:34:07Z [7,896ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:34:07Z [7,913ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:34:07Z [8,285ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:34:07Z [8,285ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:34:07Z [8,288ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:34:07Z [8,288ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:33:59.392 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0029000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0030000_metrics.log",
+    "bytes": 43630,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:33:12Z [3,391ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:33:12Z [3,451ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:33:15Z [6,382ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:33:16Z [7,628ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:33:16Z [7,688ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:33:16Z [7,758ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:33:16Z [7,775ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:33:16Z [8,148ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:33:16Z [8,148ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:33:16Z [8,151ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:33:16Z [8,151ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 11:33:08.085 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0030000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/replacement_full_plot.log",
+    "bytes": 97,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/train.log",
+    "bytes": 26838,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training_command.txt",
+    "bytes": 808,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training_terminal.log",
+    "bytes": 3557535,
+    "severity_counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 68,
+          "text": "2026-10-30T09:53:10Z [4,737ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 75,
+          "text": "2026-10-30T09:53:11Z [4,811ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 353,
+          "text": "2026-10-30T09:53:22Z [16,496ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 416,
+          "text": "2026-10-30T09:53:24Z [17,939ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 423,
+          "text": "2026-10-30T09:53:24Z [18,013ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 427,
+          "text": "2026-10-30T09:53:24Z [18,162ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 432,
+          "text": "2026-10-30T09:53:24Z [18,183ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 434,
+          "text": "2026-10-30T09:53:24Z [18,599ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 435,
+          "text": "2026-10-30T09:53:24Z [18,599ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 436,
+          "text": "2026-10-30T09:53:24Z [18,603ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 437,
+          "text": "2026-10-30T09:53:24Z [18,603ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 687,
+        "text": "    command_audit: true"
+      },
+      {
+        "line": 688,
+        "text": "    command_audit_csv_envs: 1"
+      },
+      {
+        "line": 709,
+        "text": "    num_learning_iterations: 30000"
+      },
+      {
+        "line": 716,
+        "text": "    symmetry_compatible_io: false"
+      },
+      {
+        "line": 722,
+        "text": "    use_symmetry: false"
+      },
+      {
+        "line": 732,
+        "text": "      func: holosoma.managers.command.terms.locomotion:LocomotionCommand"
+      },
+      {
+        "line": 739,
+        "text": "      func: holosoma.managers.command.terms.three_direction:ThreeDirectionCommand"
+      },
+      {
+        "line": 762,
+        "text": "      func: holosoma.managers.command.terms.locomotion:LocomotionCommand"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_probe.log",
+    "bytes": 42196,
+    "severity_counts": {
+      "error": 1,
+      "traceback": 1
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 16,
+          "text": "2026-10-30T12:47:37Z [1,091ms] [Error] [carb.glinterop.plugin] eglInitialize failed"
+        }
+      ],
+      "traceback": [
+        {
+          "line": 410,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 12:47:36.104 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_render.log",
+    "bytes": 265915,
+    "severity_counts": {
+      "error": 1
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 16,
+          "text": "2026-10-30T12:49:29Z [1,149ms] [Error] [carb.glinterop.plugin] eglInitialize failed"
+        }
+      ]
+    },
+    "config_mentions": [
+      {
+        "line": 1,
+        "text": "2026-10-30 12:49:28.014 | INFO     | holosoma.utils.eval_utils:load_saved_experiment_config:90 - Loaded experiment config from checkpoint: /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0010000.pt"
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2_supervisor.log",
+    "bytes": 14433,
+    "severity_counts": {
+      "traceback": 1,
+      "error": 1
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 3,
+          "text": "Traceback (most recent call last):"
+        }
+      ],
+      "error": [
+        {
+          "line": 12,
+          "text": "RuntimeError: evaluating exited with 1; see /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0001000_metrics.log"
+        }
+      ]
+    },
+    "config_mentions": []
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_prepared_commands.txt",
+    "bytes": 961,
+    "severity_counts": {},
+    "examples": {},
+    "config_mentions": []
+  }
+]

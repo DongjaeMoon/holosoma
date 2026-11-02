@@ -1,0 +1,10 @@
+{
+  "checkpoints_sha256_checked": 150,
+  "checkpoints_changed": [],
+  "terminal_logs_size_checked": 196,
+  "terminal_logs_size_changed": [],
+  "tensorboard_sizes_checked": 188,
+  "tensorboard_sizes_changed": [],
+  "campaign_statuses_changed": [],
+  "note": "Checkpoint contents verified against hashes taken during the audit. Text/event checks are size comparisons, not claims of initial bytewise hashes. All existing artifacts were only opened for reading."
+}

@@ -1,0 +1,575 @@
+[
+  {
+    "directory": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion",
+    "count": 21,
+    "first": 0,
+    "last": 2000,
+    "actor_digests_unique": null,
+    "algo": "holosoma.agents.ppo.ppo.PPO",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 9,
+        "min": 64032.0,
+        "max": 64032.0,
+        "unique": [
+          64032.0
+        ]
+      },
+      "critic_optimizer_state_dict": {
+        "states": 8,
+        "min": 64032.0,
+        "max": 64032.0,
+        "unique": [
+          64032.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion",
+    "count": 5,
+    "first": 0,
+    "last": 400,
+    "actor_digests_unique": null,
+    "algo": "holosoma.agents.ppo.ppo.PPO",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 9,
+        "min": 12832.0,
+        "max": 12832.0,
+        "unique": [
+          12832.0
+        ]
+      },
+      "critic_optimizer_state_dict": {
+        "states": 8,
+        "min": 12832.0,
+        "max": 12832.0,
+        "unique": [
+          12832.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion",
+    "count": 9,
+    "first": 1000,
+    "last": 9000,
+    "actor_digests_unique": 9,
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 16,
+        "min": 17980.0,
+        "max": 17980.0,
+        "unique": [
+          17980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 28,
+        "min": 71920.0,
+        "max": 71920.0,
+        "unique": [
+          71920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 71920.0,
+        "max": 71920.0,
+        "unique": [
+          71920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion",
+    "count": 3,
+    "first": 1000,
+    "last": 3000,
+    "actor_digests_unique": 3,
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 12,
+        "min": 5980.0,
+        "max": 5980.0,
+        "unique": [
+          5980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 24,
+        "min": 23920.0,
+        "max": 23920.0,
+        "unique": [
+          23920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 23920.0,
+        "max": 23920.0,
+        "unique": [
+          23920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 23920.0,
+        "max": 23920.0,
+        "unique": [
+          23920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_144957_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_145001-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion",
+    "count": 1,
+    "first": 1000,
+    "last": 1000,
+    "actor_digests_unique": 1,
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 12,
+        "min": 1980.0,
+        "max": 1980.0,
+        "unique": [
+          1980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 24,
+        "min": 7920.0,
+        "max": 7920.0,
+        "unique": [
+          7920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 7920.0,
+        "max": 7920.0,
+        "unique": [
+          7920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 7920.0,
+        "max": 7920.0,
+        "unique": [
+          7920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 12,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 24,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 8,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 8,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 16,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 28,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.bilateral_fast_sac.BilateralFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 12,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 24,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 16,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 28,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 8,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion",
+    "count": 10,
+    "first": 1000,
+    "last": 10000,
+    "actor_digests_unique": 10,
+    "algo": "holosoma.agents.fast_sac.ham_fast_sac.HAMFastSAC",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 8,
+        "min": 19980.0,
+        "max": 19980.0,
+        "unique": [
+          19980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      },
+      "router_optimizer_state_dict": {
+        "states": 16,
+        "min": 79920.0,
+        "max": 79920.0,
+        "unique": [
+          79920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion",
+    "count": 1,
+    "first": 1000,
+    "last": 1000,
+    "actor_digests_unique": 1,
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 16,
+        "min": 1980.0,
+        "max": 1980.0,
+        "unique": [
+          1980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 28,
+        "min": 7920.0,
+        "max": 7920.0,
+        "unique": [
+          7920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 7920.0,
+        "max": 7920.0,
+        "unique": [
+          7920.0
+        ]
+      }
+    },
+    "bad_files": []
+  },
+  {
+    "directory": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion",
+    "count": 30,
+    "first": 1000,
+    "last": 30000,
+    "actor_digests_unique": 30,
+    "algo": "holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent",
+    "last_optimizer_steps": {
+      "actor_optimizer_state_dict": {
+        "states": 16,
+        "min": 59980.0,
+        "max": 59980.0,
+        "unique": [
+          59980.0
+        ]
+      },
+      "q_optimizer_state_dict": {
+        "states": 28,
+        "min": 239920.0,
+        "max": 239920.0,
+        "unique": [
+          239920.0
+        ]
+      },
+      "alpha_optimizer_state_dict": {
+        "states": 1,
+        "min": 239920.0,
+        "max": 239920.0,
+        "unique": [
+          239920.0
+        ]
+      }
+    },
+    "bad_files": []
+  }
+]

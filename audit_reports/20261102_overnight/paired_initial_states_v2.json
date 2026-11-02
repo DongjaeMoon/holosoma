@@ -1,0 +1,38 @@
+[
+  {
+    "case": "left_0.3mps",
+    "max_abs_difference_from_biHAM": {
+      "biHAM": 0.0,
+      "sym_aug_HAM": 0.0,
+      "HAM": 0.0,
+      "MLP": 0.0
+    }
+  },
+  {
+    "case": "left_0.6mps",
+    "max_abs_difference_from_biHAM": {
+      "biHAM": 0.0,
+      "sym_aug_HAM": 0.0,
+      "HAM": 0.0,
+      "MLP": 0.0
+    }
+  },
+  {
+    "case": "right_0.3mps",
+    "max_abs_difference_from_biHAM": {
+      "biHAM": 0.0,
+      "sym_aug_HAM": 0.0,
+      "HAM": 0.0,
+      "MLP": 0.0
+    }
+  },
+  {
+    "case": "right_0.6mps",
+    "max_abs_difference_from_biHAM": {
+      "biHAM": 0.0,
+      "sym_aug_HAM": 0.0,
+      "HAM": 0.0,
+      "MLP": 0.0
+    }
+  }
+]

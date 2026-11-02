@@ -1,0 +1,163 @@
+[
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/highlight_MLP.log",
+    "counts": {
+      "cuda_oom": 1,
+      "error": 1
+    },
+    "examples": {
+      "cuda_oom": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ],
+      "error": [
+        {
+          "line": 48,
+          "text": "[Error] [carb.gym.plugin] Gym cuda error: invalid device ordinal: ../../../source/plugins/carb/gym/impl/Gym/GymPhysXCuda.cu: 991"
+        }
+      ]
+    }
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0001000_metrics.log",
+    "counts": {
+      "error": 22,
+      "traceback": 1
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 71,
+          "text": "2026-10-30T11:27:03Z [3,376ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 78,
+          "text": "2026-10-30T11:27:03Z [3,438ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 158,
+          "text": "2026-10-30T11:27:06Z [6,345ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 221,
+          "text": "2026-10-30T11:27:07Z [7,575ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 228,
+          "text": "2026-10-30T11:27:07Z [7,641ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 232,
+          "text": "2026-10-30T11:27:07Z [7,711ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 237,
+          "text": "2026-10-30T11:27:07Z [7,729ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 239,
+          "text": "2026-10-30T11:27:08Z [8,133ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 240,
+          "text": "2026-10-30T11:27:08Z [8,133ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 241,
+          "text": "2026-10-30T11:27:08Z [8,137ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 242,
+          "text": "2026-10-30T11:27:08Z [8,137ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 608,
+          "text": "2026-10-30T11:57:43Z [3,297ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        }
+      ],
+      "traceback": [
+        {
+          "line": 468,
+          "text": "Traceback (most recent call last):"
+        }
+      ]
+    }
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training_terminal.log",
+    "counts": {
+      "error": 11
+    },
+    "examples": {
+      "error": [
+        {
+          "line": 68,
+          "text": "2026-10-30T09:53:10Z [4,737ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 75,
+          "text": "2026-10-30T09:53:11Z [4,811ms] [Error] [gpu.foundation.plugin] Invalid getDeviceInfo parameters."
+        },
+        {
+          "line": 353,
+          "text": "2026-10-30T09:53:22Z [16,496ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 416,
+          "text": "2026-10-30T09:53:24Z [17,939ms] [Error] [gpu.foundation.plugin] No device could be created. Some known system issues:"
+        },
+        {
+          "line": 423,
+          "text": "2026-10-30T09:53:24Z [18,013ms] [Error] [omni.gpu_foundation_factory.plugin] Failed to create any GPU devices, including an attempt with compatibility mode."
+        },
+        {
+          "line": 427,
+          "text": "2026-10-30T09:53:24Z [18,162ms] [Error] [omni.kit.renderer.plugin] GPU Foundation is not initialized!"
+        },
+        {
+          "line": 432,
+          "text": "2026-10-30T09:53:24Z [18,183ms] [Error] [omni.kit.imgui_renderer.plugin] _prepareDefaultWindow: invalid device attached to the default window!"
+        },
+        {
+          "line": 434,
+          "text": "2026-10-30T09:53:24Z [18,599ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 435,
+          "text": "2026-10-30T09:53:24Z [18,599ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        },
+        {
+          "line": 436,
+          "text": "2026-10-30T09:53:24Z [18,603ms] [Error] [omni.kit.renderer.plugin] Graphics plugins not available"
+        },
+        {
+          "line": 437,
+          "text": "2026-10-30T09:53:24Z [18,603ms] [Error] [omni.ui] Failed to create texture GPU data! [512 x 64, 1 mips]"
+        }
+      ]
+    }
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2_supervisor.log",
+    "counts": {
+      "traceback": 1,
+      "error": 1
+    },
+    "examples": {
+      "traceback": [
+        {
+          "line": 3,
+          "text": "Traceback (most recent call last):"
+        }
+      ],
+      "error": [
+        {
+          "line": 12,
+          "text": "RuntimeError: evaluating exited with 1; see /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/MLP_0001000_metrics.log"
+        }
+      ]
+    }
+  }
+]

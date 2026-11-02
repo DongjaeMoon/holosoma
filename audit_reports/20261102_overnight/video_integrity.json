@@ -1,0 +1,4115 @@
+[
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/videos/render_preview/model_0003000/backward/episode_0_1793198160.mp4",
+    "bytes": 165568,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "50/1",
+          "nb_frames": "300"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 60.58525575880759,
+        "scene_std": 7.744412231973048,
+        "near_black_fraction": 0.0005716463414634146
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 60.474961890243904,
+        "scene_std": 8.042741289896343,
+        "near_black_fraction": 0.0005335365853658537
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 60.44264905149051,
+        "scene_std": 8.110988867456326,
+        "near_black_fraction": 0.0004192073170731707
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/videos/render_preview/model_0003000/forward/episode_0_1793198058.mp4",
+    "bytes": 172634,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "50/1",
+          "nb_frames": "300"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 60.57039295392954,
+        "scene_std": 7.927000579820255,
+        "near_black_fraction": 0.0007494918699186992
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 60.49459688346884,
+        "scene_std": 8.298107740927717,
+        "near_black_fraction": 0.0007367886178861789
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 60.18209688346884,
+        "scene_std": 8.62277992362149,
+        "near_black_fraction": 0.0006605691056910569
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/videos/render_preview/model_0003000/left/episode_0_1793198207.mp4",
+    "bytes": 163239,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "50/1",
+          "nb_frames": "300"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 60.29946646341463,
+        "scene_std": 7.852704041201295,
+        "near_black_fraction": 0.0004954268292682927
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 60.36295308265583,
+        "scene_std": 8.427176002565677,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 60.10512364498645,
+        "scene_std": 8.587703175761428,
+        "near_black_fraction": 0.0007876016260162602
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/videos/render_preview/model_0003000/right/episode_0_1793198254.mp4",
+    "bytes": 157675,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "50/1",
+          "nb_frames": "300"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 60.47215870596206,
+        "scene_std": 7.784928976637447,
+        "near_black_fraction": 0.0010162601626016261
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 60.44656588753387,
+        "scene_std": 7.6165330492248176,
+        "near_black_fraction": 0.0007113821138211383
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 60.31262279810298,
+        "scene_std": 7.831778617617747,
+        "near_black_fraction": 0.0009527439024390244
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/biham_mlp_command_replay/biHAM/left/episode_0_1793380957.mp4",
+    "bytes": 2673846,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.3270350647733,
+        "scene_std": 26.290065840112412,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 229.02774274414548,
+        "scene_std": 24.063879327282,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 229.72324403649725,
+        "scene_std": 21.94016255797851,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/biham_mlp_command_replay/biHAM/left/left.mp4",
+    "bytes": 2673846,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.3270350647733,
+        "scene_std": 26.290065840112412,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 229.02774274414548,
+        "scene_std": 24.063879327282,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 229.72324403649725,
+        "scene_std": 21.94016255797851,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/biham_mlp_command_replay/biHAM/right/episode_0_1793381050.mp4",
+    "bytes": 2483193,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.43111414735924,
+        "scene_std": 26.086577265475956,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.11362866685351,
+        "scene_std": 26.63053078059422,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.4314197184853,
+        "scene_std": 25.59306271199852,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/biham_mlp_command_replay/biHAM/right/right.mp4",
+    "bytes": 2483193,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.43111414735924,
+        "scene_std": 26.086577265475956,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.11362866685351,
+        "scene_std": 26.63053078059422,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.4314197184853,
+        "scene_std": 25.59306271199852,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/training_vs_deploy.mp4",
+    "bytes": 1443237,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 400,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 62.2362916520775,
+        "scene_std": 16.170425072089,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 62.87687106092437,
+        "scene_std": 16.463766177093763,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 63.38283803104575,
+        "scene_std": 16.9283474162857,
+        "near_black_fraction": 0.0
+      }
+    ]
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/HAM/model_0010000/backward_0.6mps/episode_0_1793252307.mp4",
+    "bytes": 615286,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 45.10047848915989,
+        "scene_std": 10.084514298310888,
+        "near_black_fraction": 7.621951219512195e-05
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 46.48434535907859,
+        "scene_std": 11.231272451540256,
+        "near_black_fraction": 0.00045731707317073173
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.84832740514905,
+        "scene_std": 10.5403796410837,
+        "near_black_fraction": 0.0006478658536585366
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/HAM/model_0010000/backward_right_0.6mps/episode_0_1793252379.mp4",
+    "bytes": 615272,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "334"
+        }
+      ],
+      "format": {
+        "duration": "20.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.817780318428184,
+        "scene_std": 9.65833752911966,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.608362974254746,
+        "scene_std": 10.465671494153362,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 46.453082655826556,
+        "scene_std": 11.06894853158122,
+        "near_black_fraction": 0.00036839430894308945
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": 0.04000044703483496,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/HAM/model_0010000/forward_0.6mps/episode_0_1793252271.mp4",
+    "bytes": 704853,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "334"
+        }
+      ],
+      "format": {
+        "duration": "20.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.5922552506775,
+        "scene_std": 9.341963026196076,
+        "near_black_fraction": 0.00044461382113821136
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.564236111111114,
+        "scene_std": 10.276615326568754,
+        "near_black_fraction": 0.0005081300813008131
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.04112889566396,
+        "scene_std": 9.934982469674974,
+        "near_black_fraction": 0.00044461382113821136
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": 0.04000044703483496,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/HAM/model_0010000/forward_right_0.6mps/episode_0_1793252344.mp4",
+    "bytes": 620602,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.49970782520325,
+        "scene_std": 9.283694486340979,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 46.775817242547426,
+        "scene_std": 10.097741354977348,
+        "near_black_fraction": 0.00017784552845528457
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 49.64004488482385,
+        "scene_std": 10.136580477915036,
+        "near_black_fraction": 0.00019054878048780488
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/HAM/model_0010000/left_0.6mps/episode_0_1793252199.mp4",
+    "bytes": 640913,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.614130250677505,
+        "scene_std": 9.804368134471114,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.597065548780485,
+        "scene_std": 10.20742508122029,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.85969258130081,
+        "scene_std": 9.448473137017478,
+        "near_black_fraction": 0.00035569105691056913
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/HAM/model_0010000/right_0.6mps/episode_0_1793252235.mp4",
+    "bytes": 563876,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.309510501355014,
+        "scene_std": 9.362669994633624,
+        "near_black_fraction": 0.00019054878048780488
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.42316226287263,
+        "scene_std": 9.714529169854988,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 47.12082909891599,
+        "scene_std": 10.239141155846177,
+        "near_black_fraction": 0.00024136178861788619
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/HAM_highlight/model_0003000/forward_right_0.3mps/episode_0_1793230950.mp4",
+    "bytes": 617720,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.605127879403796,
+        "scene_std": 9.928448710293504,
+        "near_black_fraction": 0.00048272357723577237
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.768462059620596,
+        "scene_std": 9.917219510752059,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 47.761987635501356,
+        "scene_std": 10.626957129449046,
+        "near_black_fraction": 0.0002032520325203252
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/MLP_highlight/model_0003000/forward_right_0.3mps/episode_0_1793230994.mp4",
+    "bytes": 374971,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.814545223577234,
+        "scene_std": 9.950264325663076,
+        "near_black_fraction": 0.00035569105691056913
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.70185467479675,
+        "scene_std": 10.068337297532059,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.75820206639566,
+        "scene_std": 9.894279748094826,
+        "near_black_fraction": 0.0003175813008130081
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/biHAM/model_0010000/backward_0.6mps/episode_0_1793251840.mp4",
+    "bytes": 656715,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.810679200542005,
+        "scene_std": 10.29599072024229,
+        "near_black_fraction": 0.0003938008130081301
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 47.13296493902439,
+        "scene_std": 10.85745394955579,
+        "near_black_fraction": 0.00035569105691056913
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 49.00066480352304,
+        "scene_std": 11.188861061555116,
+        "near_black_fraction": 0.00045731707317073173
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/biHAM/model_0010000/backward_right_0.6mps/episode_0_1793251916.mp4",
+    "bytes": 600945,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "334"
+        }
+      ],
+      "format": {
+        "duration": "20.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.88388380758808,
+        "scene_std": 9.991995835830162,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.087101964769644,
+        "scene_std": 10.248012380941407,
+        "near_black_fraction": 0.00048272357723577237
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 47.19685382791328,
+        "scene_std": 10.165846849524975,
+        "near_black_fraction": 0.0001016260162601626
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": 0.04000044703483496,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/biHAM/model_0010000/forward_0.6mps/episode_0_1793251808.mp4",
+    "bytes": 694724,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "334"
+        }
+      ],
+      "format": {
+        "duration": "20.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.8654810298103,
+        "scene_std": 9.379559099520703,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 46.4029429200542,
+        "scene_std": 9.826186201957295,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 47.67727388211382,
+        "scene_std": 9.82924557383048,
+        "near_black_fraction": 0.0002921747967479675
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": 0.04000044703483496,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/biHAM/model_0010000/forward_right_0.6mps/episode_0_1793251879.mp4",
+    "bytes": 600091,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.85668191056911,
+        "scene_std": 9.551006198842964,
+        "near_black_fraction": 0.00033028455284552844
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 47.13553946476965,
+        "scene_std": 10.16956020508616,
+        "near_black_fraction": 0.00025406504065040653
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 51.29939447831978,
+        "scene_std": 9.970851894696473,
+        "near_black_fraction": 0.0003175813008130081
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/biHAM/model_0010000/left_0.6mps/episode_0_1793251737.mp4",
+    "bytes": 643870,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.573979505420056,
+        "scene_std": 9.978472658637365,
+        "near_black_fraction": 0.00027947154471544717
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.61978319783198,
+        "scene_std": 10.191004366950166,
+        "near_black_fraction": 0.00033028455284552844
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.6632283197832,
+        "scene_std": 9.535560467334358,
+        "near_black_fraction": 0.0006732723577235773
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/biHAM/model_0010000/right_0.6mps/episode_0_1793251769.mp4",
+    "bytes": 569786,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.55185890921409,
+        "scene_std": 10.020962294848822,
+        "near_black_fraction": 0.0003048780487804878
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.86604844173442,
+        "scene_std": 10.005587991648918,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 47.8522527100271,
+        "scene_std": 10.096363448521807,
+        "near_black_fraction": 0.0002921747967479675
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/biHAM_highlight/model_0003000/forward_right_0.3mps/episode_0_1793230853.mp4",
+    "bytes": 592573,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.51350355691057,
+        "scene_std": 10.10805336300972,
+        "near_black_fraction": 0.00045731707317073173
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.67173949864499,
+        "scene_std": 9.649180065557855,
+        "near_black_fraction": 0.00024136178861788619
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 48.05855352303523,
+        "scene_std": 9.922668966831433,
+        "near_black_fraction": 0.00026676829268292685
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/sym_aug_HAM/model_0010000/backward_0.6mps/episode_0_1793252075.mp4",
+    "bytes": 637786,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 45.232787093495936,
+        "scene_std": 10.319941478203553,
+        "near_black_fraction": 0.00021595528455284552
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.90779132791328,
+        "scene_std": 11.381384652085718,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 47.12986534552846,
+        "scene_std": 11.73844069015149,
+        "near_black_fraction": 0.0004065040650406504
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/sym_aug_HAM/model_0010000/backward_right_0.6mps/episode_0_1793252147.mp4",
+    "bytes": 614310,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "334"
+        }
+      ],
+      "format": {
+        "duration": "20.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 45.01244071815718,
+        "scene_std": 10.136224801330703,
+        "near_black_fraction": 0.00022865853658536587
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.08604336043361,
+        "scene_std": 10.960929241919152,
+        "near_black_fraction": 0.0006351626016260162
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 43.04716717479675,
+        "scene_std": 9.828587115233855,
+        "near_black_fraction": 0.0004954268292682927
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": 0.04000044703483496,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/sym_aug_HAM/model_0010000/forward_0.6mps/episode_0_1793252039.mp4",
+    "bytes": 671069,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "334"
+        }
+      ],
+      "format": {
+        "duration": "20.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.68396849593496,
+        "scene_std": 9.347950431657209,
+        "near_black_fraction": 0.00022865853658536587
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 46.2078125,
+        "scene_std": 9.86087721757421,
+        "near_black_fraction": 0.00034298780487804876
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 48.39710365853659,
+        "scene_std": 9.961282096269036,
+        "near_black_fraction": 0.00027947154471544717
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": 0.04000044703483496,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/sym_aug_HAM/model_0010000/forward_right_0.6mps/episode_0_1793252111.mp4",
+    "bytes": 613844,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.62287855691057,
+        "scene_std": 9.542749474177672,
+        "near_black_fraction": 0.00024136178861788619
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 47.07267530487805,
+        "scene_std": 10.238704959212141,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 50.653442581300816,
+        "scene_std": 9.836075066733539,
+        "near_black_fraction": 0.0001524390243902439
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/sym_aug_HAM/model_0010000/left_0.6mps/episode_0_1793251968.mp4",
+    "bytes": 660010,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.69549881436314,
+        "scene_std": 10.112068093866448,
+        "near_black_fraction": 0.0003048780487804878
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.80840108401084,
+        "scene_std": 10.219693888525965,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.233312161246616,
+        "scene_std": 10.488056128930598,
+        "near_black_fraction": 0.00033028455284552844
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/sym_aug_HAM/model_0010000/right_0.6mps/episode_0_1793252003.mp4",
+    "bytes": 609730,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.69120934959349,
+        "scene_std": 10.163323235432397,
+        "near_black_fraction": 0.00033028455284552844
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 46.07817157859078,
+        "scene_std": 10.38298984527409,
+        "near_black_fraction": 0.00035569105691056913
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 48.775652100271,
+        "scene_std": 11.15071280236905,
+        "near_black_fraction": 0.0004954268292682927
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/evaluation/videos/sym_aug_HAM_highlight/model_0003000/forward_right_0.3mps/episode_0_1793230901.mp4",
+    "bytes": 589560,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.602959857723576,
+        "scene_std": 10.117371522140523,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.45221036585366,
+        "scene_std": 9.667263404579602,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 47.29567242547426,
+        "scene_std": 9.608357743205715,
+        "near_black_fraction": 0.00034298780487804876
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/previous_graphics_attempt/biHAM_highlight/model_0010000/backward_right_0.3mps/episode_0_1793215707.mp4",
+    "bytes": 559298,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.46115345528455,
+        "scene_std": 10.024982686772226,
+        "near_black_fraction": 0.00025406504065040653
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.05052930216802,
+        "scene_std": 9.299454890174589,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 46.808155487804875,
+        "scene_std": 9.993540912936394,
+        "near_black_fraction": 0.0003048780487804878
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/previous_graphics_attempt/sym_aug_HAM_highlight/model_0010000/backward_right_0.3mps/episode_0_1793215754.mp4",
+    "bytes": 591378,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.62799373306233,
+        "scene_std": 9.89062199824439,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.377328929539296,
+        "scene_std": 10.264199262330157,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 46.43937584688347,
+        "scene_std": 10.287259194974103,
+        "near_black_fraction": 0.0003175813008130081
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/backward_0.3mps/episode_0_1793216654.mp4",
+    "bytes": 240347,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.64872967479675,
+        "scene_std": 10.379990314459802,
+        "near_black_fraction": 0.0004192073170731707
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.680424288617886,
+        "scene_std": 10.286993339536856,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.50418360433604,
+        "scene_std": 9.730324604801165,
+        "near_black_fraction": 0.00045731707317073173
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/backward_left_0.3mps/episode_0_1793216695.mp4",
+    "bytes": 238406,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.614943258807585,
+        "scene_std": 10.448907395382628,
+        "near_black_fraction": 0.0003048780487804878
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.590235433604335,
+        "scene_std": 10.405958944290626,
+        "near_black_fraction": 0.00024136178861788619
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.879039634146345,
+        "scene_std": 10.286147067934218,
+        "near_black_fraction": 0.0003938008130081301
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/backward_right_0.3mps/episode_0_1793216627.mp4",
+    "bytes": 240849,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.6469131097561,
+        "scene_std": 10.14097005144243,
+        "near_black_fraction": 0.00035569105691056913
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.06607808265583,
+        "scene_std": 10.14427008196921,
+        "near_black_fraction": 0.0001524390243902439
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.091196646341466,
+        "scene_std": 9.882562217529886,
+        "near_black_fraction": 0.00043191056910569104
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/forward_0.3mps/episode_0_1793216641.mp4",
+    "bytes": 257911,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.5228912601626,
+        "scene_std": 10.132051613204858,
+        "near_black_fraction": 0.0003938008130081301
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.96717479674797,
+        "scene_std": 9.991377875729901,
+        "near_black_fraction": 0.0003938008130081301
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.17295054200542,
+        "scene_std": 9.972745720999363,
+        "near_black_fraction": 0.00036839430894308945
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/forward_left_0.3mps/episode_0_1793216682.mp4",
+    "bytes": 254650,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.564795054200545,
+        "scene_std": 10.104024180975202,
+        "near_black_fraction": 0.0004192073170731707
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.36924966124661,
+        "scene_std": 10.091634838422342,
+        "near_black_fraction": 0.00027947154471544717
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.151346544715445,
+        "scene_std": 10.107198663309664,
+        "near_black_fraction": 0.00021595528455284552
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/forward_right_0.3mps/episode_0_1793216614.mp4",
+    "bytes": 242621,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.48904979674797,
+        "scene_std": 10.050090014203393,
+        "near_black_fraction": 0.00024136178861788619
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.70632621951219,
+        "scene_std": 10.020202439580062,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.182168868563686,
+        "scene_std": 10.060225132339403,
+        "near_black_fraction": 0.00033028455284552844
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/left_0.3mps/episode_0_1793216668.mp4",
+    "bytes": 252493,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.66391006097561,
+        "scene_std": 10.16014868477765,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.60349762872629,
+        "scene_std": 10.143615642787275,
+        "near_black_fraction": 0.00027947154471544717
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.263126693766935,
+        "scene_std": 10.21767270376374,
+        "near_black_fraction": 0.00034298780487804876
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/right_0.3mps/episode_0_1793216600.mp4",
+    "bytes": 223024,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.65423441734417,
+        "scene_std": 10.00101073939765,
+        "near_black_fraction": 0.00043191056910569104
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.75354844173442,
+        "scene_std": 10.047761540173108,
+        "near_black_fraction": 0.0003048780487804878
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.66997798102981,
+        "scene_std": 9.964455533790144,
+        "near_black_fraction": 0.00044461382113821136
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM/model_0010000/right_0.6mps/episode_0_1793216708.mp4",
+    "bytes": 193201,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.66246612466124,
+        "scene_std": 10.06383220147652,
+        "near_black_fraction": 0.00045731707317073173
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.616840277777776,
+        "scene_std": 9.777012045707048,
+        "near_black_fraction": 0.00016514227642276422
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.66402862466125,
+        "scene_std": 9.815539576165305,
+        "near_black_fraction": 0.0002032520325203252
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/HAM_highlight/model_0010000/backward_right_0.3mps/episode_0_1793216045.mp4",
+    "bytes": 572836,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.34965277777778,
+        "scene_std": 9.83618959385799,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.99538448509485,
+        "scene_std": 9.578169996697701,
+        "near_black_fraction": 0.00022865853658536587
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.967060467479676,
+        "scene_std": 9.447468949955224,
+        "near_black_fraction": 0.00019054878048780488
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/MLP_highlight/model_0010000/backward_right_0.3mps/episode_0_1793216085.mp4",
+    "bytes": 564523,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.00878641598916,
+        "scene_std": 9.234463525278935,
+        "near_black_fraction": 0.00025406504065040653
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.957215447154475,
+        "scene_std": 9.348762676832099,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 46.854623983739835,
+        "scene_std": 10.682322445651344,
+        "near_black_fraction": 0.0006351626016260162
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/backward_0.3mps/episode_0_1793216172.mp4",
+    "bytes": 242730,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.687300982384826,
+        "scene_std": 10.152599039555676,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.844232723577235,
+        "scene_std": 10.135821767230286,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.61616700542005,
+        "scene_std": 9.798878825129014,
+        "near_black_fraction": 0.00038109756097560977
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/backward_0.6mps/episode_0_1793216292.mp4",
+    "bytes": 257805,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.65321392276423,
+        "scene_std": 10.216083473485895,
+        "near_black_fraction": 0.00047002032520325205
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.314507113821136,
+        "scene_std": 10.149753587008007,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.638194444444444,
+        "scene_std": 10.902210275026368,
+        "near_black_fraction": 0.0004192073170731707
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/backward_left_0.3mps/episode_0_1793216216.mp4",
+    "bytes": 240957,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.60157943766938,
+        "scene_std": 10.291290851501598,
+        "near_black_fraction": 0.0003938008130081301
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.54878895663957,
+        "scene_std": 9.863494518133761,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.798035230352305,
+        "scene_std": 10.02851648150897,
+        "near_black_fraction": 0.00048272357723577237
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/backward_left_0.6mps/episode_0_1793216338.mp4",
+    "bytes": 256138,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.51088245257453,
+        "scene_std": 9.981249365149592,
+        "near_black_fraction": 0.00043191056910569104
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.89206470189702,
+        "scene_std": 9.689886765436373,
+        "near_black_fraction": 0.00024136178861788619
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.08205453929539,
+        "scene_std": 10.08991544792859,
+        "near_black_fraction": 0.00016514227642276422
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/backward_right_0.3mps/episode_0_1793216141.mp4",
+    "bytes": 239679,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.66836466802168,
+        "scene_std": 10.142541358480164,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.737910738482384,
+        "scene_std": 10.098072398405629,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.13283367208672,
+        "scene_std": 9.491773424175546,
+        "near_black_fraction": 0.0003175813008130081
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/backward_right_0.6mps/episode_0_1793216262.mp4",
+    "bytes": 242772,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.56772527100271,
+        "scene_std": 10.126439558159914,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.99773035230352,
+        "scene_std": 10.01032723504903,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.4723069105691,
+        "scene_std": 9.528573863984876,
+        "near_black_fraction": 0.0003048780487804878
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/forward_0.3mps/episode_0_1793216156.mp4",
+    "bytes": 257819,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.557799796747965,
+        "scene_std": 10.22871058807546,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.92112550813008,
+        "scene_std": 9.925973421312529,
+        "near_black_fraction": 0.0003048780487804878
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.36701812330623,
+        "scene_std": 9.845465357739263,
+        "near_black_fraction": 0.00017784552845528457
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/forward_0.6mps/episode_0_1793216277.mp4",
+    "bytes": 283216,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.45332825203252,
+        "scene_std": 10.127939113041753,
+        "near_black_fraction": 0.0004954268292682927
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.30145240514905,
+        "scene_std": 10.011059327869805,
+        "near_black_fraction": 0.00024136178861788619
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.948352811653116,
+        "scene_std": 9.87688977562024,
+        "near_black_fraction": 0.000546239837398374
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/forward_left_0.3mps/episode_0_1793216201.mp4",
+    "bytes": 261194,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.68434535907859,
+        "scene_std": 10.23187689180072,
+        "near_black_fraction": 0.0003048780487804878
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.542835365853655,
+        "scene_std": 10.042086798686494,
+        "near_black_fraction": 0.00013973577235772358
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.011094173441734,
+        "scene_std": 10.11000280561849,
+        "near_black_fraction": 0.00019054878048780488
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/forward_left_0.6mps/episode_0_1793216323.mp4",
+    "bytes": 279685,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.51920308265583,
+        "scene_std": 10.07526152473235,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.24601964769648,
+        "scene_std": 10.26411841182533,
+        "near_black_fraction": 0.0005208333333333333
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.17732892953929,
+        "scene_std": 10.09810108760106,
+        "near_black_fraction": 0.00038109756097560977
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/forward_right_0.3mps/episode_0_1793216126.mp4",
+    "bytes": 236937,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.634857723577234,
+        "scene_std": 10.11123119710062,
+        "near_black_fraction": 0.00021595528455284552
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.707520325203255,
+        "scene_std": 10.072630852609823,
+        "near_black_fraction": 0.00044461382113821136
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.1144647696477,
+        "scene_std": 9.91565329853937,
+        "near_black_fraction": 0.00038109756097560977
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/forward_right_0.6mps/episode_0_1793216247.mp4",
+    "bytes": 255952,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.51640413279133,
+        "scene_std": 10.04760106381069,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.156427845528455,
+        "scene_std": 9.865778008960937,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.50628387533875,
+        "scene_std": 9.964338656554395,
+        "near_black_fraction": 0.00026676829268292685
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/left_0.3mps/episode_0_1793216187.mp4",
+    "bytes": 249335,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.67055809620596,
+        "scene_std": 10.12666395592339,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.52526253387534,
+        "scene_std": 10.116588162299314,
+        "near_black_fraction": 0.0004192073170731707
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.0380462398374,
+        "scene_std": 10.138687500107036,
+        "near_black_fraction": 0.00045731707317073173
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/left_0.6mps/episode_0_1793216307.mp4",
+    "bytes": 265318,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.71503641598916,
+        "scene_std": 10.553292579666683,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.93101287262873,
+        "scene_std": 10.425395542259844,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.1621358401084,
+        "scene_std": 10.322478197738858,
+        "near_black_fraction": 0.00027947154471544717
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/right_0.3mps/episode_0_1793216111.mp4",
+    "bytes": 229930,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.6833206300813,
+        "scene_std": 10.13372217491689,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.89451219512195,
+        "scene_std": 9.88844409355257,
+        "near_black_fraction": 0.0003048780487804878
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.42736703929539,
+        "scene_std": 9.31970961595092,
+        "near_black_fraction": 0.0002032520325203252
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM/model_0010000/right_0.6mps/episode_0_1793216231.mp4",
+    "bytes": 228834,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.7453125,
+        "scene_std": 10.036170254447647,
+        "near_black_fraction": 0.00012703252032520327
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.96415989159892,
+        "scene_std": 9.59330001555913,
+        "near_black_fraction": 0.0003175813008130081
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.1257664295393,
+        "scene_std": 9.240996133147293,
+        "near_black_fraction": 0.00021595528455284552
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/biHAM_highlight/model_0010000/backward_right_0.3mps/episode_0_1793215953.mp4",
+    "bytes": 559298,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.46115345528455,
+        "scene_std": 10.024982686772226,
+        "near_black_fraction": 0.00025406504065040653
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.05052930216802,
+        "scene_std": 9.299454890174589,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 46.808155487804875,
+        "scene_std": 9.993540912936394,
+        "near_black_fraction": 0.0003048780487804878
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/backward_0.3mps/episode_0_1793216421.mp4",
+    "bytes": 243429,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.606842818428184,
+        "scene_std": 10.369645119130315,
+        "near_black_fraction": 0.00044461382113821136
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.7904810298103,
+        "scene_std": 10.3090187729625,
+        "near_black_fraction": 0.00027947154471544717
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.25967140921409,
+        "scene_std": 10.44216957569564,
+        "near_black_fraction": 0.00035569105691056913
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/backward_0.6mps/episode_0_1793216532.mp4",
+    "bytes": 256662,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.59470274390244,
+        "scene_std": 10.247167707442076,
+        "near_black_fraction": 0.0004954268292682927
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.23453167344174,
+        "scene_std": 10.59851533211615,
+        "near_black_fraction": 0.0002921747967479675
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.86469766260163,
+        "scene_std": 11.253039653420366,
+        "near_black_fraction": 0.0003175813008130081
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/backward_left_0.3mps/episode_0_1793216463.mp4",
+    "bytes": 243699,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.72905233739837,
+        "scene_std": 10.403154217955192,
+        "near_black_fraction": 0.0003938008130081301
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.599923780487806,
+        "scene_std": 10.245595672543764,
+        "near_black_fraction": 0.00035569105691056913
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.006110264227644,
+        "scene_std": 10.43116555647393,
+        "near_black_fraction": 0.00034298780487804876
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/backward_left_0.6mps/episode_0_1793216574.mp4",
+    "bytes": 254409,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.718419715447155,
+        "scene_std": 10.485214189914853,
+        "near_black_fraction": 0.00022865853658536587
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.0260543699187,
+        "scene_std": 10.593660677142573,
+        "near_black_fraction": 0.00033028455284552844
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.13396849593496,
+        "scene_std": 10.915722416325966,
+        "near_black_fraction": 0.0003938008130081301
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/backward_right_0.3mps/episode_0_1793216393.mp4",
+    "bytes": 239661,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.6399347899729,
+        "scene_std": 10.171603820655104,
+        "near_black_fraction": 0.00027947154471544717
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.208384146341466,
+        "scene_std": 10.122545413138411,
+        "near_black_fraction": 0.00043191056910569104
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.12413194444444,
+        "scene_std": 10.124760375574697,
+        "near_black_fraction": 0.0001524390243902439
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/backward_right_0.6mps/episode_0_1793216504.mp4",
+    "bytes": 246782,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.56670054200542,
+        "scene_std": 10.082220704980092,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.71412601626016,
+        "scene_std": 10.326433179158819,
+        "near_black_fraction": 0.00043191056910569104
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.0912389905149,
+        "scene_std": 10.530590656398438,
+        "near_black_fraction": 0.0005081300813008131
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/forward_0.3mps/episode_0_1793216407.mp4",
+    "bytes": 256841,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.49935213414634,
+        "scene_std": 10.153614735425311,
+        "near_black_fraction": 0.00027947154471544717
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.90030064363144,
+        "scene_std": 10.075410441940816,
+        "near_black_fraction": 0.0002032520325203252
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.46421493902439,
+        "scene_std": 10.010181465864965,
+        "near_black_fraction": 0.00027947154471544717
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/forward_0.6mps/episode_0_1793216518.mp4",
+    "bytes": 285357,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.397730352303526,
+        "scene_std": 10.131058105875926,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.33985433604336,
+        "scene_std": 10.013903632846779,
+        "near_black_fraction": 0.0004954268292682927
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.85819783197832,
+        "scene_std": 10.147152263355148,
+        "near_black_fraction": 0.00026676829268292685
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/forward_left_0.3mps/episode_0_1793216448.mp4",
+    "bytes": 260490,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.5751820799458,
+        "scene_std": 10.229163073983639,
+        "near_black_fraction": 0.00034298780487804876
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.394143800813005,
+        "scene_std": 9.892477437148768,
+        "near_black_fraction": 0.0001524390243902439
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 44.82353065718157,
+        "scene_std": 10.046381816465596,
+        "near_black_fraction": 0.00038109756097560977
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/forward_left_0.6mps/episode_0_1793216560.mp4",
+    "bytes": 279528,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.59060382791328,
+        "scene_std": 10.073345804096814,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.09303861788618,
+        "scene_std": 10.274279228565396,
+        "near_black_fraction": 0.0004065040650406504
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.20437415311653,
+        "scene_std": 10.00861436244875,
+        "near_black_fraction": 0.00038109756097560977
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/forward_right_0.3mps/episode_0_1793216379.mp4",
+    "bytes": 239075,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.60233316395664,
+        "scene_std": 9.794536189639972,
+        "near_black_fraction": 0.00047002032520325205
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.7737635501355,
+        "scene_std": 10.093695676386629,
+        "near_black_fraction": 0.00027947154471544717
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.18794037940379,
+        "scene_std": 9.977579552448713,
+        "near_black_fraction": 0.00033028455284552844
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/forward_right_0.6mps/episode_0_1793216490.mp4",
+    "bytes": 245714,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.34962737127371,
+        "scene_std": 9.906376597254019,
+        "near_black_fraction": 0.0003938008130081301
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.896311822493224,
+        "scene_std": 9.655813746514262,
+        "near_black_fraction": 0.00043191056910569104
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.55473831300813,
+        "scene_std": 9.717092858578539,
+        "near_black_fraction": 0.00027947154471544717
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/left_0.3mps/episode_0_1793216435.mp4",
+    "bytes": 256072,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.56966886856369,
+        "scene_std": 10.075036005744384,
+        "near_black_fraction": 0.0003938008130081301
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.67431402439024,
+        "scene_std": 9.944298668232701,
+        "near_black_fraction": 0.00036839430894308945
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.20583926151762,
+        "scene_std": 10.164104232685212,
+        "near_black_fraction": 0.00038109756097560977
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/left_0.6mps/episode_0_1793216546.mp4",
+    "bytes": 264078,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.622040142276425,
+        "scene_std": 10.287321480161562,
+        "near_black_fraction": 0.00025406504065040653
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.8866658197832,
+        "scene_std": 10.192952493412852,
+        "near_black_fraction": 0.00033028455284552844
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.11049288617886,
+        "scene_std": 10.248938820454052,
+        "near_black_fraction": 0.0003175813008130081
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/right_0.3mps/episode_0_1793216365.mp4",
+    "bytes": 239171,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "133"
+        }
+      ],
+      "format": {
+        "duration": "7.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.61792852303523,
+        "scene_std": 9.979544986343688,
+        "near_black_fraction": 0.00034298780487804876
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.873704268292684,
+        "scene_std": 9.976259315502878,
+        "near_black_fraction": 0.00035569105691056913
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.73210958672087,
+        "scene_std": 9.772498734116876,
+        "near_black_fraction": 0.00036839430894308945
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": -0.019999821186065248,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM/model_0010000/right_0.6mps/episode_0_1793216476.mp4",
+    "bytes": 243105,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "8.040000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.59838668699187,
+        "scene_std": 9.947186073356622,
+        "near_black_fraction": 0.00025406504065040653
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 44.67101117886179,
+        "scene_std": 9.952522274335724,
+        "near_black_fraction": 0.00035569105691056913
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 45.44656588753387,
+        "scene_std": 9.933569516151296,
+        "near_black_fraction": 0.00025406504065040653
+      }
+    ],
+    "metadata_simulated_seconds": 7.999999821186066,
+    "duration_minus_simulation": 0.040000178813933474,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/videos/sym_aug_HAM_highlight/model_0010000/backward_right_0.3mps/episode_0_1793215998.mp4",
+    "bytes": 591378,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "16667/1000",
+          "nb_frames": "333"
+        }
+      ],
+      "format": {
+        "duration": "19.980000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 44.62799373306233,
+        "scene_std": 9.89062199824439,
+        "near_black_fraction": 0.00026676829268292685
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 45.377328929539296,
+        "scene_std": 10.264199262330157,
+        "near_black_fraction": 0.00038109756097560977
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 46.43937584688347,
+        "scene_std": 10.287259194974103,
+        "near_black_fraction": 0.0003175813008130081
+      }
+    ],
+    "metadata_simulated_seconds": 19.999999552965164,
+    "duration_minus_simulation": -0.019999552965163758,
+    "metadata_selection": "post-hoc matched-state replay"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/left/episode_0_1793364632.mp4",
+    "bytes": 2684436,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.39878589000998,
+        "scene_std": 26.06928119448086,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.23053687095168,
+        "scene_std": 26.46765539557479,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.2543723919407,
+        "scene_std": 26.420743015448082,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/left/left.mp4",
+    "bytes": 2684436,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.39878589000998,
+        "scene_std": 26.06928119448086,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.23053687095168,
+        "scene_std": 26.46765539557479,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.2543723919407,
+        "scene_std": 26.420743015448082,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/right/episode_0_1793364673.mp4",
+    "bytes": 2518959,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.34588607841306,
+        "scene_std": 26.265050170259688,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.15477858744396,
+        "scene_std": 26.674701309802327,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.36457262861236,
+        "scene_std": 25.91376850454837,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/right/right.mp4",
+    "bytes": 2518959,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "500"
+        }
+      ],
+      "format": {
+        "duration": "20.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.34588607841306,
+        "scene_std": 26.265050170259688,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.15477858744396,
+        "scene_std": 26.674701309802327,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.36457262861236,
+        "scene_std": 25.91376850454837,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 20.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/switch/episode_0_1793364727.mp4",
+    "bytes": 3388782,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "700"
+        }
+      ],
+      "format": {
+        "duration": "28.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.26618261864724,
+        "scene_std": 26.54981590307145,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 229.16529646238166,
+        "scene_std": 23.867853116946026,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.41448095727455,
+        "scene_std": 26.115494280529628,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 28.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/switch/switch.mp4",
+    "bytes": 3388782,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "700"
+        }
+      ],
+      "format": {
+        "duration": "28.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 228.26618261864724,
+        "scene_std": 26.54981590307145,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 229.16529646238166,
+        "scene_std": 23.867853116946026,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.41448095727455,
+        "scene_std": 26.115494280529628,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 28.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k_probe/left/episode_0_1793364515.mp4",
+    "bytes": 494614,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "50"
+        }
+      ],
+      "format": {
+        "duration": "2.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 227.73318482965868,
+        "scene_std": 25.993377630763405,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.30132621761337,
+        "scene_std": 26.09029294124218,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.34520876152217,
+        "scene_std": 26.196720216441207,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 2.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/video_preview_10k_probe/left/left.mp4",
+    "bytes": 494614,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "25/1",
+          "nb_frames": "50"
+        }
+      ],
+      "format": {
+        "duration": "2.000000"
+      }
+    },
+    "full_cpu_decode_returncode": 0,
+    "decode_errors": "",
+    "frames_checked": [
+      {
+        "fraction": 0.1,
+        "read": true,
+        "scene_mean": 227.73318482965868,
+        "scene_std": 25.993377630763405,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.5,
+        "read": true,
+        "scene_mean": 228.30132621761337,
+        "scene_std": 26.09029294124218,
+        "near_black_fraction": 0.0
+      },
+      {
+        "fraction": 0.9,
+        "read": true,
+        "scene_mean": 228.34520876152217,
+        "scene_std": 26.196720216441207,
+        "near_black_fraction": 0.0
+      }
+    ],
+    "metadata_simulated_seconds": 2.0,
+    "duration_minus_simulation": 0.0,
+    "metadata_selection": "fixed seed illustrative rollout; not selected by success"
+  }
+]

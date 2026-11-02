@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>실제 커맨드 분포 · 정규화 전후</title>
+<style>
+body{margin:25px auto;padding:0 22px;max-width:1450px;font:15px/1.65 system-ui,sans-serif;background:#f3f6fb;color:#17243a}h1{margin-bottom:5px;font-size:27px}p{margin:5px 0 14px}.muted{color:#566780}a{color:#245fc1;margin-right:15px}.controls{padding:15px 19px;background:white;border:1px solid #dce4ef;border-radius:12px;display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin:18px 0}select{padding:7px;font:inherit;border:1px solid #b8c6d9;border-radius:6px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{padding:16px 20px;background:white;border:1px solid #dce4ef;border-radius:12px}h2{font-size:18px;margin:0 0 3px}canvas{width:100%;height:300px;display:block}.summary{font-size:13px;color:#566780}.note{background:#e7effb;border-left:4px solid #3971c6;padding:11px 15px;border-radius:5px}input{vertical-align:middle}.blue{color:#2865ce}.green{color:#159575}@media(max-width:850px){.grid{grid-template-columns:1fr}h1{font-size:23px}}
+</style>
+<h1>실제 커맨드 분포 · 정규화 이전 / 이후</h1>
+<p class="muted">vx · vy · yaw 각각의 분포를 선으로 비교합니다. 왼쪽은 raw command, 오른쪽은 학습 당시 실제 기록된 normalized command입니다.</p>
+<p><a href="./">전체 통계 대시보드</a><a href="command_distributions.png">비율 그래프 PNG</a><a href="command_distributions.svg">SVG</a><a href="command_probability_density.png">확률밀도 PNG</a><a href="command_distribution_curves.csv">곡선 데이터 CSV</a></p>
+<div class="controls">
+<label>세로축 <select id="mode"><option value="ratio">구간별 표본 비율 (%)</option><option value="density">확률밀도</option></select></label>
+<label>분포 구간 수 <input id="bins" type="range" min="30" max="150" step="10" value="80"> <b id="binLabel">80</b></label>
+<span id="sampleCount" class="muted"></span></div>
+<div class="grid" id="plots"></div>
+<p class="note">실제 CSV에 남긴 env 0 표본을 사용합니다. 같은 명령이 유지된 매 timestep을 각각 셉니다. Gaussian/KDE 스무딩 없이 구간별 비율·밀도를 선으로 연결하므로, 오른쪽 raw vy 표본을 인위적으로 만들지 않습니다. 0 명령이 많아 뾰족한 봉우리가 생길 수 있습니다.</p>
+<p class="muted">정규화 후 가로축은 속도의 물리 단위가 없는 정규화 값입니다. 이후 분포는 고정 체크포인트 통계로 다시 계산한 값이 아니라 CSV의 normalized_vx / normalized_vy / normalized_yaw 그대로입니다. 확률밀도는 비율을 구간 폭으로 나눈 값으로, 각 구간의 밀도×폭을 더하면 1입니다.</p>
+<script>
+const $=id=>document.getElementById(id);
+let data;
+const names=['vx','vy','yaw'];
+const labels={vx:'전후 속도 vx',vy:'좌우 속도 vy',yaw:'회전 속도 yaw'};
+function curve(values,n){
+ const lo=Math.min(...values),hi=Math.max(...values),dx=(hi-lo||1)/n,bins=Array(n).fill(0);
+ for(const v of values)bins[Math.max(0,Math.min(n-1,Math.floor((v-lo)/dx)))]++;
+ const points=bins.map((count,i)=>({x:lo+(i+.5)*dx,ratio:100*count/values.length,density:count/(values.length*dx)}));
+ return {points,lo,hi,dx};
+}
+function draw(id,result,field,channel,normalized){
+ const canvas=$(id),w=canvas.clientWidth,h=canvas.clientHeight,dpr=devicePixelRatio||1;
+ canvas.width=w*dpr;canvas.height=h*dpr;const c=canvas.getContext('2d');c.scale(dpr,dpr);
+ const l=64,r=20,t=27,b=49;
+ let xmin=result.lo,xmax=result.hi,pad=(xmax-xmin||1)*.045;
+ xmin-=pad;xmax+=pad;
+ if(channel==='vy'&&!normalized)xmin=Math.min(xmin,-.12);
+ const ymax=Math.max(...result.points.map(p=>p[field]))*1.16||1;
+ const X=x=>l+(x-xmin)/(xmax-xmin)*(w-l-r),Y=y=>h-b-y/ymax*(h-t-b);
+ c.font='12px system-ui';c.fillStyle='#61728b';c.textAlign='right';c.lineWidth=1;
+ for(let i=0;i<=4;i++){let y=i*ymax/4;c.strokeStyle='#e4eaf3';c.beginPath();c.moveTo(l,Y(y));c.lineTo(w-r,Y(y));c.stroke();c.fillText(y.toFixed(field==='ratio'?1:2),l-8,Y(y)+4)}
+ c.textAlign='center';
+ for(let i=0;i<=5;i++){let x=xmin+i*(xmax-xmin)/5;c.fillText(x.toFixed(2),X(x),h-b+20)}
+ const xlabel=normalized?'normalized '+channel+' (단위 없음)':channel+(channel==='yaw'?' (rad/s)':' (m/s)');
+ c.fillText(xlabel,w/2,h-6);c.textAlign='left';c.fillText(field==='ratio'?'표본 비율 (%)':'확률밀도',8,14);
+ if(xmin<=0&&xmax>=0){c.strokeStyle='#aab8cb';c.setLineDash([4,4]);c.beginPath();c.moveTo(X(0),t);c.lineTo(X(0),h-b);c.stroke();c.setLineDash([])}
+ c.strokeStyle=normalized?'#159575':'#2865ce';c.lineWidth=2.1;c.beginPath();
+ result.points.forEach((p,i)=>i?c.lineTo(X(p.x),Y(p[field])):c.moveTo(X(p.x),Y(p[field])));c.stroke();
+}
+function render(){
+ const n=+$('bins').value,field=$('mode').value;
+ $('binLabel').textContent=n;
+ $('sampleCount').textContent='실제 env 0 표본 '+data.sample.raw.length.toLocaleString()+'개';
+ for(const [index,name] of names.entries())for(const normalized of [false,true]){
+  const key=normalized?'normalized':'raw',values=data.sample[key].map(row=>row[index]),id=key+'_'+name;
+  const result=curve(values,n);
+  draw(id,result,field,name,normalized);
+  const mean=values.reduce((a,b)=>a+b,0)/values.length;
+  const negative=values.filter(v=>v<0).length;
+  $(id+'_summary').textContent='평균 '+mean.toFixed(4)+' · 범위 ['+result.lo.toFixed(4)+', '+result.hi.toFixed(4)+'] · 음수 '+(100*negative/values.length).toFixed(2)+'% · 구간 폭 '+result.dx.toFixed(4);
+ }
+}
+fetch('data.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(d=>{
+ data=d;
+ $('plots').innerHTML=names.flatMap(name=>[false,true].map(normalized=>{const key=normalized?'normalized':'raw',id=key+'_'+name;return '<section class="card"><h2 class="'+(normalized?'green':'blue')+'">'+labels[name]+' · '+(normalized?'정규화 이후':'정규화 이전')+'</h2><canvas id="'+id+'"></canvas><div class="summary" id="'+id+'_summary"></div></section>'})).join('');
+ render();$('mode').addEventListener('change',render);$('bins').addEventListener('input',render);
+ let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(render,120)});
+}).catch(e=>document.body.insertAdjacentHTML('beforeend','<p>분포 데이터를 읽지 못했습니다: '+e.message+'</p>'));
+</script></html>

@@ -1,0 +1,876 @@
+HOLOSOMA 원본 실행 경로 / 변경 파일 전체 목록 — 2026-11-02
+==============================================================================
+기준 commit: b739a6cb7b1f8b9918669f8f776edb1855bfda1a
+현재 HEAD: 4f27c00587deed72a6990f33aa483d8f0ba497e5
+분석 대상 run: logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion
+
+범위와 한계:
+- 외부 PyTorch/IsaacLab/IsaacSim 코드와 robot asset은 Python 실행 파일 목록에서 제외.
+- 학습 당시 모든 Python 파일/함수의 runtime trace는 기록하지 않았다.
+  따라서 아래 실행 경로는 저장된 설정과 소스 연결로 확인한 경로이며,
+  정적 import 색인을 실제 실행/coverage 전체 기록으로 주장하지 않는다.
+- 변경 목록은 Git 원본 대비 현재 tracked 차이 + untracked 파일 전체를 포함한다.
+  .migration_backups/.isaacgym은 보관 항목으로 따로 표시한다.
+- 패치에는 src/와 scripts/의 tracked 및 untracked 코드 diff를 모두 포함한다.
+  문서/백업/별도 submodule 내부 내용은 코드 패치에서 제외하고 목록에 표시한다.
+- 현재 변경 목록에는 학습 후 추가한 평가/영상/통계 감사 코드도 포함한다.
+  실제 run 설정은 holosoma_config.yaml / command_audit_metadata.json을 우선한다.
+
+A. 원본 G1 FastSAC 실행 순서 (아래 상대 경로 앞에 src/holosoma/holosoma/를 붙임)
+
+1. 시작 / CLI / 설정
+  train_agent.py, config_types/env.py, config_types/experiment.py, config_types/algo.py, config_values/experiment.py, config_values/algo.py, config_values/loco/g1/experiment.py
+
+2. G1 MDP 설정
+  config_values/loco/g1/{command,observation,action,reward,randomization,curriculum,termination}.py, config_values/{robot,simulator,terrain}.py
+
+3. 환경 / simulator 준비
+  envs/locomotion/locomotion_manager.py, envs/base_task/base_task.py, utils/eval_utils.py, utils/sim_utils.py, simulator/isaacsim/isaacsim.py
+
+4. command / phase
+  managers/command/manager.py, managers/command/base.py, managers/command/terms/locomotion.py. 원본: LocomotionCommand + LocomotionGait. 새 run만 three_direction.py의 ThreeDirectionCommand 추가.
+
+5. observation / action
+  managers/observation/{manager,base}.py, managers/observation/terms/locomotion.py; managers/action/{manager,base}.py, managers/action/terms/joint_control.py
+
+6. reward / DR / curriculum / 종료 / terrain
+  managers/{reward,randomization,curriculum,termination,terrain,reset_events}/{manager,base}.py 및 저장 config의 func로 연결된 terms. 아래에 모든 설정 target 파일을 열거.
+
+7. FastSAC 학습
+  agents/base_algo/base_algo.py, agents/fast_sac/fast_sac_agent.py (FastSACEnv 포함), agents/fast_sac/fast_sac.py (Actor/Critic), agents/fast_sac/fast_sac_utils.py (normalizer/replay/checkpoint)
+
+8. symmetry / 로그 / 공통
+  원본 use_symmetry=True: agents/modules/augmentation_utils.py. 로깅: agents/modules/logging_utils.py, utils/{average_meters,experiment_paths,logging,safe_torch_import,helpers,common}.py. 좌표계: utils/rotations.py, simulator/isaacsim/{proxy_utils,state_utils}.py.
+
+B. 저장된 새 MLP 설정의 동적 target 파일 전체
+- src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py
+    holosoma.agents.fast_sac.fast_sac_agent.FastSACAgent
+- src/holosoma/holosoma/envs/locomotion/locomotion_manager.py
+    holosoma.envs.locomotion.locomotion_manager.LeggedRobotLocomotionManager
+- src/holosoma/holosoma/managers/action/terms/joint_control.py
+    holosoma.managers.action.terms.joint_control:JointPositionActionTerm
+- src/holosoma/holosoma/managers/command/terms/locomotion.py
+    holosoma.managers.command.terms.locomotion:LocomotionCommand
+    holosoma.managers.command.terms.locomotion:LocomotionGait
+- src/holosoma/holosoma/managers/command/terms/three_direction.py
+    holosoma.managers.command.terms.three_direction:ThreeDirectionCommand
+- src/holosoma/holosoma/managers/curriculum/terms/locomotion.py
+    holosoma.managers.curriculum.terms.locomotion:AverageEpisodeLengthTracker
+    holosoma.managers.curriculum.terms.locomotion:PenaltyCurriculum
+- src/holosoma/holosoma/managers/observation/terms/locomotion.py
+    holosoma.managers.observation.terms.locomotion:actions
+    holosoma.managers.observation.terms.locomotion:base_ang_vel
+    holosoma.managers.observation.terms.locomotion:base_lin_vel
+    holosoma.managers.observation.terms.locomotion:command_ang_vel
+    holosoma.managers.observation.terms.locomotion:command_lin_vel
+    holosoma.managers.observation.terms.locomotion:cos_phase
+    holosoma.managers.observation.terms.locomotion:dof_pos
+    holosoma.managers.observation.terms.locomotion:dof_vel
+    holosoma.managers.observation.terms.locomotion:projected_gravity
+    holosoma.managers.observation.terms.locomotion:sin_phase
+- src/holosoma/holosoma/managers/randomization/terms/locomotion.py
+    holosoma.managers.randomization.terms.locomotion:ActuatorRandomizerState
+    holosoma.managers.randomization.terms.locomotion:PushRandomizerState
+    holosoma.managers.randomization.terms.locomotion:apply_pushes
+    holosoma.managers.randomization.terms.locomotion:configure_torque_rfi
+    holosoma.managers.randomization.terms.locomotion:randomize_action_delay
+    holosoma.managers.randomization.terms.locomotion:randomize_base_com_startup
+    holosoma.managers.randomization.terms.locomotion:randomize_dof_state
+    holosoma.managers.randomization.terms.locomotion:randomize_friction_startup
+    holosoma.managers.randomization.terms.locomotion:randomize_mass_startup
+    holosoma.managers.randomization.terms.locomotion:randomize_push_schedule
+    holosoma.managers.randomization.terms.locomotion:setup_action_delay_buffers
+    holosoma.managers.randomization.terms.locomotion:setup_dof_pos_bias
+    holosoma.managers.randomization.terms.locomotion:setup_torque_rfi
+- src/holosoma/holosoma/managers/reward/terms/locomotion.py
+    holosoma.managers.reward.terms.locomotion:alive
+    holosoma.managers.reward.terms.locomotion:feet_phase
+    holosoma.managers.reward.terms.locomotion:penalty_action_rate
+    holosoma.managers.reward.terms.locomotion:penalty_ang_vel_xy
+    holosoma.managers.reward.terms.locomotion:penalty_close_feet_xy
+    holosoma.managers.reward.terms.locomotion:penalty_feet_ori
+    holosoma.managers.reward.terms.locomotion:penalty_orientation
+    holosoma.managers.reward.terms.locomotion:pose
+    holosoma.managers.reward.terms.locomotion:tracking_ang_vel
+    holosoma.managers.reward.terms.locomotion:tracking_lin_vel
+- src/holosoma/holosoma/managers/termination/terms/common.py
+    holosoma.managers.termination.terms.common:timeout_exceeded
+- src/holosoma/holosoma/managers/termination/terms/locomotion.py
+    holosoma.managers.termination.terms.locomotion:contact_forces_exceeded
+- src/holosoma/holosoma/managers/terrain/terms/locomotion.py
+    holosoma.managers.terrain.terms.locomotion:TerrainLocomotion
+- src/holosoma/holosoma/simulator/isaacsim/isaacsim.py
+    holosoma.simulator.isaacsim.isaacsim.IsaacSim
+
+C. 원본 대비 수정된 기존 파일 (M)
+- src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py
+    추가: optional ReflectionNormalization/DomiSymmetry 선택, CommandAudit 생성·policy/replay 기록, bilateral용 no-op _finish_update hook. native MLP는 reflection 분기 OFF.
+- src/holosoma/holosoma/agents/ppo/ppo.py
+    수정: 모델/optimizer/actor 평가/value bootstrap을 override 가능한 메서드로 분리; 공유 파라미터 gradient 동기화 중복 제거. 이번 FastSAC MLP 경로에는 사용하지 않음.
+- src/holosoma/holosoma/config_types/algo.py
+    추가: BilateralNetworkConfig와 bilateral, command_audit, command_audit_csv_envs, symmetry_compatible_io 설정 필드.
+- src/holosoma/holosoma/config_values/experiment.py
+    추가: bilateral/HAM/MLP holdout, v2/v3, native-IO 30k 실험 preset의 CLI registry 등록.
+- src/holosoma/holosoma/config_values/loco/g1/experiment.py
+    추가: 모델별/holdout/v2/v3/native 30k preset. 새 MLP는 g1_29dof_fast_sac에서 command sampler, use_symmetry=False, 30k만 override.
+- src/holosoma/holosoma/simulator/isaacsim/video_recorder.py
+    수정 1줄: annotator.detach에 HydraTexture 객체 대신 self._render_product.path 전달. 카메라 cleanup 호환성; 새 MLP 학습은 video.enabled=False.
+- src/holosoma/pyproject.toml
+    의존성 추가: einops, icecream>=2.1.3, opt-einsum>=3.3.0.
+
+D. 새로 추가된 실행/학습/보조 코드 (A 또는 ?)
+- [A] scripts/audit_bilateral_symmetry.py
+    신규 보조 도구: CPU-only audit of saved biHAM normalization and reflection equivariance.
+- [A] scripts/check_bilateral_cpu.py
+    신규 보조 도구: Simulator-free checks for the bilateral integration; run with CUDA_VISIBLE_DEVICES=.
+- [A] scripts/check_ccw_setup.py
+    신규 보조 도구: CPU-only validation of root IsaacSim presets, command lifecycle and launch plan.
+- [A] scripts/check_corrected_io.py
+    신규 보조 도구: CPU regression: biased statistics, physical reflection, phase and saved IO.
+- [A] scripts/check_ham_cpu.py
+    신규 보조 도구: No simulator/GPU: check HAM's original executor, SAC updates and comparison configs.
+- [A] scripts/check_holdout_metrics.py
+    신규 보조 도구: CPU regression checks: known tracking errors and exclusion of reset episodes.
+- [A] scripts/check_saved_holdout_results.py
+    신규 보조 도구: Validate saved experiment metrics/configs and link the single summary PNG.
+- [A] scripts/check_vanilla_mlp_30k.py
+    신규 보조 도구: CPU-only checks of baseline isolation, real command lifecycle, audit and preparation.
+- [A] scripts/compose_experiment_video.py
+    신규 보조 실행/검증/평가/시각화 도구; 원본에는 없었음. 전체 코드는 patch에서 확인.
+- [A] scripts/evaluate_command_holdout.py
+    신규: 통제된 32trial 명령 추종, first-episode RMSE/생존, 영상, TB 평가. 후속 수정: RootStatesProxy[:] Tensor 추출, 평가 순서 옵션. 학습 코드 아님.
+- [A] scripts/finalize_handoff.py
+    신규 보조 도구: Bundle the latest resume prompt with preserved historical source documents.
+- [A] scripts/holdout_gallery.html
+    신규 보조 실행/검증/평가/시각화 도구; 원본에는 없었음. 전체 코드는 patch에서 확인.
+- [A] scripts/holdout_terrain.py
+    신규: 평가용 평지 환경.
+- [A] scripts/inspect_comparison_video.py
+    신규 보조 실행/검증/평가/시각화 도구; 원본에는 없었음. 전체 코드는 patch에서 확인.
+- [A] scripts/launch_tensorboard.py
+    신규: 저장된 학습 로그용 TensorBoard 서버.
+- [A] scripts/plot_holdout_evaluation.py
+    신규 보조 도구: Plots of every trial and a transparently selected matched highlight case.
+- [A] scripts/plot_rmse_summary.py
+    신규/후속 수정: RMSE 비교 플롯; 새 MLP 결과 교체 옵션. 학습 코드 아님.
+- [A] scripts/render_bilateral_checkpoints.py
+    신규 보조 도구: Render every saved checkpoint on the queue GPU, after all three training runs.
+- [A] scripts/run_bilateral_queue.py
+    신규 보조 도구: Run inside the Holosoma Docker after activating hssim.
+- [A] scripts/run_corrected_campaign.py
+    신규 보조 도구: Root-checkout IsaacSim/FastSAC campaign. Prints a plan unless --execute is supplied.
+- [A] scripts/run_gpu3_experiments.sh
+    신규 보조 실행/검증/평가/시각화 도구; 원본에는 없었음. 전체 코드는 patch에서 확인.
+- [A] scripts/run_holdout_evaluation.py
+    신규 보조 도구: Evaluate checkpoint ranges numerically on the assigned GPU; no video sweep.
+- [A] scripts/run_mlp_command_audit.py
+    신규 보조 도구: One-env MLP no-right audit, IsaacSim/FastSAC on physical GPU 3 only.
+- [A] scripts/run_three_model_videos.py
+    신규 보조 도구: Render six commands for three final policies, sequentially on GPU 3.
+- [A] scripts/run_vanilla_mlp_30k.py
+    신규/후속 수정: no-right native MLP 학습·1k 간격 평가 오케스트레이션. 현재 left-only 선택지도 있지만 분석 중인 run은 no-right.
+- [A] scripts/serve_bilateral_results.py
+    신규: localhost 영상/결과 갤러리와 TensorBoard proxy.
+- [A] scripts/start_isaacgym_queue.py
+    신규 보조 도구: Replace the paused IsaacSim queue with fresh IsaacGym training inside Docker.
+- [A] scripts/vulkan_gpu_index.py
+    신규 보조 도구: Read Vulkan GPU UUIDs without starting a simulation or a CUDA workload.
+- [A] src/holosoma/holosoma/agents/fast_sac/bilateral_fast_sac.py
+    신규: FastSAC의 actor/critic을 biHAM으로 교체하고 router optimizer 및 checkpoint 상태 처리.
+- [A] src/holosoma/holosoma/agents/fast_sac/command_audit.py
+    신규: 실제 정책 입력 raw/normalized command, 방향 비율 및 증강 이후 replay의 음수 vy 검사. TB/CSV/JSON/source hash 저장.
+- [A] src/holosoma/holosoma/agents/fast_sac/ham_fast_sac.py
+    신규: HAM FastSAC 진입 클래스.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/__init__.py
+    biHAM/HAM의 관측·출력·네트워크 adapter/패키지. 새 plain MLP에서는 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/adapter.py
+    biHAM/HAM의 관측·출력·네트워크 adapter/패키지. 새 plain MLP에서는 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/fast_sac_adapter.py
+    biHAM/HAM의 관측·출력·네트워크 adapter/패키지. 새 plain MLP에서는 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/ham_adapter.py
+    biHAM/HAM의 관측·출력·네트워크 adapter/패키지. 새 plain MLP에서는 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/normalization.py
+    신규: DomiSymmetry와 ReflectionNormalization. 기존 v2/v3에서 선택; 새 native MLP에서는 선택 안 함.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/__init__.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/bilateral_magnet.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/export_compat.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/fast_sac_updates.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/ham_magnet_v2_reference.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/ham_provenance.json
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/ham_range_layers.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/ham_sa_from_ma_v4_abl_preact.yaml
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/isaac_strings.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/joint_layout.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/layers.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/loco_action_mapping.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/loco_io.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/network.yaml
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/phase_clock.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/provenance.json
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/modules/bilateral/original/range_layers.py
+    biHAM/HAM 원본 이식용 network/layer/phase/IO/설정·provenance 파일. 새 plain MLP에서는 network로 선택하지 않음.
+- [A] src/holosoma/holosoma/agents/ppo/bilateral_ppo.py
+    신규: biHAM actor/critic과 공유 router를 사용하는 PPO 확장.
+- [A] src/holosoma/holosoma/managers/command/terms/domi_gait.py
+    신규 domi gait/phase encoding. 기존 v2/v3 비교용; 새 native MLP는 사용하지 않음.
+- [A] src/holosoma/holosoma/managers/command/terms/three_direction.py
+    신규 ThreeDirectionCommand._resample: 원본 샘플 후 전진/후진/왼쪽 중 하나로 vx/vy를 구성. vy<0 및 대각선 제외; stand/yaw 처리 상속.
+- [?] scripts/audit_mlp_command_path.py
+    신규: CPU로 checkpoint/정규화/명령 민감도/기존 평가 수치 감사.
+- [?] scripts/biham_mlp_command_replay.html
+    신규: biHAM/새 MLP의 고대비 좌우 재생 영상 비교 페이지.
+- [?] scripts/command_distributions_dashboard.html
+    신규: vx/vy/yaw 정규화 전후 선 분포; 비율/밀도 선택.
+- [?] scripts/command_statistics_dashboard.html
+    신규: 실제 방향 비율/정규화 통계 대시보드.
+- [?] scripts/inspect_command_statistics.py
+    신규: 저장된 command CSV, TB, checkpoint 통계를 CPU로 읽어 분포·통계 시각화.
+- [?] scripts/plot_native_mlp_10k.py
+    신규: 기존 비교의 MLP 항목을 새 native MLP 10k 결과로 교체.
+- [?] scripts/render_native_mlp_preview.py
+    신규: 고대비 로봇/바닥, 실제 actor command 검증, 목표/실제 속도 HUD, CSV, MLP/biHAM checkpoint 선택. 학습 코드 아님.
+
+E. 코드 외 문서/백업/gitlink 전체
+- [A] .isaacgym/holosoma
+    과거 IsaacGym checkout의 gitlink/보관 경로. 현재 root IsaacSim 학습 경로 아님; 내부 파일 diff는 별도 저장소라 펼치지 않음.
+- [A] .migration_backups/20261028_121034/current_changes.patch
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/20261028_121034/manifest.json
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/20261028_121034/new_files.tar.gz
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/manifest.json
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/scripts/check_bilateral_cpu.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/scripts/run_bilateral_queue.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/__init__.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/adapter.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/__init__.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/bilateral_magnet.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/export_compat.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/isaac_strings.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/joint_layout.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/layers.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/loco_action_mapping.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/loco_io.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/network.yaml
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/provenance.json
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/agents/modules/bilateral/original/range_layers.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/config_types/algo.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/config_values/experiment.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/config_values/loco/g1/experiment.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] .migration_backups/isaacsim_root_20261029_203733/src/holosoma/holosoma/managers/command/terms/three_direction.py
+    과거 migration 백업 파일; 현재 root native MLP 학습 경로 아님.
+- [A] FASTSAC_STATUS.md
+    상태/인수인계 문서. 학습 수식 변경 아님.
+- [A] HANDOFF_PROMPT.md
+    상태/인수인계 문서. 학습 수식 변경 아님.
+- [A] HOLOSOMA_RESUME_PROMPT.md
+    상태/인수인계 문서. 학습 수식 변경 아님.
+- [?] LOCAL_CODEX_HANDOFF_PROMPT_20261030.txt
+    상태/인수인계 문서. 학습 수식 변경 아님.
+
+F. 원본과 byte-identical인 핵심 파일 확인
+- 동일 : src/holosoma/holosoma/train_agent.py
+- 동일 : src/holosoma/holosoma/agents/fast_sac/fast_sac.py
+- 동일 : src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py
+- 동일 : src/holosoma/holosoma/managers/command/terms/locomotion.py
+- 동일 : src/holosoma/holosoma/managers/observation/terms/locomotion.py
+- 동일 : src/holosoma/holosoma/managers/reward/terms/locomotion.py
+- 동일 : src/holosoma/holosoma/managers/randomization/terms/locomotion.py
+- 동일 : src/holosoma/holosoma/managers/action/terms/joint_control.py
+- 동일 : src/holosoma/holosoma/envs/base_task/base_task.py
+- 동일 : src/holosoma/holosoma/envs/locomotion/locomotion_manager.py
+- 동일 : src/holosoma/holosoma/utils/rotations.py
+
+G. 실제 run에서 저장된 학습 CLI
+  src/holosoma/holosoma/train_agent.py exp:g1-29dof-mlp-no-right-vanilla-fast-sac-30k simulator:isaacsim logger:disabled --training.seed 43 --training.num-envs 4096 --training.name vanilla_mlp_no-right_30k_seed43 --logger.base-dir /workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training --algo.config.num-learning-iterations 30000 --algo.config.obs-normalization True --algo.config.symmetry-compatible-io False --algo.config.use-symmetry False --algo.config.compile True --algo.config.command-audit True --algo.config.command-audit-csv-envs 1 --simulator.config.isaacsim.kit-args=--/renderer/multiGpu/enabled=false --/renderer/multiGpu/autoEnable=false --/renderer/activeGpu=0
+
+H. 원본의 repo 내부 정적 import 참조 색인 전체
+   TYPE_CHECKING/함수 내부/다른 preset/조건부 import도 포함한 소스 참조 집합이다.
+   실제 runtime 실행 기록이 아니며, 이 목록의 모든 함수가 실행되었다는 뜻이 아니다.
+- src/holosoma/holosoma/__init__.py
+- src/holosoma/holosoma/agents/base_algo/base_algo.py
+- src/holosoma/holosoma/agents/callbacks/base_callback.py
+- src/holosoma/holosoma/agents/distillation/__init__.py
+- src/holosoma/holosoma/agents/distillation/checkpoint.py
+- src/holosoma/holosoma/agents/fast_sac/fast_sac.py
+- src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py
+- src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py
+- src/holosoma/holosoma/agents/modules/augmentation_utils.py
+- src/holosoma/holosoma/agents/modules/logging_utils.py
+- src/holosoma/holosoma/bridge/__init__.py
+- src/holosoma/holosoma/bridge/base/__init__.py
+- src/holosoma/holosoma/bridge/base/basic_sdk2py_bridge.py
+- src/holosoma/holosoma/config_types/action.py
+- src/holosoma/holosoma/config_types/algo.py
+- src/holosoma/holosoma/config_types/command.py
+- src/holosoma/holosoma/config_types/curriculum.py
+- src/holosoma/holosoma/config_types/distribution.py
+- src/holosoma/holosoma/config_types/env.py
+- src/holosoma/holosoma/config_types/experiment.py
+- src/holosoma/holosoma/config_types/frequency.py
+- src/holosoma/holosoma/config_types/full_sim.py
+- src/holosoma/holosoma/config_types/light.py
+- src/holosoma/holosoma/config_types/logger.py
+- src/holosoma/holosoma/config_types/mujoco.py
+- src/holosoma/holosoma/config_types/observation.py
+- src/holosoma/holosoma/config_types/plugin.py
+- src/holosoma/holosoma/config_types/randomization.py
+- src/holosoma/holosoma/config_types/reward.py
+- src/holosoma/holosoma/config_types/robot.py
+- src/holosoma/holosoma/config_types/run_sim.py
+- src/holosoma/holosoma/config_types/scene.py
+- src/holosoma/holosoma/config_types/sensor.py
+- src/holosoma/holosoma/config_types/simulator.py
+- src/holosoma/holosoma/config_types/termination.py
+- src/holosoma/holosoma/config_types/terrain.py
+- src/holosoma/holosoma/config_types/value_types.py
+- src/holosoma/holosoma/config_types/video.py
+- src/holosoma/holosoma/config_types/viewer.py
+- src/holosoma/holosoma/config_values/__init__.py
+- src/holosoma/holosoma/config_values/action.py
+- src/holosoma/holosoma/config_values/algo.py
+- src/holosoma/holosoma/config_values/command.py
+- src/holosoma/holosoma/config_values/curriculum.py
+- src/holosoma/holosoma/config_values/experiment.py
+- src/holosoma/holosoma/config_values/light.py
+- src/holosoma/holosoma/config_values/loco/__init__.py
+- src/holosoma/holosoma/config_values/loco/g1/__init__.py
+- src/holosoma/holosoma/config_values/loco/g1/action.py
+- src/holosoma/holosoma/config_values/loco/g1/command.py
+- src/holosoma/holosoma/config_values/loco/g1/curriculum.py
+- src/holosoma/holosoma/config_values/loco/g1/experiment.py
+- src/holosoma/holosoma/config_values/loco/g1/observation.py
+- src/holosoma/holosoma/config_values/loco/g1/randomization.py
+- src/holosoma/holosoma/config_values/loco/g1/reward.py
+- src/holosoma/holosoma/config_values/loco/g1/termination.py
+- src/holosoma/holosoma/config_values/loco/t1/__init__.py
+- src/holosoma/holosoma/config_values/loco/t1/action.py
+- src/holosoma/holosoma/config_values/loco/t1/command.py
+- src/holosoma/holosoma/config_values/loco/t1/curriculum.py
+- src/holosoma/holosoma/config_values/loco/t1/experiment.py
+- src/holosoma/holosoma/config_values/loco/t1/observation.py
+- src/holosoma/holosoma/config_values/loco/t1/randomization.py
+- src/holosoma/holosoma/config_values/loco/t1/reward.py
+- src/holosoma/holosoma/config_values/loco/t1/termination.py
+- src/holosoma/holosoma/config_values/logger.py
+- src/holosoma/holosoma/config_values/observation.py
+- src/holosoma/holosoma/config_values/plugin.py
+- src/holosoma/holosoma/config_values/randomization.py
+- src/holosoma/holosoma/config_values/reward.py
+- src/holosoma/holosoma/config_values/robot.py
+- src/holosoma/holosoma/config_values/run_sim.py
+- src/holosoma/holosoma/config_values/scene.py
+- src/holosoma/holosoma/config_values/sensor.py
+- src/holosoma/holosoma/config_values/simulator.py
+- src/holosoma/holosoma/config_values/termination.py
+- src/holosoma/holosoma/config_values/terrain.py
+- src/holosoma/holosoma/config_values/wbt/__init__.py
+- src/holosoma/holosoma/config_values/wbt/g1/__init__.py
+- src/holosoma/holosoma/config_values/wbt/g1/command.py
+- src/holosoma/holosoma/config_values/wbt/g1/curriculum.py
+- src/holosoma/holosoma/config_values/wbt/g1/experiment.py
+- src/holosoma/holosoma/config_values/wbt/g1/observation.py
+- src/holosoma/holosoma/config_values/wbt/g1/randomization.py
+- src/holosoma/holosoma/config_values/wbt/g1/reward.py
+- src/holosoma/holosoma/config_values/wbt/g1/scene.py
+- src/holosoma/holosoma/config_values/wbt/g1/sensor.py
+- src/holosoma/holosoma/config_values/wbt/g1/termination.py
+- src/holosoma/holosoma/envs/__init__.py
+- src/holosoma/holosoma/envs/base_task/__init__.py
+- src/holosoma/holosoma/envs/base_task/base_task.py
+- src/holosoma/holosoma/envs/locomotion/__init__.py
+- src/holosoma/holosoma/envs/locomotion/locomotion_manager.py
+- src/holosoma/holosoma/managers/__init__.py
+- src/holosoma/holosoma/managers/action/__init__.py
+- src/holosoma/holosoma/managers/action/base.py
+- src/holosoma/holosoma/managers/action/manager.py
+- src/holosoma/holosoma/managers/action/terms/__init__.py
+- src/holosoma/holosoma/managers/action/terms/joint_control.py
+- src/holosoma/holosoma/managers/command/__init__.py
+- src/holosoma/holosoma/managers/command/base.py
+- src/holosoma/holosoma/managers/command/manager.py
+- src/holosoma/holosoma/managers/command/terms/__init__.py
+- src/holosoma/holosoma/managers/command/terms/locomotion.py
+- src/holosoma/holosoma/managers/curriculum/__init__.py
+- src/holosoma/holosoma/managers/curriculum/base.py
+- src/holosoma/holosoma/managers/curriculum/manager.py
+- src/holosoma/holosoma/managers/curriculum/terms/__init__.py
+- src/holosoma/holosoma/managers/curriculum/terms/locomotion.py
+- src/holosoma/holosoma/managers/observation/__init__.py
+- src/holosoma/holosoma/managers/observation/base.py
+- src/holosoma/holosoma/managers/observation/manager.py
+- src/holosoma/holosoma/managers/observation/terms/__init__.py
+- src/holosoma/holosoma/managers/observation/terms/locomotion.py
+- src/holosoma/holosoma/managers/randomization/__init__.py
+- src/holosoma/holosoma/managers/randomization/base.py
+- src/holosoma/holosoma/managers/randomization/exceptions.py
+- src/holosoma/holosoma/managers/randomization/manager.py
+- src/holosoma/holosoma/managers/randomization/terms/__init__.py
+- src/holosoma/holosoma/managers/randomization/terms/_shared.py
+- src/holosoma/holosoma/managers/randomization/terms/locomotion.py
+- src/holosoma/holosoma/managers/reset_events/__init__.py
+- src/holosoma/holosoma/managers/reset_events/base.py
+- src/holosoma/holosoma/managers/reset_events/manager.py
+- src/holosoma/holosoma/managers/reward/__init__.py
+- src/holosoma/holosoma/managers/reward/base.py
+- src/holosoma/holosoma/managers/reward/manager.py
+- src/holosoma/holosoma/managers/reward/terms/__init__.py
+- src/holosoma/holosoma/managers/reward/terms/locomotion.py
+- src/holosoma/holosoma/managers/termination/__init__.py
+- src/holosoma/holosoma/managers/termination/base.py
+- src/holosoma/holosoma/managers/termination/manager.py
+- src/holosoma/holosoma/managers/termination/terms/__init__.py
+- src/holosoma/holosoma/managers/termination/terms/common.py
+- src/holosoma/holosoma/managers/termination/terms/locomotion.py
+- src/holosoma/holosoma/managers/terrain/__init__.py
+- src/holosoma/holosoma/managers/terrain/base.py
+- src/holosoma/holosoma/managers/terrain/manager.py
+- src/holosoma/holosoma/managers/terrain/terms/__init__.py
+- src/holosoma/holosoma/managers/terrain/terms/locomotion.py
+- src/holosoma/holosoma/managers/utils.py
+- src/holosoma/holosoma/simulator/__init__.py
+- src/holosoma/holosoma/simulator/base_simulator/base_simulator.py
+- src/holosoma/holosoma/simulator/base_simulator/hooks.py
+- src/holosoma/holosoma/simulator/isaacsim/__init__.py
+- src/holosoma/holosoma/simulator/isaacsim/camera_projection.py
+- src/holosoma/holosoma/simulator/isaacsim/converters.py
+- src/holosoma/holosoma/simulator/isaacsim/event_cfg.py
+- src/holosoma/holosoma/simulator/isaacsim/events.py
+- src/holosoma/holosoma/simulator/isaacsim/isaaclab_viewpoint_camera_controller.py
+- src/holosoma/holosoma/simulator/isaacsim/isaacsim.py
+- src/holosoma/holosoma/simulator/isaacsim/isaacsim_articulation_cfg.py
+- src/holosoma/holosoma/simulator/isaacsim/lidar_target_discovery.py
+- src/holosoma/holosoma/simulator/isaacsim/light_setup.py
+- src/holosoma/holosoma/simulator/isaacsim/object_spawner.py
+- src/holosoma/holosoma/simulator/isaacsim/prim_naming.py
+- src/holosoma/holosoma/simulator/isaacsim/prim_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/proxy_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/scene_fixtures.py
+- src/holosoma/holosoma/simulator/isaacsim/sensor_setup.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/__init__.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/from_files.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/from_files_cfg.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/schema_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/state_adapter.py
+- src/holosoma/holosoma/simulator/isaacsim/state_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/video_recorder.py
+- src/holosoma/holosoma/simulator/isaacsim/viewer_input.py
+- src/holosoma/holosoma/simulator/mujoco/__init__.py
+- src/holosoma/holosoma/simulator/mujoco/backends/__init__.py
+- src/holosoma/holosoma/simulator/mujoco/backends/base.py
+- src/holosoma/holosoma/simulator/mujoco/backends/classic_backend.py
+- src/holosoma/holosoma/simulator/mujoco/backends/native_config.py
+- src/holosoma/holosoma/simulator/mujoco/backends/randomization.py
+- src/holosoma/holosoma/simulator/mujoco/backends/warp_backend.py
+- src/holosoma/holosoma/simulator/mujoco/backends/warp_bridge.py
+- src/holosoma/holosoma/simulator/mujoco/command_registry.py
+- src/holosoma/holosoma/simulator/mujoco/fields.py
+- src/holosoma/holosoma/simulator/mujoco/geom_groups.py
+- src/holosoma/holosoma/simulator/mujoco/light_setup.py
+- src/holosoma/holosoma/simulator/mujoco/mjw_views.py
+- src/holosoma/holosoma/simulator/mujoco/model_debug.py
+- src/holosoma/holosoma/simulator/mujoco/mujoco.py
+- src/holosoma/holosoma/simulator/mujoco/native_config.py
+- src/holosoma/holosoma/simulator/mujoco/robot_addressing.py
+- src/holosoma/holosoma/simulator/mujoco/scene_manager.py
+- src/holosoma/holosoma/simulator/mujoco/sensor_setup.py
+- src/holosoma/holosoma/simulator/mujoco/tensor_views.py
+- src/holosoma/holosoma/simulator/mujoco/video_recorder.py
+- src/holosoma/holosoma/simulator/mujoco/viewer_input.py
+- src/holosoma/holosoma/simulator/plugins/__init__.py
+- src/holosoma/holosoma/simulator/plugins/camera_consumer.py
+- src/holosoma/holosoma/simulator/plugins/depth_color.py
+- src/holosoma/holosoma/simulator/plugins/frame_writer/__init__.py
+- src/holosoma/holosoma/simulator/plugins/frame_writer/frame_writer.py
+- src/holosoma/holosoma/simulator/plugins/lidar_consumer.py
+- src/holosoma/holosoma/simulator/plugins/playback/__init__.py
+- src/holosoma/holosoma/simulator/plugins/playback/playback.py
+- src/holosoma/holosoma/simulator/plugins/ros2/__init__.py
+- src/holosoma/holosoma/simulator/plugins/ros2/camera_info.py
+- src/holosoma/holosoma/simulator/plugins/ros2/encode.py
+- src/holosoma/holosoma/simulator/plugins/ros2/pointcloud2.py
+- src/holosoma/holosoma/simulator/plugins/ros2/ros2_image_plugin.py
+- src/holosoma/holosoma/simulator/plugins/ros2/ros2_pointcloud_plugin.py
+- src/holosoma/holosoma/simulator/plugins/ros2/worker.py
+- src/holosoma/holosoma/simulator/plugins/viz/__init__.py
+- src/holosoma/holosoma/simulator/plugins/viz/image_grid.py
+- src/holosoma/holosoma/simulator/plugins/viz/lidar_viz_plugin.py
+- src/holosoma/holosoma/simulator/plugins/viz/viz_plugin.py
+- src/holosoma/holosoma/simulator/shared/__init__.py
+- src/holosoma/holosoma/simulator/shared/asset_format.py
+- src/holosoma/holosoma/simulator/shared/builtin_plugins.py
+- src/holosoma/holosoma/simulator/shared/camera_controller.py
+- src/holosoma/holosoma/simulator/shared/contact_substep.py
+- src/holosoma/holosoma/simulator/shared/dof_limits.py
+- src/holosoma/holosoma/simulator/shared/external_wrench.py
+- src/holosoma/holosoma/simulator/shared/field_decorators.py
+- src/holosoma/holosoma/simulator/shared/lidar_range.py
+- src/holosoma/holosoma/simulator/shared/lidar_sensor.py
+- src/holosoma/holosoma/simulator/shared/object_registry.py
+- src/holosoma/holosoma/simulator/shared/range_clipping.py
+- src/holosoma/holosoma/simulator/shared/root_states_view.py
+- src/holosoma/holosoma/simulator/shared/ros2_lifecycle.py
+- src/holosoma/holosoma/simulator/shared/ros2_plugins.py
+- src/holosoma/holosoma/simulator/shared/scene_types.py
+- src/holosoma/holosoma/simulator/shared/sensor_manager.py
+- src/holosoma/holosoma/simulator/shared/simulator_bridge.py
+- src/holosoma/holosoma/simulator/shared/terrain.py
+- src/holosoma/holosoma/simulator/shared/terrain_types.py
+- src/holosoma/holosoma/simulator/shared/video_recorder.py
+- src/holosoma/holosoma/simulator/shared/virtual_gantry.py
+- src/holosoma/holosoma/simulator/types.py
+- src/holosoma/holosoma/train_agent.py
+- src/holosoma/holosoma/utils/__init__.py
+- src/holosoma/holosoma/utils/adapters/draw_utils.py
+- src/holosoma/holosoma/utils/adapters/isaacsim_draw_adapter.py
+- src/holosoma/holosoma/utils/adapters/mujoco_draw_adapter.py
+- src/holosoma/holosoma/utils/average_meters.py
+- src/holosoma/holosoma/utils/clock.py
+- src/holosoma/holosoma/utils/common.py
+- src/holosoma/holosoma/utils/config_registry.py
+- src/holosoma/holosoma/utils/config_utils.py
+- src/holosoma/holosoma/utils/draw.py
+- src/holosoma/holosoma/utils/eval_utils.py
+- src/holosoma/holosoma/utils/experiment_paths.py
+- src/holosoma/holosoma/utils/file_cache.py
+- src/holosoma/holosoma/utils/helpers.py
+- src/holosoma/holosoma/utils/inference_helpers.py
+- src/holosoma/holosoma/utils/logging.py
+- src/holosoma/holosoma/utils/path.py
+- src/holosoma/holosoma/utils/pycompat.py
+- src/holosoma/holosoma/utils/rate.py
+- src/holosoma/holosoma/utils/rotations.py
+- src/holosoma/holosoma/utils/safe_torch_import.py
+- src/holosoma/holosoma/utils/sampler.py
+- src/holosoma/holosoma/utils/sim_utils.py
+- src/holosoma/holosoma/utils/simulator_config.py
+- src/holosoma/holosoma/utils/terrain_utils.py
+- src/holosoma/holosoma/utils/torch_jit.py
+- src/holosoma/holosoma/utils/torch_utils.py
+- src/holosoma/holosoma/utils/tyro_utils.py
+- src/holosoma/holosoma/utils/video_utils.py
+- src/holosoma/holosoma/utils/wandb.py
+- src/holosoma/holosoma/utils/warp_interop.py
+- src/holosoma/holosoma/utils/warp_utils.py
+
+I. 현재 소스의 repo 내부 정적 import 참조 색인 전체 (같은 한계 적용)
+- src/holosoma/holosoma/__init__.py
+- src/holosoma/holosoma/agents/base_algo/base_algo.py
+- src/holosoma/holosoma/agents/callbacks/base_callback.py
+- src/holosoma/holosoma/agents/distillation/__init__.py
+- src/holosoma/holosoma/agents/distillation/checkpoint.py
+- src/holosoma/holosoma/agents/fast_sac/command_audit.py
+- src/holosoma/holosoma/agents/fast_sac/fast_sac.py
+- src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py
+- src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py
+- src/holosoma/holosoma/agents/modules/augmentation_utils.py
+- src/holosoma/holosoma/agents/modules/bilateral/__init__.py
+- src/holosoma/holosoma/agents/modules/bilateral/normalization.py
+- src/holosoma/holosoma/agents/modules/logging_utils.py
+- src/holosoma/holosoma/bridge/__init__.py
+- src/holosoma/holosoma/bridge/base/__init__.py
+- src/holosoma/holosoma/bridge/base/basic_sdk2py_bridge.py
+- src/holosoma/holosoma/config_types/action.py
+- src/holosoma/holosoma/config_types/algo.py
+- src/holosoma/holosoma/config_types/command.py
+- src/holosoma/holosoma/config_types/curriculum.py
+- src/holosoma/holosoma/config_types/distribution.py
+- src/holosoma/holosoma/config_types/env.py
+- src/holosoma/holosoma/config_types/experiment.py
+- src/holosoma/holosoma/config_types/frequency.py
+- src/holosoma/holosoma/config_types/full_sim.py
+- src/holosoma/holosoma/config_types/light.py
+- src/holosoma/holosoma/config_types/logger.py
+- src/holosoma/holosoma/config_types/mujoco.py
+- src/holosoma/holosoma/config_types/observation.py
+- src/holosoma/holosoma/config_types/plugin.py
+- src/holosoma/holosoma/config_types/randomization.py
+- src/holosoma/holosoma/config_types/reward.py
+- src/holosoma/holosoma/config_types/robot.py
+- src/holosoma/holosoma/config_types/run_sim.py
+- src/holosoma/holosoma/config_types/scene.py
+- src/holosoma/holosoma/config_types/sensor.py
+- src/holosoma/holosoma/config_types/simulator.py
+- src/holosoma/holosoma/config_types/termination.py
+- src/holosoma/holosoma/config_types/terrain.py
+- src/holosoma/holosoma/config_types/value_types.py
+- src/holosoma/holosoma/config_types/video.py
+- src/holosoma/holosoma/config_types/viewer.py
+- src/holosoma/holosoma/config_values/__init__.py
+- src/holosoma/holosoma/config_values/action.py
+- src/holosoma/holosoma/config_values/algo.py
+- src/holosoma/holosoma/config_values/command.py
+- src/holosoma/holosoma/config_values/curriculum.py
+- src/holosoma/holosoma/config_values/experiment.py
+- src/holosoma/holosoma/config_values/light.py
+- src/holosoma/holosoma/config_values/loco/__init__.py
+- src/holosoma/holosoma/config_values/loco/g1/__init__.py
+- src/holosoma/holosoma/config_values/loco/g1/action.py
+- src/holosoma/holosoma/config_values/loco/g1/command.py
+- src/holosoma/holosoma/config_values/loco/g1/curriculum.py
+- src/holosoma/holosoma/config_values/loco/g1/experiment.py
+- src/holosoma/holosoma/config_values/loco/g1/observation.py
+- src/holosoma/holosoma/config_values/loco/g1/randomization.py
+- src/holosoma/holosoma/config_values/loco/g1/reward.py
+- src/holosoma/holosoma/config_values/loco/g1/termination.py
+- src/holosoma/holosoma/config_values/loco/t1/__init__.py
+- src/holosoma/holosoma/config_values/loco/t1/action.py
+- src/holosoma/holosoma/config_values/loco/t1/command.py
+- src/holosoma/holosoma/config_values/loco/t1/curriculum.py
+- src/holosoma/holosoma/config_values/loco/t1/experiment.py
+- src/holosoma/holosoma/config_values/loco/t1/observation.py
+- src/holosoma/holosoma/config_values/loco/t1/randomization.py
+- src/holosoma/holosoma/config_values/loco/t1/reward.py
+- src/holosoma/holosoma/config_values/loco/t1/termination.py
+- src/holosoma/holosoma/config_values/logger.py
+- src/holosoma/holosoma/config_values/observation.py
+- src/holosoma/holosoma/config_values/plugin.py
+- src/holosoma/holosoma/config_values/randomization.py
+- src/holosoma/holosoma/config_values/reward.py
+- src/holosoma/holosoma/config_values/robot.py
+- src/holosoma/holosoma/config_values/run_sim.py
+- src/holosoma/holosoma/config_values/scene.py
+- src/holosoma/holosoma/config_values/sensor.py
+- src/holosoma/holosoma/config_values/simulator.py
+- src/holosoma/holosoma/config_values/termination.py
+- src/holosoma/holosoma/config_values/terrain.py
+- src/holosoma/holosoma/config_values/wbt/__init__.py
+- src/holosoma/holosoma/config_values/wbt/g1/__init__.py
+- src/holosoma/holosoma/config_values/wbt/g1/command.py
+- src/holosoma/holosoma/config_values/wbt/g1/curriculum.py
+- src/holosoma/holosoma/config_values/wbt/g1/experiment.py
+- src/holosoma/holosoma/config_values/wbt/g1/observation.py
+- src/holosoma/holosoma/config_values/wbt/g1/randomization.py
+- src/holosoma/holosoma/config_values/wbt/g1/reward.py
+- src/holosoma/holosoma/config_values/wbt/g1/scene.py
+- src/holosoma/holosoma/config_values/wbt/g1/sensor.py
+- src/holosoma/holosoma/config_values/wbt/g1/termination.py
+- src/holosoma/holosoma/envs/__init__.py
+- src/holosoma/holosoma/envs/base_task/__init__.py
+- src/holosoma/holosoma/envs/base_task/base_task.py
+- src/holosoma/holosoma/envs/locomotion/__init__.py
+- src/holosoma/holosoma/envs/locomotion/locomotion_manager.py
+- src/holosoma/holosoma/managers/__init__.py
+- src/holosoma/holosoma/managers/action/__init__.py
+- src/holosoma/holosoma/managers/action/base.py
+- src/holosoma/holosoma/managers/action/manager.py
+- src/holosoma/holosoma/managers/action/terms/__init__.py
+- src/holosoma/holosoma/managers/action/terms/joint_control.py
+- src/holosoma/holosoma/managers/command/__init__.py
+- src/holosoma/holosoma/managers/command/base.py
+- src/holosoma/holosoma/managers/command/manager.py
+- src/holosoma/holosoma/managers/command/terms/__init__.py
+- src/holosoma/holosoma/managers/command/terms/locomotion.py
+- src/holosoma/holosoma/managers/command/terms/three_direction.py
+- src/holosoma/holosoma/managers/curriculum/__init__.py
+- src/holosoma/holosoma/managers/curriculum/base.py
+- src/holosoma/holosoma/managers/curriculum/manager.py
+- src/holosoma/holosoma/managers/curriculum/terms/__init__.py
+- src/holosoma/holosoma/managers/curriculum/terms/locomotion.py
+- src/holosoma/holosoma/managers/observation/__init__.py
+- src/holosoma/holosoma/managers/observation/base.py
+- src/holosoma/holosoma/managers/observation/manager.py
+- src/holosoma/holosoma/managers/observation/terms/__init__.py
+- src/holosoma/holosoma/managers/observation/terms/locomotion.py
+- src/holosoma/holosoma/managers/randomization/__init__.py
+- src/holosoma/holosoma/managers/randomization/base.py
+- src/holosoma/holosoma/managers/randomization/exceptions.py
+- src/holosoma/holosoma/managers/randomization/manager.py
+- src/holosoma/holosoma/managers/randomization/terms/__init__.py
+- src/holosoma/holosoma/managers/randomization/terms/_shared.py
+- src/holosoma/holosoma/managers/randomization/terms/locomotion.py
+- src/holosoma/holosoma/managers/reset_events/__init__.py
+- src/holosoma/holosoma/managers/reset_events/base.py
+- src/holosoma/holosoma/managers/reset_events/manager.py
+- src/holosoma/holosoma/managers/reward/__init__.py
+- src/holosoma/holosoma/managers/reward/base.py
+- src/holosoma/holosoma/managers/reward/manager.py
+- src/holosoma/holosoma/managers/reward/terms/__init__.py
+- src/holosoma/holosoma/managers/reward/terms/locomotion.py
+- src/holosoma/holosoma/managers/termination/__init__.py
+- src/holosoma/holosoma/managers/termination/base.py
+- src/holosoma/holosoma/managers/termination/manager.py
+- src/holosoma/holosoma/managers/termination/terms/__init__.py
+- src/holosoma/holosoma/managers/termination/terms/common.py
+- src/holosoma/holosoma/managers/termination/terms/locomotion.py
+- src/holosoma/holosoma/managers/terrain/__init__.py
+- src/holosoma/holosoma/managers/terrain/base.py
+- src/holosoma/holosoma/managers/terrain/manager.py
+- src/holosoma/holosoma/managers/terrain/terms/__init__.py
+- src/holosoma/holosoma/managers/terrain/terms/locomotion.py
+- src/holosoma/holosoma/managers/utils.py
+- src/holosoma/holosoma/simulator/__init__.py
+- src/holosoma/holosoma/simulator/base_simulator/base_simulator.py
+- src/holosoma/holosoma/simulator/base_simulator/hooks.py
+- src/holosoma/holosoma/simulator/isaacsim/__init__.py
+- src/holosoma/holosoma/simulator/isaacsim/camera_projection.py
+- src/holosoma/holosoma/simulator/isaacsim/converters.py
+- src/holosoma/holosoma/simulator/isaacsim/event_cfg.py
+- src/holosoma/holosoma/simulator/isaacsim/events.py
+- src/holosoma/holosoma/simulator/isaacsim/isaaclab_viewpoint_camera_controller.py
+- src/holosoma/holosoma/simulator/isaacsim/isaacsim.py
+- src/holosoma/holosoma/simulator/isaacsim/isaacsim_articulation_cfg.py
+- src/holosoma/holosoma/simulator/isaacsim/lidar_target_discovery.py
+- src/holosoma/holosoma/simulator/isaacsim/light_setup.py
+- src/holosoma/holosoma/simulator/isaacsim/object_spawner.py
+- src/holosoma/holosoma/simulator/isaacsim/prim_naming.py
+- src/holosoma/holosoma/simulator/isaacsim/prim_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/proxy_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/scene_fixtures.py
+- src/holosoma/holosoma/simulator/isaacsim/sensor_setup.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/__init__.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/from_files.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/from_files_cfg.py
+- src/holosoma/holosoma/simulator/isaacsim/spawners/schema_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/state_adapter.py
+- src/holosoma/holosoma/simulator/isaacsim/state_utils.py
+- src/holosoma/holosoma/simulator/isaacsim/video_recorder.py
+- src/holosoma/holosoma/simulator/isaacsim/viewer_input.py
+- src/holosoma/holosoma/simulator/mujoco/__init__.py
+- src/holosoma/holosoma/simulator/mujoco/backends/__init__.py
+- src/holosoma/holosoma/simulator/mujoco/backends/base.py
+- src/holosoma/holosoma/simulator/mujoco/backends/classic_backend.py
+- src/holosoma/holosoma/simulator/mujoco/backends/native_config.py
+- src/holosoma/holosoma/simulator/mujoco/backends/randomization.py
+- src/holosoma/holosoma/simulator/mujoco/backends/warp_backend.py
+- src/holosoma/holosoma/simulator/mujoco/backends/warp_bridge.py
+- src/holosoma/holosoma/simulator/mujoco/command_registry.py
+- src/holosoma/holosoma/simulator/mujoco/fields.py
+- src/holosoma/holosoma/simulator/mujoco/geom_groups.py
+- src/holosoma/holosoma/simulator/mujoco/light_setup.py
+- src/holosoma/holosoma/simulator/mujoco/mjw_views.py
+- src/holosoma/holosoma/simulator/mujoco/model_debug.py
+- src/holosoma/holosoma/simulator/mujoco/mujoco.py
+- src/holosoma/holosoma/simulator/mujoco/native_config.py
+- src/holosoma/holosoma/simulator/mujoco/robot_addressing.py
+- src/holosoma/holosoma/simulator/mujoco/scene_manager.py
+- src/holosoma/holosoma/simulator/mujoco/sensor_setup.py
+- src/holosoma/holosoma/simulator/mujoco/tensor_views.py
+- src/holosoma/holosoma/simulator/mujoco/video_recorder.py
+- src/holosoma/holosoma/simulator/mujoco/viewer_input.py
+- src/holosoma/holosoma/simulator/plugins/__init__.py
+- src/holosoma/holosoma/simulator/plugins/camera_consumer.py
+- src/holosoma/holosoma/simulator/plugins/depth_color.py
+- src/holosoma/holosoma/simulator/plugins/frame_writer/__init__.py
+- src/holosoma/holosoma/simulator/plugins/frame_writer/frame_writer.py
+- src/holosoma/holosoma/simulator/plugins/lidar_consumer.py
+- src/holosoma/holosoma/simulator/plugins/playback/__init__.py
+- src/holosoma/holosoma/simulator/plugins/playback/playback.py
+- src/holosoma/holosoma/simulator/plugins/ros2/__init__.py
+- src/holosoma/holosoma/simulator/plugins/ros2/camera_info.py
+- src/holosoma/holosoma/simulator/plugins/ros2/encode.py
+- src/holosoma/holosoma/simulator/plugins/ros2/pointcloud2.py
+- src/holosoma/holosoma/simulator/plugins/ros2/ros2_image_plugin.py
+- src/holosoma/holosoma/simulator/plugins/ros2/ros2_pointcloud_plugin.py
+- src/holosoma/holosoma/simulator/plugins/ros2/worker.py
+- src/holosoma/holosoma/simulator/plugins/viz/__init__.py
+- src/holosoma/holosoma/simulator/plugins/viz/image_grid.py
+- src/holosoma/holosoma/simulator/plugins/viz/lidar_viz_plugin.py
+- src/holosoma/holosoma/simulator/plugins/viz/viz_plugin.py
+- src/holosoma/holosoma/simulator/shared/__init__.py
+- src/holosoma/holosoma/simulator/shared/asset_format.py
+- src/holosoma/holosoma/simulator/shared/builtin_plugins.py
+- src/holosoma/holosoma/simulator/shared/camera_controller.py
+- src/holosoma/holosoma/simulator/shared/contact_substep.py
+- src/holosoma/holosoma/simulator/shared/dof_limits.py
+- src/holosoma/holosoma/simulator/shared/external_wrench.py
+- src/holosoma/holosoma/simulator/shared/field_decorators.py
+- src/holosoma/holosoma/simulator/shared/lidar_range.py
+- src/holosoma/holosoma/simulator/shared/lidar_sensor.py
+- src/holosoma/holosoma/simulator/shared/object_registry.py
+- src/holosoma/holosoma/simulator/shared/range_clipping.py
+- src/holosoma/holosoma/simulator/shared/root_states_view.py
+- src/holosoma/holosoma/simulator/shared/ros2_lifecycle.py
+- src/holosoma/holosoma/simulator/shared/ros2_plugins.py
+- src/holosoma/holosoma/simulator/shared/scene_types.py
+- src/holosoma/holosoma/simulator/shared/sensor_manager.py
+- src/holosoma/holosoma/simulator/shared/simulator_bridge.py
+- src/holosoma/holosoma/simulator/shared/terrain.py
+- src/holosoma/holosoma/simulator/shared/terrain_types.py
+- src/holosoma/holosoma/simulator/shared/video_recorder.py
+- src/holosoma/holosoma/simulator/shared/virtual_gantry.py
+- src/holosoma/holosoma/simulator/types.py
+- src/holosoma/holosoma/train_agent.py
+- src/holosoma/holosoma/utils/__init__.py
+- src/holosoma/holosoma/utils/adapters/draw_utils.py
+- src/holosoma/holosoma/utils/adapters/isaacsim_draw_adapter.py
+- src/holosoma/holosoma/utils/adapters/mujoco_draw_adapter.py
+- src/holosoma/holosoma/utils/average_meters.py
+- src/holosoma/holosoma/utils/clock.py
+- src/holosoma/holosoma/utils/common.py
+- src/holosoma/holosoma/utils/config_registry.py
+- src/holosoma/holosoma/utils/config_utils.py
+- src/holosoma/holosoma/utils/draw.py
+- src/holosoma/holosoma/utils/eval_utils.py
+- src/holosoma/holosoma/utils/experiment_paths.py
+- src/holosoma/holosoma/utils/file_cache.py
+- src/holosoma/holosoma/utils/helpers.py
+- src/holosoma/holosoma/utils/inference_helpers.py
+- src/holosoma/holosoma/utils/logging.py
+- src/holosoma/holosoma/utils/path.py
+- src/holosoma/holosoma/utils/pycompat.py
+- src/holosoma/holosoma/utils/rate.py
+- src/holosoma/holosoma/utils/rotations.py
+- src/holosoma/holosoma/utils/safe_torch_import.py
+- src/holosoma/holosoma/utils/sampler.py
+- src/holosoma/holosoma/utils/sim_utils.py
+- src/holosoma/holosoma/utils/simulator_config.py
+- src/holosoma/holosoma/utils/terrain_utils.py
+- src/holosoma/holosoma/utils/torch_jit.py
+- src/holosoma/holosoma/utils/torch_utils.py
+- src/holosoma/holosoma/utils/tyro_utils.py
+- src/holosoma/holosoma/utils/video_utils.py
+- src/holosoma/holosoma/utils/wandb.py
+- src/holosoma/holosoma/utils/warp_interop.py
+- src/holosoma/holosoma/utils/warp_utils.py
+
+J. 원본에서 이번 native MLP로 달라진 실행 설정
+- command: vx/vy 연속 평면 샘플 -> forward/backward/left 세 방향, 오른쪽/대각선 제외.
+- use_symmetry: True -> False. symmetry_compatible_io=False 유지, bilateral=None.
+- num_learning_iterations: 50000 -> 30000.
+- seed: 42 -> 43. num_envs=4096 동일.
+- logger:disabled, command_audit=True, CSV env0; 전체 env/replay 카운터 추가.
+- 원본 MLP/empirical normalization/native phase/보상/DR/curriculum/compile=True 그대로.
+- 원본 EmpiricalNormalization 분산 갱신 문제도 그대로 남아 있다.
+
+상세 원본 diff: HOLOSOMA_CODE_DIFF_20261102.patch
+기계 판독 목록: HOLOSOMA_FILE_AUDIT_20261102.json
+상태 A=원본에 없던 tracked 파일, M=원본 기존 파일 변경, ?=현재 untracked 파일.

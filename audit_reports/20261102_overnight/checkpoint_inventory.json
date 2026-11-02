@@ -1,0 +1,902 @@
+[
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00000.pt",
+    "bytes": 5300864,
+    "mtime": 1793182508.317098,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00100.pt",
+    "bytes": 5300864,
+    "mtime": 1793182807.238189,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00200.pt",
+    "bytes": 5300864,
+    "mtime": 1793183127.5591033,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00300.pt",
+    "bytes": 5300864,
+    "mtime": 1793183446.3583686,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00400.pt",
+    "bytes": 5300864,
+    "mtime": 1793183758.4507322,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00500.pt",
+    "bytes": 5300864,
+    "mtime": 1793184070.172988,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00600.pt",
+    "bytes": 5300864,
+    "mtime": 1793184390.9121017,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00700.pt",
+    "bytes": 5300864,
+    "mtime": 1793184718.5241184,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00800.pt",
+    "bytes": 5300864,
+    "mtime": 1793185046.6591117,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_00900.pt",
+    "bytes": 5300864,
+    "mtime": 1793185370.9305387,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01000.pt",
+    "bytes": 5300864,
+    "mtime": 1793185701.8015814,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01100.pt",
+    "bytes": 5300864,
+    "mtime": 1793186032.613383,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01200.pt",
+    "bytes": 5300864,
+    "mtime": 1793186365.3495605,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01300.pt",
+    "bytes": 5300864,
+    "mtime": 1793186696.9444003,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01400.pt",
+    "bytes": 5300864,
+    "mtime": 1793187031.6352642,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01500.pt",
+    "bytes": 5300864,
+    "mtime": 1793187364.1537304,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01600.pt",
+    "bytes": 5300864,
+    "mtime": 1793187698.3551707,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01700.pt",
+    "bytes": 5300864,
+    "mtime": 1793187987.0253994,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01800.pt",
+    "bytes": 5300864,
+    "mtime": 1793188272.9681816,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_01900.pt",
+    "bytes": 5300864,
+    "mtime": 1793188552.4259636,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_101400/1_g1-29dof_seed43/hv-g1-manager/20261028_101411-1_g1-29dof_seed43-locomotion/model_02000.pt",
+    "bytes": 5300864,
+    "mtime": 1793188835.6982536,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion/model_00000.pt",
+    "bytes": 5300011,
+    "mtime": 1793190683.8105774,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion/model_00100.pt",
+    "bytes": 5300011,
+    "mtime": 1793191018.5159369,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion/model_00200.pt",
+    "bytes": 5300011,
+    "mtime": 1793191331.18739,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion/model_00300.pt",
+    "bytes": 5300011,
+    "mtime": 1793191642.6188126,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_123027_isaacgym/1_g1-29dof_seed43/hv-g1-manager/20261028_123031-1_g1-29dof_seed43-locomotion/model_00400.pt",
+    "bytes": 5300011,
+    "mtime": 1793191947.7102656,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0001000.pt",
+    "bytes": 18598270,
+    "mtime": 1793192368.612734,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0002000.pt",
+    "bytes": 18598270,
+    "mtime": 1793192576.0129895,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0003000.pt",
+    "bytes": 18598270,
+    "mtime": 1793192782.1672542,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0004000.pt",
+    "bytes": 18598270,
+    "mtime": 1793192985.917538,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0005000.pt",
+    "bytes": 18598270,
+    "mtime": 1793193186.3988485,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0006000.pt",
+    "bytes": 18598270,
+    "mtime": 1793193387.0621572,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0007000.pt",
+    "bytes": 18598270,
+    "mtime": 1793193586.8197396,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0008000.pt",
+    "bytes": 18598270,
+    "mtime": 1793193787.752182,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_125443_isaacgym/1_g1-29dof-fast-sac_seed43/hv-g1-manager/20261028_125447-1_g1-29dof-fast-sac_seed43-locomotion/model_0009000.pt",
+    "bytes": 18598270,
+    "mtime": 1793193988.80838,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/model_0001000.pt",
+    "bytes": 69815706,
+    "mtime": 1793195729.3948493,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/model_0002000.pt",
+    "bytes": 69815706,
+    "mtime": 1793196700.5782335,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_133833_isaacgym/1_g1-29dof-bilateral-fast-sac_seed43/hv-g1-manager/20261028_133837-1_g1-29dof-bilateral-fast-sac_seed43-locomotion/model_0003000.pt",
+    "bytes": 69815706,
+    "mtime": 1793197664.3179288,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_144957_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_145001-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0001000.pt",
+    "bytes": 69815706,
+    "mtime": 1793199976.2118227,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0001000.pt",
+    "bytes": 69815706,
+    "mtime": 1793201132.749069,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0002000.pt",
+    "bytes": 69815706,
+    "mtime": 1793202035.481214,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0003000.pt",
+    "bytes": 69815706,
+    "mtime": 1793202941.632618,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0004000.pt",
+    "bytes": 69815706,
+    "mtime": 1793203823.6713154,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0005000.pt",
+    "bytes": 69815706,
+    "mtime": 1793204715.7866282,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0006000.pt",
+    "bytes": 69815706,
+    "mtime": 1793205600.222363,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0007000.pt",
+    "bytes": 69815706,
+    "mtime": 1793206485.9816723,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0008000.pt",
+    "bytes": 69815706,
+    "mtime": 1793207381.6286366,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0009000.pt",
+    "bytes": 69815706,
+    "mtime": 1793208286.0999758,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_150951_isaacgym/1_g1-29dof-bilateral-no-right-fast-sac_seed43/hv-g1-manager/20261028_150955-1_g1-29dof-bilateral-no-right-fast-sac_seed43-locomotion/model_0010000.pt",
+    "bytes": 69815706,
+    "mtime": 1793209194.2941704,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0001000.pt",
+    "bytes": 107114042,
+    "mtime": 1793204037.8766074,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0002000.pt",
+    "bytes": 107114042,
+    "mtime": 1793204742.163386,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0003000.pt",
+    "bytes": 107114042,
+    "mtime": 1793205381.8711016,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0004000.pt",
+    "bytes": 107114042,
+    "mtime": 1793206019.6128523,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0005000.pt",
+    "bytes": 107114042,
+    "mtime": 1793206664.9345498,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0006000.pt",
+    "bytes": 107114042,
+    "mtime": 1793207302.7554808,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0007000.pt",
+    "bytes": 107114042,
+    "mtime": 1793207941.3753018,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0008000.pt",
+    "bytes": 107114042,
+    "mtime": 1793208578.3106298,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0009000.pt",
+    "bytes": 107114042,
+    "mtime": 1793209217.9099536,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_155752_isaacgym/1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43/hv-g1-manager/20261028_155756-1_g1-29dof-ham-sym-aug-no-right-fast-sac_seed43-locomotion/model_0010000.pt",
+    "bytes": 107114042,
+    "mtime": 1793209859.7619731,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0001000.pt",
+    "bytes": 107114042,
+    "mtime": 1793209693.3835354,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0002000.pt",
+    "bytes": 107114042,
+    "mtime": 1793210136.6617846,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0003000.pt",
+    "bytes": 107114042,
+    "mtime": 1793210568.1701179,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0004000.pt",
+    "bytes": 107114042,
+    "mtime": 1793211008.2971852,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0005000.pt",
+    "bytes": 107114042,
+    "mtime": 1793211440.308244,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0006000.pt",
+    "bytes": 107114042,
+    "mtime": 1793211882.815172,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0007000.pt",
+    "bytes": 107114042,
+    "mtime": 1793212324.6108153,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0008000.pt",
+    "bytes": 107114042,
+    "mtime": 1793212765.4966936,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0009000.pt",
+    "bytes": 107114042,
+    "mtime": 1793213206.7413006,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_174024_isaacgym_gpu3/1_g1-29dof-ham-no-right-fast-sac_seed43/hv-g1-manager/20261028_174029-1_g1-29dof-ham-no-right-fast-sac_seed43-locomotion/model_0010000.pt",
+    "bytes": 107114042,
+    "mtime": 1793213628.6144369,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0001000.pt",
+    "bytes": 18595390,
+    "mtime": 1793210131.2938282,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0002000.pt",
+    "bytes": 18595390,
+    "mtime": 1793210356.6019497,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0003000.pt",
+    "bytes": 18595390,
+    "mtime": 1793210582.130995,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0004000.pt",
+    "bytes": 18595390,
+    "mtime": 1793210809.9069726,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0005000.pt",
+    "bytes": 18595390,
+    "mtime": 1793211034.562947,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0006000.pt",
+    "bytes": 18595390,
+    "mtime": 1793211257.1559207,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0007000.pt",
+    "bytes": 18595390,
+    "mtime": 1793211480.3778763,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0008000.pt",
+    "bytes": 18595390,
+    "mtime": 1793211702.9968293,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0009000.pt",
+    "bytes": 18595390,
+    "mtime": 1793211919.1708367,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/20261028_175105_isaacgym_gpu6/1_g1-29dof-mlp-no-right-fast-sac_seed43/hv-g1-manager/20261028_175110-1_g1-29dof-mlp-no-right-fast-sac_seed43-locomotion/model_0010000.pt",
+    "bytes": 18595390,
+    "mtime": 1793212136.1588678,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt",
+    "bytes": 69815706,
+    "mtime": 1793219300.3247721,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt",
+    "bytes": 69815706,
+    "mtime": 1793220222.8183546,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt",
+    "bytes": 69815706,
+    "mtime": 1793221123.0122979,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt",
+    "bytes": 69815706,
+    "mtime": 1793222013.321805,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt",
+    "bytes": 69815706,
+    "mtime": 1793222916.1679962,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt",
+    "bytes": 69815706,
+    "mtime": 1793223773.2935143,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt",
+    "bytes": 69815706,
+    "mtime": 1793224685.3091035,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt",
+    "bytes": 69815706,
+    "mtime": 1793225585.0063252,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt",
+    "bytes": 69815706,
+    "mtime": 1793226457.7418184,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-bilateral-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt",
+    "bytes": 69815706,
+    "mtime": 1793227395.0094566,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt",
+    "bytes": 18595390,
+    "mtime": 1793227672.0815248,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt",
+    "bytes": 18595390,
+    "mtime": 1793227908.742921,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt",
+    "bytes": 18595390,
+    "mtime": 1793228145.72546,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt",
+    "bytes": 18595390,
+    "mtime": 1793228377.5689838,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt",
+    "bytes": 18595390,
+    "mtime": 1793228609.5245337,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt",
+    "bytes": 18595390,
+    "mtime": 1793228838.0501041,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt",
+    "bytes": 18595390,
+    "mtime": 1793229070.3866239,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt",
+    "bytes": 18595390,
+    "mtime": 1793229298.345184,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt",
+    "bytes": 18595390,
+    "mtime": 1793229532.5256736,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/2_g1-29dof-mlp-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_224322-2_g1-29dof-mlp-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt",
+    "bytes": 18595390,
+    "mtime": 1793229766.2271657,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt",
+    "bytes": 107114042,
+    "mtime": 1793219053.5615432,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt",
+    "bytes": 107114042,
+    "mtime": 1793219702.69648,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt",
+    "bytes": 107114042,
+    "mtime": 1793220350.995288,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt",
+    "bytes": 107114042,
+    "mtime": 1793220994.7164996,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt",
+    "bytes": 107114042,
+    "mtime": 1793221640.1843855,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt",
+    "bytes": 107114042,
+    "mtime": 1793222286.546638,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt",
+    "bytes": 107114042,
+    "mtime": 1793222932.6878593,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt",
+    "bytes": 107114042,
+    "mtime": 1793223579.440252,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt",
+    "bytes": 107114042,
+    "mtime": 1793224225.1813426,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_201255-1_g1-29dof-ham-sym-aug-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt",
+    "bytes": 107114042,
+    "mtime": 1793224875.5783224,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0001000.pt",
+    "bytes": 107114042,
+    "mtime": 1793225366.3959532,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0002000.pt",
+    "bytes": 107114042,
+    "mtime": 1793225820.8745658,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0003000.pt",
+    "bytes": 107114042,
+    "mtime": 1793226248.8126745,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0004000.pt",
+    "bytes": 107114042,
+    "mtime": 1793226692.4086175,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0005000.pt",
+    "bytes": 107114042,
+    "mtime": 1793227134.4541745,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0006000.pt",
+    "bytes": 107114042,
+    "mtime": 1793227574.2355638,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0007000.pt",
+    "bytes": 107114042,
+    "mtime": 1793228009.1059256,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0008000.pt",
+    "bytes": 107114042,
+    "mtime": 1793228443.6612878,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0009000.pt",
+    "bytes": 107114042,
+    "mtime": 1793228884.8196056,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/2_g1-29dof-ham-no-right-fast-sac-v2_seed43/hv-g1-manager/20261028_220123-2_g1-29dof-ham-no-right-fast-sac-v2_seed43-locomotion/model_0010000.pt",
+    "bytes": 107114042,
+    "mtime": 1793229314.2940133,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion/model_0001000.pt",
+    "bytes": 18596439,
+    "mtime": 1793299661.0465753,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0001000.pt",
+    "bytes": 18599511,
+    "mtime": 1793354289.7443902,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0002000.pt",
+    "bytes": 18599511,
+    "mtime": 1793354503.382798,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0003000.pt",
+    "bytes": 18599511,
+    "mtime": 1793354716.2982862,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0004000.pt",
+    "bytes": 18599511,
+    "mtime": 1793354916.4234085,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0005000.pt",
+    "bytes": 18599511,
+    "mtime": 1793355103.5796685,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0006000.pt",
+    "bytes": 18599511,
+    "mtime": 1793355293.4409142,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0007000.pt",
+    "bytes": 18599511,
+    "mtime": 1793355485.87514,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0008000.pt",
+    "bytes": 18599511,
+    "mtime": 1793355676.4423876,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0009000.pt",
+    "bytes": 18599511,
+    "mtime": 1793355868.7176235,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0010000.pt",
+    "bytes": 18599511,
+    "mtime": 1793356047.9489813,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0011000.pt",
+    "bytes": 18599511,
+    "mtime": 1793356232.889224,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0012000.pt",
+    "bytes": 18599511,
+    "mtime": 1793356410.509664,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0013000.pt",
+    "bytes": 18599511,
+    "mtime": 1793356585.2800663,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0014000.pt",
+    "bytes": 18599511,
+    "mtime": 1793356759.2514763,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0015000.pt",
+    "bytes": 18599511,
+    "mtime": 1793356935.4588661,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0016000.pt",
+    "bytes": 18599511,
+    "mtime": 1793357112.1152523,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0017000.pt",
+    "bytes": 18599511,
+    "mtime": 1793357287.0396545,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0018000.pt",
+    "bytes": 18599511,
+    "mtime": 1793357467.6678205,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0019000.pt",
+    "bytes": 18599511,
+    "mtime": 1793357640.5429788,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0020000.pt",
+    "bytes": 18599511,
+    "mtime": 1793357813.238203,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0021000.pt",
+    "bytes": 18599511,
+    "mtime": 1793357988.38577,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0022000.pt",
+    "bytes": 18599511,
+    "mtime": 1793358169.0541766,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0023000.pt",
+    "bytes": 18599511,
+    "mtime": 1793358343.549433,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0024000.pt",
+    "bytes": 18599511,
+    "mtime": 1793358524.913617,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0025000.pt",
+    "bytes": 18599511,
+    "mtime": 1793358701.4900308,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0026000.pt",
+    "bytes": 18599511,
+    "mtime": 1793358880.2279198,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0027000.pt",
+    "bytes": 18599511,
+    "mtime": 1793359061.5599716,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0028000.pt",
+    "bytes": 18599511,
+    "mtime": 1793359247.4218438,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0029000.pt",
+    "bytes": 18599511,
+    "mtime": 1793359435.127738,
+    "symlink": false
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_0030000.pt",
+    "bytes": 18599511,
+    "mtime": 1793359615.944721,
+    "symlink": false
+  }
+]

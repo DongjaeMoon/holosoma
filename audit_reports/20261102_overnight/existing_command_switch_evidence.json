@@ -1,0 +1,101 @@
+{
+  "segments": [
+    {
+      "segment": "stand_start",
+      "start": 0,
+      "end": 3,
+      "stable_rows": 75,
+      "mean_target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_actual": [
+        0.003016937733142792,
+        0.006507009327178821,
+        0.0011773858630719284
+      ]
+    },
+    {
+      "segment": "forward",
+      "start": 3,
+      "end": 8,
+      "stable_rows": 150,
+      "mean_target": [
+        0.6000000238418579,
+        0.0,
+        0.0
+      ],
+      "mean_actual": [
+        0.46607662459214527,
+        0.03512428743376707,
+        0.02071040283267697
+      ]
+    },
+    {
+      "segment": "backward",
+      "start": 8,
+      "end": 13,
+      "stable_rows": 150,
+      "mean_target": [
+        -0.6000000238418579,
+        0.0,
+        0.0
+      ],
+      "mean_actual": [
+        -0.4081990927457809,
+        0.04184888830098013,
+        0.05093021022058868
+      ]
+    },
+    {
+      "segment": "left",
+      "start": 13,
+      "end": 19,
+      "stable_rows": 200,
+      "mean_target": [
+        0.0,
+        0.6000000238418579,
+        0.0
+      ],
+      "mean_actual": [
+        0.006810328947176458,
+        0.24561377267818899,
+        -0.01268490570873837
+      ]
+    },
+    {
+      "segment": "right",
+      "start": 19,
+      "end": 25,
+      "stable_rows": 200,
+      "mean_target": [
+        0.0,
+        -0.6000000238418579,
+        0.0
+      ],
+      "mean_actual": [
+        0.026307752833999984,
+        -0.2680388969831984,
+        -0.03900354078272358
+      ]
+    },
+    {
+      "segment": "stand_end",
+      "start": 25,
+      "end": 28,
+      "stable_rows": 75,
+      "mean_target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_actual": [
+        0.002681879760251225,
+        0.003961230759832688,
+        0.0050313869448533905
+      ]
+    }
+  ],
+  "limitation": "Sequential states differ; this is not a matched-initial-state command-clamp ablation."
+}

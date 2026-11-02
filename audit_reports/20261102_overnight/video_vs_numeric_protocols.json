@@ -1,0 +1,42 @@
+[
+  {
+    "model": "biHAM",
+    "direction": "left",
+    "video_metric": 0.41403137979749216,
+    "csv_rmse": 0.4141107363703655,
+    "trial_32_mean_metric": 0.3938611960038543,
+    "replay_backend": "isaacsim",
+    "training_backend": "isaacgym",
+    "numerical_eval_backend": "isaacgym"
+  },
+  {
+    "model": "biHAM",
+    "direction": "right",
+    "video_metric": 0.4147341442115152,
+    "csv_rmse": 0.4146804626054059,
+    "trial_32_mean_metric": 0.3970062267035246,
+    "replay_backend": "isaacsim",
+    "training_backend": "isaacgym",
+    "numerical_eval_backend": "isaacgym"
+  },
+  {
+    "model": "native_MLP",
+    "direction": "left",
+    "video_metric": 0.4326179015136089,
+    "csv_rmse": 0.43261273377911313,
+    "trial_32_mean_metric": 0.4309504060074687,
+    "replay_backend": "isaacsim",
+    "training_backend": "isaacsim",
+    "numerical_eval_backend": "isaacsim"
+  },
+  {
+    "model": "native_MLP",
+    "direction": "right",
+    "video_metric": 0.39908611241908404,
+    "csv_rmse": 0.3991381085850796,
+    "trial_32_mean_metric": 0.4003125987946987,
+    "replay_backend": "isaacsim",
+    "training_backend": "isaacsim",
+    "numerical_eval_backend": "isaacsim"
+  }
+]

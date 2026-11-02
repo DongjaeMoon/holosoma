@@ -1,0 +1,207 @@
+[
+  {
+    "cohort": "v2",
+    "model": "MLP",
+    "use_symmetry": false,
+    "batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "negative_counts_per_update": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "positive_counts_per_update": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "actor_update_indices": [
+      1,
+      5
+    ],
+    "actor_negative_samples": 0,
+    "actor_positive_samples": 8
+  },
+  {
+    "cohort": "v2",
+    "model": "biHAM",
+    "use_symmetry": false,
+    "batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "negative_counts_per_update": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "positive_counts_per_update": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "actor_update_indices": [
+      1,
+      5
+    ],
+    "actor_negative_samples": 0,
+    "actor_positive_samples": 8
+  },
+  {
+    "cohort": "v2",
+    "model": "HAM",
+    "use_symmetry": false,
+    "batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "negative_counts_per_update": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "positive_counts_per_update": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "actor_update_indices": [
+      1,
+      5
+    ],
+    "actor_negative_samples": 0,
+    "actor_positive_samples": 8
+  },
+  {
+    "cohort": "v2",
+    "model": "sym_aug_HAM",
+    "use_symmetry": true,
+    "batch_sizes": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "negative_counts_per_update": [
+      0,
+      0,
+      0,
+      0,
+      8,
+      8,
+      8,
+      8
+    ],
+    "positive_counts_per_update": [
+      8,
+      8,
+      8,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    "actor_update_indices": [
+      1,
+      5
+    ],
+    "actor_negative_samples": 8,
+    "actor_positive_samples": 8
+  },
+  {
+    "cohort": "native",
+    "model": "MLP",
+    "use_symmetry": false,
+    "batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "negative_counts_per_update": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "positive_counts_per_update": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "actor_update_indices": [
+      1,
+      5
+    ],
+    "actor_negative_samples": 0,
+    "actor_positive_samples": 8
+  }
+]

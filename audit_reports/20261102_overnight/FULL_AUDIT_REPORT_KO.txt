@@ -1,0 +1,673 @@
+Holosoma: no-right command / biHAM·HAM·MLP 야간 감사 보고서
+기준일: 2026-11-02 KST
+저장소: /home/ycho/holosoma
+컨테이너 동일 경로: /workspace/holosoma
+감사 시작 HEAD: 4f27c00587deed72a6990f33aa483d8f0ba497e5
+기존 Holosoma 비교 기준: b739a6c
+
+이 보고서에서 “확인”은 저장 자료 또는 실제 코드의 CPU 실행으로 확인했다는 뜻이다.
+“가능한 설명”은 아직 개입 실험으로 인과를 입증하지 못한 설명이다.
+“발견하지 못함”은 모든 가능한 버그가 없다는 증명이 아니다.
+
+01. 결론
+========
+
+현재 자료에서 관측되는 MLP의 부분적인 오른쪽 명령 추종을,
+숨은 symmetry augmentation·음수 raw vy 학습·RMSE 산술 오류로 설명할 증거는 발견하지 못했다.
+새 vanilla MLP 실행에는 이 결론을 지지하는 전수 입력 카운터와 실제 CSV가 있다.
+단, “버그가 전혀 없고, 완벽한 OOD generalization이 입증됐다”는 결론은 과도하다.
+실제 버그가 있으며, 추종 정확도도 제한적이고, 네트워크 비교 조건과 증거 수준도 다르다.
+
+가장 중요한 구분은 다음과 같다.
+
+  A. 오른쪽 명령을 정책/학습 입력으로 받았는가? 새 vanilla MLP 기록에서는 0건.
+  B. 오른쪽 몸체 속도·균형 회복·관절 동작을 경험했는가? 실제 기록상 자주 경험했다.
+  C. 오른쪽 명령에 따라 이동 방향을 바꾸는가? 기존 수치와 switch 영상 CSV가 지지한다.
+  D. 요구한 속도를 정확히 달성하는가? 많은 케이스에서 큰 오차가 남는다.
+  E. 왜 MLP가 이런 외삽을 배웠는가? 아직 정확한 인과 원인은 입증하지 못했다.
+
+따라서 현재의 가장 정확한 표현은 다음과 같다.
+
+  “no-right raw command로 학습한 vanilla MLP에서, 보지 않은 오른쪽 명령에 대한
+   부분적 추종이 관측된다. 감사한 경로에서 이를 무효화하는 명령 누출 또는 수치 집계
+   오류는 찾지 못했다. 그러나 아키텍처별 일반화 우열과 그 인과 메커니즘은 미확정이다.”
+
+02. 무엇을 실행했고 무엇을 보존했는가
+====================================
+
+기존 학습 코드, preset, 평가 코드, 갤러리, 기존 로그·영상·체크포인트는 수정하지 않았다.
+새 산출물은 audit_reports/20261102_overnight/ 안에만 작성했다.
+GPU를 사용하지 않았고, 학습이나 물리 시뮬레이션 평가를 다시 실행하지 않았다.
+
+CPU에서 한 일:
+  - 모든 저장 체크포인트 로딩, SHA256, 유한성, 저장 step 확인.
+  - 실제 저장 가중치로 inference·대칭성·입력 민감도 검사.
+  - autograd로 경로 연결 확인. optimizer.step은 실행하지 않음.
+  - 샘플러/배치 준비/평가 집계/복원 코드의 작은 가짜 환경 재현.
+  - 기존 영상의 ffprobe와 전체 ffmpeg CPU 디코딩.
+  - 기존 TensorBoard event 읽기 및 scalar 검사.
+
+총량:
+  데이터 외 파일 인벤토리 3,011개: .git, 캐시, audit_reports, logs 등은 별도 취급.
+  시작 시 활성 src/scripts 파일 해시 1,425개.
+  추가 문서/보존 코드 등 해시 882개. 추가 해시는 감사 후반에 채취했다.
+  활성 Python AST 검사 689개, 추가/보존 Python AST 검사 730개: 구문 오류 0개.
+  체크포인트 150개, 7,213,830,822 bytes(약 6.72 GiB).
+  저장 config YAML 20개, terminal/log text 196개.
+  정식 수치 평가 1,790케이스, trial 57,280개.
+  저장 초기 actor 관측과 물리 상태 57,280쌍 검사.
+  TensorBoard event 파일 188개, MP4 86개.
+  실제 가중치의 actor/critic strict load 및 기능 검사 대상 8개 체크포인트.
+
+전체 파일을 정적 목록화·구문 검사하고, 핵심 실행 경로를 깊게 추적했다.
+모든 소스 줄·모든 하드웨어 분기·모든 가능한 실행 조합을 형식적으로 증명한 것은 아니다.
+특히 현재 자료만으로 외부 서버/GPU에 있는 미저장 trajectory를 복원할 수는 없다.
+
+03. 섞으면 안 되는 실험 계보
+============================
+
+계보             학습 backend  정규화       phase       symmetry replay    길이
+legacy v1 4종    IsaacGym      empirical    native      symAug 모델만 켬    10k
+corrected v2 4종 IsaacGym      reflection   Domi        symAug 모델만 켬    10k
+새 vanilla MLP   IsaacSim      empirical    native      끔                  30k
+중단 env1 MLP    IsaacSim      v2 설정      v2 설정     끔                  약 1.1k
+
+legacy v1은 기존 normalization/phase 문제를 분리해 보존해야 하는 과거 결과다.
+v2는 reflection-compatible IO를 적용한 결과이며, 분산 병합 수식까지 고친 결과는 아니다.
+“v2가 normalization을 고쳤다”는 표현에는 두 종류의 문제를 섞지 않아야 한다.
+
+  - 반사와 정규화가 교환되는가? v2에서는 실제 저장 통계로 성립한다.
+  - 통계 갱신 수식이 정확한가? inherited empirical variance 수식 오류는 여전히 존재한다.
+
+새 vanilla MLP는 원래 Holosoma MLP에 가깝게 empirical/native phase를 유지한 별도 실행이다.
+정규화/phase뿐 아니라 backend, compile 등도 바뀌어 v2의 유일한 요소 교체 실험이 아니다.
+config 비교에서 v2 4종의 robot/simulator/terrain/randomization/reward/termination/
+action/observation/command/curriculum 설정은 서로 동일했다.
+새 vanilla와 v2 MLP는 이 영역에서 34개 저장 필드가 다르다.
+이 중 global_clip 기본값 직렬화, 다른 backend의 비활성 필드 같은 차이도 포함된다.
+34개가 모두 실제 동역학 차이라는 뜻은 아니다.
+
+관련 근거:
+  training_configuration_comparison.json
+  config_inventory.json
+  campaign_statuses.json
+  archived_vs_current_method_parity.json
+
+현재 저장 status에서 v2는 40/40 checkpoint 평가 완료, native는 30/30 완료다.
+env1 실행의 failed/-9 기록은 중단 요청에 따른 과거 실행으로 본 실험 완료와 분리했다.
+루트 resume 문서의 일부 “진행 중” 표현은 실제 완료 status보다 오래됐다.
+과거 부록이나 현재 runner의 기본 GPU 값으로 과거 실행을 추정하지 않았다.
+
+04. 학습 명령 분포와 실제 노출 증거
+==================================
+
+no-right는 순수 왼쪽 전용 명령이 아니다.
+최종 linear 명령은 전진 / 후진 / 왼쪽 3방향 중 하나이며, 오른쪽 vy<0을 배제한다.
+stand 확률 20%, 나머지 80%를 세 방향에 균등하게 배분한다.
+기대 비율은 전진 26.667%, 후진 26.667%, 왼쪽 26.667%, 정지 20%, 오른쪽 0%다.
+이동 시 축 방향 속도는 0~1 m/s 범위다. yaw는 -1~+1 rad/s로 양방향이다.
+linear 축이 두 개 동시에 0이 아닌 대각선 명령은 이 학습 sampler에 없다.
+
+실제 native 전 환경 정책 입력 카운터:
+  전진 26.5141%, 후진 26.7725%, 왼쪽 26.5900%, 정지 20.1234%, 오른쪽/기타 0%.
+  policy 입력 122,884,096건 = 4,096 env × (step 0~30,000, 총 30,001회).
+  음수 raw vy 0건. 감사 로직은 vy<0을 검사하며 작은 음수를 허용하는 허용오차가 없다.
+  replay current+next 3,930,718,208건 = 29,989 준비 블록 × 8,192 × 8 × 2.
+  이 역시 음수 raw vy 0건.
+
+replay 카운트는 샘플된 관측의 반복 노출 건수이며 고유 transition 수가 아니다.
+카운터는 모든 env/샘플을 검사하지만 CSV는 메모리·디스크 부담을 줄이기 위해 env 0만 저장한다.
+음수 위반이 있다면 CSV 대상 밖 env라도 추가 기록 후 실행을 실패시키는 구조다.
+실제 CPU 회귀 검사에서 env 4095에만 넣은 음수 위반도 검출·기록했다.
+
+CSV 30,001행은 step 0~30,000이 연속이며, raw 관측의 vx/vy/yaw와 manager 명령이 전부 일치했다.
+CSV의 env 0만 보면 왼쪽 명령은 4,209행(14.03%)이다.
+한 env의 시간 비율을 전 환경 방향 비율로 오해하면 안 된다.
+30000은 outer iteration 수이며 총 환경 관측 수가 30000개라는 뜻도 아니다.
+
+actual source sampler의 CPU 200,000샘플 검사:
+  최종 음수 vy 0개, 동시 두 linear 축 nonzero 0개.
+  전진 26.796%, 후진 26.7505%, 왼쪽 26.4445%, 정지 20.009%.
+
+중요한 구현상의 세부사항:
+  ThreeDirectionCommand._resample()은 부모 sampler를 호출한 뒤 linear 방향을 덮어쓴다.
+  부모 함수 내부에서는 임시로 음수 vy를 샘플한다(검사에서 100,135/200,000개).
+  이것은 policy가 받은 최종 커맨드가 아니다.
+  부모의 gait resample_frequency 호출도 확인했다. native/Domi 빈도 샘플러는 명령 부호를
+  읽어서 방향을 학습시키는 함수가 아니며, 최종 덮어쓰기 전 policy 호출 경로도 발견하지 못했다.
+  “내부 텐서에 음수가 한 번도 만들어지지 않았다”와 “정책이 음수 명령을 받지 않았다”는 다르다.
+
+강한 역사적 증거는 새 native 실행에 대해서만 존재한다.
+과거 v2 MLP는 config·터미널·코드로 no-right와 use_symmetry=False를 확인할 수 있지만,
+당시 모든 실제 커맨드를 저장하지 않았기 때문에 음수 0회를 사후 전수 증명할 수 없다.
+새 실행 기록을 과거 실행의 실제 per-step 기록인 것처럼 사용할 수 없다.
+
+직접 열 파일:
+  logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/
+    20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/
+      holosoma_config.yaml
+      command_audit_metadata.json
+      command_audit_status.json
+      commands_policy.csv
+      events.out.tfevents.*
+
+이 감사의 요약 파일:
+  native_command_exposure.json
+  sampler_cpu_validation.json
+  actual_batch_preparation_direction_check.json
+  cpu_regression_tests.json
+  historical_training_argv.json
+
+05. 입력 임베딩과 normalization이 OOD를 없앴는가
+================================================
+
+명령은 one-hot이나 명령 ID lookup embedding이 아니다.
+관측에 실제 연속 스칼라 vx, vy, yaw를 넣는다.
+현재 actor_obs 100차원에서 0-based 인덱스 vx=33, vy=34, yaw=32다.
+명령 observation scale은 1이며, 그다음 running normalization을 거쳐 MLP로 간다.
+검사한 저장 초기 관측 전부에서 이 명령 채널이 해당 평가 target과 일치했다.
+
+Empirical normalization:
+  z = (x - mean) / (std + 0.01)
+  통계는 관측 샘플로 학습하고 추론 때 저장된 값으로 고정한다.
+  vy가 0 이상만 있어도 mean이 양수면 0이나 작은 양수는 음수 z로 바뀐다.
+  이것은 원래 물리 커맨드가 오른쪽으로 바뀌었다는 뜻이 아니다.
+  고정된 양의 std로 하는 affine 변환은 한쪽 밖 명령을 학습 support 안으로 옮기지 않는다.
+
+실제 env 0 native CSV:
+  raw vy min/max: 0 / 0.8375466.
+  normalized vy min/max: -0.4806186 / +2.5776989.
+  normalized vy가 음수인 행: 89.6870%.
+  10k 저장 통계로 right -0.3은 z=-1.5726, right -0.6은 z=-2.6677.
+  적어도 기록한 env 0 normalized 범위 밖이다.
+  이는 env 0의 모든 시점을 합친 통계이지, 전 env의 normalized support 전수 로그는 아니다.
+  시간에 따라 mean/std도 움직이므로 서로 다른 시점 z의 모음임도 주의해야 한다.
+
+Reflection normalization:
+  관측의 반사 R을 signed permutation으로 표현하고, mean/variance를 반사와 양립하게 묶는다.
+  mean' = (mean + R mean)/2
+  var'_i = (var_i + var_mirror(i))/2 + (mean_i - (R mean)_i)^2/4
+  vy처럼 자기 채널의 부호가 반전되는 성분의 mean은 0이 된다.
+  좌/우 관절 채널의 mean/std도 대응 관계에 맞춘다.
+  목표는 N(Rx)=R N(x)이며 v2 저장 통계에서 RMS 잔차 0으로 확인됐다.
+
+이 처리가 실제 policy 입력 distribution을 0 대칭으로 만드는 것은 아니다.
+실제 raw vy가 0~1이면 mean=0인 정규화 후에도 실제 vy 채널은 0 이상이다.
+통계를 대칭으로 묶은 것과 실제 반사된 transition으로 학습한 것은 별개다.
+또한 N의 대칭성이 MLP 전체 pi의 대칭성을 강제하지 않는다.
+이 코드의 ReflectionNormalization은 기존 EmpiricalNormalization을 상속한 로컬 구현이다.
+domi의 normalization 파일을 통째로 그대로 복사한 파일이라고 볼 수 없다.
+original/ 아래 보존된 domi 계층 및 phase clock과 local adapter/정규화의 역할을 구분해야 한다.
+
+기존 source의 variance merge 오류는 09절에 별도로 기술한다.
+그 오류와 “reflection normalization을 썼다”는 것은 서로 다른 논점이다.
+
+06. symmetry augmentation은 정말 없는가
+======================================
+
+FastSACAgent._sample_and_prepare_batches()에서 config.use_symmetry가 True일 때만
+actor/critic obs, next obs, action을 반사·확장하고 reward/done 등을 반복한다.
+MLP v2/native, biHAM, HAM은 False이고, HAM+symAug만 True다.
+biHAM은 equivariant 네트워크 구조를 쓰는 것이며 replay 반사 augmentation을 켠 모델이 아니다.
+
+실제 저장 config와 실제 배치 준비 함수를 사용해 CPU controlled input 검사를 했다.
+모든 원본 vy를 +0.5로 설정하고 8개 update 배치를 만들었을 때:
+  MLP v2: actor가 받는 음수/양수 커맨드 샘플 수 0 / 8.
+  native MLP: 0 / 8.
+  biHAM: 0 / 8.
+  HAM: 0 / 8.
+  HAM+symAug: 8 / 8.
+
+원본과 반사 데이터가 concat되어 앞/뒤 update들로 나뉘는 점도 확인했다.
+현재 policy_frequency=4에서 actor update가 원본과 반사 부분을 모두 받는다.
+배치 크기를 2배로 계산하므로 반사 부분이 slice 과정에서 버려진다는 의심도 해당하지 않았다.
+
+따라서 HAM+symAug의 raw 환경 sampler는 no-right라도 학습 입력 support는 양쪽이다.
+이 모델의 오른쪽을 MLP·HAM과 같은 의미의 미관측 command라고 부르면 안 된다.
+
+07. 숫자 재검산: 현재 비교 표
+============================
+
+planar RMSE = sqrt(mean((vx-vx_target)^2 + (vy-vy_target)^2)).
+표는 각 trial의 RMSE를 구한 뒤 32개 trial의 평균을 취한 값이다.
+오차가 서로 다른 축을 섞어 평균 절댓값을 만든 수치가 아니다.
+0.3/0.6은 목표 planar speed이며 pure right에서는 target=(0,-speed,0)이다.
+정식 최종 평가는 20초 rollout에서 첫 2초를 제외한다. dt=.02에서 정상 trial의 측정은 900 step.
+평지는 evaluation plane으로 고정하고 domain randomization·observation noise·random push를 끈다.
+학습 중의 외란/노이즈 노출과 검증 중 통제 조건을 혼동하면 안 된다.
+native는 여기에 standing 1케이스를 더해 checkpoint마다 총 17케이스를 평가한다.
+
+동일 v2 10k 조건, 각 32 trials:
+
+모델           right .3 RMSE  right .6 RMSE  두 속도 평균  실제 mean vy(.3/.6)
+biHAM           0.205993       0.397006       0.301500      -0.1740 / -0.2671
+HAM+symAug      0.239738       0.431523       0.335630      -0.1557 / -0.2428
+HAM             0.274041       0.439010       0.356525      -0.0924 / -0.2135
+MLP v2          0.203657       0.348706       0.276182      -0.2040 / -0.4351
+
+별도 native MLP 조건:
+
+checkpoint      right .3 RMSE  right .6 RMSE  두 속도 평균  실제 mean vy(.3/.6)
+10k              0.232009       0.400313       0.316161      -0.1474 / -0.2667
+30k              0.191376       0.401195       0.296285      -0.2359 / -0.3902
+
+“네트워크별 차이가 전혀 없다”는 전제 자체가 수치와 맞지 않는다.
+다만 모든 모델이 살아서 오른쪽 방향으로 움직이고 오차 규모가 겹쳐 보이는 것은 사실이다.
+v2 MLP는 오른쪽 평균 지표에서 biHAM보다 좋지만, 이것이 다른 seed까지 일반적인 우월성을
+뜻하지 않으며, 좌우 대칭적 정책을 학습했다는 뜻도 아니다.
+
+대응하는 seen pure-left 10k RMSE:
+
+모델           left .3 RMSE   left .6 RMSE   실제 mean vy(.3/.6)
+biHAM           0.209476       0.393861        +0.1668 / +0.2671
+HAM+symAug      0.228248       0.405095        +0.1628 / +0.2652
+HAM             0.236681       0.421900        +0.1787 / +0.2567
+MLP v2          0.291626       0.490932        +0.0987 / +0.1758
+native MLP      0.234469       0.430950        +0.1917 / +0.2511
+
+biHAM은 왼쪽과 오른쪽의 실제 속도·오차가 거의 대응한다.
+반면 MLP v2는 오른쪽이 왼쪽보다 훨씬 잘 나오며, 특히 right .6에서 vx=-0.1555의
+명령하지 않은 후방 drift도 있다. 이는 순수 mirror 정책과는 다른 행동이다.
+biHAM이 왼쪽 .6에서 +.267밖에 못 배웠다면 구조적 대칭성만으로 오른쪽 -.6을
+정확히 달성할 수는 없다. 정확히 대칭인 “느린 추종”도 가능하다.
+
+native 30k의 right .6을 vy만 보면 10k보다 개선됐다.
+하지만 axis RMSE는 10k vx=.0390, vy=.3984에서 30k vx=.2647, vy=.3013으로 바뀐다.
+평균 vx도 +.0253에서 +.1690으로 늘어난다. vy 개선과 vx 악화가 planar RMSE에서 상쇄된다.
+학습이 전혀 변하지 않았거나 같은 ckpt를 계속 평가했다는 증거가 아니다.
+
+성공 기준은 생존 + planar RMSE<=.2 + yaw RMSE<=.3이다.
+v2 10k right .3 성공은 biHAM 7/32, HAM+symAug 0/32, HAM 0/32, MLP 12/32.
+right .6은 네 모델 모두 0/32다.
+native 10k의 두 right 속도는 모두 0/32, 30k는 .3에서 32/32, .6에서 0/32다.
+이 케이스들에서 생존은 모두 100%다. 영상상 안정 보행이 곧 좋은 추종 점수는 아니다.
+
+정식 자료 검사 결과:
+  v2 640케이스 + native 510케이스 + legacy v1 640케이스 = 1,790케이스.
+  per-trial RMSE, 축 제곱합 항등식, 평균, 성공 여부, 집계표 수치 불일치 0건.
+  v2 최종 좌/우 .3/.6에서 모델별 대응 trial의 초기 root+DOF 상태 최대 차이 0.
+  각 케이스의 32개 초기 물리 상태는 0.001 단위 반올림에서도 모두 구별됐다.
+  동일 상태 32개를 복제해서 trial 수만 부풀린 경우는 발견하지 못했다.
+
+단, 저장된 per-trial scalar들의 일관성을 확인한 것이지, 모든 timestep의 원시 물리
+trajectory로 RMSE를 처음부터 다시 적분한 검사는 아니다. 전체 수치 trajectory가 저장돼
+있지 않으므로 그 수준의 검증은 재시뮬레이션 없이 할 수 없다.
+대신 실제 measure 함수의 알려진 오차·warmup·실패/auto-reset 제외를 CPU에서 검사했고,
+저장 초기 물리 상태에서 raw observation도 독립 재구성해 확인했다.
+초기 checkpoint에서 warmup 전에 실패해 측정이 없는 trial은 RMSE=None으로 평균에서 제외된다.
+실패율에는 계속 포함되므로, 초기 learning curve의 RMSE만 비교하면 실패가 많은 모델이
+좋아 보일 수 있다. measured_trials·failure_rate를 함께 읽어야 한다.
+위 최종 10k/30k 좌우 표는 모두 32 trials가 정상 측정돼 이 제외 문제에 해당하지 않는다.
+
+08. 실제 네트워크가 서로 다른가, biHAM이 작동하는가
+==================================================
+
+8개 checkpoint에서 actor/critic을 해당 saved config로 만들고 strict load했다.
+현재 모델 alias나 잘못된 config 때문에 모든 모델이 MLP가 된 정황은 없다.
+FastSAC actor 쪽 parameter 수(공유 router 포함):
+  MLP 225,210 / biHAM 1,539,858 / HAM·HAM+symAug 2,440,362.
+따라서 parameter-matched 비교도 아니다. 비율은 대략 1 : 6.8 : 10.8이다.
+
+실제 저장 가중치에서 물리 반사를 적용한 action RMS 잔차 ||pi(Ro)-Rpi(o)||:
+  v2 biHAM 10k        0.0000001625
+  v2 HAM+symAug 10k   0.0637316
+  v2 HAM 10k          0.1204962
+  v2 MLP 10k          0.1001973
+  native MLP 10k      0.0929695
+  native MLP 30k      0.1206018
+
+잔차는 주로 약 100개씩 샘플한 저장 초기 observation에서 측정한 policy action 단위다.
+물리 rollout RMSE, 토크 오차, 모든 상태에 대한 균일한 bound가 아니다.
+native phase에는 두 다리 채널 swap, Domi phase에는 해당 부호 반사를 사용했다.
+native standing cos=[-1,-1]을 Domi 방식으로 통째로 부호 반전하면 물리 반사가 아니므로
+그 방식으로 나온 잔차를 native 결과로 사용하지 않았다.
+
+v2 biHAM에서는 raw network·정규화·최종 policy가 모두 반사 관계를 유지한다.
+MLP는 같은 reflection normalization을 써도 최종 policy 반사 잔차가 작지 않다.
+정규화만으로 MLP 전체가 자동으로 biHAM이 됐다는 설명은 맞지 않는다.
+
+공유 router 검사:
+  actor와 critic이 공유하는 parameter 집합은 의도한 router 집합과 정확히 일치.
+  target critic/router는 deep copy되어 online과 별도 parameter.
+  actor 경로, critic 경로, critic을 freeze한 actor-loss 경로에서 router gradient 모두 nonzero.
+  임시 freeze 후 requires_grad 원상 복원.
+  v2 10k의 q/router optimizer step 79,920, actor 19,980으로 단일 router update 경로와 일치.
+  finite optimizer 상태, checkpoint별 actor digest 변화도 확인.
+
+MLP에서 평균 행동 손실로 gradient를 검사하면 logstd head 일부에 gradient가 없는 것은
+예상된 동작이다. 그것을 네트워크가 학습되지 않는 버그로 분류하지 않았다.
+실제 inference에서는 mean action을 쓰고 저장 normalizer는 고정한다.
+
+legacy v1을 v2와 구분해야 하는 추가 근거:
+  native phase의 반사와 기존 bilateral 구조의 Domi phase 부호 규칙이 전역적으로 같지 않다.
+  반대 부호 phase 쌍을 가진 v1 관측에서는 raw biHAM 잔차 ~1.49e-7이지만,
+  학습된 empirical norm을 앞에 놓으면 ~.0819가 된다.
+  그 subset에서 Domi 대칭 통계로 사후 투영하면 ~1.80e-7까지 줄어든다.
+  반면 cos 두 채널이 [-1,-1]인 등 비반대쌍 관측에서는 raw physical 잔차 ~.0948이며,
+  통계 투영만으로 해결되지 않는다. 일부 저장 초기 관측에도 이러한 phase 값이 있다.
+  따라서 legacy 전체를 “normalizer만 고치면 완전 해결”이라고 단순화하면 안 된다.
+  현재 corrected v2 관측/통계/정책은 이 경로의 대칭성 검사를 통과한다.
+  legacy_phase_normalizer_isolation.json에 subset별 결과를 보존했다.
+
+09. 확인한 실제 버그와 영향 범위
+================================
+
+B01. EmpiricalNormalization 분산 병합 수식 오류 — 실제 존재, 현재 학습에도 관련
+  파일: src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py:293, 특히 325~334
+  mean을 갱신한 뒤 계산한 delta2^2를 between-batch variance 항에 사용한다.
+  필요한 것은 갱신 전 batch_mean-old_mean 간 delta^2이다.
+  [0,0] 다음 [2,2]를 넣는 최소 재현에서 전체 mean=1은 맞지만 variance=1 대신 .25.
+  b739a6c와 현재 해당 파일은 byte-identical이다. 로컬 domi 추가로 처음 생긴 오류가 아니다.
+  이것이 모든 upstream 버전에도 똑같이 있다는 주장까지 확장하지는 않는다.
+  ReflectionNormalization도 이 update를 상속하므로 수치 정확성 문제를 공유한다.
+  양수 .5 반복 배치를 반사 통계로 묶는 경우 var .25가 .203125로 감소하는 재현도 확보.
+  반사 mean/std의 대응 관계는 유지돼 v2 N(Rx)=R N(x)는 여전히 성립한다.
+  영향: 입력 scale 및 최적화·외삽에 영향을 줄 수 있다.
+  한계: 음수 raw command를 생성하지 않으며, 현재 OOD 행동의 원인이라는 인과 증거는 없다.
+  새 vanilla는 기존 Holosoma에 가깝게 유지하겠다는 조건 때문에 이 원본 코드도 유지한 실행이다.
+  수정 후 기존 통계/가중치와 섞는 것만으로 효과를 판단하면 안 된다.
+
+B02. CommandAudit 소스 보관 basename 충돌 — 증거 보존 결함
+  파일: src/holosoma/holosoma/agents/fast_sac/command_audit.py:15, shutil.copy2 루프
+  command/manager.py와 observation/manager.py를 같은 sources/manager.py로 복사한다.
+  뒤의 observation manager가 앞의 command manager 사본을 덮어쓴다.
+  metadata에는 양쪽 원래 경로와 SHA256이 올바르게 남아 있다.
+  현재 command manager의 해시는 당시 기록과 일치하므로 이 감사에서 구현 대조는 가능했다.
+  보관 source 7개 중 이 충돌 외에는 사본/기록/현재 해시가 일치했다.
+  영향: 장래에 코드가 바뀌면 당시 command manager 원문 복구 증거가 부족해진다.
+  현재 명령 카운터나 학습 정책에 음수 커맨드를 넣는 버그는 아니다.
+
+B03. IsaacSim matched initial-state 영상 복원 — 실제 오류 2개, 현재 주요 수치에는 미적용
+  파일: scripts/evaluate_command_holdout.py:234 render_case(initial != None)
+  관련: simulator/isaacsim/isaacsim.py:697 dof_state property
+  (a) dof_state가 새 torch.cat tensor를 반환한다. property 임시값에 복원 상태를 써 놓고
+      property를 다시 읽어 setter에 전달하면 변경 내용이 사라진다.
+      실제 함수 + simulator property 계약을 따른 CPU fake에서 target q=.2가 actual 0으로 남았다.
+  (b) gait.phase를 복원한 직후 refresh_observations()가 gait.step()을 호출한다.
+      native oscillator의 phase_offset/frequency가 복원되지 않아 저장 phase를 다시 덮어쓴다.
+      target phase=1.2가 actual .5로 바뀌는 재현을 확보했다.
+  현재 코드의 assert_close가 불일치를 검출하므로 조용히 잘못된 matched 영상이 되는 것은 아니다.
+  최신 native 고정 seed 영상은 initial=None 경로여서 이 복원 분기를 쓰지 않는다.
+  정식 measure 수치 평가도 이 render 복원 분기를 사용하지 않는다.
+  옛 matched highlight의 IsaacGym mutable DOF tensor/Domi clock 경로와 구분해야 한다.
+  추가 한계: 저장 initial_state가 native phase_offset/gait_freq/phase_dt 전체를 보존하지 않는다.
+  따라서 앞으로 완전한 oscillator-state matched replay를 만들려면 저장 포맷도 확인해야 한다.
+
+B04. 현재 generic config loader의 torch.load 호환성 — 실제 재현, 과거 수치 오류는 아님
+  파일: src/holosoma/holosoma/utils/eval_utils.py:103, torch.load(...):106
+  현재 hssim Torch 2.7에서는 weights_only 기본값 때문에 biHAM custom config를 거부한다.
+  동일 loader로 MLP는 열리지만 v2 biHAM은 UnpicklingError로 실패한다.
+  당시 Gym/Torch 2.4.1 기반 실행과 구분해야 한다.
+  이 감사 및 기존 고대비 biHAM renderer의 scoped load는 trusted 자체 ckpt에
+  weights_only=False를 명시해 정확한 actor를 읽었다.
+  현재 loader가 에러를 내는 사실이 과거 성공한 수치 평가를 소급 무효화하지는 않는다.
+
+B05. n-step replay ring 경계 처리 — 실제 재현, 현재 실험에는 미적용
+  파일: src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py:82 SimpleReplayBuffer.sample
+  n_steps>1이고 ring이 찼을 때 newest entry에 synthetic truncation을 넣는다.
+  next_obs는 경계에서 멈추지만 reward mask/effective_n_steps는 done만 사용한다.
+  그 결과 아직 미래가 없는 newest 뒤의 오래된 transition reward를 더한다.
+  CPU 재현: buffer size 4, rewards [1,2,3,4], start index2, gamma=.9, n_steps3.
+  expected return 3+.9*4=6.6, actual return 7.41; effective steps 2 대신 3.
+  분석한 현재 native/v2 실험은 num_steps=1이어서 이 분기를 쓰지 않는다.
+  이 오류를 현재 OOD 차이가 작은 원인으로 제시하지 않는다.
+
+P01. v2 gallery “final checkpoint” 영상 표기와 실제 선택이 다름
+  evaluation/index.html의 matched highlight 표기는 final checkpoint로 보이나,
+  highlight_selection.json은 iteration=3000, forward_right .3, trial21을 선택했다.
+  선택된 한 trial의 post-hoc highlight이며 10k 전체 trial 대표 영상이 아니다.
+  숫자 평가 JSON 자체는 각 checkpoint별로 올바르게 분리돼 있다.
+
+P02. 갤러리에 기존 v2 MLP 그림과 native 교체 그림이 함께 남음
+  기존 index의 rmse_summary.png와 *_native_mlp_10k 그림은 서로 다른 조건을 뜻한다.
+  둘 다 단순히 MLP라고 부르면 원본을 교체했는지, 어떤 조건인지 혼동하기 쉽다.
+  이번 감사 그림/CSV에는 cohort와 iteration을 분리해서 표기했다.
+
+P03. 오래된 문서 상태
+  root resume 문서의 진행 중 설명은 최신 완료 status와 맞지 않는 부분이 있다.
+  실제 파일, 완료 jobs, checkpoint step, 저장 평가를 우선해서 판단했다.
+
+모든 문제는 증거만 추가했고 기존 코드/HTML/문서는 수정하지 않았다.
+단, 감사 코드와 감사 보고서는 결과를 정확히 반영하도록 이 새 디렉터리 안에서 작성·정리했다.
+
+10. 평가/좌표계/로그에 대한 별도 검증
+====================================
+
+좌표계:
+  명령 vy는 body frame이다. yaw로 세계 좌표계 방향이 바뀌는 것과 구분했다.
+  실제 base_lin_vel은 root world velocity를 XYZW base quaternion의 inverse로 회전한다.
+  현재 quaternion 변환을 SciPy Rotation과 임의 회전 10,000개에서 비교:
+  double precision 최대 오차 3.11e-15.
+  저장 초기 관측의 gyro, joint position/velocity, projected gravity를 물리 상태로 재구성:
+  최대 오차 gyro 2.02e-7, qpos 2.96e-8, qvel 1.79e-8, gravity 4.74e-7.
+  잘못된 quaternion 순서나 초기 command 채널 뒤바뀜으로 설명되는 증거는 없었다.
+
+평가 lifecycle:
+  reset 후 test command를 덮어쓰고 observation을 다시 계산하는 현재 경로 확인.
+  첫 에피소드만 측정하고 실패 후 auto-reset된 에피소드를 점수에 합치지 않는다.
+  가짜 환경에서 .3/.4 축 오차 -> planar .5, yaw .2, warmup 제외,
+  terminal mask가 step 안에서 지워져도 실패를 포착하는지 검사했다.
+  실패 후 속도를 1000으로 만들어도 이후 값이 기존 에피소드 점수에 들어가지 않는 검사 통과.
+  CPU 검사: check_holdout_metrics.py (linear/ccw suites), check_corrected_io.py,
+  check_vanilla_mlp_30k.py 모두 통과.
+  이 검사는 synthetic tensors와 임시 파일만 사용하며 학습을 하지 않는다.
+
+로그:
+  에러 문자열이 없다고 가정하지 않았다. 과거 실패와 재시도 기록이 실제 존재한다.
+  native 최초 1k 평가에서 RootStatesProxy를 tensor처럼 torch.cat에 넣어 TypeError가 났다.
+  같은 append 로그 후반에는 재실행 METRICS COMPLETE MLP 1000이 있다.
+  supervisor 최초 traceback만 보고 30k 학습/평가 전체 실패로 단정하면 안 된다.
+  native training/metrics의 GPU foundation / Graphics plugins 에러는 headless renderer
+  초기화와 관련된 기록이다. 숫자 physics 실행과 유효 checkpoint가 실제 존재한다.
+  과거 highlight_MLP.log의 invalid device ordinal도 확인했다.
+  로그 scanner의 cuda_oom 분류는 CUDA error를 넓게 포함하므로 전부 OOM이라는 뜻은 아니다.
+  최종 산출물이 존재한다는 이유로 개별 실패 기록을 지우거나 숨기지는 않았다.
+  TensorBoard에서 읽은 numeric scalar의 NaN/Inf 예시는 0건이다.
+  이 검사만으로 물리 simulator 내부 모든 오류/비결정성을 검증할 수는 없다.
+
+터미널 증거:
+  MLP_training_terminal.txt는 원본 stdout log와 byte 그대로 같은 파일은 아니다.
+  원본의 ANSI color를 제거하고 CR/CRLF를 LF로 정리하면 export와 정확히 일치한다.
+  원본 SHA256은 evidence metadata에 기록된 값과도 정확히 일치한다.
+  따라서 실제 터미널 출력을 읽기 쉽게 정리한 복사본이라는 설명은 근거가 있다.
+  다만 당시 terminal에는 per-step command sign history가 기록돼 있지 않다.
+  torch.Size([4096,9])는 env 수와 command buffer 폭이며 vy 부호를 증명하는 줄이 아니다.
+  실제 방향 제한은 config + ThreeDirectionCommand 코드에서 확인해야 한다.
+  임의 명령을 사후 생성한 CSV를 과거 로그인 것처럼 만들지는 않았다.
+
+체크포인트:
+  150개 모두 CPU 로딩 성공, weight/optimizer의 floating tensor 유한성 검사 통과.
+  파일명 step과 global_step/iter 값 150개 모두 일치.
+  FastSAC actor의 유효 state digest가 checkpoint별로 변하며, 같은 최종 가중치의 반복
+  평가로 learning curve를 만들었다는 정황은 발견하지 못했다.
+  PPO 초기 실험은 actor 저장 key 구조가 달라 SAC actor digest와 혼합 비교하지 않았다.
+  모든 checkpoint 전체 파일 SHA256은 checkpoint_validation.json에 보존했다.
+
+11. 영상은 무엇을 증명하는가
+============================
+
+기존 MP4 86개를 ffprobe로 확인하고 전체를 CPU ffmpeg 디코딩했다. 손상/디코딩 실패 0개.
+일부 시점의 HUD 바깥 장면 밝기/분산을 검사했고 검은 장면 의심 목록은 비어 있다.
+모든 프레임에 로봇이 정확히 보이는지를 의미론적으로 전수 판독했다는 뜻은 아니다.
+
+최신 고대비 biHAM 20초 영상은 Gym-trained checkpoint를 IsaacSim에서 replay한 자료다.
+v2 정식 수치는 IsaacGym의 32 trials이다. 단일 영상과 정식 숫자가 완전히 일치할 필요는 없다.
+biHAM right .6: 영상 metrics RMSE .41473, 정식 Gym 평균 .39701.
+native MLP right .6: 영상 .39909, 정식 수치 .40031.
+CSV를 적분한 값도 영상 metrics와 가까우며 작은 pre/post-step 차이는 구분했다.
+
+기존 native MLP switch 영상 CSV에서 안정 구간별 평균 동작:
+  전진 +.6 -> vx +.4661
+  후진 -.6 -> vx -.4082
+  왼쪽 +.6 -> vy +.2456
+  오른쪽 -.6 -> vy -.2680
+  마지막 정지 -> vy +.0040
+이는 어느 명령에도 무조건 오른쪽으로 흐른다는 설명을 약화한다.
+하지만 시나리오 순서와 각 구간 상태가 다르므로 동일 초기 상태에서 command만 바꾼
+엄밀한 인과 counterfactual 실험은 아니다.
+
+기존 localhost 링크(서버/포트가 실행 중이고 필요한 포트 포워딩이 돼 있어야 함):
+  http://localhost:8008/biham_mlp_command_replay/
+  http://localhost:8008/vanilla_mlp_30k_native_io_gpu2/video_preview_10k/
+  http://localhost:8008/vanilla_mlp_30k_native_io_gpu2/command_statistics/distributions.html
+이 감사에서 새 GPU 영상은 렌더하지 않았다.
+
+12. 그래서 왜 MLP가 오른쪽 명령을 어느 정도 수행하는가
+======================================================
+
+확인한 사실:
+  - command는 연속 수치이며 MLP 출력은 해당 수치를 바꾸면 실제로 변한다.
+  - MLP의 action은 biHAM처럼 정확한 반사 구조를 만족하지 않는다.
+  - 실제 학습 중 yaw는 양방향이며 push, reset, 균형 회복을 포함한 상태 변화가 있다.
+  - env 0에서 body vy<-0.001인 시점은 45.84%다.
+  - 왼쪽 명령 vy>0인 구간조차 몸체 속도가 오른쪽인 순간이 37.54% 있다.
+  - right command의 정확도는 많은 케이스에서 제한적이며, seen left 정확도도 높지 않다.
+
+가능하지만 아직 인과가 확인되지 않은 설명:
+  (a) 좌우 교대 보행/균형 회복을 배우며 오른발·왼발의 이동 primitive와 양쪽 몸체 속도를
+      경험했다. 높은 수준의 목표 부호는 미관측이어도 관련 운동 상태 전체가 미관측은 아니다.
+  (b) 연속 command 입력에 대한 학습된 매끄러운 응답이 음수 영역으로 일부 확장될 수 있다.
+      입력 support 밖이라는 사실은 일반화가 반드시 성공하거나 반드시 실패한다는 정리가 아니다.
+  (c) 전진/후진·양방향 yaw와 action/state 결합에서 lateral 제어에 유용한 표현을 얻었을 수 있다.
+  (d) 낮은 target speed, 안정적인 평지, DR 없는 검증에서는 기존 보행 안정성이 큰 부분을 차지한다.
+  (e) reward/최적화/학습 길이가 모든 네트워크에 undertracking을 남기면 대칭 구조의 이득이
+      tracking RMSE 하나에서 크게 드러나지 않을 수 있다.
+
+이 중 어느 항이 주요 원인인지 현재 자료만으로 확정하지 않았다.
+특히 actor는 base_lin_vel을 직접 관측하지 않는다. critic은 관측하지만 actor_obs는 wolinvel이다.
+따라서 “명령 속도 - 현재 속도를 직접 입력으로 받아 PD처럼 배워서 그렇다”는 설명은
+이 actor의 문자 그대로의 구현 설명이 아니다. joint/gyro/previous action으로 속도를
+간접 추정할 가능성과 실제 그런 내부 표현을 배웠다는 증명도 구분해야 한다.
+
+주의할 추론:
+  - 양방향 yaw/외란이 있으면 오른쪽 command 자체도 학습했다는 말은 틀리다.
+  - normalized vy가 음수였으므로 raw right command는 OOD가 아니라는 말도 틀리다.
+  - MLP OOD는 원리상 불가능하므로 잘 걸으면 무조건 버그라는 주장도 증거가 아니다.
+  - biHAM은 수학적 대칭 구조이므로 반드시 더 낮은 RMSE라는 주장도 성립하지 않는다.
+  - 구조적으로 반사된 action이 물리 성능까지 똑같음을 보장하려면 환경·상태·전처리·행동
+    스케일·보상·phase의 반사 관계까지 필요하다. 현재 측정은 그중 확인한 부분을 명시한다.
+
+13. 왜 기존 비교에서 차이가 작아 보였는가
+========================================
+
+측정으로 뒷받침되는 이유:
+  1) biHAM도 seen left 속도를 크게 undershoot한다. .6 목표에서 +.267 수준이다.
+     seen 쪽의 약한 tracking이 오른쪽 mirror 성능의 한계를 만든다.
+  2) 안정 보행/생존과 tracking 정확도를 혼동했다. right .6 success는 전부 0/32다.
+  3) planar RMSE는 lateral bias·vx drift·보행 진동을 합친다. 다른 오차 성분이 비슷한 총량으로
+     나타날 수 있다. native 30k의 vy 개선/vx 악화가 구체적인 예다.
+  4) 기존 MLP v2는 reflection/Domi가 포함된 모델이며 새 empirical/native MLP와 별도다.
+  5) symAug 대조군은 오른쪽 합성 관측을 학습해 pure OOD 대조군과 다르다.
+  6) 학습 명령에는 좌측 대각선도 없다. left-half 평균을 모두 seen이라고 묶으면
+     방향 OOD와 두 linear 축의 조합 OOD를 섞게 된다.
+  7) 영상은 선택한 한 trajectory다. 옛 gallery의 matched highlight는 특히 3k post-hoc 선택이다.
+
+연구 설계상 남은 한계:
+  8) 학습 seed가 43 한 개다. 32회 평가 trial은 학습 seed 32개가 아니다.
+  9) 네트워크 크기가 크게 다르고 optimizer는 같은 하이퍼파라미터를 공유한다.
+ 10) 새 MLP와 기존 네트워크의 backend/정규화/phase/compile을 동시에 섞은 표로는
+     아키텍처의 인과 효과만 분리할 수 없다.
+
+따라서 “아키텍처 차이가 없다” 대신 “이 특정 실행/프로토콜에서 tracking 점수만으로는
+대칭 구조의 이득이 분명하지 않으며, 구조적 대칭성 자체의 차이는 매우 크다”가 정확하다.
+
+14. 다음에 필요한 검증 — 이번에는 실행하지 않았음
+================================================
+
+우선순위 A: 같은 checkpoint·같은 완전한 초기 상태에서 command만 바꾸는 controlled rollout.
+  - right .3/.6, zero, left .3/.6을 같은 root·DOF·phase offset/frequency·previous action에서 비교.
+  - 매 step의 policy 직전 raw/normalized command, body/world velocity, action, done을 저장.
+  - 오른쪽 command를 주되 actor command 채널만 0/left로 clamp한 대조도 포함.
+  - 더 큰 성능 주장이 필요한 경우 물리 상태를 mirror하고 command/action까지 대응시킨 쌍을 검사.
+  - 위 B03 native 복원/oscillator 저장 한계를 먼저 해결하고 assertion으로 보장해야 한다.
+
+우선순위 B: 동일 IsaacSim·동일 phase·동일 normalization에서 모델 비교.
+  - 기존 train_agent.py entry point 유지, preset/flag로 차이를 표현.
+  - MLP / HAM / biHAM / HAM+symAug를 같은 명령·reward·DR·훈련 길이로 맞춤.
+  - empirical vs reflection, native vs Domi는 각각 별도 축으로 교차 ablation.
+  - variance 갱신 수정은 별도 축으로 분리. 기존 결과와 섞지 말고 새 통계/학습으로 비교.
+  - raw 환경 command support와 augmentation 후 학습 support를 각각 기록.
+
+우선순위 C: 여러 학습 seed와 해석 가능한 지표.
+  - pure-left/right의 대칭쌍을 먼저 분석하고 diagonal 조합 일반화는 따로 보고.
+  - planar RMSE와 vx/vy/yaw RMSE, 평균 실제 속도, bias/변동, 생존/성공을 함께 보고.
+  - no-right command와 실제 right motion의 노출 기록을 분리.
+  - 보다 엄격한 “오른쪽 운동 경험도 0” 조건은 balancing dynamics 자체를 제한하므로
+    단순 command holdout과 다른 문제다. 목적/학습 가능한 과제가 바뀐다는 점을 명시.
+
+위 항목은 제안이며 새 학습·GPU 평가·코드 수정을 수행하지 않았다.
+
+15. 코드와 증거를 읽는 순서
+==========================
+
+아래 경로는 저장소 root 상대 경로다. 정확한 함수별 줄 번호는 source_function_locations.json.
+
+  1. src/holosoma/holosoma/train_agent.py:180 train / :414 main
+     기존 entry point와 saved config 경로.
+  2. src/holosoma/holosoma/config_values/loco/g1/experiment.py
+     원본 FastSAC, v1/v2, native 30k preset 및 symmetry flag 차이.
+  3. src/holosoma/holosoma/managers/command/terms/locomotion.py:72 _resample
+     원본 velocity/yaw/stand/frequency sampling.
+  4. src/holosoma/holosoma/managers/command/terms/three_direction.py:8
+     전/후/좌로 방향을 덮어쓰는 최종 no-right 로직.
+  5. src/holosoma/holosoma/managers/command/manager.py
+     reset/step에서 stateful term이 실제 호출되는 경로.
+  6. src/holosoma/holosoma/managers/observation/terms/locomotion.py:122, :134
+     command scalar가 observation에 들어가는 곳.
+     observation/manager.py:144 _compute_group, :373 get_observation_layout도 함께 확인.
+  7. src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py:568, :688
+     augmentation -> 감사 -> normalization -> 실제 update, rollout policy input 감사 순서.
+  8. src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py:246, :293
+     EmpiricalNormalization forward/update, 기존 variance 병합 오류.
+  9. src/holosoma/holosoma/agents/modules/bilateral/normalization.py:20
+     ReflectionNormalization과 Domi phase 반사 규칙.
+ 10. src/holosoma/holosoma/managers/command/terms/locomotion.py:121
+     native phase. domi_gait.py:10과 original/phase_clock.py는 별도 Domi 경로.
+ 11. src/holosoma/holosoma/agents/fast_sac/fast_sac.py:10
+     원래 MLP Actor와 SAC action distribution. baseline과 byte-identical.
+ 12. src/holosoma/holosoma/agents/modules/bilateral/fast_sac_adapter.py
+     biHAM actor/critic bank, 원래 SAC distribution을 재사용하는 adapter.
+     ham_adapter.py 및 original/ 계층과 대조.
+ 13. src/holosoma/holosoma/agents/fast_sac/bilateral_fast_sac.py:49, :67
+     shared router의 freeze/gradient 수집/단일 optimizer step.
+ 14. src/holosoma/holosoma/agents/fast_sac/command_audit.py:70, :112
+     실제 raw/normalized 입력 기록과 replay 음수 검사.
+ 15. scripts/evaluate_command_holdout.py:56, :93, :110, :123, :234
+     config·checkpoint·command 강제·측정·영상 복원 경로.
+ 16. src/holosoma/holosoma/utils/eval_utils.py:103
+     현재 generic loader의 Torch 기본값 호환성 문제.
+
+주요 checkpoint 위치:
+  v2 biHAM/MLP:
+    logs/bilateral_queue/corrected_v2_20261029_0513/gpu3/<run>/hv-g1-manager/<timestamp>/
+  v2 HAM+symAug/HAM:
+    logs/bilateral_queue/corrected_v2_20261029_0513/gpu6/<run>/hv-g1-manager/<timestamp>/
+  native MLP:
+    logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/
+      20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion/model_*.pt
+  전체 150개 실제 경로/크기/시간: checkpoint_inventory.json
+  전체 SHA/step/config/통계/optimizer: checkpoint_validation.json
+
+이 감사의 숫자·그림:
+  comparison_lateral_current.csv / .json : v2와 native의 정확한 좌/우 비교 수치.
+  metric_recomputation.json : 1,790개 케이스의 재검산과 error decomposition.
+  plots/01_v2_matched_comparison.png : 같은 v2 조건 네트워크별 right RMSE와 실제 vy.
+  plots/02_error_decomposition.png : 평균 속도 bias와 속도 변동의 MSE 분리.
+  plots/03_functional_symmetry.png : 실제 저장 가중치의 물리 반사 잔차.
+  plots/04_learning_curves.png : v2 10k 및 별도 native 30k learning curves.
+  plots/05_command_distributions_env0.png : 실제 CSV raw/normalized vx/vy/yaw 밀도선.
+  동일 이름의 SVG도 함께 저장했다.
+
+보존/재현:
+  source_integrity_final.json : 감사 시작 1,425개 파일의 종료 해시 대조.
+  artifact_integrity_final.json : 기존 checkpoint SHA 및 로그 크기/완료 상태 대조.
+  reproduce_cpu_audit.py : 기존 산출물을 읽어 새 audit_reports 디렉터리에만 재현.
+  00~15_*.py : 감사 검사의 실제 구현. 기존 학습 코드와 분리된 진단 코드다.
+  repository_file_inventory.json : 로그/캐시 등 별도 대상 외 저장소 파일 전체 목록.
+  추가로 루트의 기존 HOLOSOMA_FILE_AUDIT_20261102.txt/.json 및
+  HOLOSOMA_CODE_DIFF_20261102.patch에 baseline 대비 변경·신규 파일 목록이 있다.
+  그 문서의 import 파일 목록은 정적 의존성 추적이며 실행 당시의 완전한 runtime trace가 아니다.
+
+보고서의 최종 판단은 “버그 없음” 선언이 아니다.
+확인한 버그는 범위를 좁혀 기록했고, MLP의 관측된 부분적 OOD 추종을 무효화하는
+직접 증거는 찾지 못했으며, 남은 인과 질문을 재현 가능한 다음 검증으로 분리했다.

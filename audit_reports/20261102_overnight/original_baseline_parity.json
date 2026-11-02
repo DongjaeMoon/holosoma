@@ -1,0 +1,37 @@
+[
+  {
+    "path": "src/holosoma/holosoma/train_agent.py",
+    "baseline_commit": "b739a6c",
+    "byte_identical": true
+  },
+  {
+    "path": "src/holosoma/holosoma/agents/fast_sac/fast_sac.py",
+    "baseline_commit": "b739a6c",
+    "byte_identical": true
+  },
+  {
+    "path": "src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py",
+    "baseline_commit": "b739a6c",
+    "byte_identical": true
+  },
+  {
+    "path": "src/holosoma/holosoma/managers/command/terms/locomotion.py",
+    "baseline_commit": "b739a6c",
+    "byte_identical": true
+  },
+  {
+    "path": "src/holosoma/holosoma/managers/observation/terms/locomotion.py",
+    "baseline_commit": "b739a6c",
+    "byte_identical": true
+  },
+  {
+    "path": "src/holosoma/holosoma/managers/observation/manager.py",
+    "baseline_commit": "b739a6c",
+    "byte_identical": true
+  },
+  {
+    "path": "src/holosoma/holosoma/envs/locomotion/locomotion_manager.py",
+    "baseline_commit": "b739a6c",
+    "byte_identical": true
+  }
+]

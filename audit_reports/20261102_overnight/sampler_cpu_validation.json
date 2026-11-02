@@ -1,0 +1,28 @@
+{
+  "samples": 200000,
+  "final_negative_vy": 0,
+  "both_axes_nonzero": 0,
+  "ratios": {
+    "forward": 0.26796,
+    "backward": 0.267505,
+    "left": 0.264445,
+    "right": 0.0,
+    "standing": 0.20009
+  },
+  "yaw_range": [
+    -0.9999916553497314,
+    0.9999719858169556
+  ],
+  "transient": {
+    "negative_parent_draws_before_override": 100135
+  },
+  "theoretical_no_right_moments": {
+    "vx_mean": 0.0,
+    "vx_variance": 0.17777777777777778,
+    "vy_mean": 0.13333333333333333,
+    "vy_variance": 0.07111111111111111,
+    "yaw_mean": 0.0,
+    "yaw_variance": 0.26666666666666666
+  },
+  "explanation": "Parent sampler draws negative vy temporarily, then ThreeDirectionCommand overwrites it before policy consumption. The frequency callback is inspected separately."
+}

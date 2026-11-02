@@ -1,0 +1,126 @@
+[
+  {
+    "path": "logs/bilateral_queue/corrected_v2_20261029_0513/status.json",
+    "data": {
+      "phase": "complete",
+      "started": 1793218370.8869526,
+      "updated": 1793230996.830494,
+      "elapsed_seconds": 12626,
+      "gpus": [
+        3,
+        6
+      ],
+      "iterations": 10000,
+      "results": "/workspace/holosoma/logs/bilateral_queue/corrected_v2_20261029_0513/evaluation",
+      "jobs_complete": 40,
+      "selected_videos": 4
+    }
+  },
+  {
+    "path": "logs/bilateral_queue/deploy_eval_four_way_10k/status.json",
+    "data": {
+      "status": "complete",
+      "phase": "metrics",
+      "gpus": [
+        3,
+        6
+      ],
+      "jobs_complete": 40,
+      "jobs_total": 40,
+      "workers": [
+        {
+          "gpu": 3,
+          "status": "complete",
+          "phase": "metrics",
+          "jobs_complete": 24,
+          "jobs_total": 24
+        },
+        {
+          "gpu": 6,
+          "status": "complete",
+          "phase": "metrics",
+          "jobs_complete": 16,
+          "jobs_total": 16
+        }
+      ],
+      "video_policy": "Selective videos after numeric evaluation"
+    }
+  },
+  {
+    "path": "logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/status.json",
+    "data": {
+      "gpu": 3,
+      "simulator": "isaacsim",
+      "algorithm": "FastSAC",
+      "num_envs": 1,
+      "iterations": 10000,
+      "seed": 43,
+      "batch_size": 8192,
+      "yaw_range": [
+        -1.0,
+        1.0
+      ],
+      "use_symmetry": false,
+      "command": [
+        "/root/.holosoma_deps/miniconda3/envs/hssim/bin/python",
+        "src/holosoma/holosoma/train_agent.py",
+        "exp:g1-29dof-mlp-no-right-fast-sac-v2",
+        "simulator:isaacsim",
+        "logger:disabled",
+        "--training.seed",
+        "43",
+        "--training.num-envs",
+        "1",
+        "--training.name",
+        "mlp_no_right_env1_command_audit",
+        "--logger.base-dir",
+        "/workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training",
+        "--algo.config.num-learning-iterations",
+        "10000",
+        "--algo.config.batch-size",
+        "8192",
+        "--algo.config.command-audit",
+        "True",
+        "--simulator.config.isaacsim.kit-args=--/renderer/multiGpu/enabled=false --/renderer/multiGpu/autoEnable=false --/renderer/activeGpu=0"
+      ],
+      "started": 1793299492.136512,
+      "checkpoint": null,
+      "phase": "failed",
+      "elapsed_seconds": 213,
+      "returncode": -9,
+      "peak_gpu_total_used_mib": 23262,
+      "command_audit": {
+        "status": "running",
+        "last_step": 1100,
+        "policy_command_samples": 1101,
+        "min_policy_vy": 0.0,
+        "negative_policy_vy_count": 0,
+        "replay_command_samples": 142737408,
+        "negative_replay_vy_count": 0,
+        "command_counts": {
+          "forward": 265,
+          "backward": 249,
+          "left": 459,
+          "right": 0,
+          "standing": 128,
+          "other": 0
+        }
+      },
+      "run_directory": "/workspace/holosoma/logs/bilateral_queue/mlp_env1_command_audit_20261030_034438/training/hv-g1-manager/20261029_184500-mlp_no_right_env1_command_audit-locomotion"
+    }
+  },
+  {
+    "path": "logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/status.json",
+    "data": {
+      "phase": "complete",
+      "gpu": 2,
+      "stage": "evaluate",
+      "updated": 1793361531.090333,
+      "elapsed_seconds": 1546,
+      "jobs_complete": 30,
+      "jobs_total": 30,
+      "run_directory": "/workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/training/hv-g1-manager/20261030_095312-vanilla_mlp_no-right_30k_seed43-locomotion",
+      "results": "/workspace/holosoma/logs/bilateral_queue/vanilla_mlp_30k_native_io_gpu2/evaluation/right_rmse_by_checkpoint.csv"
+    }
+  }
+]

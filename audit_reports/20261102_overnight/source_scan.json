@@ -1,0 +1,771 @@
+{
+  "syntax_errors": [],
+  "normalizers": [
+    {
+      "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_utils.py",
+      "name": "EmpiricalNormalization",
+      "line": 246
+    },
+    {
+      "file": "src/holosoma/holosoma/agents/modules/bilateral/normalization.py",
+      "name": "ReflectionNormalization",
+      "line": 20
+    },
+    {
+      "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+      "name": "EmpiricalNormalization",
+      "line": 42
+    }
+  ],
+  "references": {
+    "command_lin_vel": [
+      {
+        "file": "scripts/audit_bilateral_symmetry.py",
+        "line": 23,
+        "text": "command_lin_vel=2,command_ang_vel=1,projected_gravity=3,sin_phase=2,cos_phase=2)"
+      },
+      {
+        "file": "scripts/audit_bilateral_symmetry.py",
+        "line": 98,
+        "text": "normalization_command_y=dict(mean=float(mean[0,terms['command_lin_vel'][1]]),std=float(norm._std[0,terms['command_lin_vel'][1]])),"
+      },
+      {
+        "file": "scripts/check_bilateral_cpu.py",
+        "line": 21,
+        "text": "command_lin_vel=2, command_ang_vel=1, projected_gravity=3, sin_phase=2, cos_phase=2)"
+      },
+      {
+        "file": "scripts/check_ccw_setup.py",
+        "line": 55,
+        "text": "terms={key: group.terms[key] for key in ('command_lin_vel', 'command_ang_vel')})})"
+      },
+      {
+        "file": "scripts/check_corrected_io.py",
+        "line": 19,
+        "text": "command_lin_vel=2,command_ang_vel=1,projected_gravity=3,sin_phase=2,cos_phase=2)"
+      },
+      {
+        "file": "scripts/check_ham_cpu.py",
+        "line": 30,
+        "text": "command_lin_vel=2, command_ang_vel=1, projected_gravity=3, sin_phase=2, cos_phase=2)"
+      },
+      {
+        "file": "scripts/check_vanilla_mlp_30k.py",
+        "line": 22,
+        "text": "return [dict(name='command_lin_vel', history_length=1, dim=2, scale=1.),"
+      },
+      {
+        "file": "scripts/render_native_mlp_preview.py",
+        "line": 165,
+        "text": "indices=lookup['command_lin_vel'][0]+lookup['command_ang_vel'][0]"
+      },
+      {
+        "file": "scripts/render_native_mlp_preview.py",
+        "line": 166,
+        "text": "scales=torch.tensor([lookup['command_lin_vel'][1]]*2+[lookup['command_ang_vel'][1]],device=env.device)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/command_audit.py",
+        "line": 28,
+        "text": "self.indices = indices['command_lin_vel'] + indices['command_ang_vel']"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/command_audit.py",
+        "line": 29,
+        "text": "self.scales = torch.tensor([scales['command_lin_vel']] * 2 +"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 371,
+        "text": "def mirror_obs_command_lin_vel(self, command_lin_vel: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 376,
+        "text": "command_lin_vel : torch.Tensor"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 384,
+        "text": "command_lin_vel[..., 1] = -command_lin_vel[..., 1]  # Flip y component"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 385,
+        "text": "return command_lin_vel"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/bilateral/adapter.py",
+        "line": 47,
+        "text": "if context and name not in {\"command_lin_vel\", \"command_ang_vel\", \"projected_gravity\", \"dof_pos\", \"sin_phase\"}:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/bilateral/adapter.py",
+        "line": 69,
+        "text": "elif name in {\"command_lin_vel\", \"command_ang_vel\"}:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/bilateral/adapter.py",
+        "line": 71,
+        "text": "rs = command_sign[:2] if name == \"command_lin_vel\" else command_sign[2:]"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 22,
+        "text": "\"command_lin_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 23,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_lin_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 79,
+        "text": "\"command_lin_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 80,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_lin_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 22,
+        "text": "\"command_lin_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 23,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_lin_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 79,
+        "text": "\"command_lin_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 80,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_lin_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/managers/observation/terms/locomotion.py",
+        "line": 122,
+        "text": "def command_lin_vel(env: LeggedRobotLocomotionManager) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_cpp/tests/python_reference/locomotion.py",
+        "line": 36,
+        "text": "current_obs_buffer_dict[\"command_lin_vel\"] = self.lin_vel_command"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 27,
+        "text": "\"command_lin_vel\","
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 40,
+        "text": "\"command_lin_vel\": 2,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 52,
+        "text": "\"command_lin_vel\": 1.0,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 70,
+        "text": "\"command_lin_vel\","
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 83,
+        "text": "\"command_lin_vel\": 2,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 95,
+        "text": "\"command_lin_vel\": 1.0,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/inputs/tests/test_providers.py",
+        "line": 870,
+        "text": "np.testing.assert_allclose(command_term(\"command_lin_vel\"), [0, 0])"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/inputs/tests/test_providers.py",
+        "line": 875,
+        "text": "np.testing.assert_allclose(command_term(\"command_lin_vel\"), [0.5, -0.3])"
+      }
+    ],
+    "command_ang_vel": [
+      {
+        "file": "scripts/audit_bilateral_symmetry.py",
+        "line": 23,
+        "text": "command_lin_vel=2,command_ang_vel=1,projected_gravity=3,sin_phase=2,cos_phase=2)"
+      },
+      {
+        "file": "scripts/check_bilateral_cpu.py",
+        "line": 21,
+        "text": "command_lin_vel=2, command_ang_vel=1, projected_gravity=3, sin_phase=2, cos_phase=2)"
+      },
+      {
+        "file": "scripts/check_ccw_setup.py",
+        "line": 55,
+        "text": "terms={key: group.terms[key] for key in ('command_lin_vel', 'command_ang_vel')})})"
+      },
+      {
+        "file": "scripts/check_corrected_io.py",
+        "line": 19,
+        "text": "command_lin_vel=2,command_ang_vel=1,projected_gravity=3,sin_phase=2,cos_phase=2)"
+      },
+      {
+        "file": "scripts/check_ham_cpu.py",
+        "line": 30,
+        "text": "command_lin_vel=2, command_ang_vel=1, projected_gravity=3, sin_phase=2, cos_phase=2)"
+      },
+      {
+        "file": "scripts/check_vanilla_mlp_30k.py",
+        "line": 23,
+        "text": "dict(name='command_ang_vel', history_length=1, dim=1, scale=1.)]"
+      },
+      {
+        "file": "scripts/render_native_mlp_preview.py",
+        "line": 165,
+        "text": "indices=lookup['command_lin_vel'][0]+lookup['command_ang_vel'][0]"
+      },
+      {
+        "file": "scripts/render_native_mlp_preview.py",
+        "line": 166,
+        "text": "scales=torch.tensor([lookup['command_lin_vel'][1]]*2+[lookup['command_ang_vel'][1]],device=env.device)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/command_audit.py",
+        "line": 28,
+        "text": "self.indices = indices['command_lin_vel'] + indices['command_ang_vel']"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/command_audit.py",
+        "line": 30,
+        "text": "[scales['command_ang_vel']], device=env.device)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 387,
+        "text": "def mirror_obs_command_ang_vel(self, command_ang_vel: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 392,
+        "text": "command_ang_vel : torch.Tensor"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 400,
+        "text": "command_ang_vel[..., 0] = -command_ang_vel[..., 0]"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 401,
+        "text": "return command_ang_vel"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/bilateral/adapter.py",
+        "line": 47,
+        "text": "if context and name not in {\"command_lin_vel\", \"command_ang_vel\", \"projected_gravity\", \"dof_pos\", \"sin_phase\"}:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/bilateral/adapter.py",
+        "line": 69,
+        "text": "elif name in {\"command_lin_vel\", \"command_ang_vel\"}:"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 27,
+        "text": "\"command_ang_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 28,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_ang_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 84,
+        "text": "\"command_ang_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/observation.py",
+        "line": 85,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_ang_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 27,
+        "text": "\"command_ang_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 28,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_ang_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 84,
+        "text": "\"command_ang_vel\": ObsTermCfg("
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/observation.py",
+        "line": 85,
+        "text": "func=\"holosoma.managers.observation.terms.locomotion:command_ang_vel\","
+      },
+      {
+        "file": "src/holosoma/holosoma/managers/observation/terms/locomotion.py",
+        "line": 134,
+        "text": "def command_ang_vel(env: LeggedRobotLocomotionManager) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_cpp/tests/python_reference/locomotion.py",
+        "line": 37,
+        "text": "current_obs_buffer_dict[\"command_ang_vel\"] = self.ang_vel_command"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 28,
+        "text": "\"command_ang_vel\","
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 41,
+        "text": "\"command_ang_vel\": 1,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 53,
+        "text": "\"command_ang_vel\": 1.0,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 71,
+        "text": "\"command_ang_vel\","
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 84,
+        "text": "\"command_ang_vel\": 1,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/config/config_values/observation.py",
+        "line": 96,
+        "text": "\"command_ang_vel\": 1.0,"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/inputs/tests/test_providers.py",
+        "line": 871,
+        "text": "np.testing.assert_allclose(command_term(\"command_ang_vel\"), [0])"
+      },
+      {
+        "file": "src/holosoma_inference/holosoma_inference/inputs/tests/test_providers.py",
+        "line": 876,
+        "text": "np.testing.assert_allclose(command_term(\"command_ang_vel\"), [0.8])"
+      }
+    ],
+    "torch.load(": [
+      {
+        "file": "scripts/audit_bilateral_symmetry.py",
+        "line": 40,
+        "text": "state=torch.load(str(checkpoint),map_location='cpu',weights_only=False)"
+      },
+      {
+        "file": "scripts/audit_mlp_command_path.py",
+        "line": 49,
+        "text": "state=torch.load(checkpoint,map_location='cpu',weights_only=False,mmap=True)"
+      },
+      {
+        "file": "scripts/evaluate_command_holdout.py",
+        "line": 95,
+        "text": "state = torch.load(str(checkpoint), map_location='cpu', weights_only=False)"
+      },
+      {
+        "file": "scripts/inspect_command_statistics.py",
+        "line": 41,
+        "text": "state = torch.load(path, map_location='cpu', weights_only=False, mmap=True)"
+      },
+      {
+        "file": "scripts/render_native_mlp_preview.py",
+        "line": 127,
+        "text": "checkpoint_state=torch.load(checkpoint,map_location='cpu',weights_only=False)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/distillation/base.py",
+        "line": 399,
+        "text": "loaded = torch.load(path, map_location=self.device)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/distillation/base.py",
+        "line": 452,
+        "text": "self.policy.load_teacher_checkpoint(torch.load(path, map_location=\"cpu\"), teacher_index=i)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/bilateral_fast_sac.py",
+        "line": 77,
+        "text": "state = torch.load(path, map_location=self.device, weights_only=False)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/bilateral_fast_sac.py",
+        "line": 84,
+        "text": "state = torch.load(path, map_location=self.device, weights_only=False)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 668,
+        "text": "torch_checkpoint = torch.load(ckpt_path, map_location=self.device, weights_only=False)"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/tests/test_distillation_contracts.py",
+        "line": 620,
+        "text": "assert torch.load(tmp_path / \"model_00004.pt\")[\"iter\"] == 4"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/tests/test_distillation_contracts.py",
+        "line": 707,
+        "text": "checkpoint = torch.load(tmp_path / \"model.pt\")"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+        "line": 676,
+        "text": "loaded_dict = torch.load(ckpt_path, map_location=self.device)"
+      },
+      {
+        "file": "src/holosoma/holosoma/eval_agent.py",
+        "line": 90,
+        "text": "checkpoint_data = torch.load(checkpoint_path, map_location=\"cpu\")"
+      },
+      {
+        "file": "src/holosoma/holosoma/train_agent.py",
+        "line": 337,
+        "text": "checkpoint_data = torch.load(resume_checkpoint, map_location=\"cpu\")"
+      },
+      {
+        "file": "src/holosoma/holosoma/utils/eval_utils.py",
+        "line": 106,
+        "text": "checkpoint_contents = torch.load(checkpoint_path, map_location=\"cpu\")"
+      },
+      {
+        "file": "src/holosoma/holosoma/utils/file_cache.py",
+        "line": 232,
+        "text": ">>> checkpoint = torch.load(path)"
+      },
+      {
+        "file": "src/holosoma_retargeting/holosoma_retargeting/src/utils.py",
+        "line": 31,
+        "text": "intermimic_data = torch.load(file_path, map_location=\"cpu\").detach().numpy()"
+      }
+    ],
+    "symmetry_compatible_io": [
+      {
+        "file": "scripts/audit_bilateral_symmetry.py",
+        "line": 46,
+        "text": "if getattr(ac, 'symmetry_compatible_io', False):"
+      },
+      {
+        "file": "scripts/audit_mlp_command_path.py",
+        "line": 51,
+        "text": "assert not ac['use_symmetry'] and not ac['symmetry_compatible_io'] and ac['bilateral'] is None"
+      },
+      {
+        "file": "scripts/audit_mlp_command_path.py",
+        "line": 97,
+        "text": "use_symmetry=ac['use_symmetry'],symmetry_compatible_io=ac['symmetry_compatible_io'],"
+      },
+      {
+        "file": "scripts/check_ccw_setup.py",
+        "line": 22,
+        "text": "assert cfg.algo.config.symmetry_compatible_io and not cfg.algo.config.compile"
+      },
+      {
+        "file": "scripts/check_corrected_io.py",
+        "line": 86,
+        "text": "assert not old.algo.config.symmetry_compatible_io"
+      },
+      {
+        "file": "scripts/check_saved_holdout_results.py",
+        "line": 36,
+        "text": "assert algo['symmetry_compatible_io'] and algo['num_learning_iterations'] == 10000"
+      },
+      {
+        "file": "scripts/check_vanilla_mlp_30k.py",
+        "line": 50,
+        "text": "assert not cfg.algo.config.symmetry_compatible_io"
+      },
+      {
+        "file": "scripts/check_vanilla_mlp_30k.py",
+        "line": 99,
+        "text": "assert presets.g1_29dof_mlp_no_right_fast_sac_v2.algo.config.symmetry_compatible_io"
+      },
+      {
+        "file": "scripts/check_vanilla_mlp_30k.py",
+        "line": 115,
+        "text": "assert parsed.algo.config.compile and not parsed.algo.config.symmetry_compatible_io"
+      },
+      {
+        "file": "scripts/check_vanilla_mlp_30k.py",
+        "line": 117,
+        "text": "assert not evaluated.algo.config.command_audit and not evaluated.algo.config.symmetry_compatible_io"
+      },
+      {
+        "file": "scripts/inspect_command_statistics.py",
+        "line": 32,
+        "text": "if metadata['symmetry_compatible_io'] or not metadata['obs_normalization']:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/command_audit.py",
+        "line": 60,
+        "text": "symmetry_compatible_io=config.symmetry_compatible_io,"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 365,
+        "text": "if args.symmetry_compatible_io:"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_types/algo.py",
+        "line": 314,
+        "text": "symmetry_compatible_io: bool = False"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+        "line": 138,
+        "text": "algo=replace(experiment.algo, config=replace(experiment.algo.config, symmetry_compatible_io=True)))"
+      }
+    ],
+    "use_symmetry": [
+      {
+        "file": "scripts/audit_mlp_command_path.py",
+        "line": 51,
+        "text": "assert not ac['use_symmetry'] and not ac['symmetry_compatible_io'] and ac['bilateral'] is None"
+      },
+      {
+        "file": "scripts/audit_mlp_command_path.py",
+        "line": 97,
+        "text": "use_symmetry=ac['use_symmetry'],symmetry_compatible_io=ac['symmetry_compatible_io'],"
+      },
+      {
+        "file": "scripts/check_ccw_setup.py",
+        "line": 41,
+        "text": "assert [c.algo.config.use_symmetry for c in configs] == [False, True, False, False]"
+      },
+      {
+        "file": "scripts/check_ham_cpu.py",
+        "line": 85,
+        "text": "assert [c.algo.config.use_symmetry for c in configs]==[False,True,False,False]"
+      },
+      {
+        "file": "scripts/check_saved_holdout_results.py",
+        "line": 40,
+        "text": "flags[model] = algo['use_symmetry']"
+      },
+      {
+        "file": "scripts/check_vanilla_mlp_30k.py",
+        "line": 42,
+        "text": "expected['algo']['config'].update(use_symmetry=False, num_learning_iterations=30000)"
+      },
+      {
+        "file": "scripts/run_mlp_command_audit.py",
+        "line": 31,
+        "text": "use_symmetry=False, command=command, started=started, checkpoint=None)"
+      },
+      {
+        "file": "scripts/run_vanilla_mlp_30k.py",
+        "line": 50,
+        "text": "use_symmetry=False, compile=True, yaw_range=[-1., 1.], standing_probability=.2,"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/command_audit.py",
+        "line": 61,
+        "text": "use_symmetry=config.use_symmetry, yaw_range=list(env.command_manager.get_state("
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 372,
+        "text": "elif args.use_symmetry:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 584,
+        "text": "if self.config.use_symmetry:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+        "line": 237,
+        "text": "self.use_symmetry = self.config.use_symmetry"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+        "line": 286,
+        "text": "if self.use_symmetry:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+        "line": 546,
+        "text": "if self.use_symmetry:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+        "line": 597,
+        "text": "if self.use_symmetry and (self.config.symmetry_actor_coef > 0.0 or self.config.symmetry_critic_coef > 0.0):"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_types/algo.py",
+        "line": 181,
+        "text": "use_symmetry: bool = False"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_types/algo.py",
+        "line": 284,
+        "text": "use_symmetry: bool = False"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/algo.py",
+        "line": 43,
+        "text": "use_symmetry=True,"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/algo.py",
+        "line": 96,
+        "text": "use_symmetry=True,"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+        "line": 23,
+        "text": "algo=replace(algo.ppo, config=replace(algo.ppo.config, num_learning_iterations=25000, use_symmetry=True)),"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+        "line": 43,
+        "text": "algo=replace(algo.fast_sac, config=replace(algo.fast_sac.config, num_learning_iterations=50000, use_symmetry=True)),"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+        "line": 99,
+        "text": "config=replace(g1_29dof_bilateral_fast_sac.algo.config, use_symmetry=False, num_learning_iterations=10000)),"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+        "line": 114,
+        "text": "config=replace(g1_29dof_ham_no_right_fast_sac.algo.config, use_symmetry=True)),"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+        "line": 119,
+        "text": "config=replace(g1_29dof_fast_sac.algo.config, use_symmetry=False, compile=False, num_learning_iterations=10000)),"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/g1/experiment.py",
+        "line": 169,
+        "text": "g1_29dof_fast_sac.algo.config, use_symmetry=False, num_learning_iterations=30000,"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/experiment.py",
+        "line": 21,
+        "text": "algo=replace(algo.ppo, config=replace(algo.ppo.config, num_learning_iterations=25000, use_symmetry=True)),"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/loco/t1/experiment.py",
+        "line": 42,
+        "text": "algo.fast_sac, config=replace(algo.fast_sac.config, num_learning_iterations=100000, use_symmetry=True)"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/wbt/g1/experiment.py",
+        "line": 39,
+        "text": "use_symmetry=False,"
+      },
+      {
+        "file": "src/holosoma/holosoma/config_values/wbt/g1/experiment.py",
+        "line": 106,
+        "text": "use_symmetry=False,"
+      }
+    ],
+    "augment_observations": [
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 589,
+        "text": "augmented_large_data[\"observations\"] = self.symmetry_utils.augment_observations("
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 596,
+        "text": "augmented_large_data[\"next\"][\"observations\"] = self.symmetry_utils.augment_observations("
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 601,
+        "text": "augmented_large_data[\"critic_observations\"] = self.symmetry_utils.augment_observations("
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/fast_sac/fast_sac_agent.py",
+        "line": 606,
+        "text": "augmented_large_data[\"next\"][\"critic_observations\"] = self.symmetry_utils.augment_observations("
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 201,
+        "text": "def augment_observations(self, obs: torch.Tensor, env: Any, obs_list: Sequence[str]) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/tests/test_augmentation_utils.py",
+        "line": 212,
+        "text": "def test_augment_observations_with_history(mock_env_with_history: MagicMock) -> None:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/tests/test_augmentation_utils.py",
+        "line": 213,
+        "text": "\"\"\"Test that augment_observations doubles the batch size correctly with history.\"\"\""
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/tests/test_augmentation_utils.py",
+        "line": 223,
+        "text": "augmented_obs = symmetry_utils.augment_observations("
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+        "line": 547,
+        "text": "actor_obs = self.symmetry_utils.augment_observations("
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/ppo/ppo.py",
+        "line": 552,
+        "text": "critic_obs = self.symmetry_utils.augment_observations("
+      }
+    ],
+    "mirror_obs_command": [
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 371,
+        "text": "def mirror_obs_command_lin_vel(self, command_lin_vel: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 387,
+        "text": "def mirror_obs_command_ang_vel(self, command_ang_vel: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 403,
+        "text": "def mirror_obs_command_stand(self, command_stand: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 417,
+        "text": "def mirror_obs_command_waist_dofs(self, command_waist_dofs: torch.Tensor) -> torch.Tensor:"
+      },
+      {
+        "file": "src/holosoma/holosoma/agents/modules/augmentation_utils.py",
+        "line": 436,
+        "text": "def mirror_obs_command_base_height(self, command_base_height: torch.Tensor) -> torch.Tensor:"
+      }
+    ]
+  }
+}

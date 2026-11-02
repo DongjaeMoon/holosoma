@@ -1,0 +1,12 @@
+{
+  "checked_utc": "2026-11-01T20:44:55.166701+00:00",
+  "source_files_checked": 1425,
+  "source_files_changed": [],
+  "additional_text_files_checked": 882,
+  "additional_text_files_changed": [],
+  "git_head_before": "4f27c00587deed72a6990f33aa483d8f0ba497e5",
+  "git_head_after": "4f27c00587deed72a6990f33aa483d8f0ba497e5",
+  "cuda_visible_devices": "",
+  "cuda_available": false,
+  "note": "1425 src/scripts hashes were taken at audit start. Additional text hashes were taken in the late coverage phase. Only new audit-directory files were written; no training/simulator/GPU execution."
+}

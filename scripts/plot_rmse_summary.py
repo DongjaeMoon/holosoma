@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import statistics
+import time
 
 MODELS = ('biHAM', 'sym_aug_HAM', 'HAM', 'MLP')
 LABELS = ('biHAM', 'HAM + symmetry augmentation', 'HAM', 'MLP')
@@ -16,10 +17,33 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--evaluation', type=Path, required=True)
     parser.add_argument('--exclude-mlp', action='store_true')
+    parser.add_argument('--mlp-evaluation', type=Path)
+    parser.add_argument('--wait-for-mlp', action='store_true')
+    parser.add_argument('--output-stem')
     args = parser.parse_args()
     if args.exclude_mlp:
         MODELS, LABELS, COLORS = MODELS[:3], LABELS[:3], COLORS[:3]
     rows = json.loads((args.evaluation / 'summary.json').read_text())
+    if args.mlp_evaluation:
+        if args.exclude_mlp:
+            parser.error('Cannot both replace and exclude MLP.')
+        names = {r['name'] for r in rows if r['model'] == 'MLP'}
+        while True:
+            source = args.mlp_evaluation / 'summary.json'
+            candidates = json.loads(source.read_text()) if source.exists() else []
+            replacement = [r for r in candidates if r['model'] == 'MLP'
+                           and r['iteration'] in range(1000, 10001, 1000) and r['name'] in names]
+            if len(replacement) == 160 and len({(r['iteration'],r['name']) for r in replacement}) == 160:
+                break
+            if not args.wait_for_mlp:
+                raise ValueError('New MLP 1k..10k evaluations are not complete yet.')
+            state = args.mlp_evaluation.parent / 'status.json'
+            if state.exists() and json.loads(state.read_text())['phase'] in ('failed','interrupted'):
+                raise RuntimeError('Evaluation stopped before replacement data completed.')
+            time.sleep(10)
+        rows = [r for r in rows if r['model'] != 'MLP'] + replacement
+        LABELS = LABELS[:3] + ('MLP (native IO, IsaacSim)',)
+
     assert len(rows) == 640, 'Expected 4 models x 10 checkpoints x 16 cases.'
     assert len({(r['model'], r['iteration'], r['name']) for r in rows}) == 640
     def average(model, iteration, directions):
@@ -49,7 +73,8 @@ def main():
         ax.set_title(title, loc='left', pad=28)
         ax.set(xlabel='Training iterations (thousands)',
                ylabel='Planar velocity RMSE (m/s)', xticks=range(1, 11), xlim=(.7, 10.3))
-        ax.set_ylim(0, .60 if args.exclude_mlp else 1.85)
+        upper = max(average(m,i,directions) for m in MODELS for i in iterations)
+        ax.set_ylim(0, max(.60, upper*1.12) if args.mlp_evaluation else (.60 if args.exclude_mlp else 1.85))
         ax.grid(axis='y', color='#e2e8f0', linewidth=.8)
         ax.set_axisbelow(True)
         ax.text(0, 1.02, 'Forward / backward / left' if directions == SEEN else
@@ -72,9 +97,11 @@ def main():
     ax.axvline(2.5, color='#b9c9d8', linewidth=1, linestyle='--')
     ax.grid(axis='y', color='#e2e8f0', linewidth=.8)
     ax.set_axisbelow(True)
-    ax.text(1, .445, 'TRAINING DIRECTIONS', ha='center', fontsize=10, color='#64748b')
-    ax.text(4, .445, 'HELD-OUT DIRECTIONS', ha='center', fontsize=10, color='#1769aa')
-    fig.suptitle('Command tracking after the corrected network transfer', x=.07, ha='left',
+    if args.mlp_evaluation:
+        ax.set_ylim(0, max(.47, max(average(m,10000,(d,)) for m in MODELS for d in directions)*1.2))
+    ax.text(1, .95*ax.get_ylim()[1], 'TRAINING DIRECTIONS', ha='center', fontsize=10, color='#64748b')
+    ax.text(4, .95*ax.get_ylim()[1], 'HELD-OUT DIRECTIONS', ha='center', fontsize=10, color='#1769aa')
+    fig.suptitle('Command tracking with the native-IO MLP' if args.mlp_evaluation else 'Command tracking after the corrected network transfer', x=.07, ha='left',
                  y=.99, fontsize=19, fontweight='bold')
     fig.text(.07, .944, 'FastSAC / G1 locomotion   |   Training seed 43   |   Lower RMSE is better',
              fontsize=12, color='#64748b')
@@ -84,14 +111,14 @@ def main():
     fig.text(.07, .083,
         'Each direction: speeds 0.3 and 0.6 m/s, 32 trials per speed; mean of per-trial planar RMSE.\n'
         'Nominal flat ground; 20 s episodes; first 2 s excluded; errors counted only before the first failure.\n'
-        'At 10k all trials survived 20 s. Earlier curves must be read with survival results; one training seed only.',
+        + ('Read errors with survival/failure rates; simulator and preprocessing differ for the new MLP; one training seed only.' if args.mlp_evaluation else 'At 10k all trials survived 20 s. Earlier curves must be read with survival results; one training seed only.'),
         fontsize=10, linespacing=1.5, color='#475569')
     fig.text(.07, .025,
-        'Shared preprocessing: domi phase + reflection-compatible normalization. Only HAM + augmentation receives mirrored replay.',
+        ('biHAM/HAM: IsaacGym, domi phase, reflection normalization. MLP: IsaacSim, native phase, empirical normalization.' if args.mlp_evaluation else 'Shared preprocessing: domi phase + reflection-compatible normalization. Only HAM + augmentation receives mirrored replay.'),
         fontsize=10, color='#475569')
     plots = args.evaluation / 'plots'
     plots.mkdir(exist_ok=True)
-    stem = 'rmse_summary_no_mlp' if args.exclude_mlp else 'rmse_summary'
+    stem = args.output_stem or ('rmse_summary_native_mlp_10k' if args.mlp_evaluation else ('rmse_summary_no_mlp' if args.exclude_mlp else 'rmse_summary'))
     path = plots / (stem + '.png')
     fig.savefig(path, dpi=220, facecolor='white')
     plt.close(fig)
@@ -99,6 +126,8 @@ def main():
                  'held_out_directions': average(m, 10000, HELD),
                  **{d: average(m, 10000, (d,)) for d in directions}} for m in MODELS}
     (plots / (stem + '_values.json')).write_text(json.dumps(table, indent=2) + '\n')
+    if args.mlp_evaluation:
+        (plots / (stem + '_sources.json')).write_text(json.dumps(dict(old_evaluation=str(args.evaluation), new_mlp_evaluation=str(args.mlp_evaluation), replacement_iterations=list(range(1000,10001,1000)), note='Other three models unchanged; MLP uses new IsaacSim/native IO data.'), indent=2)+'\n')
     print(path)
 
 
