@@ -334,6 +334,7 @@ def worker(manifest, model, checkpoint, phase):
     protocol, output = spec['protocol'], Path(spec['output'])
     case_list = protocol_cases(protocol)
     target = output/'videos'/model/checkpoint.stem
+    result_name = 'path_metrics.json' if phase == 'paths' else 'metrics.json'
     torch.set_num_threads(1)
     video = phase in ('video','highlight')
     video_cases = case_list
@@ -345,11 +346,21 @@ def worker(manifest, model, checkpoint, phase):
     if phase == 'highlight':
         selection = json.loads((output/'highlight_selection.json').read_text())
         target = output/'videos'/(model+'_highlight')/checkpoint.stem
-    if not video and all((target/c['name']/'metrics.json').exists() for c in case_list):
+    if not video and all((target/c['name']/result_name).exists() for c in case_list):
         return
     if phase == 'video' and all(list((target/c['name']).glob('*.mp4')) and (target/c['name']/'video.json').exists() for c in video_cases):
         return
-    saved, _ = load_saved_experiment_config(CheckpointConfig(checkpoint=str(checkpoint)))
+    if phase == 'paths':
+        # Independent workers can share a GPU/rank, but cannot write the same USD cache.
+        private_assets = output/'path_assets'/model/(checkpoint.stem+f'_{os.getpid()}')
+        private_assets.mkdir(parents=True, exist_ok=True)
+        os.environ['HOLOSOMA_USD_CONVERSION_DIR'] = str(private_assets)
+        from holosoma.utils.eval_utils import _experiment_config_from_saved
+        state = torch.load(str(checkpoint), map_location='cpu', weights_only=False)
+        saved = _experiment_config_from_saved(state['experiment_config'])
+        del state
+    else:
+        saved, _ = load_saved_experiment_config(CheckpointConfig(checkpoint=str(checkpoint)))
     cfg = build_config(saved, protocol, target, video)
     cfg.save_config(str(output/f'{model}_{checkpoint.stem}_{phase}_config.yaml'))
     # IsaacSim uses the selected CUDA device remapped to local index zero.
@@ -363,12 +374,25 @@ def worker(manifest, model, checkpoint, phase):
         policy = load_actor(algo, checkpoint)
         iteration = int(checkpoint.stem.split('_')[-1])
         if not video:
-            rows = measure(env, algo, policy, protocol)
+            if phase == 'paths':
+                from path_tracking_metrics import measure_with_paths
+                rows = measure_with_paths(env, algo, policy, protocol,
+                    output/'trajectories'/model/(checkpoint.stem+'.npz'))
+            else:
+                rows = measure(env, algo, policy, protocol)
             for row in rows:
                 row.update(model=model, checkpoint=str(checkpoint), iteration=iteration,
                            protocol=protocol, evaluation='controlled_flat_ground')
-                atomic_json(target/row['name']/'metrics.json', row)
-            log_metrics_tensorboard(output, model, iteration, rows)
+                atomic_json(target/row['name']/result_name, row)
+            if phase == 'paths':
+                from torch.utils.tensorboard import SummaryWriter
+                with SummaryWriter(str(output/'tensorboard_paths'/model)) as writer:
+                    for row in rows:
+                        for field in ('mean_path_rmse','mean_path_lateral_rmse','mean_final_position_error'):
+                            if row[field] is not None:
+                                writer.add_scalar(f"Path/{row['name']}/{field}_m",row[field],iteration)
+            else:
+                log_metrics_tensorboard(output, model, iteration, rows)
             print(f'METRICS COMPLETE {model} {iteration}', flush=True)
         else:
             # Decimate only the capture hook; preserve simulation/control rate and playback time.
@@ -399,7 +423,7 @@ if __name__ == '__main__':
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--model', required=True)
     parser.add_argument('--checkpoint', type=Path, required=True)
-    parser.add_argument('--phase', choices=('metrics','video','highlight'), required=True)
+    parser.add_argument('--phase', choices=('metrics','paths','video','highlight'), required=True)
     parser.add_argument('--gpu', type=int, default=3)
     args = parser.parse_args()
     if args.gpu < 0:

@@ -19,12 +19,15 @@ from evaluate_command_holdout import atomic_json, cases
 
 
 def build_plan(output, gpu=3, num_envs=4096, seed=43, command_mode='no-right',
-               iterations=30000, eval_every=1000):
-    preset = f'g1-29dof-mlp-{command_mode}-vanilla-fast-sac-30k'
+               iterations=30000, eval_every=1000, zero_yaw=False):
+    if zero_yaw and command_mode != 'no-right':
+        raise ValueError('zero-yaw currently supports the no-right baseline.')
+    variant = command_mode + ('-zero-yaw' if zero_yaw else '')
+    preset = f'g1-29dof-mlp-{variant}-vanilla-fast-sac-30k'
     training = [sys.executable, 'src/holosoma/holosoma/train_agent.py',
         f'exp:{preset}', 'simulator:isaacsim', 'logger:disabled',
         '--training.seed', str(seed), '--training.num-envs', str(num_envs),
-        '--training.name', f'vanilla_mlp_{command_mode}_30k_seed{seed}',
+        '--training.name', f'vanilla_mlp_{variant}_30k_seed{seed}',
         '--logger.base-dir', str(output/'training'),
         '--algo.config.num-learning-iterations', str(iterations),
         '--algo.config.obs-normalization', 'True',
@@ -47,7 +50,7 @@ def build_plan(output, gpu=3, num_envs=4096, seed=43, command_mode='no-right',
         iterations=iterations, seed=seed, num_envs=num_envs, command_mode=command_mode,
         normalization='native EmpiricalNormalization (implementation unchanged)',
         phase='native LocomotionGait and native sin_phase/cos_phase',
-        use_symmetry=False, compile=True, yaw_range=[-1., 1.], standing_probability=.2,
+        use_symmetry=False, compile=True, yaw_range=[0., 0.] if zero_yaw else [-1., 1.], standing_probability=.2,
         command_audit='Every policy environment and sampled replay; CSV env 0 plus violations.',
         training_command=training, checkpoint_iterations=list(range(eval_every, iterations+1, eval_every)),
         evaluation_command_template=worker, protocol=protocol, training_started=False)
@@ -178,7 +181,8 @@ def main():
     parser.add_argument('--iterations', type=int, default=30000)
     parser.add_argument('--eval-every', type=int, default=1000)
     parser.add_argument('--command-mode', choices=('no-right', 'left-only'), default='no-right',
-        help='no-right: forward/backward/left as before; left-only: vx=0, vy in [0,1]. Both retain yaw [-1,1].')
+        help='no-right: forward/backward/left as before; left-only: vx=0, vy in [0,1]. Default yaw [-1,1].')
+    parser.add_argument('--zero-yaw', action='store_true', help='Keep the no-right native baseline but fix yaw commands to zero.')
     parser.add_argument('--stage', choices=('all', 'train', 'evaluate'), default='all')
     parser.add_argument('--descending', action='store_true', help='Evaluate the final checkpoint first, then earlier checkpoints.')
     parser.add_argument('--execute', action='store_true', help='Explicitly start GPU work. Omit to print only.')
@@ -202,7 +206,7 @@ def main():
         plan['evaluation_command_template'][-1] = str(args.gpu)
     else:
         plan = build_plan(output, args.gpu, args.num_envs, args.seed,
-                          args.command_mode, args.iterations, args.eval_every)
+                          args.command_mode, args.iterations, args.eval_every, args.zero_yaw)
     if args.descending:
         plan['checkpoint_iterations'] = sorted(plan['checkpoint_iterations'], reverse=True)
     if args.plan_file:

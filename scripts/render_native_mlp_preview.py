@@ -102,7 +102,8 @@ def main():
     parser.add_argument('--campaign',type=Path,required=True)
     parser.add_argument('--gpu',type=int,default=2)
     parser.add_argument('--probe',action='store_true')
-    parser.add_argument('--model',choices=['MLP','biHAM'],default='MLP')
+    parser.add_argument('--model',choices=['MLP','biHAM','HAM','sym_aug_HAM'],default='MLP')
+    parser.add_argument('--clips',nargs='+',choices=['left','right','switch'],default=['left','right','switch'])
     parser.add_argument('--checkpoint',type=Path)
     parser.add_argument('--evaluation',type=Path)
     parser.add_argument('--output',type=Path)
@@ -118,10 +119,12 @@ def main():
     output=args.output.resolve() if args.output else root/('video_preview_10k_probe' if args.probe else 'video_preview_10k')
     output.mkdir(parents=True,exist_ok=True)
     checkpoint=args.checkpoint.resolve() if args.checkpoint else next((root/'training').rglob('model_0010000.pt'))
+    iteration=int(checkpoint.stem.split('_')[-1])
+    model_label=args.model+' '+str(iteration//1000)+'k'
     evaluation=args.evaluation.resolve() if args.evaluation else root/'evaluation'
     protocol=json.loads((evaluation/'manifest.json').read_text())['protocol']
     protocol=dict(protocol,video_duration_s=2. if args.probe else 20.,video_decimation=2)
-    if args.model=='biHAM':
+    if args.model in ('biHAM','HAM','sym_aug_HAM'):
         # This is the user's own historical checkpoint, containing config dataclasses.
         from holosoma.utils.eval_utils import _experiment_config_from_saved
         checkpoint_state=torch.load(checkpoint,map_location='cpu',weights_only=False)
@@ -167,6 +170,7 @@ def main():
             from holosoma.managers.observation.terms.locomotion import base_lin_vel,base_ang_vel
             cases=[('left',.6,'LEFT +0.6 m/s')]
             if not args.probe:cases.extend([('right',-.6,'RIGHT -0.6 m/s'),('switch',0.,'COMMAND SWITCHING')])
+            cases=[case for case in cases if case[0] in args.clips]
             for name,vy,label in cases:
                 destination=output/name;destination.mkdir(exist_ok=True)
                 if (destination/'video.json').exists():
@@ -174,7 +178,7 @@ def main():
                 status('rendering',current=name)
                 step=[0];context={'label':label}
                 recorder=env.simulator.video_recorder
-                recorder._apply_command_overlay=lambda image:hud(image,env,context['label'],step[0]*env.dt,args.model+' 10k')
+                recorder._apply_command_overlay=lambda image:hud(image,env,context['label'],step[0]*env.dt,model_label)
                 add=recorder._add_frame;count=[0]
                 def capture(frame):
                     import cv2
@@ -205,7 +209,8 @@ def main():
                 recorder._add_frame=add
                 source=destination/row['files'][0];web_file=name+'.mp4'
                 subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(source),'-c','copy','-movflags','+faststart',str(destination/web_file)],check=True)
-                row.update(name=name,label=label,web_file=web_file,actual_policy_commands_verified=True)
+                row.update(name=name,label=label,web_file=web_file,actual_policy_commands_verified=True,
+                           model=args.model,iteration=iteration,checkpoint=str(checkpoint))
                 atomic_json(destination/'video.json',row);records.append(row);page(output,records,args.model)
                 print('VIDEO_READY '+json.dumps(row),flush=True)
             status('complete')

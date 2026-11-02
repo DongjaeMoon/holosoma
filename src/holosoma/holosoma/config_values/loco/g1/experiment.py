@@ -170,6 +170,20 @@ g1_29dof_mlp_no_right_vanilla_fast_sac_30k = replace(
     )),
 )
 
+# Same native baseline, with every angular-velocity command fixed to zero.
+_no_right_native_velocity = g1_29dof_mlp_no_right_vanilla_fast_sac_30k.command.setup_terms["locomotion_command"]
+g1_29dof_mlp_no_right_zero_yaw_vanilla_fast_sac_30k = replace(
+    g1_29dof_mlp_no_right_vanilla_fast_sac_30k,
+    command=replace(g1_29dof_mlp_no_right_vanilla_fast_sac_30k.command, setup_terms={
+        **g1_29dof_mlp_no_right_vanilla_fast_sac_30k.command.setup_terms,
+        "locomotion_command": replace(_no_right_native_velocity, params={
+            **_no_right_native_velocity.params,
+            "command_ranges": {**_no_right_native_velocity.params["command_ranges"],
+                               "ang_vel_yaw": [0., 0.]},
+        }),
+    }),
+)
+
 # Optional literal left-only control; the default baseline retains forward/backward.
 _native_velocity = g1_29dof_fast_sac.command.setup_terms["locomotion_command"]
 g1_29dof_mlp_left_only_vanilla_fast_sac_30k = replace(

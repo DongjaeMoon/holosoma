@@ -178,6 +178,7 @@ def build_robot_articulation_cfg(robot_config: RobotConfig) -> ArticulationCfg:
         # Get local rank to avoid race conditions in multi-GPU setups
         local_rank = int(os.environ.get("LOCAL_RANK", "0"))
         usd_conversion_dir = os.path.join(os.path.dirname(full_urdf_path), f"converted_rank{local_rank}")
+        usd_conversion_dir = os.environ.get("HOLOSOMA_USD_CONVERSION_DIR", usd_conversion_dir)
 
         spawn = sim_utils.UrdfFileCfg(
             usd_dir=usd_conversion_dir,

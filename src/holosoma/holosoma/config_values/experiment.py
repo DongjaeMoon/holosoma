@@ -76,3 +76,6 @@ for _name in ("bilateral", "ham_sym_aug", "ham", "mlp"):
 for _holdout in ("no_right", "left_only"):
     _key = f"g1_29dof_mlp_{_holdout}_vanilla_fast_sac_30k"
     EXPERIMENT_REGISTRY.add(_key, getattr(_g1_experiments, _key))
+
+_key = "g1_29dof_mlp_no_right_zero_yaw_vanilla_fast_sac_30k"
+EXPERIMENT_REGISTRY.add(_key, getattr(_g1_experiments, _key))
